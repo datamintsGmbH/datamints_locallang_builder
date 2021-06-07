@@ -1,0 +1,39 @@
+<div flux:schemaLocation="http://fluidtypo3.org/schemas/flux-7.0.0.xsd" lang="en" v:schemaLocation="http://fluidtypo3.org/schemas/vhs-1.8.5.xsd"
+     xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+     xmlns:flux="http://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers"
+     xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers">
+    <f:layout name="BackendModule"/>
+    <f:section name="Main">
+        <f:comment>We dont need further beautifiers etc. so we include vue directly</f:comment>
+        <link href="/typo3conf/ext/locallang_builder/Resources/Public/VueGenerated/css/app.css" media="all"
+              rel="stylesheet" type="text/css"/>
+        <link as="script" href="/typo3conf/ext/locallang_builder/Resources/Public/VueGenerated/js/app.js" rel="preload">
+        <link as="script" href="/typo3conf/ext/locallang_builder/Resources/Public/VueGenerated/js/chunk-vendors.js"
+              rel="preload">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+        <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" rel="stylesheet">
+        <noscript><strong>We're sorry but locallang doesn't work properly without JavaScript enabled. Please enable it
+            to
+            continue.
+        </strong></noscript>
+
+        <div id="meta" data-api-autotranslate="{f:uri.action(action:'autoTranslate', controller:'TranslationValue', arguments:'{translationValue:\'%s1\',textToTranslate:\'%s2\'}')}"
+             data-api-extensions="{f:uri.action(action:'list', controller:'Extension')}"
+             data-api-extensions-clear="{f:uri.action(action:'clear', controller:'Application')}"
+             data-api-locallang-export="{f:uri.action(action:'export', controller:'Locallang', arguments:'{locallang:\'%s1\'}')}"
+             data-api-locallang-getby-uid="{f:uri.action(action:'show', controller:'Locallang', arguments:'{locallang:\'%s1\'}')}"
+             data-api-translation-add="{f:uri.action(action:'create', controller:'Translation', arguments:'{locallang:\'%s1\'}')}"
+             data-api-translation-addtranslationvalue="{f:uri.action(action:'create', controller:'TranslationValue', arguments:'{translation:\'%s1\'}')}"
+             data-api-translation-deletetranslationvalue="{f:uri.action(action:'delete', controller:'TranslationValue', arguments:'{translationValue:\'%s1\'}')}"
+             data-api-translation-update="{f:uri.action(action:'update', controller:'Translation', arguments:'{translation:\'%s1\'}')}"
+             data-api-translationvalue-update="{f:uri.action(action:'update', controller:'TranslationValue', arguments:'{translationValue:\'%s1\'}')}"
+             data-config="{config}"
+        >
+        </div>
+        <div id="app"></div>
+        <script src="/typo3conf/ext/locallang_builder/Resources/Public/VueGenerated/js/chunk-vendors.js"></script>
+        <script src="/typo3conf/ext/locallang_builder/Resources/Public/VueGenerated/js/app.js"></script>
+    </f:section>
+
+
+</div>

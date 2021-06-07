@@ -1,0 +1,17 @@
+{
+	"name": "weisgerber/locallang_builder-dependencies",
+	"type": "library",
+	"description": "",
+	"license": "MIT",
+	"authors": [
+	],
+	"require": {
+		"symfony/config": "*",
+		"symfony/http-foundation": "*",
+		"lms/facade": "^1"
+	},
+	"autoload": {
+	},
+	"autoload-dev": {
+	}
+}

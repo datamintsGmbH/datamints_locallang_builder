@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:datamints_locallang_builder/Resources/Private/Language/locallang_db" date="2021-05-27T10:25:57Z" product-name="locallang_builder">
+		<header/>
+		<body>
+			<trans-unit id="tx_locallangbuilder_domain_model_extension" resname="tx_locallangbuilder_domain_model_extension">
+				<source>Extension</source>
+			</trans-unit>
+			<trans-unit id="tx_locallangbuilder_domain_model_extension.name" resname="tx_locallangbuilder_domain_model_extension.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_locallangbuilder_domain_model_extension.path" resname="tx_locallangbuilder_domain_model_extension.path">
+				<source>Path</source>
+			</trans-unit>
+			<trans-unit id="tx_locallangbuilder_domain_model_extension.local" resname="tx_locallangbuilder_domain_model_extension.local">
+				<source>Is local extension</source>
+			</trans-unit>
+			<trans-unit id="tx_locallangbuilder_domain_model_extension.locallangs" resname="tx_locallangbuilder_domain_model_extension.locallangs">
+				<source>Related locallangs</source>
+			</trans-unit>
+			<trans-unit id="tx_locallangbuilder_domain_model_locallang" resname="tx_locallangbuilder_domain_model_locallang">
+				<source>Locallang-Reference</source>
+			</trans-unit>
+			<trans-unit id="tx_locallangbuilder_domain_model_locallang.filename" resname="tx_locallangbuilder_domain_model_locallang.filename">
+				<source>Filename</source>
+			</trans-unit>
+			<trans-unit id="tx_locallangbuilder_domain_model_locallang.path" resname="tx_locallangbuilder_domain_model_locallang.path">
+				<source>Path</source>
+			</trans-unit>
+			<trans-unit id="tx_locallangbuilder_domain_model_locallang.translations" resname="tx_locallangbuilder_domain_model_locallang.translations">
+				<source>Translations</source>
+			</trans-unit>
+			<trans-unit id="tx_locallangbuilder_domain_model_locallang.related_extension" resname="tx_locallangbuilder_domain_model_locallang.related_extension">
+				<source>Related Extension</source>
+			</trans-unit>
+			<trans-unit id="tx_locallangbuilder_domain_model_translation" resname="tx_locallangbuilder_domain_model_translation">
+				<source>Translation</source>
+			</trans-unit>
+			<trans-unit id="tx_locallangbuilder_domain_model_translation.translation_key" resname="tx_locallangbuilder_domain_model_translation.translation_key">
+				<source>Translation Key</source>
+			</trans-unit>
+			<trans-unit id="tx_locallangbuilder_domain_model_translation.translation_values" resname="tx_locallangbuilder_domain_model_translation.translation_values">
+				<source>Translation Values</source>
+			</trans-unit>
+			<trans-unit id="tx_locallangbuilder_domain_model_translation.related_locallang" resname="tx_locallangbuilder_domain_model_translation.related_locallang">
+				<source>Related Locallang</source>
+			</trans-unit>
+			<trans-unit id="tx_locallangbuilder_domain_model_translationvalue" resname="tx_locallangbuilder_domain_model_translationvalue">
+				<source>Translation Value</source>
+			</trans-unit>
+			<trans-unit id="tx_locallangbuilder_domain_model_translationvalue.ident" resname="tx_locallangbuilder_domain_model_translationvalue.ident">
+				<source>Ident</source>
+			</trans-unit>
+			<trans-unit id="tx_locallangbuilder_domain_model_translationvalue.value" resname="tx_locallangbuilder_domain_model_translationvalue.value">
+				<source>Value</source>
+			</trans-unit>
+			<trans-unit id="tx_locallangbuilder_domain_model_translationvalue.resname" resname="tx_locallangbuilder_domain_model_translationvalue.resname">
+				<source>Resname</source>
+			</trans-unit>
+			<trans-unit id="tx_locallangbuilder_domain_model_translationvalue.xml_space" resname="tx_locallangbuilder_domain_model_translationvalue.xml_space">
+				<source>Xml Space</source>
+			</trans-unit>
+			<trans-unit id="tx_locallangbuilder_domain_model_translationvalue.approved" resname="tx_locallangbuilder_domain_model_translationvalue.approved">
+				<source>Approved</source>
+			</trans-unit>
+			<trans-unit id="tx_locallangbuilder_domain_model_translationvalue.comment" resname="tx_locallangbuilder_domain_model_translationvalue.comment">
+				<source>Comment</source>
+			</trans-unit>
+			<trans-unit id="tx_locallangbuilder_domain_model_translation.comment" resname="tx_locallangbuilder_domain_model_translation.comment">
+				<source>Comment</source>
+			</trans-unit>
+			<trans-unit id="tx_locallangbuilder_domain_model_locallangexport" resname="tx_locallangbuilder_domain_model_locallangexport">
+				<source>Locallang Export</source>
+			</trans-unit>
+			<trans-unit id="tx_locallangbuilder_domain_model_locallangexport.language_code" resname="tx_locallangbuilder_domain_model_locallangexport.language_code">
+				<source>Language Code</source>
+			</trans-unit>
+			<trans-unit id="tx_locallangbuilder_domain_model_locallangexport.target_path" resname="tx_locallangbuilder_domain_model_locallangexport.target_path">
+				<source>Target Path</source>
+			</trans-unit>
+			<trans-unit id="tx_locallangbuilder_domain_model_locallangexport.locallang" resname="tx_locallangbuilder_domain_model_locallangexport.locallang">
+				<source>Locallang</source>
+			</trans-unit>
+			<trans-unit id="tx_locallangbuilder_domain_model_translation.translation_value" resname="tx_locallangbuilder_domain_model_translation.translation_value">
+				<source>Translation Value</source>
+			</trans-unit>
+			<trans-unit id="tx_locallangbuilder_domain_model_translation.resname" resname="tx_locallangbuilder_domain_model_translation.resname">
+				<source>Resname</source>
+			</trans-unit>
+			<trans-unit id="tx_locallangbuilder_domain_model_translation.xml_space" resname="tx_locallangbuilder_domain_model_translation.xml_space">
+				<source>Xml Space</source>
+			</trans-unit>
+			<trans-unit id="tx_locallangbuilder_domain_model_translation.approved" resname="tx_locallangbuilder_domain_model_translation.approved">
+				<source>Approved</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

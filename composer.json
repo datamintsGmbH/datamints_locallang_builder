@@ -1,0 +1,32 @@
+{
+    "name": "weisgerber/datamints-locallang-builder",
+    "type": "typo3-cms-extension",
+    "description": "Provides a backend-module to translate/modify locallang-files of active extensions. It is also possible to use an auto-translate provider like Azure or DeepL",
+    "authors": [
+        {
+            "name": "Mark Weisgerber",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "typo3/cms-core": "^10.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Datamints\\DatamintsLocallangBuilder\\": "Classes"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Datamints\\DatamintsLocallangBuilder\\Tests\\": "Tests"
+        }
+    },
+    "replace": {
+        "typo3-ter/datamints-locallang-builder": "self.version"
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "datamints_locallang_builder"
+        }
+    }
+}

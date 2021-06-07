@@ -1,0 +1,25 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+This template is responsible for displaying a single view for a domain object
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Backend:
+        Templates:
+          Locallang:
+            Show.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="content">
+    <h1>Single View for Locallang</h1>
+
+    <f:flashMessages />
+    <f:render partial="Locallang/Properties" arguments="{locallang:locallang}" />
+    <f:link.action action="list">Back to list</f:link.action><br />
+    <f:link.action action="create">New Locallang</f:link.action>
+</f:section>
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:datamints_locallang_builder/Resources/Private/Language/locallang_csh" date="2021-05-27T10:25:57Z" product-name="locallang_builder">
+		<header/>
+		<body>
+			<trans-unit id="name.description" resname="name.description">
+				<source>Extension Name</source>
+			</trans-unit>
+			<trans-unit id="path.description" resname="path.description">
+				<source>Path to the extension-folder from content root</source>
+			</trans-unit>
+			<trans-unit id="local.description" resname="local.description">
+				<source>local</source>
+			</trans-unit>
+			<trans-unit id="locallangs.description" resname="locallangs.description">
+				<source>locallangs</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

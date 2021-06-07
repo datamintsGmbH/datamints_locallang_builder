@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2019-05-22T15:29:01Z" product-name="locallang_builder" target-language="de">
+		<header/>
+		<body>
+			<!---Login-->
+			<trans-unit id="tx_locallangbuilder_domain_model_extension">
+				<target state="translated">Erweiterung</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

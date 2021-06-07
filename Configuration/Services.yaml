@@ -1,0 +1,5 @@
+services:
+  cache.cache:
+    class    : TYPO3\CMS\Core\Cache\Backend\BackendInterface
+    factory  : [ '@TYPO3\CMS\Core\Cache\CacheManager', 'getCache' ]
+    arguments: [ 'datamintslocallangbuilder_cache' ]

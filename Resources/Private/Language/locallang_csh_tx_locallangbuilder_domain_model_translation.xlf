@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:datamints_locallang_builder/Resources/Private/Language/locallang_csh" date="2021-05-27T10:25:57Z" product-name="locallang_builder">
+		<header/>
+		<body>
+			<trans-unit id="translation_key.description" resname="translation_key.description">
+				<source>translation key from the locallang.xlf-File</source>
+			</trans-unit>
+			<trans-unit id="translation_values.description" resname="translation_values.description">
+				<source>TranslationValue as its written in the xlf-File</source>
+			</trans-unit>
+			<trans-unit id="related_locallang.description" resname="related_locallang.description">
+				<source>Bidirectional for easier db-queries</source>
+			</trans-unit>
+			<trans-unit id="comment.description" resname="comment.description">
+				<source>Internal comment - rendered as html-comment in output-file</source>
+			</trans-unit>
+			<trans-unit id="translation_value.description" resname="translation_value.description">
+				<source>Translation value from the locallang.xlf File</source>
+			</trans-unit>
+			<trans-unit id="resname.description" resname="resname.description">
+				<source>Optional</source>
+			</trans-unit>
+			<trans-unit id="xml_space.description" resname="xml_space.description">
+				<source>Options like &amp;quot;preserve&amp;quot;</source>
+			</trans-unit>
+			<trans-unit id="approved.description" resname="approved.description">
+				<source>Flag if the translation is approved</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:datamints_locallang_builder/Resources/Private/Language/locallang_csh" date="2021-06-07T09:52:04Z" product-name="datamints_locallang_builder">
+		<header/>
+		<body>
+			<trans-unit id="translation_key.description" resname="translation_key.description">
+				<source>translation key from the locallang.xlf-File</source>
+			</trans-unit>
+			<trans-unit id="translation_values.description" resname="translation_values.description">
+				<source>TranslationValue as its written in the xlf-File</source>
+			</trans-unit>
+			<trans-unit id="related_locallang.description" resname="related_locallang.description">
+				<source>Bidirectional for easier db-queries</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
