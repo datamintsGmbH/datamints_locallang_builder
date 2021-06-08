@@ -7,6 +7,7 @@ Developer Corner
 ================
 
 - If you need to modify the templates or other stuff, you can initialize the git submodule in /Resources/Public/VueSources.
+   -  The Submodule is fetched from https://github.com/datamintsGmbH/datamints_locallang_builder_vue
 - Then you have to run "npm install" to load all dependencies.
 - To build the "VueGenerated" files you have to run a Node-Script, see /Resources/Public/VueSources/package.json for possible script-names, e.g. "npm run watchProd"
 
