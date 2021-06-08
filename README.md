@@ -18,3 +18,15 @@ Features:
 - Possibility to add a comment to make notes, e.g. what this translation is needed for
 - Usage of Translation-Providers like Microsoft Azure Cloud, DeepL or Google Translate
 - Export to defined folder or overwrite current extension locallang-files. It's also possible to trigger a backup-method before export.
+
+Used Software:
+---------
+
+- Vue (https://vuejs.org/)
+- Bootstrap-Vue (https://bootstrap-vue.org/)
+- Axios (https://github.com/axios/axios)
+- NodeJS (https://nodejs.org/en/)
+- NPM (https://www.npmjs.com/)
+- Creative Tim Argon Dashboard Pro (https://www.creativetim.com/)
+- Nucleo Icons (https://nucleoapp.com/)
+- Symfony (https://symfony.com/)
