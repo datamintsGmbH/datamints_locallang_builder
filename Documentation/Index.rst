@@ -52,6 +52,8 @@ This documentation is for the TYPO3 extension datamints_locallang_builder.
 You are welcome to help improve this guide.
 Just click on "Edit me on GitHub" on the top right to submit your change request.
 
+**Table of Contents**
+
 .. toctree::
    :maxdepth: 3
 
