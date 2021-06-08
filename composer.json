@@ -2,6 +2,17 @@
 	"name": "datamints/datamints_locallang_builder",
 	"type": "typo3-cms-extension",
 	"description": "Provides a backend-module to translate/modify locallang-files of active extensions. It is also possible to use an auto-translate provider like Azure or DeepL",
+	"keywords": [
+		"locallang",
+		"translation",
+		"translations",
+		"export",
+		"google-translate",
+		"azure",
+		"deepl",
+		"auto-translate",
+		"comments"
+	],
 	"authors": [
 		{
 			"name": "Mark Weisgerber, datamints GmbH",
