@@ -11,17 +11,17 @@
  ***************************************************************/
 
 $EM_CONF[$_EXTKEY] = [
-    'title' => 'datamints locallang builder',
+    'title' => 'datamints Locallang Builder',
     'description' => 'Helps translate extension language-files',
     'category' => 'module',
     'author' => 'Mark Weisgerber',
-    'author_email' => 'mark.weisgerber@outlook.de',
+    'author_email' => 'mark.weisgerber@datamints.com',
     'state' => 'stable',
     'clearCacheOnLoad' => 0,
     'version' => '1.0.0',
     'constraints' => [
         'depends' => [
-            'typo3' => '10.0.0-10.99.99',
+            'typo3' => '9.0.0-10.99.99',
         ],
         'conflicts' => [],
         'suggests' => [],

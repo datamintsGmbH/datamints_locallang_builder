@@ -1,32 +1,35 @@
 {
-    "name": "weisgerber/datamints-locallang-builder",
-    "type": "typo3-cms-extension",
-    "description": "Provides a backend-module to translate/modify locallang-files of active extensions. It is also possible to use an auto-translate provider like Azure or DeepL",
-    "authors": [
-        {
-            "name": "Mark Weisgerber",
-            "role": "Developer"
-        }
-    ],
-    "require": {
-        "typo3/cms-core": "^10.4"
-    },
-    "autoload": {
-        "psr-4": {
-            "Datamints\\DatamintsLocallangBuilder\\": "Classes"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Datamints\\DatamintsLocallangBuilder\\Tests\\": "Tests"
-        }
-    },
-    "replace": {
-        "typo3-ter/datamints-locallang-builder": "self.version"
-    },
-    "extra": {
-        "typo3/cms": {
-            "extension-key": "datamints_locallang_builder"
-        }
-    }
+	"name": "datamints/datamints_locallang_builder",
+	"type": "typo3-cms-extension",
+	"description": "Provides a backend-module to translate/modify locallang-files of active extensions. It is also possible to use an auto-translate provider like Azure or DeepL",
+	"authors": [
+		{
+			"name": "Mark Weisgerber, datamints GmbH",
+			"email": "m.weisgerber@datamints.com",
+			"role": "Developer",
+			"homepage": "https://www.datamints.com/"
+		}
+	],
+	"license": "GPL-2.0-or-later",
+	"require": {
+		"typo3/cms-core": "^9.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"Datamints\\DatamintsLocallangBuilder\\": "Classes"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Datamints\\DatamintsLocallangBuilder\\Tests\\": "Tests"
+		}
+	},
+	"replace": {
+		"typo3-ter/datamints-locallang-builder": "self.version"
+	},
+	"extra": {
+		"typo3/cms": {
+			"extension-key": "datamints_locallang_builder"
+		}
+	}
 }
