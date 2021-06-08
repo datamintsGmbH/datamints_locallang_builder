@@ -5,7 +5,6 @@
 .. role:: html(code)
 .. role:: js(code)
 .. role:: php(code)
-.. role:: sep (strong)
 .. role:: sql(code)
 .. role:: typoscript(code)
 .. role:: yaml(code)

@@ -12,7 +12,7 @@
 
 $EM_CONF[$_EXTKEY] = [
     'title' => 'datamints Locallang Builder',
-    'description' => 'Helps translate extension language-files',
+    'description' => 'Provides a backend-module to translate/modify locallang-files of active extensions. It is also possible to use an auto-translate provider like Azure or DeepL',
     'category' => 'module',
     'author' => 'Mark Weisgerber',
     'author_email' => 'mark.weisgerber@datamints.com',

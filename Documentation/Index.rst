@@ -22,12 +22,10 @@ datamints locallang builder
    Mark Weisgerber
 
 :Email:
-   mark.weisgerber@outlook.de
+   mark.weisgerber@outlook.de / m.weisgerber@datamints.com
 
 :License:
-   This extension documentation is published under the
-   `CC BY-NC-SA 4.0 <https://creativecommons.org/licenses/by-nc-sa/4.0/>`__ (Creative Commons)
-   license
+   Please see file LICENSE.txt
 
 Provides a backend-module to translate/modify locallang-files of active extensions. It is also possible to use an auto-translate provider like Azure or DeepL
 
@@ -43,7 +41,7 @@ This documentation is community documentation for the TYPO3 extension datamints 
 It is maintained as part of this third party extension.
 
 If you find an error or something is missing, please:
-`Report a Problem <https://github.com/TYPO3-Documentation/TYPO3CMS-Example-ExtensionManual/issues/new>`__
+`Report a Problem <https://github.com/datamintsGmbH/datamints_locallang_builder/issues/new>`__
 
 **Extension Manual**
 
@@ -57,11 +55,8 @@ Just click on "Edit me on GitHub" on the top right to submit your change request
 .. toctree::
    :maxdepth: 3
 
-   Introduction/Index
-   Editor/Index
    Installation/Index
    Configuration/Index
+   Editor/Index
    Developer/Index
-   KnownProblems/Index
    ChangeLog/Index
-   Sitemap

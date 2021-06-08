@@ -13,7 +13,7 @@ use Datamints\DatamintsLocallangBuilder\Mvc\View\ExtensionJsonView;
  * This file is part of the "locallang-xlf" Extension for TYPO3 CMS.
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
- * (c) 2021 Mark Weisgerber <mark.weisgerber@outlook.de>
+ * (c) 2021 Mark Weisgerber <mark.weisgerber@outlook.de / m.weisgerber@datamints.com>
  * ExtensionController
  */
 class ExtensionController extends AbstractController
@@ -97,7 +97,7 @@ class ExtensionController extends AbstractController
 	public function updateAction(\Datamints\DatamintsLocallangBuilder\Domain\Model\Extension $extension)
 	{
 		$this->addFlashMessage('The object was updated. Please be aware that this action is publicly accessible unless you implement an access check. See https://docs.typo3.org/typo3cms/extensions/extension_builder/User/Index.html', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
-        $this->extensionRepository->update($extension);
-        $this->redirect('list');
+		$this->extensionRepository->update($extension);
+		$this->redirect('list');
     }
 }

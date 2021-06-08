@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (c) 2021. Mark Weisgerber (mark.weisgerber@outlook.de)
+ * Copyright (c) 2021. Mark Weisgerber (mark.weisgerber@outlook.de / m.weisgerber@datamints.com)
  */
 
 namespace Datamints\DatamintsLocallangBuilder\Services;
@@ -17,70 +17,70 @@ use Datamints\DatamintsLocallangBuilder\Services\Traits\LocallangServiceTrait;
 
 class ExportService extends AbstractService
 {
-    use LocallangServiceTrait;
-    use XmlServiceTrait;
+	use LocallangServiceTrait;
+	use XmlServiceTrait;
 
-    /**
-     * Constant to fileadmin save-storage
-     */
-    public const FILEADMIN_PATH = 'fileadmin/locallang-builder/';
+	/**
+	 * Constant to fileadmin save-storage
+	 */
+	public const FILEADMIN_PATH = 'fileadmin/locallang-builder/';
 
-    /**
-     * Export
-     *
-     * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang
-     * @param array                                               $exportConfiguration
-     *
-     * @return array
-     */
-    public function export(Locallang $locallang, array $exportConfiguration): array
-    {
-        $countries = $this->locallangService->getCountryList($locallang); // Getting country list, so we know, which files have to be generated
-        $outputLocallangs = [];
-        foreach ($countries as $country) {
-            /** @var LocallangExport $locallangExport */
-            $locallangExport = GeneralUtility::makeInstance(LocallangExport::class);
-            $locallangExport->setLanguageCode($country);
-            $locallangExport->setLocallangReference($locallang);
+	/**
+	 * Export
+	 *
+	 * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang
+	 * @param array                                                       $exportConfiguration
+	 *
+	 * @return array
+	 */
+	public function export(Locallang $locallang, array $exportConfiguration): array
+	{
+		$countries = $this->locallangService->getCountryList($locallang); // Getting country list, so we know, which files have to be generated
+		$outputLocallangs = [];
+		foreach ($countries as $country) {
+			/** @var LocallangExport $locallangExport */
+			$locallangExport = GeneralUtility::makeInstance(LocallangExport::class);
+			$locallangExport->setLanguageCode($country);
+			$locallangExport->setLocallangReference($locallang);
 
-            $targetPath = '';
+			$targetPath = '';
 
-            // When we want to save the files to fileadmin instead
-            if($exportConfiguration['selectedTarget'] === 'fileadmin') {
-                $targetPath = $this->getFileadminOutputPath($locallang);
-            } else { // Otherwise we overwrite the existing files
-                $targetPath = $locallang->getPath();
-            }
-            if($locallangExport->getLanguageCode() != 'en') { // we dont need the lang-code for default-language
-                $targetPath = LanguageUtility::getCountryLanguagePath($country, $targetPath);
-            }
-            $locallangExport->setTargetPath($targetPath);
-            $outputLocallangs[$country] = $locallangExport;
-        }
+			// When we want to save the files to fileadmin instead
+			if($exportConfiguration['selectedTarget'] === 'fileadmin') {
+				$targetPath = $this->getFileadminOutputPath($locallang);
+			} else { // Otherwise we overwrite the existing files
+				$targetPath = $locallang->getPath();
+			}
+			if($locallangExport->getLanguageCode() != 'en') { // we dont need the lang-code for default-language
+				$targetPath = LanguageUtility::getCountryLanguagePath($country, $targetPath);
+			}
+			$locallangExport->setTargetPath($targetPath);
+			$outputLocallangs[$country] = $locallangExport;
+		}
 
-        // currently only one exporter is possible. I think its currently not necessary to add functionality to be able to select one from configuration to swap to json or something else.
-        // In typo3 its only possible to choose xml.
-        // maybe in the future?!
+		// currently only one exporter is possible. I think its currently not necessary to add functionality to be able to select one from configuration to swap to json or something else.
+		// In typo3 its only possible to choose xml.
+		// maybe in the future?!
 
-        /** @var XmlExporter $exporter */
-        $exporter = GeneralUtility::makeInstance(XmlExporter::class);
-        $savedFiles = [];
-        foreach ($outputLocallangs as $locallangExportEntity) {
-            $savedFiles[] = $exporter->writeByLocallangExport($locallangExportEntity);
-        }
-        return $savedFiles;
-    }
+		/** @var XmlExporter $exporter */
+		$exporter = GeneralUtility::makeInstance(XmlExporter::class);
+		$savedFiles = [];
+		foreach ($outputLocallangs as $locallangExportEntity) {
+			$savedFiles[] = $exporter->writeByLocallangExport($locallangExportEntity);
+		}
+		return $savedFiles;
+	}
 
-    /**
-     * Delivers the alternative fileadmin output path
-     *
-     * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang
-     *
-     * @return string
-     */
-    protected function getFileadminOutputPath(Locallang $locallang): string
-    {
-        $readableDateTime = new \DateTime();
-        return self::FILEADMIN_PATH . $locallang->getRelatedExtension()->getName() . '/' . $readableDateTime->format('Y-m-d___H-i-s') . '/' . ManifestBuildService::EXTENSION_LANGUAGE_PATH . $locallang->getFilename();
+	/**
+	 * Delivers the alternative fileadmin output path
+	 *
+	 * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang
+	 *
+	 * @return string
+	 */
+	protected function getFileadminOutputPath(Locallang $locallang): string
+	{
+		$readableDateTime = new \DateTime();
+		return self::FILEADMIN_PATH . $locallang->getRelatedExtension()->getName() . '/' . $readableDateTime->format('Y-m-d___H-i-s') . '/' . ManifestBuildService::EXTENSION_LANGUAGE_PATH . $locallang->getFilename();
     }
 }

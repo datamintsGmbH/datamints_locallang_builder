@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (c) 2021. Mark Weisgerber (mark.weisgerber@outlook.de)
+ * Copyright (c) 2021. Mark Weisgerber (mark.weisgerber@outlook.de / m.weisgerber@datamints.com)
  */
 
 namespace Datamints\DatamintsLocallangBuilder\Services;

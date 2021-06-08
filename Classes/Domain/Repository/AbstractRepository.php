@@ -12,7 +12,7 @@ use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use Datamints\DatamintsLocallangBuilder\Domain\Repository\Traits\CrudTrait;
 
 /**
- * Copyright (c) 2021. Mark Weisgerber (mark.weisgerber@outlook.de)
+ * Copyright (c) 2021. Mark Weisgerber (mark.weisgerber@outlook.de / m.weisgerber@datamints.com)
  */
 abstract class AbstractRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {

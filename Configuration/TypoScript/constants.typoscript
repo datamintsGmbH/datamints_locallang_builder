@@ -29,9 +29,18 @@ module.tx_datamintslocallangbuilder_tools_locallangbuildertranslate {
 
       deepl {
         url = https://api-free.deepl.com/v2/translate
-        version = 3.0
+        version =
         key =
-        area = global
+        area =
+        active = 0
+      }
+
+      # Not implemented yet
+      google {
+        url =
+        version =
+        key =
+        area =
         active = 0
       }
     }
