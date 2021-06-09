@@ -29,6 +29,7 @@ module.tx_datamintslocallangbuilder_tools_datamintslocallangbuildertranslate {
     providers {
       azure {
          active = 1
+
          key = YOUR_KEY
       }
     }
@@ -47,6 +48,7 @@ module.tx_datamintslocallangbuilder_tools_datamintslocallangbuildertranslate {
     providers {
       deepl {
          active = 1
+
          key = YOUR_KEY
       }
     }
@@ -65,6 +67,7 @@ module.tx_datamintslocallangbuilder_tools_datamintslocallangbuildertranslate {
     providers {
       google {
          active = 1
+
          key = YOUR_KEY
       }
     }

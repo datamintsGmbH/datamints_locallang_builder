@@ -19,6 +19,7 @@ module.tx_datamintslocallangbuilder_translate {
 module.tx_datamintslocallangbuilder_tools_datamintslocallangbuildertranslate {
   settings {
     providers {
+      # To setup azure see: https://github.com/datamintsGmbH/datamints_locallang_builder/blob/master/Documentation/Configuration/Index.rst#example-azure-cloud
       azure {
         url = https://api.cognitive.microsofttranslator.com/translate
         version = 3.0
@@ -27,6 +28,7 @@ module.tx_datamintslocallangbuilder_tools_datamintslocallangbuildertranslate {
         active = 0
       }
 
+      # To setup DeepL see: https://github.com/datamintsGmbH/datamints_locallang_builder/blob/master/Documentation/Configuration/Index.rst#example-deepl
       deepl {
         url = https://api-free.deepl.com/v2/translate
         version =
@@ -35,7 +37,7 @@ module.tx_datamintslocallangbuilder_tools_datamintslocallangbuildertranslate {
         active = 0
       }
 
-      # Not implemented yet
+      # To setup Google Translate see: https://github.com/datamintsGmbH/datamints_locallang_builder/blob/master/Documentation/Configuration/Index.rst#example-google
       google {
         url = https://www.googleapis.com/language/translate
         version = v2
