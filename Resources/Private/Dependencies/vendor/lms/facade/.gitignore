@@ -1,5 +1,0 @@
-*.DS_Store
-Thumbs.db
-.idea/*
-index.php
-composer.lock

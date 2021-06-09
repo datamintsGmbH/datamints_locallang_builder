@@ -16,7 +16,7 @@ module.tx_datamintslocallangbuilder_translate {
 
 ## EXTENSION BUILDER DEFAULTS END TOKEN - Everything BEFORE this line is overwritten with the defaults of the extension builder
 
-module.tx_datamintslocallangbuilder_tools_locallangbuildertranslate {
+module.tx_datamintslocallangbuilder_tools_datamintslocallangbuildertranslate {
   settings {
     providers {
       azure {
@@ -37,8 +37,8 @@ module.tx_datamintslocallangbuilder_tools_locallangbuildertranslate {
 
       # Not implemented yet
       google {
-        url =
-        version =
+        url = https://www.googleapis.com/language/translate
+        version = v2
         key =
         area =
         active = 0

@@ -1,5 +1,5 @@
 # Module configuration
-module.tx_datamintslocallangbuilder_tools_locallangbuildertranslate {
+module.tx_datamintslocallangbuilder_tools_datamintslocallangbuildertranslate {
   persistence {
     storagePid = {$module.tx_datamintslocallangbuilder_translate.persistence.storagePid}
   }
@@ -31,31 +31,31 @@ module.tx_datamintslocallangbuilder {
   }
 }
 
-module.tx_datamintslocallangbuilder_tools_locallangbuildertranslate {
+module.tx_datamintslocallangbuilder_tools_datamintslocallangbuildertranslate {
   settings {
     providers {
       azure {
-        url = {$module.tx_datamintslocallangbuilder_tools_locallangbuildertranslate.settings.providers.azure.url}
-        version = {$module.tx_datamintslocallangbuilder_tools_locallangbuildertranslate.settings.providers.azure.version}
-        key = {$module.tx_datamintslocallangbuilder_tools_locallangbuildertranslate.settings.providers.azure.key}
-        active = {$module.tx_datamintslocallangbuilder_tools_locallangbuildertranslate.settings.providers.azure.active}
-        area = {$module.tx_datamintslocallangbuilder_tools_locallangbuildertranslate.settings.providers.azure.area}
+        url = {$module.tx_datamintslocallangbuilder_tools_datamintslocallangbuildertranslate.settings.providers.azure.url}
+        version = {$module.tx_datamintslocallangbuilder_tools_datamintslocallangbuildertranslate.settings.providers.azure.version}
+        key = {$module.tx_datamintslocallangbuilder_tools_datamintslocallangbuildertranslate.settings.providers.azure.key}
+        active = {$module.tx_datamintslocallangbuilder_tools_datamintslocallangbuildertranslate.settings.providers.azure.active}
+        area = {$module.tx_datamintslocallangbuilder_tools_datamintslocallangbuildertranslate.settings.providers.azure.area}
       }
 
       deepl {
-        url = {$module.tx_datamintslocallangbuilder_tools_locallangbuildertranslate.settings.providers.deepl.url}
-        version = {$module.tx_datamintslocallangbuilder_tools_locallangbuildertranslate.settings.providers.deepl.version}
-        key = {$module.tx_datamintslocallangbuilder_tools_locallangbuildertranslate.settings.providers.deepl.key}
-        active = {$module.tx_datamintslocallangbuilder_tools_locallangbuildertranslate.settings.providers.deepl.active}
-        area = {$module.tx_datamintslocallangbuilder_tools_locallangbuildertranslate.settings.providers.deepl.area}
+        url = {$module.tx_datamintslocallangbuilder_tools_datamintslocallangbuildertranslate.settings.providers.deepl.url}
+        version = {$module.tx_datamintslocallangbuilder_tools_datamintslocallangbuildertranslate.settings.providers.deepl.version}
+        key = {$module.tx_datamintslocallangbuilder_tools_datamintslocallangbuildertranslate.settings.providers.deepl.key}
+        active = {$module.tx_datamintslocallangbuilder_tools_datamintslocallangbuildertranslate.settings.providers.deepl.active}
+        area = {$module.tx_datamintslocallangbuilder_tools_datamintslocallangbuildertranslate.settings.providers.deepl.area}
       }
 
       google {
-        url = {$module.tx_datamintslocallangbuilder_tools_locallangbuildertranslate.settings.providers.google.url}
-        version = {$module.tx_datamintslocallangbuilder_tools_locallangbuildertranslate.settings.providers.google.version}
-        key = {$module.tx_datamintslocallangbuilder_tools_locallangbuildertranslate.settings.providers.google.key}
-        active = {$module.tx_datamintslocallangbuilder_tools_locallangbuildertranslate.settings.providers.google.active}
-        area = {$module.tx_datamintslocallangbuilder_tools_locallangbuildertranslate.settings.providers.google.area}
+        url = {$module.tx_datamintslocallangbuilder_tools_datamintslocallangbuildertranslate.settings.providers.google.url}
+        version = {$module.tx_datamintslocallangbuilder_tools_datamintslocallangbuildertranslate.settings.providers.google.version}
+        key = {$module.tx_datamintslocallangbuilder_tools_datamintslocallangbuildertranslate.settings.providers.google.key}
+        active = {$module.tx_datamintslocallangbuilder_tools_datamintslocallangbuildertranslate.settings.providers.google.active}
+        area = {$module.tx_datamintslocallangbuilder_tools_datamintslocallangbuildertranslate.settings.providers.google.area}
       }
     }
   }

@@ -1,0 +1,16 @@
+{
+	"name": "weisgerber/locallang_builder-dependencies-legacy",
+	"type": "library",
+	"description": "Only for older TYPO3-Versions, e.g. missing symfony",
+	"license": "MIT",
+	"authors": [
+	],
+	"require": {
+		"symfony/config": "*",
+		"symfony/http-foundation": "*"
+	},
+	"autoload": {
+	},
+	"autoload-dev": {
+	}
+}
