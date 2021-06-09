@@ -29,6 +29,9 @@ datamints locallang builder
 
 Provides a backend-module to translate/modify locallang-files of active extensions. It is also possible to use an auto-translate provider like Azure or DeepL
 
+.. image:: Images/locallang_fp.jpg
+  :target: https://www.datamints.com/
+
 **TYPO3**
 
 The content of this document is related to TYPO3 CMS,
