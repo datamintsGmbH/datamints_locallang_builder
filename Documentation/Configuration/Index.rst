@@ -103,9 +103,9 @@ deepl.area                              string         Not in use by DeepL
 --------------------------------------  -------------  --------------------------------------------------------------------------------------  -------------------------------------
 deepl.active                            int            Flag, if this provider is active. Keep in mind to select not more than one provider     0
 --------------------------------------  -------------  --------------------------------------------------------------------------------------  -------------------------------------
-google.url                               string         there should be no need to modify this value. It's the api-host for Google             https://google.com
+google.url                               string         there should be no need to modify this value. It's the api-host for Google             https://www.googleapis.com/language/translate
 --------------------------------------  -------------  --------------------------------------------------------------------------------------  -------------------------------------
-google.version                           string         Not in use by google
+google.version                           string         API-Version number for azure                                                           v2
 --------------------------------------  -------------  --------------------------------------------------------------------------------------  -------------------------------------
 google.key                               string         Your API-Key for google                                                                  <empty>
 --------------------------------------  -------------  --------------------------------------------------------------------------------------  -------------------------------------
