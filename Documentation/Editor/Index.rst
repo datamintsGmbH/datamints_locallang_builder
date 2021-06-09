@@ -19,7 +19,7 @@ For Editors
 It is possible for this export to overwrite the extension files directly or to use an intermediate directory.
 If you are unsure, you can also have a backup of the previous translations made.
 
-If you change something in a locallang file at file level, please make sure that you then click on "Reimport" in the panel on the left so that the content is reloaded.
+If you modify something in a locallang file at file level, please make sure that you then click on "Reimport" in the panel on the left so that the content is reloaded.
 
 .. _editor-faq:
 
@@ -27,4 +27,25 @@ FAQ
 ===
 
 Q: Some extensions are not listed
+
 A: Only active extensions are shown. Perhaps the missing extension has no translations or these do not comply with the standard, e.g. because they use a different file extension or the content could not be read
+
+
+Q: I can't use the auto-translate function. Whats wrong?
+
+A: You have to set a API-Key in the Typoscript-Template for your desired provider. You also have to set the "active" field to 1 if a key is entered.
+
+
+Q: Where to get the API-Key for Azure?
+
+A: See https://github.com/datamintsGmbH/datamints_locallang_builder/blob/master/Documentation/Configuration/Index.rst#example-azure-cloud
+
+
+Q: Where to get the API-Key for DeepL?
+
+A: See https://github.com/datamintsGmbH/datamints_locallang_builder/blob/master/Documentation/Configuration/Index.rst#example-deepl
+
+
+Q: Where to get the API-Key for Google Translate?
+
+A: See https://github.com/datamintsGmbH/datamints_locallang_builder/blob/master/Documentation/Configuration/Index.rst#example-google
