@@ -9,7 +9,7 @@ call_user_func(static function () {
         'translate', // Submodule key
         '', // Position
         [
-            'Application' => 'main',
+            'Application' => 'main,clear',
             'Extension' => 'list, update',
             'Translation' => 'list, update, delete, show, create',
             'TranslationValue' => 'update, delete, show, create, autoTranslate',
