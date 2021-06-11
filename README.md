@@ -19,6 +19,11 @@ Features:
 - Usage of Translation-Providers like Microsoft Azure Cloud, DeepL or Google Translate
 - Export to defined folder or overwrite current extension locallang-files. It's also possible to trigger a backup-method before export.
 
+Usage and installation:
+---------
+
+- See documentation: https://github.com/datamintsGmbH/datamints_locallang_builder/tree/master/Documentation
+
 Used Software:
 ---------
 
@@ -27,6 +32,6 @@ Used Software:
 - Axios (https://github.com/axios/axios)
 - NodeJS (https://nodejs.org/en/)
 - NPM (https://www.npmjs.com/)
-- Creative Tim Argon Dashboard Pro (https://www.creativetim.com/)
+- Creative Tim Argon Dashboard Pro (https://www.creative-tim.com/)
 - Nucleo Icons (https://nucleoapp.com/)
 - Symfony (https://symfony.com/)

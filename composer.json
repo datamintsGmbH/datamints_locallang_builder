@@ -1,9 +1,10 @@
 {
 	"name": "datamints/datamints_locallang_builder",
 	"type": "typo3-cms-extension",
-	"description": "Provides a backend-module to translate/modify locallang-files of active extensions. It is also possible to use an auto-translate provider like Azure or DeepL",
+	"description": "Provides a backend module for translating / changing Locallang files of active extensions. It is also possible to use an independent translation provider such as Azure, DeepL or Google Translate.",
 	"keywords": [
 		"locallang",
+		"xlf",
 		"translation",
 		"translations",
 		"export",
@@ -28,11 +29,6 @@
 	"autoload": {
 		"psr-4": {
 			"Datamints\\DatamintsLocallangBuilder\\": "Classes"
-		}
-	},
-	"autoload-dev": {
-		"psr-4": {
-			"Datamints\\DatamintsLocallangBuilder\\Tests\\": "Tests"
 		}
 	},
 	"replace": {
