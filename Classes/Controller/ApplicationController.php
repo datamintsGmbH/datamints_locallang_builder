@@ -9,7 +9,7 @@ use Google\Cloud\Translate\V3\TranslationServiceClient;
 
 
 /**
- * This file is part of the "locallang-xlf" Extension for TYPO3 CMS.
+ * This file is part of the "datamints_locallang_builder" Extension for TYPO3 CMS.
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  * (c) 2021 Mark Weisgerber <mark.weisgerber@outlook.de / m.weisgerber@datamints.com>
@@ -37,6 +37,8 @@ class ApplicationController extends AbstractController
             'config' => \json_encode( // Add everything config related stuff to give vue access to it
                 [
                     'provider' => $this->providerService->getConfiguredProvider(),
+                    'gitUrl' => $this->settings['vue']['git_url'],
+                    'documentationUrl' => $this->settings['vue']['documentation_url'],
                 ]
             ),
         ]);

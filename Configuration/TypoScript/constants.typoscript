@@ -46,5 +46,12 @@ module.tx_datamintslocallangbuilder_tools_datamintslocallangbuildertranslate {
         active = 0
       }
     }
+
+    vue {
+      # URL to git at the bottom of the module
+      git_url = https://github.com/datamintsGmbH/datamints_locallang_builder
+      # URL to the documentation in the sidebar -> "getting started"
+      documentation_url = https://github.com/datamintsGmbH/datamints_locallang_builder/tree/master/Documentation
+    }
   }
 }

@@ -61,5 +61,12 @@ module.tx_datamintslocallangbuilder_tools_datamintslocallangbuildertranslate {
         area = {$module.tx_datamintslocallangbuilder_tools_datamintslocallangbuildertranslate.settings.providers.google.area}
       }
     }
+
+    vue {
+      # URL to git at the bottom of the module
+      git_url = {$module.tx_datamintslocallangbuilder_tools_datamintslocallangbuildertranslate.settings.vue.git_url}
+      # URL to the documentation in the sidebar -> "getting started"
+      documentation_url = {$module.tx_datamintslocallangbuilder_tools_datamintslocallangbuildertranslate.settings.vue.documentation_url}
+    }
   }
 }
