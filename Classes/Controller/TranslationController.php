@@ -90,7 +90,7 @@ class TranslationController extends AbstractController
     {
         $data = json_decode(GeneralUtility::_GP('data'), true);
         if(!$data['newObjectLanguages']) {
-            throw new \Exception('No language/s given.');
+            throw new \Exception('The action "create" could not be executed: No language given.');
         }
         // Creating the blank Translation-object
         $translation = $this->translationService->createTranslation($locallang, $data['newObjectKey'], $data['newObjectValue'], $data['newObjectApproved'], $data['newObjectXmlSpace']);

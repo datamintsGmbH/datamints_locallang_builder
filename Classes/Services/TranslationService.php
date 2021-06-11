@@ -47,12 +47,12 @@ class TranslationService extends AbstractService
             $configuredProvider = $this->providerService->getConfiguredProvider();
             if($configuredProvider === 'AzureCloud') {
                 $providerClass = AzureProvider::class;
-            } elseif($configuredProvider === 'DeepL') {
+            } else if($configuredProvider === 'DeepL') {
                 $providerClass = DeeplProvider::class;
-            } elseif($configuredProvider === 'GoogleTranslate') {
+            } else if($configuredProvider === 'GoogleTranslate') {
                 $providerClass = GoogleProvider::class;
             } else {
-                throw new \TYPO3\CMS\Core\Exception('Provider not found');
+                throw new \TYPO3\CMS\Core\Exception('The configured Provider could not be found!');
             }
             $this->provider = GeneralUtility::makeInstance($providerClass);
         }

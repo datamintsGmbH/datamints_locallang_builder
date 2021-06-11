@@ -46,7 +46,7 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
     }
 
     /**
-     * Standart-View Variablen, falls z.B. vorzeitig abgebrochen werden müsste
+     * Default-view response vars, if the request gets canceled before execution finish
      *
      * @see initializeView
      */
@@ -64,9 +64,7 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
     }
 
     /**
-     * Default Werte für die gängigen REST-Response-Felder setzen (status, message, requestTime, type)
-     * Sind diese nicht initial gesetzt, aber in der JSON-View vorhanden, werden die durch Extbase sonst immer
-     * automatisch als leeres Array ausgegeben
+     * set Default-Values
      *
      * @param \TYPO3\CMS\Extbase\Mvc\View\ViewInterface $view
      */
@@ -74,8 +72,6 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
     {
         parent::initializeView($view);
 
-        // Default Werte für die gängigen REST-Response-Felder setzen (status, message, requestTime, type)
-        // Sind diese nicht initial gesetzt, aber in der JSON-View vorhanden, werden die durch Extbase sonst immer automatisch als leeres Array ausgegeben
         $view->assignMultiple(
             $this->getDefaultViewAssigns()
         );
