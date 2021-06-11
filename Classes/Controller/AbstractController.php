@@ -5,6 +5,8 @@ namespace Datamints\DatamintsLocallangBuilder\Controller;
 use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\View\ViewInterface;
+use TYPO3\CMS\Extbase\Mvc\RequestInterface;
+use TYPO3\CMS\Extbase\Mvc\ResponseInterface;
 
 /**
  * This file is part of the "datamints_locallang_builder" Extension for TYPO3 CMS.
@@ -16,28 +18,32 @@ use TYPO3\CMS\Extbase\Mvc\View\ViewInterface;
 class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
     const STATUS_SUCCESS = 'success';
-    const STATUS_ERROR = 'error';
+    const STATUS_ERROR = 'danger';
 
     protected $entityType = null;
 
     /**
-     * Default Werte für die gängigen REST-Response-Felder setzen (status, message, requestTime, type)
-     * Sind diese nicht initial gesetzt, aber in der JSON-View vorhanden, werden die durch Extbase sonst immer
-     * automatisch als leeres Array ausgegeben
+     * extend ProcessRequest to catch errors for a valid response
      *
-     * @param \TYPO3\CMS\Extbase\Mvc\View\ViewInterface $view
+     * @override
+     *
+     * @param \TYPO3\CMS\Extbase\Mvc\RequestInterface  $request  The request object
+     * @param \TYPO3\CMS\Extbase\Mvc\ResponseInterface $response The response, modified by this handler
+     *
+     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\UnsupportedRequestTypeException
      */
-    protected function initializeView(ViewInterface $view)
+    public function processRequest(RequestInterface $request, ResponseInterface $response)
     {
-        parent::initializeView($view);
+        try {
+            parent::processRequest($request, $response);
+        } catch (\Exception $exception) {
+            $result = $this->getDefaultViewAssigns();
+            $result['status'] = self::STATUS_ERROR;
+            $result['message'] = $exception->getMessage();
 
-        // Default Werte für die gängigen REST-Response-Felder setzen (status, message, requestTime, type)
-        // Sind diese nicht initial gesetzt, aber in der JSON-View vorhanden, werden die durch Extbase sonst immer automatisch als leeres Array ausgegeben
-        $view->assignMultiple(
-            $this->getDefaultViewAssigns()
-        );
+            $response->appendContent(json_encode($result));
+        }
     }
-
 
     /**
      * Standart-View Variablen, falls z.B. vorzeitig abgebrochen werden müsste
@@ -55,5 +61,23 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
             'requestTime' => $context->getPropertyFromAspect('date', 'timestamp'),
             'type' => $this->entityType,
         ];
+    }
+
+    /**
+     * Default Werte für die gängigen REST-Response-Felder setzen (status, message, requestTime, type)
+     * Sind diese nicht initial gesetzt, aber in der JSON-View vorhanden, werden die durch Extbase sonst immer
+     * automatisch als leeres Array ausgegeben
+     *
+     * @param \TYPO3\CMS\Extbase\Mvc\View\ViewInterface $view
+     */
+    protected function initializeView(ViewInterface $view)
+    {
+        parent::initializeView($view);
+
+        // Default Werte für die gängigen REST-Response-Felder setzen (status, message, requestTime, type)
+        // Sind diese nicht initial gesetzt, aber in der JSON-View vorhanden, werden die durch Extbase sonst immer automatisch als leeres Array ausgegeben
+        $view->assignMultiple(
+            $this->getDefaultViewAssigns()
+        );
     }
 }
