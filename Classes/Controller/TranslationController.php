@@ -1,5 +1,4 @@
 <?php
-
 namespace Datamints\DatamintsLocallangBuilder\Controller;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -25,20 +24,25 @@ class TranslationController extends AbstractController
 
     /**
      * Using JSon-View-Output indead of html-Templates
-     *
+     * 
      * @var string
      */
     public $defaultViewObjectName = TranslationJsonView::class;
 
     /**
+     * translationRepository
+     * 
+     * @var \Datamints\DatamintsLocallangBuilder\Domain\Repository\TranslationRepository
+     */
+    protected $translationRepository = null;
+
+    /**
      * action update
-     *
      * Updates the given fields for a translation record
      * Not existing fields results to error-response
-     *
+     * 
      * @param Weisgerber\LocallangBuilder\Domain\Model\Translation
      * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation("translation")
-     *
      * @return string|object|null|void
      */
     public function updateAction(\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translation)
@@ -46,7 +50,7 @@ class TranslationController extends AbstractController
         $data = json_decode(GeneralUtility::_GP('data'), true);
         $message = 'The following fields have been updated: ';
         foreach ($data as $key => $changingField) {
-            if($translation->_hasProperty($key)) {
+            if ($translation->_hasProperty($key)) {
                 $translation->_setProperty($key, $changingField);
                 $message .= $key . ' ';
             } else {
@@ -62,9 +66,8 @@ class TranslationController extends AbstractController
 
     /**
      * action delete
-     *
+     * 
      * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translation
-     *
      * @return string|object|null|void
      */
     public function deleteAction(\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translation)
@@ -76,22 +79,21 @@ class TranslationController extends AbstractController
 
     /**
      * action create
-     *
      * Creates a new translation record
      * It is possible to choose the default values for "approved" and "xmlSpace". See data post.
      * It's also possible to trigger an autotranslate for the configured auto-translation provider. See docs for further instructions to get auto-translation working.
-     *
+     * 
      * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang
      * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation("locallang")
-     *
      * @return string|object|null|void
      */
     public function createAction(\Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang)
     {
         $data = json_decode(GeneralUtility::_GP('data'), true);
-        if(!$data['newObjectLanguages']) {
+        if (!$data['newObjectLanguages']) {
             throw new \Exception('The action "create" could not be executed: No language given.');
         }
+
         // Creating the blank Translation-object
         $translation = $this->translationService->createTranslation($locallang, $data['newObjectKey'], $data['newObjectValue'], $data['newObjectApproved'], $data['newObjectXmlSpace']);
         DatabaseUtility::persistAll();
@@ -102,7 +104,7 @@ class TranslationController extends AbstractController
             $translationValue->setNew(true);
 
             // Check if we have to autotranslate this new Object...
-            if($data['newObjectAutoTranslate'] === true) {
+            if ($data['newObjectAutoTranslate'] === true) {
                 $this->translationService->translate($translationValue, $data['newObjectValue']);
             }
         }
@@ -111,7 +113,6 @@ class TranslationController extends AbstractController
         $this->translationRepository->add($translation);
         $this->locallangRepository->update($locallang);
         DatabaseUtility::persistAll();
-
         $translation->setNew(true);
         $this->view->assign('return', $locallang->getUid());
         $this->view->assign('data', $translation);
@@ -120,7 +121,7 @@ class TranslationController extends AbstractController
 
     /**
      * action list
-     *
+     * 
      * @return string|object|null|void
      */
     public function listAction()
@@ -131,9 +132,8 @@ class TranslationController extends AbstractController
 
     /**
      * action show
-     *
+     * 
      * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translation
-     *
      * @return string|object|null|void
      */
     public function showAction(\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translation)
@@ -143,7 +143,7 @@ class TranslationController extends AbstractController
 
     /**
      * action new
-     *
+     * 
      * @return string|object|null|void
      */
     public function newAction()
@@ -152,14 +152,21 @@ class TranslationController extends AbstractController
 
     /**
      * action edit
-     *
+     * 
      * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translation
      * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation("translation")
-     *
      * @return string|object|null|void
      */
     public function editAction(\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translation)
     {
         $this->view->assign('translation', $translation);
+    }
+
+    /**
+     * @param \Datamints\DatamintsLocallangBuilder\Domain\Repository\TranslationRepository $translationRepository
+     */
+    public function injectTranslationRepository(\Datamints\DatamintsLocallangBuilder\Domain\Repository\TranslationRepository $translationRepository)
+    {
+        $this->translationRepository = $translationRepository;
     }
 }

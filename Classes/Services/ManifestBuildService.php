@@ -135,17 +135,20 @@ class ManifestBuildService extends AbstractService
         /** @var DOMElement $fileDOM */
         $fileDOM = $this->xmlService->getXMLContentByLocallang($path, 'file');
         if(is_null($fileDOM) || !method_exists($fileDOM, 'getAttribute')) { // if we couldnt receive xml-content, the file could possibly be invalid or broken. In this case we skip this locallang
+            $locallang->setInvalidFormat(true);
             return;
         }
         try {
             $targetLanguage = $fileDOM->getAttribute('target-language');
             $sourceLanguage = $fileDOM->getAttribute('source-language');
         } catch (Exception $e) {
+            $locallang->setInvalidFormat(true);
             return;
         }
         $xmlContent = $this->xmlService->getXMLContentByLocallang($path, 'trans-unit');
 
         if(is_null($xmlContent)) { // if we couldnt receive xml-content, the file could possibly be invalid or broken. In this case we skip this locallang
+            $locallang->setInvalidFormat(true);
             return;
         }
 

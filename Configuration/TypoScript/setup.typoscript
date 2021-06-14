@@ -1,17 +1,17 @@
+
 # Module configuration
 module.tx_datamintslocallangbuilder_tools_datamintslocallangbuildertranslate {
-  persistence {
-    storagePid = {$module.tx_datamintslocallangbuilder_translate.persistence.storagePid}
-  }
-
-  view {
-    templateRootPaths.0 = EXT:datamints_locallang_builder/Resources/Private/Backend/Templates/
-    templateRootPaths.1 = {$module.tx_datamintslocallangbuilder_translate.view.templateRootPath}
-    partialRootPaths.0 = EXT:datamints_locallang_builder/Resources/Private/Backend/Partials/
-    partialRootPaths.1 = {$module.tx_datamintslocallangbuilder_translate.view.partialRootPath}
-    layoutRootPaths.0 = EXT:datamints_locallang_builder/Resources/Private/Backend/Layouts/
-    layoutRootPaths.1 = {$module.tx_datamintslocallangbuilder_translate.view.layoutRootPath}
-  }
+    persistence {
+        storagePid = {$module.tx_datamintslocallangbuilder_translate.persistence.storagePid}
+    }
+    view {
+        templateRootPaths.0 = EXT:datamints_locallang_builder/Resources/Private/Backend/Templates/
+        templateRootPaths.1 = {$module.tx_datamintslocallangbuilder_translate.view.templateRootPath}
+        partialRootPaths.0 = EXT:datamints_locallang_builder/Resources/Private/Backend/Partials/
+        partialRootPaths.1 = {$module.tx_datamintslocallangbuilder_translate.view.partialRootPath}
+        layoutRootPaths.0 = EXT:datamints_locallang_builder/Resources/Private/Backend/Layouts/
+        layoutRootPaths.1 = {$module.tx_datamintslocallangbuilder_translate.view.layoutRootPath}
+    }
 }
 
 ## EXTENSION BUILDER DEFAULTS END TOKEN - Everything BEFORE this line is overwritten with the defaults of the extension builder

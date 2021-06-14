@@ -1,5 +1,4 @@
 <?php
-
 namespace Datamints\DatamintsLocallangBuilder\Domain\Repository;
 
 use Datamints\DatamintsLocallangBuilder\Domain\Model\Constraint;
@@ -14,30 +13,28 @@ use Datamints\DatamintsLocallangBuilder\Domain\Model\Extension;
  */
 class LocallangRepository extends AbstractRepository
 {
+    protected $modelTableName = 'tx_datamintslocallangbuilder_domain_model_locallang';
 
-	protected $modelTableName = 'tx_datamintslocallangbuilder_domain_model_locallang';
+    /**
+     * @var array
+     */
+    protected $defaultOrderings = ['sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING];
 
-	/**
-	 * @var array
-	 */
-	protected $defaultOrderings = ['sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING];
-
-	/**
-	 * Findet Benutzer anhand seiner Benutzergruppe und wenn der First-Login Timestamp unter einem gewissen Wert ist
-	 *
-	 * @param Extension $extension
-	 * @param string    $path
-	 *
-	 * @return array|object|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface
-	 * @throws \TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException
-	 */
-	public function findByExtensionAndPath(Extension $extension, string $path)
-	{
-		return $this->findGenericByConstraints(
-			[
-				new Constraint(\TYPO3\CMS\Extbase\Persistence\QueryInterface::OPERATOR_EQUAL_TO, 'relatedExtension', $extension->getUid()),
-				new Constraint(\TYPO3\CMS\Extbase\Persistence\QueryInterface::OPERATOR_EQUAL_TO, 'path', $path),
-			]
+    /**
+     * Findet Benutzer anhand seiner Benutzergruppe und wenn der First-Login Timestamp unter einem gewissen Wert ist
+     * 
+     * @param Extension $extension
+     * @param string    $path
+     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException
+     * @return array|object|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface
+     */
+    public function findByExtensionAndPath(Extension $extension, string $path)
+    {
+        return $this->findGenericByConstraints(
+        [
+        new Constraint(\TYPO3\CMS\Extbase\Persistence\QueryInterface::OPERATOR_EQUAL_TO, 'relatedExtension', $extension->getUid()), 
+        new Constraint(\TYPO3\CMS\Extbase\Persistence\QueryInterface::OPERATOR_EQUAL_TO, 'path', $path)
+        ]
         );
     }
 }

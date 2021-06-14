@@ -1,5 +1,4 @@
 <?php
-
 namespace Datamints\DatamintsLocallangBuilder\Domain\Repository;
 
 
@@ -12,11 +11,10 @@ namespace Datamints\DatamintsLocallangBuilder\Domain\Repository;
  */
 class TranslationValueRepository extends AbstractRepository
 {
+    protected $modelTableName = 'tx_datamintslocallangbuilder_domain_model_translationvalue';
 
-	protected $modelTableName = 'tx_datamintslocallangbuilder_domain_model_translationvalue';
-
-	/**
-	 * @var array
-	 */
-	protected $defaultOrderings = ['sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING];
+    /**
+     * @var array
+     */
+    protected $defaultOrderings = ['sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING];
 }

@@ -1,5 +1,4 @@
 <?php
-
 namespace Datamints\DatamintsLocallangBuilder\Domain\Model;
 
 use JsonSerializable;
@@ -14,203 +13,235 @@ use JsonSerializable;
 class Locallang extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implements JsonSerializable
 {
 
-	/**
-	 * filename
-	 *
-	 * @var string
-	 * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
-	 */
-	protected $filename = '';
+    /**
+     * filename
+     * 
+     * @var string
+     * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
+     */
+    protected $filename = '';
 
-	/**
-	 * path from extension root
-	 *
-	 * @var string
-	 * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
-	 */
-	protected $path = '';
+    /**
+     * path from extension root
+     * 
+     * @var string
+     * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
+     */
+    protected $path = '';
 
-	/**
-	 * translations
-	 *
-	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation>
-	 * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
-	 */
-	protected $translations = null;
+    /**
+     * Flag when the scan cant fetch it's data, because theres something wrong with it
+     * 
+     * @var bool
+     */
+    protected $invalidFormat = false;
 
-	/**
-	 * Bidirectional for easier db-queries
-	 *
-	 * @var \Datamints\DatamintsLocallangBuilder\Domain\Model\Extension
-	 */
-	protected $relatedExtension = null;
+    /**
+     * translations
+     * 
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation>
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
+     */
+    protected $translations = null;
 
-	/**
-	 * __construct
-	 */
-	public function __construct()
-	{
+    /**
+     * Bidirectional for easier db-queries
+     * 
+     * @var \Datamints\DatamintsLocallangBuilder\Domain\Model\Extension
+     */
+    protected $relatedExtension = null;
 
-		// Do not remove the next line: It would break the functionality
-		$this->initializeObject();
-	}
+    /**
+     * __construct
+     */
+    public function __construct()
+    {
 
-	/**
-	 * Initializes all ObjectStorage properties when model is reconstructed from DB (where __construct is not called)
-	 * Do not modify this method!
-	 * It will be rewritten on each save in the extension builder
-	 * You may modify the constructor of this class instead
-	 *
-	 * @return void
-	 */
-	public function initializeObject()
-	{
-		$this->translations = $this->translations ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-	}
+        // Do not remove the next line: It would break the functionality
+        $this->initializeObject();
+    }
 
-	/**
-	 * Returns the path
-	 *
-	 * @return string path
-	 */
-	public function getPath()
-	{
-		return $this->path;
-	}
+    /**
+     * Initializes all ObjectStorage properties when model is reconstructed from DB (where __construct is not called)
+     * Do not modify this method!
+     * It will be rewritten on each save in the extension builder
+     * You may modify the constructor of this class instead
+     * 
+     * @return void
+     */
+    public function initializeObject()
+    {
+        $this->translations = $this->translations ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+    }
 
-	/**
-	 * Sets the path
-	 *
-	 * @param string $path
-	 *
-	 * @return void
-	 */
-	public function setPath($path)
-	{
-		$this->path = $path;
-	}
+    /**
+     * Returns the path
+     * 
+     * @return string path
+     */
+    public function getPath()
+    {
+        return $this->path;
+    }
 
-	/**
-	 * Adds a Translation
-	 *
-	 * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translation
-	 *
-	 * @return void
-	 */
-	public function addTranslation(\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translation)
-	{
-		$this->translations->attach($translation);
-	}
+    /**
+     * Sets the path
+     * 
+     * @param string $path
+     * @return void
+     */
+    public function setPath($path)
+    {
+        $this->path = $path;
+    }
 
-	/**
-	 * Removes a Translation
-	 *
-	 * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translationToRemove The Translation to be removed
-	 *
-	 * @return void
-	 */
-	public function removeTranslation(\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translationToRemove)
-	{
-		$this->translations->detach($translationToRemove);
-	}
+    /**
+     * Adds a Translation
+     * 
+     * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translation
+     * @return void
+     */
+    public function addTranslation(\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translation)
+    {
+        $this->translations->attach($translation);
+    }
 
-	/**
-	 * Returns the translations
-	 *
-	 * @return array
-	 */
-	public function getTranslationsArray()
-	{
+    /**
+     * Removes a Translation
+     * 
+     * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translationToRemove The Translation to be removed
+     * @return void
+     */
+    public function removeTranslation(\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translationToRemove)
+    {
+        $this->translations->detach($translationToRemove);
+    }
 
-		// Creating wrapper-object for vue-table-usage, so we dont have to map some data in vue
-		return array_map(
-			function ($object) {
-				return [
-					'object' => $object,
-					'key' => $object->getTranslationKey(),
-					'_showDetails' => true,
-				];
-			},
-			$this->translations->toArray()
-		);
-	}
+    /**
+     * Returns the translations
+     * 
+     * @return array
+     */
+    public function getTranslationsArray()
+    {
 
-	/**
-	 * Filtering json-output, if needed
-	 * To output all files, use return get_object_vars($this);
-	 */
-	public function jsonSerialize()
-	{
-		return [
-			'uid' => $this->getUid(),
-			'filename' => $this->getFilename(),
-			'translations' => $this->getTranslations()->toArray(),
-		];
-	}
+        // Creating wrapper-object for vue-table-usage, so we dont have to map some data in vue
+        return array_map(
+        function ($object) {
+            return [
+            'object' => $object, 
+            'key' => $object->getTranslationKey(), 
+            '_showDetails' => true
+            ];
+        }, 
+        $this->translations->toArray()
+        );
+    }
 
-	/**
-	 * Returns the filename
-	 *
-	 * @return string filename
-	 */
-	public function getFilename()
-	{
-		return $this->filename;
-	}
+    /**
+     * Filtering json-output, if needed
+     * To output all files, use return get_object_vars($this);
+     */
+    public function jsonSerialize()
+    {
+        return [
+        'uid' => $this->getUid(), 
+        'filename' => $this->getFilename(), 
+        'translations' => $this->getTranslations()->toArray()
+        ];
+    }
 
-	/**
-	 * Sets the filename
-	 *
-	 * @param string $filename
-	 *
-	 * @return void
-	 */
-	public function setFilename($filename)
-	{
-		$this->filename = $filename;
-	}
+    /**
+     * Returns the filename
+     * 
+     * @return string filename
+     */
+    public function getFilename()
+    {
+        return $this->filename;
+    }
 
-	/**
-	 * Returns the translations
-	 *
-	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation> translations
-	 */
-	public function getTranslations()
-	{
-		return $this->translations;
-	}
+    /**
+     * Sets the filename
+     * 
+     * @param string $filename
+     * @return void
+     */
+    public function setFilename($filename)
+    {
+        $this->filename = $filename;
+    }
 
-	/**
-	 * Sets the translations
-	 *
-	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation> $translations
-	 *
-	 * @return void
-	 */
-	public function setTranslations(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $translations)
-	{
-		$this->translations = $translations;
-	}
+    /**
+     * Returns the translations
+     * 
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation> translations
+     */
+    public function getTranslations()
+    {
+        return $this->translations;
+    }
 
-	/**
-	 * Returns the relatedExtension
-	 *
-	 * @return \Datamints\DatamintsLocallangBuilder\Domain\Model\Extension $relatedExtension
-	 */
-	public function getRelatedExtension()
-	{
-		return $this->relatedExtension;
-	}
+    /**
+     * Sets the translations
+     * 
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation> $translations
+     * @return void
+     */
+    public function setTranslations(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $translations)
+    {
+        $this->translations = $translations;
+    }
 
-	/**
-	 * Sets the relatedExtension
-	 *
-	 * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Extension $relatedExtension
-	 *
-	 * @return void
-	 */
-	public function setRelatedExtension(\Datamints\DatamintsLocallangBuilder\Domain\Model\Extension $relatedExtension)
-	{
-		$this->relatedExtension = $relatedExtension;
+    /**
+     * Returns the relatedExtension
+     * 
+     * @return \Datamints\DatamintsLocallangBuilder\Domain\Model\Extension $relatedExtension
+     */
+    public function getRelatedExtension()
+    {
+        return $this->relatedExtension;
+    }
+
+    /**
+     * Sets the relatedExtension
+     * 
+     * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Extension $relatedExtension
+     * @return void
+     */
+    public function setRelatedExtension(\Datamints\DatamintsLocallangBuilder\Domain\Model\Extension $relatedExtension)
+    {
+        $this->relatedExtension = $relatedExtension;
+    }
+
+    /**
+     * Returns the invalidFormat
+     * 
+     * @return bool $invalidFormat
+     */
+    public function getInvalidFormat()
+    {
+        return $this->invalidFormat;
+    }
+
+    /**
+     * Sets the invalidFormat
+     * 
+     * @param bool $invalidFormat
+     * @return void
+     */
+    public function setInvalidFormat($invalidFormat)
+    {
+        $this->invalidFormat = $invalidFormat;
+    }
+
+    /**
+     * Returns the boolean state of invalidFormat
+     * 
+     * @return bool
+     */
+    public function isInvalidFormat()
+    {
+        return $this->invalidFormat;
     }
 }

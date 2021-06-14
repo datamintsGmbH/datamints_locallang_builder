@@ -13,6 +13,7 @@ CREATE TABLE tx_datamintslocallangbuilder_domain_model_locallang (
 
 	filename varchar(255) DEFAULT '' NOT NULL,
 	path varchar(255) DEFAULT '' NOT NULL,
+	invalid_format smallint(5) unsigned DEFAULT '0' NOT NULL,
 	translations int(11) unsigned DEFAULT '0' NOT NULL,
 	related_extension int(11) unsigned DEFAULT '0'
 
