@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '2d3bc21d905e4d1748e14a56321c80f628a9304f',
+    'reference' => '9dbe062246a762e4bc541b4b8f755baff6610e49',
     'name' => 'weisgerber/locallang_builder-dependencies-legacy',
   ),
   'versions' => 
@@ -90,7 +90,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '2d3bc21d905e4d1748e14a56321c80f628a9304f',
+      'reference' => '9dbe062246a762e4bc541b4b8f755baff6610e49',
     ),
   ),
 );
