@@ -17,6 +17,7 @@ class LocallangJsonView extends JsonView
             '_only' => [
                 'uid',
                 'filename',
+                'invalidFormat',
                 'translationsArray',
             ],
             '_descend' => [
@@ -25,7 +26,7 @@ class LocallangJsonView extends JsonView
                         '_only' => [
                             'object',
                             'key',
-                            '_showDetails'
+                            '_showDetails',
                         ],
                         'object' => [
                             '_only' => [
@@ -47,15 +48,15 @@ class LocallangJsonView extends JsonView
                                             'approved',
                                             'tstamp',
                                             'comment',
-                                        ]
-                                    ]
-                                ]
+                                        ],
+                                    ],
+                                ],
 
                             ],
-                        ]
-                    ]
+                        ],
+                    ],
 
-                ]
+                ],
 
             ],
         ],
