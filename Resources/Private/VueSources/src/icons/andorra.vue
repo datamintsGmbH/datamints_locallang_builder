@@ -1,0 +1,28 @@
+<template><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" :width="width" :height="height"><g><rect x="16" y="6" fill="#F5E303" width="16" height="36"></rect> <path fill="#EE1E2E" d="M48,40c0,1.105-0.895,2-2,2H32V6h14c1.105,0,2,0.895,2,2V40z"></path> <path fill="#2B3384" d="M16,42H2c-1.105,0-2-0.895-2-2V8c0-1.105,0.895-2,2-2h14V42z"></path> <polygon fill="#EE1E2E" points="30,18 18,18 18,26 24,30 30,26 "></polygon></g></svg></template>
+
+<script>
+export default {
+	props: {
+		width: {
+			type: [Number, String],
+			default: "100%"
+		},
+		height: {
+			type: [Number, String],
+			default: "100%"
+		},
+		fill: {
+			type: String,
+			default: "currentColor"
+		},
+		secondaryfill: {
+			type: String
+		}
+	},
+	computed: {
+		_secondaryfill: function () {
+			return this.secondaryfill || this.fill
+		}
+	}
+}
+</script>
