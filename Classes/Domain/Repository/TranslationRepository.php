@@ -13,7 +13,7 @@ namespace Datamints\DatamintsLocallangBuilder\Domain\Repository;
 class TranslationRepository extends AbstractRepository
 {
 
-	protected $modelTableName = 'tx_locallangbuilder_domain_model_translation';
+	protected $modelTableName = 'tx_datamintslocallangbuilder_domain_model_translation';
 
 	/**
 	 * @var array

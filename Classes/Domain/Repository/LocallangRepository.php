@@ -15,7 +15,7 @@ use Datamints\DatamintsLocallangBuilder\Domain\Model\Extension;
 class LocallangRepository extends AbstractRepository
 {
 
-	protected $modelTableName = 'tx_locallangbuilder_domain_model_locallang';
+	protected $modelTableName = 'tx_datamintslocallangbuilder_domain_model_locallang';
 
 	/**
 	 * @var array

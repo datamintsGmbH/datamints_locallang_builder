@@ -15,7 +15,7 @@ use TYPO3\CMS\Core\Database\Query\QueryBuilder;
 class ExtensionRepository extends AbstractRepository
 {
 
-	protected $modelTableName = 'tx_locallangbuilder_domain_model_extension';
+	protected $modelTableName = 'tx_datamintslocallangbuilder_domain_model_extension';
 
 	/**
 	 * @var array
