@@ -93,6 +93,8 @@
                 :sort-by.sync="sortBy"
                 :sort-desc.sync="sortDesc"
                 :sort-direction="sortDirection"
+                head-variant="unset"
+                primary-key="uid"
                 small
             >
                 <template #row-details="row">
@@ -244,3 +246,8 @@ export default {
     },
 };
 </script>
+<style>
+.thead-unset {
+    display: none;
+}
+</style>
