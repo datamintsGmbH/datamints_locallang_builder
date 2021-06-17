@@ -33,6 +33,7 @@ class ApplicationController extends AbstractController
      */
     public function mainAction()
     {
+        $this->logger->info("Opened the translate-module.");
         $this->view->assignMultiple([
             'config' => \json_encode( // Add everything config related stuff to give vue access to it
                 [

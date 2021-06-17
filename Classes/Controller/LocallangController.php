@@ -22,6 +22,7 @@ class LocallangController extends AbstractController
     use BackupServiceTrait;
     use CachesServiceTrait;
     use ExportServiceTrait;
+    use LocallangRepositoryTrait;
 
     /**
      * Using JSon-View-Output indead of html-Templates
@@ -30,12 +31,6 @@ class LocallangController extends AbstractController
      */
     public $defaultViewObjectName = LocallangJsonView::class;
 
-    /**
-     * locallangRepository
-     *
-     * @var \Datamints\DatamintsLocallangBuilder\Domain\Repository\LocallangRepository
-     */
-    protected $locallangRepository = null;
 
     /**
      * Constructor
@@ -69,6 +64,8 @@ class LocallangController extends AbstractController
      */
     public function exportAction(\Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang)
     {
+        $this->logger->info("Triggering export of locallang-file " . $locallang->getFilename() . ' with uid ' . $locallang->getUid());
+
         $exportConfiguration = json_decode(GeneralUtility::_GP('data'), true);
         if($exportConfiguration['triggerBackup'] === true && $exportConfiguration['selectedTarget'] === 'overwrite') {
 
@@ -82,6 +79,8 @@ class LocallangController extends AbstractController
 
             // Clears cache to reload new language-files straight with the next render-call
             $this->cachesService->clearSiteCache();
+            $this->logger->info("Cleared site cache");
+
         }
         $this->view->assign('message', 'Exported files were saved to: ' . implode('; ', $savedFiles));
     }
@@ -106,19 +105,6 @@ class LocallangController extends AbstractController
     {
     }
 
-    /**
-     * action create
-     *
-     * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $newLocallang
-     *
-     * @return string|object|null|void
-     */
-    public function createAction(\Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $newLocallang)
-    {
-        $this->addFlashMessage('The object was created. Please be aware that this action is publicly accessible unless you implement an access check. See https://docs.typo3.org/typo3cms/extensions/extension_builder/User/Index.html', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
-        $this->locallangRepository->add($newLocallang);
-        $this->redirect('list');
-    }
 
     /**
      * action edit
@@ -131,41 +117,5 @@ class LocallangController extends AbstractController
     public function editAction(\Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang)
     {
         $this->view->assign('locallang', $locallang);
-    }
-
-    /**
-     * action update
-     *
-     * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang
-     *
-     * @return string|object|null|void
-     */
-    public function updateAction(\Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang)
-    {
-        $this->addFlashMessage('The object was updated. Please be aware that this action is publicly accessible unless you implement an access check. See https://docs.typo3.org/typo3cms/extensions/extension_builder/User/Index.html', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
-        $this->locallangRepository->update($locallang);
-        $this->redirect('list');
-    }
-
-    /**
-     * action delete
-     *
-     * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang
-     *
-     * @return string|object|null|void
-     */
-    public function deleteAction(\Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang)
-    {
-        $this->addFlashMessage('The object was deleted. Please be aware that this action is publicly accessible unless you implement an access check. See https://docs.typo3.org/typo3cms/extensions/extension_builder/User/Index.html', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
-        $this->locallangRepository->remove($locallang);
-        $this->redirect('list');
-    }
-
-    /**
-     * @param \Datamints\DatamintsLocallangBuilder\Domain\Repository\LocallangRepository $locallangRepository
-     */
-    public function injectLocallangRepository(\Datamints\DatamintsLocallangBuilder\Domain\Repository\LocallangRepository $locallangRepository)
-    {
-        $this->locallangRepository = $locallangRepository;
     }
 }

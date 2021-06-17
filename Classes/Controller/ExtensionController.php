@@ -1,4 +1,5 @@
 <?php
+
 namespace Datamints\DatamintsLocallangBuilder\Controller;
 
 use TYPO3\CMS\Core\Utility\ClassNamingUtility;
@@ -19,22 +20,16 @@ class ExtensionController extends AbstractController
 {
     use ExtensionServiceTrait;
     use FileServiceTrait;
+    use \Datamints\DatamintsLocallangBuilder\Domain\Repository\Traits\ExtensionRepositoryTrait;
     use \Datamints\DatamintsLocallangBuilder\Services\Traits\CachesServiceTrait;
     use \Datamints\DatamintsLocallangBuilder\Domain\Repository\Traits\ExtensionRepositoryTrait;
 
     /**
      * Using JSon-View-Output indead of html-Templates
-     * 
+     *
      * @var string
      */
     public $defaultViewObjectName = ExtensionJsonView::class;
-
-    /**
-     * extensionRepository
-     * 
-     * @var \Datamints\DatamintsLocallangBuilder\Domain\Repository\ExtensionRepository
-     */
-    protected $extensionRepository = null;
 
     /**
      * Constructor
@@ -49,18 +44,23 @@ class ExtensionController extends AbstractController
      * Fetches all active extensions and returns them with their related locallang-files. There are no translations inside the locallangs.
      * Those have to be fetches in an different (LocallangController::show) call, to save some memory-space
      * The Cache can be invoked by triggering the cache-clear button in typo3 backend
-     * 
+     *
      * @param Datamints\DatamintsLocallangBuilder\Domain\Model\Extension
+     *
      * @return void
      */
     public function listAction()
     {
-        if ($this->cachesService->has('extensionListResponse')) {
+        if($this->cachesService->has('extensionListResponse')) {
+            $this->logger->info("Creating or refreshing the extension-cache.");
+
             $cacheContent = json_decode($this->cachesService->get('extensionListResponse'), true);
             foreach ($cacheContent as $fieldKey => $fieldValue) {
                 $this->view->assign($fieldKey, $fieldValue);
             }
         } else {
+            $this->logger->info("Forwarding the extension-cache");
+
             $extensionList = $this->extensionService->getExtensionManifest($this->fileService->getExtensionsList());
             $this->view->assign('message', count($extensionList) . ' active extensions have been loaded');
             $this->view->assign('data', $extensionList);
@@ -69,8 +69,9 @@ class ExtensionController extends AbstractController
 
     /**
      * action show
-     * 
+     *
      * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Extension $extension
+     *
      * @return string|object|null|void
      */
     public function showAction(\Datamints\DatamintsLocallangBuilder\Domain\Model\Extension $extension)
@@ -80,9 +81,10 @@ class ExtensionController extends AbstractController
 
     /**
      * action edit
-     * 
+     *
      * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Extension $extension
      * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation("extension")
+     *
      * @return string|object|null|void
      */
     public function editAction(\Datamints\DatamintsLocallangBuilder\Domain\Model\Extension $extension)
@@ -92,22 +94,13 @@ class ExtensionController extends AbstractController
 
     /**
      * action update
-     * 
+     *
      * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Extension $extension
+     *
      * @return string|object|null|void
      */
     public function updateAction(\Datamints\DatamintsLocallangBuilder\Domain\Model\Extension $extension)
     {
-        $this->addFlashMessage('The object was updated. Please be aware that this action is publicly accessible unless you implement an access check. See https://docs.typo3.org/typo3cms/extensions/extension_builder/User/Index.html', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
-        $this->extensionRepository->update($extension);
         $this->redirect('list');
-    }
-
-    /**
-     * @param \Datamints\DatamintsLocallangBuilder\Domain\Repository\ExtensionRepository $extensionRepository
-     */
-    public function injectExtensionRepository(\Datamints\DatamintsLocallangBuilder\Domain\Repository\ExtensionRepository $extensionRepository)
-    {
-        $this->extensionRepository = $extensionRepository;
     }
 }

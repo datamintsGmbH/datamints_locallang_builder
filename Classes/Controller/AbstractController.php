@@ -7,6 +7,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\View\ViewInterface;
 use TYPO3\CMS\Extbase\Mvc\RequestInterface;
 use TYPO3\CMS\Extbase\Mvc\ResponseInterface;
+use Psr\Log\LoggerAwareTrait;
 
 /**
  * This file is part of the "datamints_locallang_builder" Extension for TYPO3 CMS.
@@ -15,8 +16,10 @@ use TYPO3\CMS\Extbase\Mvc\ResponseInterface;
  * (c) 2021 Mark Weisgerber <mark.weisgerber@outlook.de / m.weisgerber@datamints.com>
  * ExtensionController
  */
-class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController implements \Psr\Log\LoggerAwareInterface
 {
+    use LoggerAwareTrait;
+
     const STATUS_SUCCESS = 'success';
     const STATUS_ERROR = 'danger';
 
@@ -37,6 +40,8 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
         try {
             parent::processRequest($request, $response);
         } catch (\Exception $exception) {
+            $this->logger->error($exception->getMessage());
+
             $result = $this->getDefaultViewAssigns();
             $result['status'] = self::STATUS_ERROR;
             $result['message'] = $exception->getMessage();
