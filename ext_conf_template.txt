@@ -1,0 +1,4 @@
+# cat=export/path; type=string; label=Path to storage of the export-files
+exportPath = fileadmin/datamints_locallang_builder/
+# cat=export/path; type=string; label=Path to storage of the backup-files
+backupPath = fileadmin/datamints_locallang_builder/backups/

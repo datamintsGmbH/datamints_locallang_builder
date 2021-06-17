@@ -1,4 +1,5 @@
 <?php
+
 namespace Datamints\DatamintsLocallangBuilder\Controller;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -24,14 +25,14 @@ class LocallangController extends AbstractController
 
     /**
      * Using JSon-View-Output indead of html-Templates
-     * 
+     *
      * @var string
      */
     public $defaultViewObjectName = LocallangJsonView::class;
 
     /**
      * locallangRepository
-     * 
+     *
      * @var \Datamints\DatamintsLocallangBuilder\Domain\Repository\LocallangRepository
      */
     protected $locallangRepository = null;
@@ -46,9 +47,10 @@ class LocallangController extends AbstractController
 
     /**
      * action show
-     * 
+     *
      * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang
      * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation("locallang")
+     *
      * @return string|object|null|void
      */
     public function showAction(\Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang)
@@ -59,23 +61,24 @@ class LocallangController extends AbstractController
 
     /**
      * action export
-     * 
+     *
      * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang
      * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation("locallang")
+     *
      * @return string|object|null|void
      */
     public function exportAction(\Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang)
     {
         $exportConfiguration = json_decode(GeneralUtility::_GP('data'), true);
-        if ($exportConfiguration['triggerBackup'] === true && $exportConfiguration['selectedTarget'] === 'overwrite') {
+        if($exportConfiguration['triggerBackup'] === true && $exportConfiguration['selectedTarget'] === 'overwrite') {
 
-            // Check if we have to create a backup before overwriting. Its only possible in case of overwriting extension files. When fileadmin is selected, theres no need to do that!
+            // Check if we have to create a backup before overwriting. Its only possible in case of overwriting extension files. When "custom"" is selected, theres no need to do that!
             $this->backupService->backupLocallang($locallang);
         }
 
-        // Exporting files either to fileadmin or overwriting live locallang-files
+        // Exporting files either to "custom" or overwriting live locallang-files
         $savedFiles = $this->exportService->export($locallang, $exportConfiguration);
-        if ($exportConfiguration['triggerCache'] === true && $exportConfiguration['selectedTarget'] === 'overwrite') {
+        if($exportConfiguration['triggerCache'] === true && $exportConfiguration['selectedTarget'] === 'overwrite') {
 
             // Clears cache to reload new language-files straight with the next render-call
             $this->cachesService->clearSiteCache();
@@ -85,7 +88,7 @@ class LocallangController extends AbstractController
 
     /**
      * action list
-     * 
+     *
      * @return string|object|null|void
      */
     public function listAction()
@@ -96,7 +99,7 @@ class LocallangController extends AbstractController
 
     /**
      * action new
-     * 
+     *
      * @return string|object|null|void
      */
     public function newAction()
@@ -105,8 +108,9 @@ class LocallangController extends AbstractController
 
     /**
      * action create
-     * 
+     *
      * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $newLocallang
+     *
      * @return string|object|null|void
      */
     public function createAction(\Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $newLocallang)
@@ -118,9 +122,10 @@ class LocallangController extends AbstractController
 
     /**
      * action edit
-     * 
+     *
      * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang
      * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation("locallang")
+     *
      * @return string|object|null|void
      */
     public function editAction(\Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang)
@@ -130,8 +135,9 @@ class LocallangController extends AbstractController
 
     /**
      * action update
-     * 
+     *
      * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang
+     *
      * @return string|object|null|void
      */
     public function updateAction(\Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang)
@@ -143,8 +149,9 @@ class LocallangController extends AbstractController
 
     /**
      * action delete
-     * 
+     *
      * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang
+     *
      * @return string|object|null|void
      */
     public function deleteAction(\Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang)
