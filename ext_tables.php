@@ -39,3 +39,11 @@ call_user_func(static function () {
 
 });
 ## EXTENSION BUILDER DEFAULTS END TOKEN - Everything BEFORE this line is overwritten with the defaults of the extension builder
+$GLOBALS['TYPO3_CONF_VARS']['LOG']['Tx']['Foo']['writerConfiguration'] = [
+    // configuration for ERROR level log entries
+    \TYPO3\CMS\Core\Log\LogLevel::INFO => [
+        \TYPO3\CMS\Core\Log\Writer\FileWriter::class => [
+            'logFile' => \TYPO3\CMS\Core\Core\Environment::getVarPath() . '/log/datamints_locallang_builder.log',
+        ],
+    ],
+];
