@@ -16,6 +16,7 @@ For Editors
 - At the bottom of the translation you can also have another language created for this entry.
 - Completely new keys can be created using the action bar. A modal window will open in which you define the value of the standard language and into which language this value should be translated.
 - When you are done with everything, you can trigger an export in the action bar. Here you can choose where the export should be saved.
+
 It is possible for this export to overwrite the extension files directly or to use an intermediate directory.
 If you are unsure, you can also have a backup of the previous translations made.
 

@@ -33,10 +33,13 @@ class ApplicationController extends AbstractController
      */
     public function mainAction()
     {
+        $extensionVersion = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getExtensionVersion($this->request->getControllerExtensionKey());
         $this->logger->info("Opened the translate-module.");
         $this->view->assignMultiple([
+            'version' => $extensionVersion,
             'config' => \json_encode( // Add everything config related stuff to give vue access to it
                 [
+                    'version' => $extensionVersion,
                     'provider' => $this->providerService->getConfiguredProvider(),
                     'gitUrl' => $this->settings['vue']['git_url'],
                     'documentationUrl' => $this->settings['vue']['documentation_url'],

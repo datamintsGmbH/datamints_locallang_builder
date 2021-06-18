@@ -5,10 +5,10 @@
     <f:layout name="BackendModule"/>
     <f:section name="Main">
         <f:comment><!--We dont need further beautifiers etc. so we include vue directly--></f:comment>
-        <link href="{f:uri.resource(path:'VueGenerated/css/app.css')}" media="all"
+        <link href="{f:uri.resource(path:'VueGenerated/css/app.css')}?v={version}" media="all"
               rel="stylesheet" type="text/css"/>
-        <link as="script" href="{f:uri.resource(path:'VueGenerated/js/app.js')}" rel="preload">
-        <link as="script" href="{f:uri.resource(path:'VueGenerated/js/chunk-vendors.js')}"
+        <link as="script" href="{f:uri.resource(path:'VueGenerated/js/app.js')}?v={version}" rel="preload">
+        <link as="script" href="{f:uri.resource(path:'VueGenerated/js/chunk-vendors.js')}?v={version}"
               rel="preload">
         <f:comment><!--TODO - Get rid of fontawesome and open sans--></f:comment>
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
@@ -34,8 +34,8 @@
         </div>
         <div id="app"></div>
 
-        <script src="{f:uri.resource(path:'VueGenerated/js/chunk-vendors.js')}"></script>
-        <script src="{f:uri.resource(path:'VueGenerated/js/app.js')}"></script>
+        <script src="{f:uri.resource(path:'VueGenerated/js/chunk-vendors.js')}?v={version}"></script>
+        <script src="{f:uri.resource(path:'VueGenerated/js/app.js')}?v={version}"></script>
     </f:section>
 
 
