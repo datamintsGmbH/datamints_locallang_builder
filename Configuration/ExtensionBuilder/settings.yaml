@@ -41,14 +41,14 @@
 
 overwriteSettings :
   Classes           :
-    Controller: merge
+    Controller: keep
     Domain    :
       Model     : merge
       Repository: merge
 
   Configuration     :
     TCA       :
-      Overrides                                           : merge
+      Overrides                                                    : merge
       tx_datamintslocallangbuilder_domain_model_locallangexport.php: keep
     TypoScript: merge
   Documentation.tmpl: keep
@@ -64,9 +64,9 @@ overwriteSettings :
         Templates: merge
     Public :
       Icons:
-        user_mod_translate.svg                          : keep
-        Extension.svg                                   : keep
-        favicon.ico                                     : keep
+        user_mod_translate.svg                                   : keep
+        Extension.svg                                            : keep
+        favicon.ico                                              : keep
         tx_datamintslocallangbuilder_domain_model_extension.gif  : keep
         tx_datamintslocallangbuilder_domain_model_locallang.gif  : keep
         tx_datamintslocallangbuilder_domain_model_translation.gif: keep
@@ -86,7 +86,7 @@ declareStrictTypes: false
   #staticDateInXliffFiles: 2021-04-05T12:01:00Z
 
   ## skip docComment (license header) ##
-  #skipDocComment
+#skipDocComment
 
 ## list of error codes for warnings that should be ignored ##
 #ignoreWarnings:

@@ -53,14 +53,12 @@ class ExtensionController extends AbstractController
     {
         if($this->cachesService->has('extensionListResponse')) {
             $this->logger->info("Creating or refreshing the extension-cache.");
-
             $cacheContent = json_decode($this->cachesService->get('extensionListResponse'), true);
             foreach ($cacheContent as $fieldKey => $fieldValue) {
                 $this->view->assign($fieldKey, $fieldValue);
             }
         } else {
             $this->logger->info("Forwarding the extension-cache");
-
             $extensionList = $this->extensionService->getExtensionManifest($this->fileService->getExtensionsList());
             $this->view->assign('message', count($extensionList) . ' active extensions have been loaded');
             $this->view->assign('data', $extensionList);

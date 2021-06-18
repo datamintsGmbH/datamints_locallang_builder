@@ -65,7 +65,6 @@ class LocallangController extends AbstractController
     public function exportAction(\Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang)
     {
         $this->logger->info("Triggering export of locallang-file " . $locallang->getFilename() . ' with uid ' . $locallang->getUid());
-
         $exportConfiguration = json_decode(GeneralUtility::_GP('data'), true);
         if($exportConfiguration['triggerBackup'] === true && $exportConfiguration['selectedTarget'] === 'overwrite') {
 
@@ -80,7 +79,6 @@ class LocallangController extends AbstractController
             // Clears cache to reload new language-files straight with the next render-call
             $this->cachesService->clearSiteCache();
             $this->logger->info("Cleared site cache");
-
         }
         $this->view->assign('message', 'Exported files were saved to: ' . implode('; ', $savedFiles));
     }
@@ -104,7 +102,6 @@ class LocallangController extends AbstractController
     public function newAction()
     {
     }
-
 
     /**
      * action edit
