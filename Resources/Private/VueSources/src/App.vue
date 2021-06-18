@@ -21,7 +21,7 @@
                         <a v-b-tooltip.hover :href="getGitUrl" class="text-white" target="_blank" title="Open Github">
                             <logo-github-icon class="mr-4" height="16px" width="16px"></logo-github-icon>
                         </a>
-                        © Mark Weisgerber - version 10.0.12</small>
+                        © Mark Weisgerber - version {{ getExtensionVersion }}</small>
                 </b-col>
             </b-row>
         </footer>
@@ -38,7 +38,7 @@ import SplashScreen from "./components/App/SplashScreen.vue";
 import ExtensionList from "./components/App/Extensions/ExtensionList.vue";
 import DashboardContent from "./components/App/DashboardContent.vue";
 
-Vue.config.devtools = true;
+//Vue.config.devtools = true;
 Vue.use(BVToastPlugin);
 
 export default {
@@ -65,6 +65,9 @@ export default {
         },
         getGitUrl() {
             return this.$store.getters.config.gitUrl;
+        },
+        getExtensionVersion() {
+            return this.$store.getters.config.version;
         },
     },
     mounted() {

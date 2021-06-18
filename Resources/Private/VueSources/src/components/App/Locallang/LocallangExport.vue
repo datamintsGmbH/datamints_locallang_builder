@@ -31,7 +31,7 @@
                                 <b-form-group content-cols-lg="7" content-cols-sm label-class="pt-0" label-cols-lg="4" label-cols-sm="4">
                                     <template #label>
                                         <b-link v-b-tooltip.hover class="text-dark" href="#disabled"
-                                                title="Select the output target. Its the easiest way to overwrite the current locallang-file, but it's also possible to export to fileadmin/locallang-builder/">
+                                                title="Select the output target. Its the easiest way to overwrite the current locallang-file, but it's also possible to export to a custom folder defined in the extension-settings">
                                             Target
                                         </b-link>
                                     </template>
@@ -47,7 +47,7 @@
                                               label-cols-lg="4" label-cols-sm="4">
                                     <template #label>
                                         <b-link v-b-tooltip.hover class="text-dark" href="#disabled"
-                                                title="Creates backup of the old file, when selected. The file gets copied to /fileadmin/locallang-builder/">
+                                                title="Creates backup of the previous files, when selected. The files get copied to a custom folder defined in the extension-settings">
                                             Create backup
                                         </b-link>
                                     </template>
@@ -99,7 +99,7 @@ export default {
                     value: "overwrite",
                 },
                 {
-                    text: "Fileadmin",
+                    text: "Custom Path",
                     value: "fileadmin",
                 },
             ],

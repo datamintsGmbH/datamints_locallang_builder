@@ -46,7 +46,7 @@ export default {
                     .dispatch("addTranslationValue", {
                         uid: this.translationDTO.translationUid,
                         data: JSON.stringify({
-                            value: newObjectLanguages[newObjectLanguage],
+                            value: [newObjectLanguages[newObjectLanguage]],
                             autoTranslate: newObjectAutoTranslate,
                             textToTranslate: this.translationDTO.defaultValue,
                         }),

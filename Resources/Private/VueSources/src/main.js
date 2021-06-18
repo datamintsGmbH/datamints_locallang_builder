@@ -27,7 +27,7 @@ import ReloadIcon from './assets/icons/reload'
 import Dashboard from './plugins/dashboard-plugin'
 
 Vue.config.productionTip = false
-Vue.config.devtools = true;
+//Vue.config.devtools = true;
 
 // Adding icons globally
 Vue.component('key-icon', KeyIcon);
