@@ -6,6 +6,13 @@
 Change log
 ==========
 
+Version 1.0.5
+-------------
+
+- Switched to the native TYPO3 Logging instead of own implementation
+- fixed some documentation-stuff
+- locked auto-translate when there is no provider configured. Instead a info will be given.
+
 Version 1.0.4
 -------------
 
