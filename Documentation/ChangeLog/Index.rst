@@ -6,6 +6,11 @@
 Change log
 ==========
 
+Version 1.0.6
+-------------
+
+- Hotfix for invalid flag-paths (en.svg etc.)
+
 Version 1.0.5
 -------------
 
