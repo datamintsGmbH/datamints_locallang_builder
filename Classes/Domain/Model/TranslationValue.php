@@ -209,7 +209,7 @@ class TranslationValue extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @return void
      */
-    public function setApproved($approved)
+    public function setApproved(bool $approved)
     {
         $this->approved = $approved;
     }

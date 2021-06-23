@@ -6,6 +6,11 @@
 Change log
 ==========
 
+Version 1.0.9
+-------------
+
+- fixed read-process for the approved attribute (thanks @opi99 https://github.com/datamintsGmbH/datamints_locallang_builder/issues/3)
+
 Version 1.0.8
 -------------
 
