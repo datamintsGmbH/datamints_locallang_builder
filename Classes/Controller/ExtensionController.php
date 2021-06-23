@@ -22,7 +22,6 @@ class ExtensionController extends AbstractController
     use FileServiceTrait;
     use \Datamints\DatamintsLocallangBuilder\Domain\Repository\Traits\ExtensionRepositoryTrait;
     use \Datamints\DatamintsLocallangBuilder\Services\Traits\CachesServiceTrait;
-    use \Datamints\DatamintsLocallangBuilder\Domain\Repository\Traits\ExtensionRepositoryTrait;
 
     /**
      * Using JSon-View-Output indead of html-Templates
