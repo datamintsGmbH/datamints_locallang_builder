@@ -6,6 +6,12 @@
 Change log
 ==========
 
+Version 1.0.7
+-------------
+
+- Added fallback when a file does not contain a target-language attribute while scanning those. Instead we fetch the language code from the filename
+
+
 Version 1.0.6
 -------------
 

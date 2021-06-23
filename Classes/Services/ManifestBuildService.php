@@ -103,7 +103,7 @@ class ManifestBuildService extends AbstractService
                 $this->tempLocallangs[] = $locallang; // Adding it to temp locallang-cache, to loop through it in the next step, so the customLocallang can find its parent
 
                 // Getting the translations / file content
-                $this->getTranslationPart($locallang, $locallang->getPath());
+                $this->getTranslationPart($locallang, $locallang->getPath(), true);
             }
         }
     }
@@ -126,10 +126,11 @@ class ManifestBuildService extends AbstractService
     /**
      * Creates locallang-entities related to an extension. It wont check, if the entity is already existing, because extension entities are unique, so it shouldnt be possible for duplicates
      *
-     * @param $extension Extension
-     * @param $path      string
+     * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang
+     * @param                                                             $path              string
+     * @param bool                                                        $isDefaultLanguage Whether the given locallang is related to the default language (en) or not
      */
-    protected function getTranslationPart(Locallang $locallang, $path)
+    protected function getTranslationPart(Locallang $locallang, $path, $isDefaultLanguage = false)
     {
         $path = GeneralUtility::getFileAbsFileName($path);
         /** @var DOMElement $fileDOM */
@@ -139,8 +140,15 @@ class ManifestBuildService extends AbstractService
             return;
         }
         try {
-            $targetLanguage = $fileDOM->getAttribute('target-language');
             $sourceLanguage = $fileDOM->getAttribute('source-language');
+
+            if($fileDOM->hasAttribute('target-language')) {
+                $targetLanguage = $fileDOM->getAttribute('target-language');
+            } else if(!$isDefaultLanguage) {
+
+                // Fallback when the file does not contain a target-language attribute. Instead we fetch the language code from the filename of the path (NOT from the locallang-file, because its already the generic one without language-prefix!)
+                $targetLanguage = LanguageUtility::getLanguageByFilename(pathinfo($path)['filename']);
+            }
         } catch (Exception $e) {
             $locallang->setInvalidFormat(true);
             return;
@@ -191,6 +199,7 @@ class ManifestBuildService extends AbstractService
             $pathinfo = pathinfo($locallangFilePath);
             if(!LanguageUtility::isDefaultLanguageFile($pathinfo['filename'])) {
                 foreach ($this->tempLocallangs as $tempLocallang) {
+                    // Checking all already temporarily created locallang-objects, if this custom one can be assigned to it. It must have one entry because the order for custom locallang-files is beyond the default ones.
                     if(
                         $tempLocallang->getRelatedExtension() === $extension &&
                         $tempLocallang->getPath() === LanguageUtility::getDefaultLanguagePath($extension->getPath() . self::EXTENSION_LANGUAGE_PATH . $locallangFilePath)
