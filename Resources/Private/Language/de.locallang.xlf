@@ -4,7 +4,7 @@
 		<header/>
 		<body>
 			<!---Login-->
-			<trans-unit id="tx_locallangbuilder_domain_model_extension">
+			<trans-unit id="tx_datamintslocallangbuilder_domain_model_extension">
 				<target state="translated">Erweiterung</target>
 			</trans-unit>
 		</body>

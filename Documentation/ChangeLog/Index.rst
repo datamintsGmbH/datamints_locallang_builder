@@ -10,7 +10,9 @@ Version 1.0.7
 -------------
 
 - Added fallback when a file does not contain a target-language attribute while scanning those. Instead we fetch the language code from the filename
-
+- hotfix for wrong format of api-request;
+- changed order of alert-component when a critical error occurs
+- Modified the locallang-prefixes to match the ident "datamintslocallangbuilder" instead of the old extension ident "locallangbuilder"
 
 Version 1.0.6
 -------------
