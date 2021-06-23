@@ -1,40 +1,52 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-<f:layout name="Default" />
+<html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+<f:layout name="Default"/>
 
 This template is responsible for creating a table of domain objects.
 
 If you modify this template, do not forget to change the overwrite settings
 in /Configuration/ExtensionBuilder/settings.yaml:
-  Resources:
-    Private:
-      Backend:
-        Templates:
-          Locallang:
-            List.html: keep
+Resources:
+Private:
+Backend:
+Templates:
+Locallang:
+List.html: keep
 
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="content">
     <h1>Listing for Locallang</h1>
 
-    <f:flashMessages />
+    <f:flashMessages/>
 
-    <table  class="tx_locallangbuilder" >
+    <table class="tx_datamintslocallangbuilder">
         <tr>
-            <th><f:translate key="tx_locallangbuilder_domain_model_locallang.filename" /></th>
-            <th><f:translate key="tx_locallangbuilder_domain_model_locallang.path" /></th>
-            <th> </th>
-            <th> </th>
+            <th>
+                <f:translate key="tx_datamintslocallangbuilder_domain_model_locallang.filename"/>
+            </th>
+            <th>
+                <f:translate key="tx_datamintslocallangbuilder_domain_model_locallang.path"/>
+            </th>
+            <th></th>
+            <th></th>
         </tr>
 
-        <f:for each="{locallangs}" as="locallang">
+        <f:for as="locallang" each="{locallangs}">
             <tr>
-                <td><f:link.action action="show" arguments="{locallang : locallang}"> {locallang.filename}</f:link.action></td>
-                <td><f:link.action action="show" arguments="{locallang : locallang}"> {locallang.path}</f:link.action></td>
-                <td><f:link.action action="edit" arguments="{locallang : locallang}">Edit</f:link.action></td>
-                <td><f:link.action action="delete" arguments="{locallang : locallang}">Delete</f:link.action></td>
+                <td>
+                    <f:link.action action="show" arguments="{locallang : locallang}"> {locallang.filename}</f:link.action>
+                </td>
+                <td>
+                    <f:link.action action="show" arguments="{locallang : locallang}"> {locallang.path}</f:link.action>
+                </td>
+                <td>
+                    <f:link.action action="edit" arguments="{locallang : locallang}">Edit</f:link.action>
+                </td>
+                <td>
+                    <f:link.action action="delete" arguments="{locallang : locallang}">Delete</f:link.action>
+                </td>
             </tr>
-            </f:for>
+        </f:for>
     </table>
 
     <f:link.action action="new">New Locallang</f:link.action>

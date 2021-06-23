@@ -1,122 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff version="1.0">
-  <file source-language="en" datatype="plaintext" original="EXT:datamints_locallang_builder/Resources/Private/Language/locallang_db" date="2021-05-0511:02:11Z" product-name="locallang_builder" target-language="de">
-    <header>
-      <!--This translation file was generated automatically by the "locallang_builder" extension. Please note that changes to this file can be lost the next time someone triggers an export in the TYPO3 Backend-module-->
-    </header>
-    <body>
-      <trans-unit id="tx_locallangbuilder_domain_model_extension" resname="tx_locallangbuilder_domain_model_extension">
-        <source>Extension</source>
-        <target>Erweiterung</target>
-      </trans-unit>
-      <trans-unit id="tx_locallangbuilder_domain_model_extension" resname="tx_locallangbuilder_domain_model_extension">
-        <source>Extension</source>
-        <target>Erweiterung</target>
-      </trans-unit>
-      <trans-unit id="tx_locallangbuilder_domain_model_extension.name" resname="tx_locallangbuilder_domain_model_extension.name">
-        <source>Name</source>
-        <target>Name</target>
-      </trans-unit>
-      <trans-unit id="tx_locallangbuilder_domain_model_extension.name" resname="tx_locallangbuilder_domain_model_extension.name">
-        <source>Name</source>
-        <target>Name</target>
-      </trans-unit>
-      <trans-unit id="tx_locallangbuilder_domain_model_extension.path" resname="tx_locallangbuilder_domain_model_extension.path">
-        <source>Path</source>
-        <target>Pfad</target>
-      </trans-unit>
-      <trans-unit id="tx_locallangbuilder_domain_model_extension.path" resname="tx_locallangbuilder_domain_model_extension.path">
-        <source>Path</source>
-        <target>Pfad</target>
-      </trans-unit>
-      <trans-unit id="tx_locallangbuilder_domain_model_extension.local" resname="tx_locallangbuilder_domain_model_extension.local">
-        <source>Is local extension</source>
-        <target>Ist lokale Erweiterung</target>
-      </trans-unit>
-      <trans-unit id="tx_locallangbuilder_domain_model_extension.local" resname="tx_locallangbuilder_domain_model_extension.local">
-        <source>Is local extension</source>
-        <target>Ist lokale Erweiterung</target>
-      </trans-unit>
-      <trans-unit id="tx_locallangbuilder_domain_model_extension.locallangs" resname="tx_locallangbuilder_domain_model_extension.locallangs">
-        <source>Related locallangs</source>
-        <target>Zugehörige locallangs</target>
-      </trans-unit>
-      <trans-unit id="tx_locallangbuilder_domain_model_extension.locallangs" resname="tx_locallangbuilder_domain_model_extension.locallangs">
-        <source>Related locallangs</source>
-        <target>Zugehörige locallangs</target>
-      </trans-unit>
-      <trans-unit id="tx_locallangbuilder_domain_model_locallang" resname="tx_locallangbuilder_domain_model_locallang">
-        <source>Locallang-Reference</source>
-        <target>Locallang-Referenz</target>
-      </trans-unit>
-      <trans-unit id="tx_locallangbuilder_domain_model_locallang" resname="tx_locallangbuilder_domain_model_locallang">
-        <source>Locallang-Reference</source>
-        <target>Locallang-Referenz</target>
-      </trans-unit>
-      <trans-unit id="tx_locallangbuilder_domain_model_locallang.filename" resname="tx_locallangbuilder_domain_model_locallang.filename">
-        <source>Filename</source>
-        <target>Dateiname</target>
-      </trans-unit>
-      <trans-unit id="tx_locallangbuilder_domain_model_locallang.filename" resname="tx_locallangbuilder_domain_model_locallang.filename">
-        <source>Filename</source>
-        <target>Dateiname</target>
-      </trans-unit>
-      <trans-unit id="tx_locallangbuilder_domain_model_locallang.path" resname="tx_locallangbuilder_domain_model_locallang.path">
-        <source>Path</source>
-        <target>Pfad</target>
-      </trans-unit>
-      <trans-unit id="tx_locallangbuilder_domain_model_locallang.path" resname="tx_locallangbuilder_domain_model_locallang.path">
-        <source>Path</source>
-        <target>Pfad</target>
-      </trans-unit>
-      <trans-unit id="tx_locallangbuilder_domain_model_locallang.translations" resname="tx_locallangbuilder_domain_model_locallang.translations">
-        <source>Translations</source>
-        <target>Übersetzungen</target>
-      </trans-unit>
-      <trans-unit id="tx_locallangbuilder_domain_model_locallang.translations" resname="tx_locallangbuilder_domain_model_locallang.translations">
-        <source>Translations</source>
-        <target>Übersetzungen</target>
-      </trans-unit>
-      <trans-unit id="tx_locallangbuilder_domain_model_locallang.related_extension" resname="tx_locallangbuilder_domain_model_locallang.related_extension">
-        <source>Related Extension</source>
-        <target>Zugehörige Erweiterung</target>
-      </trans-unit>
-      <trans-unit id="tx_locallangbuilder_domain_model_locallang.related_extension" resname="tx_locallangbuilder_domain_model_locallang.related_extension">
-        <source>Related Extension</source>
-        <target>Zugehörige Erweiterung</target>
-      </trans-unit>
-      <trans-unit id="tx_locallangbuilder_domain_model_translation" resname="tx_locallangbuilder_domain_model_translation">
-        <source>Translation</source>
-        <target>Übersetzung</target>
-      </trans-unit>
-      <trans-unit id="tx_locallangbuilder_domain_model_translation" resname="tx_locallangbuilder_domain_model_translation">
-        <source>Translation</source>
-        <target>Übersetzung</target>
-      </trans-unit>
-      <trans-unit id="tx_locallangbuilder_domain_model_translation.translation_key" resname="tx_locallangbuilder_domain_model_translation.translation_key">
-        <source>Translation Key</source>
-        <target>Übersetzungsschlüssel</target>
-      </trans-unit>
-      <trans-unit id="tx_locallangbuilder_domain_model_translation.translation_key" resname="tx_locallangbuilder_domain_model_translation.translation_key">
-        <source>Translation Key</source>
-        <target>Übersetzungsschlüssel</target>
-      </trans-unit>
-      <trans-unit id="tx_locallangbuilder_domain_model_translation.translation_values" resname="tx_locallangbuilder_domain_model_translation.translation_values">
-        <source>Translation Values</source>
-        <target>Übersetzungswerte</target>
-      </trans-unit>
-      <trans-unit id="tx_locallangbuilder_domain_model_translation.translation_values" resname="tx_locallangbuilder_domain_model_translation.translation_values">
-        <source>Translation Values</source>
-        <target>Übersetzungswerte</target>
-      </trans-unit>
-      <trans-unit id="tx_locallangbuilder_domain_model_translation.related_locallang" resname="tx_locallangbuilder_domain_model_translation.related_locallang">
-        <source>Related Locallang</source>
-        <target>Zugehörige Locallang</target>
-      </trans-unit>
-      <trans-unit id="tx_locallangbuilder_domain_model_translation.related_locallang" resname="tx_locallangbuilder_domain_model_translation.related_locallang">
-        <source>Related Locallang</source>
-        <target>Zugehörige Locallang</target>
-      </trans-unit>
-    </body>
-  </file>
+	<file source-language="en" datatype="plaintext" original="EXT:datamints_locallang_builder/Resources/Private/Language/locallang_db" date="2021-05-0511:02:11Z" product-name="locallang_builder" target-language="de">
+		<header>
+			<!--This translation file was generated automatically by the "locallang_builder" extension. Please note that changes to this file can be lost the next time someone triggers an export in the TYPO3 Backend-module-->
+		</header>
+		<body>
+			<trans-unit id="tx_datamintslocallangbuilder_domain_model_extension" resname="tx_datamintslocallangbuilder_domain_model_extension">
+				<source>Extension</source>
+				<target>Erweiterung</target>
+			</trans-unit>
+			<trans-unit id="tx_datamintslocallangbuilder_domain_model_extension" resname="tx_datamintslocallangbuilder_domain_model_extension">
+				<source>Extension</source>
+				<target>Erweiterung</target>
+			</trans-unit>
+			<trans-unit id="tx_datamintslocallangbuilder_domain_model_extension.name" resname="tx_datamintslocallangbuilder_domain_model_extension.name">
+				<source>Name</source>
+				<target>Name</target>
+			</trans-unit>
+			<trans-unit id="tx_datamintslocallangbuilder_domain_model_extension.name" resname="tx_datamintslocallangbuilder_domain_model_extension.name">
+				<source>Name</source>
+				<target>Name</target>
+			</trans-unit>
+			<trans-unit id="tx_datamintslocallangbuilder_domain_model_extension.path" resname="tx_datamintslocallangbuilder_domain_model_extension.path">
+				<source>Path</source>
+				<target>Pfad</target>
+			</trans-unit>
+			<trans-unit id="tx_datamintslocallangbuilder_domain_model_extension.path" resname="tx_datamintslocallangbuilder_domain_model_extension.path">
+				<source>Path</source>
+				<target>Pfad</target>
+			</trans-unit>
+			<trans-unit id="tx_datamintslocallangbuilder_domain_model_extension.local" resname="tx_datamintslocallangbuilder_domain_model_extension.local">
+				<source>Is local extension</source>
+				<target>Ist lokale Erweiterung</target>
+			</trans-unit>
+			<trans-unit id="tx_datamintslocallangbuilder_domain_model_extension.local" resname="tx_datamintslocallangbuilder_domain_model_extension.local">
+				<source>Is local extension</source>
+				<target>Ist lokale Erweiterung</target>
+			</trans-unit>
+			<trans-unit id="tx_datamintslocallangbuilder_domain_model_extension.locallangs" resname="tx_datamintslocallangbuilder_domain_model_extension.locallangs">
+				<source>Related locallangs</source>
+				<target>Zugehörige locallangs</target>
+			</trans-unit>
+			<trans-unit id="tx_datamintslocallangbuilder_domain_model_extension.locallangs" resname="tx_datamintslocallangbuilder_domain_model_extension.locallangs">
+				<source>Related locallangs</source>
+				<target>Zugehörige locallangs</target>
+			</trans-unit>
+			<trans-unit id="tx_datamintslocallangbuilder_domain_model_locallang" resname="tx_datamintslocallangbuilder_domain_model_locallang">
+				<source>Locallang-Reference</source>
+				<target>Locallang-Referenz</target>
+			</trans-unit>
+			<trans-unit id="tx_datamintslocallangbuilder_domain_model_locallang" resname="tx_datamintslocallangbuilder_domain_model_locallang">
+				<source>Locallang-Reference</source>
+				<target>Locallang-Referenz</target>
+			</trans-unit>
+			<trans-unit id="tx_datamintslocallangbuilder_domain_model_locallang.filename" resname="tx_datamintslocallangbuilder_domain_model_locallang.filename">
+				<source>Filename</source>
+				<target>Dateiname</target>
+			</trans-unit>
+			<trans-unit id="tx_datamintslocallangbuilder_domain_model_locallang.filename" resname="tx_datamintslocallangbuilder_domain_model_locallang.filename">
+				<source>Filename</source>
+				<target>Dateiname</target>
+			</trans-unit>
+			<trans-unit id="tx_datamintslocallangbuilder_domain_model_locallang.path" resname="tx_datamintslocallangbuilder_domain_model_locallang.path">
+				<source>Path</source>
+				<target>Pfad</target>
+			</trans-unit>
+			<trans-unit id="tx_datamintslocallangbuilder_domain_model_locallang.path" resname="tx_datamintslocallangbuilder_domain_model_locallang.path">
+				<source>Path</source>
+				<target>Pfad</target>
+			</trans-unit>
+			<trans-unit id="tx_datamintslocallangbuilder_domain_model_locallang.translations" resname="tx_datamintslocallangbuilder_domain_model_locallang.translations">
+				<source>Translations</source>
+				<target>Übersetzungen</target>
+			</trans-unit>
+			<trans-unit id="tx_datamintslocallangbuilder_domain_model_locallang.translations" resname="tx_datamintslocallangbuilder_domain_model_locallang.translations">
+				<source>Translations</source>
+				<target>Übersetzungen</target>
+			</trans-unit>
+			<trans-unit id="tx_datamintslocallangbuilder_domain_model_locallang.related_extension" resname="tx_datamintslocallangbuilder_domain_model_locallang.related_extension">
+				<source>Related Extension</source>
+				<target>Zugehörige Erweiterung</target>
+			</trans-unit>
+			<trans-unit id="tx_datamintslocallangbuilder_domain_model_locallang.related_extension" resname="tx_datamintslocallangbuilder_domain_model_locallang.related_extension">
+				<source>Related Extension</source>
+				<target>Zugehörige Erweiterung</target>
+			</trans-unit>
+			<trans-unit id="tx_datamintslocallangbuilder_domain_model_translation" resname="tx_datamintslocallangbuilder_domain_model_translation">
+				<source>Translation</source>
+				<target>Übersetzung</target>
+			</trans-unit>
+			<trans-unit id="tx_datamintslocallangbuilder_domain_model_translation" resname="tx_datamintslocallangbuilder_domain_model_translation">
+				<source>Translation</source>
+				<target>Übersetzung</target>
+			</trans-unit>
+			<trans-unit id="tx_datamintslocallangbuilder_domain_model_translation.translation_key" resname="tx_datamintslocallangbuilder_domain_model_translation.translation_key">
+				<source>Translation Key</source>
+				<target>Übersetzungsschlüssel</target>
+			</trans-unit>
+			<trans-unit id="tx_datamintslocallangbuilder_domain_model_translation.translation_key" resname="tx_datamintslocallangbuilder_domain_model_translation.translation_key">
+				<source>Translation Key</source>
+				<target>Übersetzungsschlüssel</target>
+			</trans-unit>
+			<trans-unit id="tx_datamintslocallangbuilder_domain_model_translation.translation_values" resname="tx_datamintslocallangbuilder_domain_model_translation.translation_values">
+				<source>Translation Values</source>
+				<target>Übersetzungswerte</target>
+			</trans-unit>
+			<trans-unit id="tx_datamintslocallangbuilder_domain_model_translation.translation_values" resname="tx_datamintslocallangbuilder_domain_model_translation.translation_values">
+				<source>Translation Values</source>
+				<target>Übersetzungswerte</target>
+			</trans-unit>
+			<trans-unit id="tx_datamintslocallangbuilder_domain_model_translation.related_locallang" resname="tx_datamintslocallangbuilder_domain_model_translation.related_locallang">
+				<source>Related Locallang</source>
+				<target>Zugehörige Locallang</target>
+			</trans-unit>
+			<trans-unit id="tx_datamintslocallangbuilder_domain_model_translation.related_locallang" resname="tx_datamintslocallangbuilder_domain_model_translation.related_locallang">
+				<source>Related Locallang</source>
+				<target>Zugehörige Locallang</target>
+			</trans-unit>
+		</body>
+	</file>
 </xliff>

@@ -1,40 +1,52 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-<f:layout name="Default" />
+<html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+<f:layout name="Default"/>
 
 This template is responsible for creating a table of domain objects.
 
 If you modify this template, do not forget to change the overwrite settings
 in /Configuration/ExtensionBuilder/settings.yaml:
-  Resources:
-    Private:
-      Backend:
-        Templates:
-          Extension:
-            List.html: keep
+Resources:
+Private:
+Backend:
+Templates:
+Extension:
+List.html: keep
 
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="content">
     <h1>Listing for Extension</h1>
 
-    <f:flashMessages />
+    <f:flashMessages/>
 
-    <table  class="tx_locallangbuilder" >
+    <table class="tx_datamintslocallangbuilder">
         <tr>
-            <th><f:translate key="tx_locallangbuilder_domain_model_extension.name" /></th>
-            <th><f:translate key="tx_locallangbuilder_domain_model_extension.path" /></th>
-            <th> </th>
-            <th> </th>
+            <th>
+                <f:translate key="tx_datamintslocallangbuilder_domain_model_extension.name"/>
+            </th>
+            <th>
+                <f:translate key="tx_datamintslocallangbuilder_domain_model_extension.path"/>
+            </th>
+            <th></th>
+            <th></th>
         </tr>
 
-        <f:for each="{extensions}" as="extension">
+        <f:for as="extension" each="{extensions}">
             <tr>
-                <td><f:link.action action="show" arguments="{extension : extension}"> {extension.name}</f:link.action></td>
-                <td><f:link.action action="show" arguments="{extension : extension}"> {extension.path}</f:link.action></td>
-                <td><f:link.action action="edit" arguments="{extension : extension}">Edit</f:link.action></td>
-                <td><f:link.action action="delete" arguments="{extension : extension}">Delete</f:link.action></td>
+                <td>
+                    <f:link.action action="show" arguments="{extension : extension}"> {extension.name}</f:link.action>
+                </td>
+                <td>
+                    <f:link.action action="show" arguments="{extension : extension}"> {extension.path}</f:link.action>
+                </td>
+                <td>
+                    <f:link.action action="edit" arguments="{extension : extension}">Edit</f:link.action>
+                </td>
+                <td>
+                    <f:link.action action="delete" arguments="{extension : extension}">Delete</f:link.action>
+                </td>
             </tr>
-            </f:for>
+        </f:for>
     </table>
 
     <f:link.action action="new">New Extension</f:link.action>
