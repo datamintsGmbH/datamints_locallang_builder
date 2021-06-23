@@ -6,6 +6,12 @@
 Change log
 ==========
 
+Version 1.0.8
+-------------
+
+- fixed missing fields for "approved" and "xml:space" in the export-function
+- removed old deprecated tca-files when the extension had a different nam
+
 Version 1.0.7
 -------------
 
@@ -14,6 +20,7 @@ Version 1.0.7
 - changed order of alert-component when a critical error occurs
 - Modified the locallang-prefixes to match the ident "datamintslocallangbuilder" instead of the old extension ident "locallangbuilder"
 - Replaced all places where "locallangbuilder" appeared (Thanks to @opi99 )
+
 Version 1.0.6
 -------------
 
