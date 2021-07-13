@@ -48,7 +48,7 @@ class BackupService extends AbstractService
         $customPath = $this->configurationService->getExtensionConfiguration()['backupPath'];
         $absoluteFolderPathTo = GeneralUtility::getFileAbsFileName($customPath . $extensionContext . '/' . $readableDateTime->format('Y-m-d___H-i-s') . '/' . ManifestBuildService::EXTENSION_LANGUAGE_PATH);
 
-        if(!is_file(GeneralUtility::getFileAbsFileName($customPath))) { // Checking if export-folder exists. It may be that the admin changed the extension-settings recently, so a permanent check is required
+        if(!is_dir(GeneralUtility::getFileAbsFileName($customPath))) { // Checking if export-folder exists. It may be that the admin changed the extension-settings recently, so a permanent check is required
             \mkdir(GeneralUtility::getFileAbsFileName($customPath));
         }
 

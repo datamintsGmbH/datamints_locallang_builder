@@ -6,6 +6,11 @@
 Change log
 ==========
 
+Version 1.0.10
+-------------
+
+- Replaced "is_file" checks with "is_dir" checks. (Thanks to @dbunkerd )
+
 Version 1.0.9
 -------------
 

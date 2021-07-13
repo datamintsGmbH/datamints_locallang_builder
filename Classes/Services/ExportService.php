@@ -83,7 +83,7 @@ class ExportService extends AbstractService
     {
         $readableDateTime = new \DateTime();
         $customPath = $this->configurationService->getExtensionConfiguration()['exportPath'];
-        if(!is_file(GeneralUtility::getFileAbsFileName($customPath))) { // Checking if export-folder exists. It may be that the admin changed the extension-settings recently, so a permanent check is required
+        if(!is_dir(GeneralUtility::getFileAbsFileName($customPath))) { // Checking if export-folder exists. It may be that the admin changed the extension-settings recently, so a permanent check is required
             \mkdir(GeneralUtility::getFileAbsFileName($customPath));
         }
 
