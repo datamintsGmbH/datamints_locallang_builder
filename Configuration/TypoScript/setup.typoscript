@@ -18,7 +18,7 @@ module.tx_datamintslocallangbuilder_tools_datamintslocallangbuildertranslate {
 
 module.tx_datamintslocallangbuilder {
   persistence {
-    storagePid >
+    storagePid = 0
   }
 
   view {

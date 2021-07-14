@@ -41,6 +41,7 @@ class Locallang extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
      * 
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation>
      * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
      */
     protected $translations = null;
 
@@ -48,6 +49,7 @@ class Locallang extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
      * Bidirectional for easier db-queries
      * 
      * @var \Datamints\DatamintsLocallangBuilder\Domain\Model\Extension
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
      */
     protected $relatedExtension = null;
 

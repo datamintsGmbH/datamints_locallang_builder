@@ -47,6 +47,7 @@ class Translation extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity impleme
      * 
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Datamints\DatamintsLocallangBuilder\Domain\Model\TranslationValue>
      * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
      */
     protected $translationValues = null;
 
@@ -54,6 +55,7 @@ class Translation extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity impleme
      * Bidirectional for easier db-queries
      * 
      * @var \Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
      */
     protected $relatedLocallang = null;
 

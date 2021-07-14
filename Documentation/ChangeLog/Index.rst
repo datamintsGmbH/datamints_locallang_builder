@@ -6,6 +6,14 @@
 Change log
 ==========
 
+Version 1.0.11
+-------------
+
+- added lazy annotations for a much better performance
+- changed repo query to generic constraint system to avoid storage-restriction
+- compiled the vue project (improved error-handling for invalid locallang-attributes)
+- Disabled the language recognition by xliff target-language attribute because we cant always rely on the correct-value. Otherwise some files cannot be scanned. (thx Wolfang Wagner for the hint)
+
 Version 1.0.10
 -------------
 

@@ -142,13 +142,16 @@ class ManifestBuildService extends AbstractService
         try {
             $sourceLanguage = $fileDOM->getAttribute('source-language');
 
-            if($fileDOM->hasAttribute('target-language')) {
-                $targetLanguage = $fileDOM->getAttribute('target-language');
-            } else if(!$isDefaultLanguage) {
+            //            if($fileDOM->hasAttribute('target-language')) {
+            //                $targetLanguage = $fileDOM->getAttribute('target-language');
+            //            } else if(!$isDefaultLanguage) {
 
+            // You cannot rely on the correct target language being stored as an attribute in the file, so we prefer to trust the file name prefix, e.g. nl.locallang.xlf
+            if(!$isDefaultLanguage) {
                 // Fallback when the file does not contain a target-language attribute. Instead we fetch the language code from the filename of the path (NOT from the locallang-file, because its already the generic one without language-prefix!)
                 $targetLanguage = LanguageUtility::getLanguageByFilename(pathinfo($path)['filename']);
             }
+            //            }
         } catch (Exception $e) {
             $locallang->setInvalidFormat(true);
             return;

@@ -12,30 +12,31 @@ use Datamints\DatamintsLocallangBuilder\Services\Traits\ManifestBuildServiceTrai
 
 class ExtensionService extends AbstractService
 {
-	use \Datamints\DatamintsLocallangBuilder\Services\Traits\CachesServiceTrait;
+    use \Datamints\DatamintsLocallangBuilder\Services\Traits\CachesServiceTrait;
 
-	use ManifestBuildServiceTrait;
+    use ManifestBuildServiceTrait;
 
-	/**
-	 * Gets all loaded extensions and returns them
-	 *
-	 * @param array extensionsList
-	 *
-	 * @return array
-	 */
-	public function getExtensionManifest(array $extensionsList): array
-	{
+    /**
+     * Gets all loaded extensions and returns them
+     *
+     * @param array extensionsList
+     *
+     * @return array
+     */
+    public function getExtensionManifest(array $extensionsList): array
+    {
 
-		$extensionObjects = [];
-		foreach ($extensionsList as $extensionDTO) {
-			if($extensionDTO['local']) {
-				$extensionObjects[] = $this->manifestBuildService->getExtensionPart($extensionDTO);
-			}
-		}
-		if(ManifestBuildService::PERSIST) {
-			DatabaseUtility::persistAll();
-		}
+        $extensionObjects = [];
 
-		return $extensionObjects;
+        foreach ($extensionsList as $extensionDTO) {
+            if($extensionDTO['local']) {
+                $extensionObjects[] = $this->manifestBuildService->getExtensionPart($extensionDTO);
+            }
+        }
+        if(ManifestBuildService::PERSIST) {
+            DatabaseUtility::persistAll();
+        }
+
+        return $extensionObjects;
     }
 }

@@ -1,6 +1,7 @@
 <?php
 namespace Datamints\DatamintsLocallangBuilder\Domain\Repository;
 
+use Datamints\DatamintsLocallangBuilder\Domain\Model\Constraint;
 use TYPO3\CMS\Core\Database\Query\QueryBuilder;
 
 /**
@@ -18,4 +19,23 @@ class ExtensionRepository extends AbstractRepository
      * @var array
      */
     protected $defaultOrderings = ['sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING];
+
+    /**
+     * Finds one record by name
+     * 
+     * @param string $name Name of the extension-entity
+     * @return array|object|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface
+     */
+    public function findOneByName(string $name)
+    {
+        return $this->findGenericByConstraints(
+        [new Constraint(\TYPO3\CMS\Extbase\Persistence\QueryInterface::OPERATOR_EQUAL_TO, 'name', $name)], 
+        null, 
+        true, 
+        false, 
+        false, 
+        false, 
+        true
+        );
+    }
 }
