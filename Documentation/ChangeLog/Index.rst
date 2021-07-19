@@ -6,6 +6,11 @@
 Change log
 ==========
 
+Version 1.0.12
+-------------
+
+- hide Objects in List-View
+
 Version 1.0.11
 -------------
 
