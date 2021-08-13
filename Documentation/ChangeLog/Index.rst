@@ -10,6 +10,8 @@ Version 1.0.12
 -------------
 
 - hide Objects in List-View
+- removed the disable-function when waiting for a response
+- Changed the appearance of the auto-save overlay so that it is no longer so intrusive
 
 Version 1.0.11
 -------------
