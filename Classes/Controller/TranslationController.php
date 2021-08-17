@@ -1,4 +1,5 @@
 <?php
+
 namespace Datamints\DatamintsLocallangBuilder\Controller;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -24,14 +25,14 @@ class TranslationController extends AbstractController
 
     /**
      * Using JSon-View-Output indead of html-Templates
-     * 
+     *
      * @var string
      */
     public $defaultViewObjectName = TranslationJsonView::class;
 
     /**
      * translationRepository
-     * 
+     *
      * @var \Datamints\DatamintsLocallangBuilder\Domain\Repository\TranslationRepository
      */
     protected $translationRepository = null;
@@ -40,9 +41,10 @@ class TranslationController extends AbstractController
      * action update
      * Updates the given fields for a translation record
      * Not existing fields results to error-response
-     * 
+     *
      * @param Weisgerber\LocallangBuilder\Domain\Model\Translation
      * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation("translation")
+     *
      * @return string|object|null|void
      */
     public function updateAction(\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translation)
@@ -50,7 +52,7 @@ class TranslationController extends AbstractController
         $data = json_decode(GeneralUtility::_GP('data'), true);
         $message = 'The following fields have been updated: ';
         foreach ($data as $key => $changingField) {
-            if ($translation->_hasProperty($key)) {
+            if($translation->_hasProperty($key)) {
                 $translation->_setProperty($key, $changingField);
                 $message .= $key . ' ';
             } else {
@@ -66,15 +68,19 @@ class TranslationController extends AbstractController
 
     /**
      * action delete
-     * 
+     *
      * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translation
+     * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation("translation")
+     *
      * @return string|object|null|void
      */
     public function deleteAction(\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translation)
     {
-        $this->addFlashMessage('The object was deleted. Please be aware that this action is publicly accessible unless you implement an access check. See https://docs.typo3.org/typo3cms/extensions/extension_builder/User/Index.html', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
+        $uidDeleted = $translation->getUid();
         $this->translationRepository->remove($translation);
-        $this->redirect('list');
+        $this->view->assign('return', $uidDeleted);
+        $this->view->assign('data', []);
+        $this->view->assign('message', "The Entity with uid " . $uidDeleted . ' has been deleted.');
     }
 
     /**
@@ -82,15 +88,16 @@ class TranslationController extends AbstractController
      * Creates a new translation record
      * It is possible to choose the default values for "approved" and "xmlSpace". See data post.
      * It's also possible to trigger an autotranslate for the configured auto-translation provider. See docs for further instructions to get auto-translation working.
-     * 
+     *
      * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang
      * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation("locallang")
+     *
      * @return string|object|null|void
      */
     public function createAction(\Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang)
     {
         $data = json_decode(GeneralUtility::_GP('data'), true);
-        if (!$data['newObjectLanguages']) {
+        if(!$data['newObjectLanguages']) {
             throw new \Exception('The action "create" could not be executed: No language given.');
         }
 
@@ -104,7 +111,7 @@ class TranslationController extends AbstractController
             $translationValue->setNew(true);
 
             // Check if we have to autotranslate this new Object...
-            if ($data['newObjectAutoTranslate'] === true) {
+            if($data['newObjectAutoTranslate'] === true) {
                 $this->translationService->translate($translationValue, $data['newObjectValue']);
             }
         }
@@ -121,7 +128,7 @@ class TranslationController extends AbstractController
 
     /**
      * action list
-     * 
+     *
      * @return string|object|null|void
      */
     public function listAction()
@@ -132,8 +139,9 @@ class TranslationController extends AbstractController
 
     /**
      * action show
-     * 
+     *
      * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translation
+     *
      * @return string|object|null|void
      */
     public function showAction(\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translation)
@@ -143,7 +151,7 @@ class TranslationController extends AbstractController
 
     /**
      * action new
-     * 
+     *
      * @return string|object|null|void
      */
     public function newAction()
@@ -152,9 +160,10 @@ class TranslationController extends AbstractController
 
     /**
      * action edit
-     * 
+     *
      * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translation
      * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation("translation")
+     *
      * @return string|object|null|void
      */
     public function editAction(\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translation)

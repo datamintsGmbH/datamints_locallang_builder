@@ -1,4 +1,5 @@
 <?php
+
 namespace Datamints\DatamintsLocallangBuilder\Domain\Model;
 
 use JsonSerializable;
@@ -15,30 +16,28 @@ class Locallang extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
 
     /**
      * filename
-     * 
+     *
      * @var string
-     * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
      */
     protected $filename = '';
 
     /**
      * path from extension root
-     * 
+     *
      * @var string
-     * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
      */
     protected $path = '';
 
     /**
      * Flag when the scan cant fetch it's data, because theres something wrong with it
-     * 
+     *
      * @var bool
      */
     protected $invalidFormat = false;
 
     /**
      * translations
-     * 
+     *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation>
      * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
      * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
@@ -47,7 +46,7 @@ class Locallang extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
 
     /**
      * Bidirectional for easier db-queries
-     * 
+     *
      * @var \Datamints\DatamintsLocallangBuilder\Domain\Model\Extension
      * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
      */
@@ -68,7 +67,7 @@ class Locallang extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
      * Do not modify this method!
      * It will be rewritten on each save in the extension builder
      * You may modify the constructor of this class instead
-     * 
+     *
      * @return void
      */
     public function initializeObject()
@@ -78,7 +77,7 @@ class Locallang extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
 
     /**
      * Returns the path
-     * 
+     *
      * @return string path
      */
     public function getPath()
@@ -88,8 +87,9 @@ class Locallang extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
 
     /**
      * Sets the path
-     * 
+     *
      * @param string $path
+     *
      * @return void
      */
     public function setPath($path)
@@ -99,8 +99,9 @@ class Locallang extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
 
     /**
      * Adds a Translation
-     * 
+     *
      * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translation
+     *
      * @return void
      */
     public function addTranslation(\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translation)
@@ -110,8 +111,9 @@ class Locallang extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
 
     /**
      * Removes a Translation
-     * 
+     *
      * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translationToRemove The Translation to be removed
+     *
      * @return void
      */
     public function removeTranslation(\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translationToRemove)
@@ -121,7 +123,7 @@ class Locallang extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
 
     /**
      * Returns the translations
-     * 
+     *
      * @return array
      */
     public function getTranslationsArray()
@@ -129,14 +131,14 @@ class Locallang extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
 
         // Creating wrapper-object for vue-table-usage, so we dont have to map some data in vue
         return array_map(
-        function ($object) {
-            return [
-            'object' => $object, 
-            'key' => $object->getTranslationKey(), 
-            '_showDetails' => true
-            ];
-        }, 
-        $this->translations->toArray()
+            function ($object) {
+                return [
+                    'object' => $object,
+                    'key' => $object->getTranslationKey(),
+                    '_showDetails' => true,
+                ];
+            },
+            $this->translations->toArray()
         );
     }
 
@@ -147,15 +149,15 @@ class Locallang extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
     public function jsonSerialize()
     {
         return [
-        'uid' => $this->getUid(), 
-        'filename' => $this->getFilename(), 
-        'translations' => $this->getTranslations()->toArray()
+            'uid' => $this->getUid(),
+            'filename' => $this->getFilename(),
+            'translations' => $this->getTranslations()->toArray(),
         ];
     }
 
     /**
      * Returns the filename
-     * 
+     *
      * @return string filename
      */
     public function getFilename()
@@ -165,8 +167,9 @@ class Locallang extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
 
     /**
      * Sets the filename
-     * 
+     *
      * @param string $filename
+     *
      * @return void
      */
     public function setFilename($filename)
@@ -176,7 +179,7 @@ class Locallang extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
 
     /**
      * Returns the translations
-     * 
+     *
      * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation> translations
      */
     public function getTranslations()
@@ -186,8 +189,9 @@ class Locallang extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
 
     /**
      * Sets the translations
-     * 
+     *
      * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation> $translations
+     *
      * @return void
      */
     public function setTranslations(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $translations)
@@ -197,7 +201,7 @@ class Locallang extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
 
     /**
      * Returns the relatedExtension
-     * 
+     *
      * @return \Datamints\DatamintsLocallangBuilder\Domain\Model\Extension $relatedExtension
      */
     public function getRelatedExtension()
@@ -207,8 +211,9 @@ class Locallang extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
 
     /**
      * Sets the relatedExtension
-     * 
+     *
      * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Extension $relatedExtension
+     *
      * @return void
      */
     public function setRelatedExtension(\Datamints\DatamintsLocallangBuilder\Domain\Model\Extension $relatedExtension)
@@ -217,8 +222,18 @@ class Locallang extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
     }
 
     /**
+     * Returns the boolean state of invalidFormat
+     *
+     * @return bool
+     */
+    public function isInvalidFormat()
+    {
+        return $this->invalidFormat;
+    }
+
+    /**
      * Returns the invalidFormat
-     * 
+     *
      * @return bool $invalidFormat
      */
     public function getInvalidFormat()
@@ -228,22 +243,13 @@ class Locallang extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
 
     /**
      * Sets the invalidFormat
-     * 
+     *
      * @param bool $invalidFormat
+     *
      * @return void
      */
     public function setInvalidFormat($invalidFormat)
     {
         $this->invalidFormat = $invalidFormat;
-    }
-
-    /**
-     * Returns the boolean state of invalidFormat
-     * 
-     * @return bool
-     */
-    public function isInvalidFormat()
-    {
-        return $this->invalidFormat;
     }
 }

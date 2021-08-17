@@ -6,6 +6,11 @@
 Change log
 ==========
 
+Version 1.0.13
+-------------
+
+- added option to delete the whole translation-record
+
 Version 1.0.12
 -------------
 
