@@ -10,6 +10,7 @@ Version 1.0.13
 -------------
 
 - added option to delete the whole translation-record
+- moved translation-action-area to the top of the collapse-button to save some space
 
 Version 1.0.12
 -------------
