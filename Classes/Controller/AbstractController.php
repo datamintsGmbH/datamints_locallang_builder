@@ -53,6 +53,7 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
     /**
      * Default-view response vars, if the request gets canceled before execution finish
      *
+     * @return array{status: string, message: string, data:array,requestTime:int, type:string}
      * @see initializeView
      */
     protected function getDefaultViewAssigns(): array
