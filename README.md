@@ -24,6 +24,10 @@ Usage and installation:
 
 - See documentation: https://github.com/datamintsGmbH/datamints_locallang_builder/tree/master/Documentation
 
+Screenshots
+---------
+![](Documentation\Images\sample1.png "Sample 1")
+
 Used Software:
 ---------
 

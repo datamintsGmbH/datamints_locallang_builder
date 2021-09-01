@@ -27,7 +27,7 @@ datamints locallang builder
 :License:
    Please see file LICENSE.txt
 
-Provides a backend-module to translate/modify locallang-files of active extensions. It is also possible to use an auto-translate provider like Azure or DeepL
+The extension "datamints_locallang_builder" offers a backend module for translating and modifying local language files of active extensions. It is also possible to use an independent translation provider such as Azure or DeepL
 
 .. image:: Images/locallang_fp.jpg
   :target: https://www.datamints.com/
