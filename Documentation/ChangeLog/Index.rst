@@ -6,6 +6,11 @@
 Change log
 ==========
 
+Version 1.0.14
+-------------
+
+- renamed wrong file name from DeepLProvider to DeeplProvider. It didnt match the class name before
+
 Version 1.0.13
 -------------
 
