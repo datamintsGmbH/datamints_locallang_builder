@@ -17,6 +17,7 @@ class LocallangJsonView extends JsonView
             '_only' => [
                 'uid',
                 'filename',
+                'path',
                 'invalidFormat',
                 'translationsArray',
             ],
