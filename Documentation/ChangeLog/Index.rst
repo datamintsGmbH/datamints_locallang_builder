@@ -6,6 +6,11 @@
 Change log
 ==========
 
+Version 1.0.15
+-------------
+
+- new feature: Display ViewHelper Snippets for Fluid (+ inline) & Extbase-Integration
+
 Version 1.0.14
 -------------
 
