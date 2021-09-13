@@ -6,6 +6,11 @@
 Change log
 ==========
 
+Version 1.0.16
+-------------
+
+- Changed module icon
+
 Version 1.0.15
 -------------
 
