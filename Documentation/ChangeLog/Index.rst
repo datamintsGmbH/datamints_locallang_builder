@@ -6,6 +6,12 @@
 Change log
 ==========
 
+Version 1.0.17
+-------------
+
+- Removed unnecessary "required"-attribute from language-fields. It is now possible to create new keys only with the default-language.
+- Improved Layout for "New Key"-View
+
 Version 1.0.16
 -------------
 

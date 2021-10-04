@@ -97,22 +97,21 @@ class TranslationController extends AbstractController
     public function createAction(\Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang)
     {
         $data = json_decode(GeneralUtility::_GP('data'), true);
-        if(!$data['newObjectLanguages']) {
-            throw new \Exception('The action "create" could not be executed: No language given.');
-        }
 
         // Creating the blank Translation-object
         $translation = $this->translationService->createTranslation($locallang, $data['newObjectKey'], $data['newObjectValue'], $data['newObjectApproved'], $data['newObjectXmlSpace']);
         DatabaseUtility::persistAll();
 
         // Appending the TranslationValue-Objects to the Translation-Object
-        foreach ($data['newObjectLanguages'] as $language) {
-            $translationValue = $this->translationService->createTranslationValue($translation, $language, $data['newObjectApproved'], $data['newObjectXmlSpace']);
-            $translationValue->setNew(true);
+        if($data['newObjectLanguages']) {
+            foreach ($data['newObjectLanguages'] as $language) {
+                $translationValue = $this->translationService->createTranslationValue($translation, $language, $data['newObjectApproved'], $data['newObjectXmlSpace']);
+                $translationValue->setNew(true);
 
-            // Check if we have to autotranslate this new Object...
-            if($data['newObjectAutoTranslate'] === true) {
-                $this->translationService->translate($translationValue, $data['newObjectValue']);
+                // Check if we have to autotranslate this new Object...
+                if($data['newObjectAutoTranslate'] === true) {
+                    $this->translationService->translate($translationValue, $data['newObjectValue']);
+                }
             }
         }
 
