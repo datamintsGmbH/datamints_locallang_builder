@@ -7,6 +7,11 @@ Change log
 ==========
 
 
+Version 1.0.17
+-------------
+
+- Reorganized ts-constants
+
 Version 1.0.16
 -------------
 
