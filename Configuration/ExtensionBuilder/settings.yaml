@@ -50,7 +50,7 @@ overwriteSettings :
     TCA       :
       Overrides                                                    : merge
       tx_datamintslocallangbuilder_domain_model_locallangexport.php: keep
-    TypoScript: merge
+    TypoScript: keep
   Documentation.tmpl: keep
   Resources         :
     Private:
@@ -85,7 +85,7 @@ declareStrictTypes: false
   ## use static date attribute in xliff files ##
   #staticDateInXliffFiles: 2021-04-05T12:01:00Z
 
-  ## skip docComment (license header) ##
+## skip docComment (license header) ##
 #skipDocComment
 
 ## list of error codes for warnings that should be ignored ##
