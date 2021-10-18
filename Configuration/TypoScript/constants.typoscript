@@ -16,7 +16,7 @@ module.tx_datamintslocallangbuilder {
 
   settings {
     # cat=module.tx_datamintslocallangbuilder/00_Basic/100; type=string; label=Excluded extensions (you can use comma, semicolon or slash to seperate them)
-    excludedExtensions = datamints_locallangbuilder
+    excludedExtensions = datamints_locallang_builder
   }
 }
 
