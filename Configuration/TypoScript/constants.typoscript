@@ -1,20 +1,24 @@
+# customsubcategory=00_Basic=Basic
+# customsubcategory=01_Api=API-Keys
+# customsubcategory=02_Api=API-Service for Auto-Translate (Please select a maximum of one service at a time)
 
-module.tx_datamintslocallangbuilder_translate {
-    view {
-        # cat=module.tx_datamintslocallangbuilder_translate/file; type=string; label=Path to template root (BE)
-        templateRootPath = EXT:datamints_locallang_builder/Resources/Private/Backend/Templates/
-        # cat=module.tx_datamintslocallangbuilder_translate/file; type=string; label=Path to template partials (BE)
-        partialRootPath = EXT:datamints_locallang_builder/Resources/Private/Backend/Partials/
-        # cat=module.tx_datamintslocallangbuilder_translate/file; type=string; label=Path to template layouts (BE)
-        layoutRootPath = EXT:datamints_locallang_builder/Resources/Private/Backend/Layouts/
-    }
-    persistence {
-        # cat=module.tx_datamintslocallangbuilder_translate//a; type=string; label=Default storage PID
-        storagePid =
-    }
+
+module.tx_datamintslocallangbuilder {
+  view {
+    templateRootPath = EXT:datamints_locallang_builder/Resources/Private/Backend/Templates/
+    partialRootPath = EXT:datamints_locallang_builder/Resources/Private/Backend/Partials/
+    layoutRootPath = EXT:datamints_locallang_builder/Resources/Private/Backend/Layouts/
+  }
+
+  persistence {
+    storagePid =
+  }
+
+  settings {
+    # cat=module.tx_datamintslocallangbuilder/00_Basic/100; type=string; label=Excluded extensions (you can use comma, semicolon or slash to seperate them)
+    excludedExtensions = datamints_locallangbuilder
+  }
 }
-
-## EXTENSION BUILDER DEFAULTS END TOKEN - Everything BEFORE this line is overwritten with the defaults of the extension builder
 
 module.tx_datamintslocallangbuilder_tools_datamintslocallangbuildertranslate {
   settings {
@@ -23,8 +27,10 @@ module.tx_datamintslocallangbuilder_tools_datamintslocallangbuildertranslate {
       azure {
         url = https://api.cognitive.microsofttranslator.com/translate
         version = 3.0
+        # cat=module.tx_datamintslocallangbuilder/01_Api/100; type=string; label=Azure API Key
         key =
         area = global
+        # cat=module.tx_datamintslocallangbuilder/02_Api/100; type=string; label=Use Azure as Service
         active = 0
       }
 
@@ -32,8 +38,10 @@ module.tx_datamintslocallangbuilder_tools_datamintslocallangbuildertranslate {
       deepl {
         url = https://api-free.deepl.com/v2/translate
         version =
+        # cat=module.tx_datamintslocallangbuilder/01_Api/100; type=string; label=DeepL API Key
         key =
         area =
+        # cat=module.tx_datamintslocallangbuilder/02_Api/100; type=string; label=Use DeepL as Service
         active = 0
       }
 
@@ -41,8 +49,10 @@ module.tx_datamintslocallangbuilder_tools_datamintslocallangbuildertranslate {
       google {
         url = https://www.googleapis.com/language/translate
         version = v2
+        # cat=module.tx_datamintslocallangbuilder/01_Api/100; type=string; label=Google API Key
         key =
         area =
+        # cat=module.tx_datamintslocallangbuilder/02_Api/100; type=string; label=Use Google as Service
         active = 0
       }
     }
