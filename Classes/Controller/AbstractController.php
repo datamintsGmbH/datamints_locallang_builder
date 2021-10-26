@@ -25,30 +25,6 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 
     protected $entityType = null;
 
-    /**
-     * extend ProcessRequest to catch errors for a valid response
-     *
-     * @override
-     *
-     * @param \TYPO3\CMS\Extbase\Mvc\RequestInterface  $request  The request object
-     * @param \TYPO3\CMS\Extbase\Mvc\ResponseInterface $response The response, modified by this handler
-     *
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\UnsupportedRequestTypeException
-     */
-    public function processRequest(RequestInterface $request, ResponseInterface $response)
-    {
-        try {
-            parent::processRequest($request, $response);
-        } catch (\Exception $exception) {
-            $this->logger->error($exception->getMessage());
-
-            $result = $this->getDefaultViewAssigns();
-            $result['status'] = self::STATUS_ERROR;
-            $result['message'] = $exception->getMessage();
-
-            $response->appendContent(json_encode($result));
-        }
-    }
 
     /**
      * Default-view response vars, if the request gets canceled before execution finish
