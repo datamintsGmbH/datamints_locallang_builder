@@ -10,7 +10,9 @@ Change log
 Version 1.0.17
 -------------
 
-- Reorganized ts-constants
+- [Feature] You can now exclude extensions from being displayed/scanned
+- [Feature] TS constants can now be maintained in the Constant Editor
+- [Stylings] Fixed some small style issues
 
 Version 1.0.16
 -------------

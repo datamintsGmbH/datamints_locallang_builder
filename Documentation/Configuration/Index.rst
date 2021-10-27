@@ -6,7 +6,7 @@
 Configuration
 =============
 
-Please include the Static Typoscript Template, either by going to "Template -> Includes" and selecting "datamints Locallang Builder" OR by including them in the filesystem:
+Please include the Static Typoscript Template, either by going to "Template -> Includes" and selecting "datamints Locallang Builder" OR by including them in your site package:
 
 setup
 
@@ -114,13 +114,15 @@ deepl.area                              string         Not in use by DeepL
 --------------------------------------  -------------  --------------------------------------------------------------------------------------  -------------------------------------
 deepl.active                            int            Flag, if this provider is active. Keep in mind to select not more than one provider     0
 --------------------------------------  -------------  --------------------------------------------------------------------------------------  -------------------------------------
-google.url                               string         there should be no need to modify this value. It's the api-host for Google             https://www.googleapis.com/language/translate
+google.url                               string        there should be no need to modify this value. It's the api-host for Google             https://www.googleapis.com/language/translate
 --------------------------------------  -------------  --------------------------------------------------------------------------------------  -------------------------------------
-google.version                           string         API-Version number for azure                                                           v2
+google.version                           string        API-Version number for azure                                                           v2
 --------------------------------------  -------------  --------------------------------------------------------------------------------------  -------------------------------------
-google.key                               string         Your API-Key for google                                                                  <empty>
+google.key                               string        Your API-Key for google                                                                  <empty>
 --------------------------------------  -------------  --------------------------------------------------------------------------------------  -------------------------------------
-google.area                              string         Not in use by google
+google.area                              string        Not in use by google
 --------------------------------------  -------------  --------------------------------------------------------------------------------------  -------------------------------------
-google.active                            int            Flag, if this provider is active. Keep in mind to select not more than one provider     0
+google.active                            int           Flag, if this provider is active. Keep in mind to select not more than one provider     0
+--------------------------------------  -------------  --------------------------------------------------------------------------------------  -------------------------------------
+excludedExtensions                       string        Comma-separated list of extension keys to be excluded from being displayed              datamints_locallang_builder
 ======================================  =============  ======================================================================================  =====================================

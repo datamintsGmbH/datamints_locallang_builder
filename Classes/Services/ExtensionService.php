@@ -29,7 +29,7 @@ class ExtensionService extends AbstractService
         $extensionObjects = [];
 
         foreach ($extensionsList as $extensionDTO) {
-            if($extensionDTO['local']) {
+            if($extensionDTO['local'] && !$this->isExtensionKeyExcluded($extensionDTO['key'])) {
                 $extensionObjects[] = $this->manifestBuildService->getExtensionPart($extensionDTO);
             }
         }
@@ -38,5 +38,25 @@ class ExtensionService extends AbstractService
         }
 
         return $extensionObjects;
+    }
+
+    /**
+     * Checks whether the extension is excluded or not. The list is defined in TS (settings.excludedExtensions)
+     *
+     * @param string $extensionKey
+     *
+     * @return bool
+     */
+    protected function isExtensionKeyExcluded(string $extensionKey): bool
+    {
+        /** @var array $explodedExcludedExtensions */
+        $explodedExcludedExtensions = explode(',', $this->getSettings()['excludedExtensions']);
+        /** @var TYPE_NAME $explodedExcludedExtension */
+        foreach ($explodedExcludedExtensions as $explodedExcludedExtension) {
+            if(trim($extensionKey) === trim($explodedExcludedExtension)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
