@@ -57,7 +57,7 @@ class XmlExporter extends AbstractExporter
                 if($translationValue->getIdent() === $locallangExport->getLanguageCode()) { // Filter to get our desired language and skip everything else
                     $transUnitNode = $this->createTransUnitNode($dom, $translation, $translationValue->getResname());
                     $transUnitCommentNode = $sourceNode = $targetNode = null;
-                    $comment = $translation->getDefaultTranslationValue()->getComment();
+                    $comment = ($translation->getDefaultTranslationValue() ? $translation->getDefaultTranslationValue()->getComment() : '');
                     if(strlen($comment) > 0) {
                         $transUnitCommentNode = $this->createComment($dom, $comment);
                         $transUnitNode->appendChild($transUnitCommentNode); // it would be nice to have it a line above the <trans-unit> but if we do so, we can't reimport the comment anymore, because its out of scope.
@@ -214,9 +214,9 @@ class XmlExporter extends AbstractExporter
      *
      * @return DOMElement
      */
-    protected function createSourceNode(DOMDocument $dom, TranslationValue $translationValue): DOMElement
+    protected function createSourceNode(DOMDocument $dom, ?TranslationValue $translationValue): DOMElement
     {
-        $sourceNode = $dom->createElement('source', $translationValue->getValue());
+        $sourceNode = $dom->createElement('source', ($translationValue) ? $translationValue->getValue() : 'no default value found');
 
         return $sourceNode;
     }
