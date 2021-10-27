@@ -26,7 +26,7 @@ Usage and installation:
 
 Screenshots
 ---------
-![](Documentation\Images\sample1.png "Sample 1")
+![](Documentation/Images/sample1.png "Sample 1")
 
 Used Software:
 ---------
