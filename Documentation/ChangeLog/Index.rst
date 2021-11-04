@@ -7,6 +7,12 @@ Change log
 ==========
 
 
+Version 1.0.18
+-------------
+
+- [Bug] Added encoding when creating source-texts to prevent invalid file-content
+- [Bug] Fixed country-flag-paths for cs & ja
+
 Version 1.0.17
 -------------
 

@@ -216,7 +216,7 @@ class XmlExporter extends AbstractExporter
      */
     protected function createSourceNode(DOMDocument $dom, ?TranslationValue $translationValue): DOMElement
     {
-        $sourceNode = $dom->createElement('source', ($translationValue) ? $translationValue->getValue() : 'no default value found');
+        $sourceNode = $dom->createElement('source', ($translationValue) ? htmlspecialchars($translationValue->getValue()) : 'no default value found');
 
         return $sourceNode;
     }
