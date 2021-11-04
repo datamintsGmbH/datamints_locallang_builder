@@ -12,6 +12,7 @@ Version 1.0.18
 
 - [Bug] Added encoding when creating source-texts to prevent invalid file-content
 - [Bug] Fixed country-flag-paths for cs & ja
+- [Bug] Implemented security check to prevent error on export when the default-language is missing for one entry
 
 Version 1.0.17
 -------------
