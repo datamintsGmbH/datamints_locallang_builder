@@ -2,14 +2,13 @@
 
 namespace Datamints\DatamintsLocallangBuilder\Controller\Traits;
 
-trait ProcessRequestLegacyTrait
+/**
+ * Trait for error handling for legacy TYPO3 (up to v10)
+ */
+trait CallActionMethodLegacyTrait
 {
     /**
-     * extend ProcessRequest to catch errors for a valid response
-     *
-     * @override
-     *
-     *
+     * Extend callActionMethod to catch errors for a valid response.
      */
     protected function callActionMethod()
     {

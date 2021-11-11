@@ -1,15 +1,12 @@
 services:
-  _defaults                                                           :
-    autowire     : true
+  _defaults:
+    autowire: true
     autoconfigure: true
 
-  Datamints\DatamintsLocallangBuilder\                                :
+  Datamints\DatamintsLocallangBuilder\:
     resource: '../Classes/*'
 
-  cache.cache                                                         :
-    class    : TYPO3\CMS\Core\Cache\Backend\BackendInterface
-    factory  : [ '@TYPO3\CMS\Core\Cache\CacheManager', 'getCache' ]
+  cache.cache:
+    class: TYPO3\CMS\Core\Cache\Backend\BackendInterface
+    factory: [ '@TYPO3\CMS\Core\Cache\CacheManager', 'getCache' ]
     arguments: [ 'datamintslocallangbuilder_cache' ]
-
-  Datamints\DatamintsLocallangBuilder\Controller\ApplicationController:
-    factory: [ 'Datamints\DatamintsLocallangBuilder\Factory\ControllerFactory', 'createApplicationController' ]
