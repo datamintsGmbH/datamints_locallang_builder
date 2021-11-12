@@ -3,7 +3,8 @@
 defined('TYPO3_MODE') || die();
 
 // Adding symphony-support for TYPO3 9.x without composer-mode
-if(substr(TYPO3_version, 0, 1) == "9") {
+$typo3Version = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Information\Typo3Version::class);
+if($typo3Version->getMajorVersion() == 9) {
     require_once \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('datamints_locallang_builder', 'Resources/Private/DependenciesLegacy/vendor/autoload.php');
 }
 // Adding other libs that are defined in a seperate composer-file, to gain access for non-composer-instances. Currently not necessary
@@ -35,3 +36,5 @@ $GLOBALS['TYPO3_CONF_VARS']['LOG']['Datamints']['DatamintsLocallangBuilder']['pr
         \Datamints\DatamintsLocallangBuilder\Log\Processor\BackendUserProcessor::class => [],
     ],
 ];
+
+

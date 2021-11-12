@@ -6,7 +6,6 @@ use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\View\ViewInterface;
 use TYPO3\CMS\Extbase\Mvc\RequestInterface;
-use TYPO3\CMS\Extbase\Mvc\ResponseInterface;
 use Psr\Log\LoggerAwareTrait;
 
 /**
@@ -26,28 +25,17 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
     protected $entityType = null;
 
     /**
-     * extend ProcessRequest to catch errors for a valid response
+     * set Default-Values
      *
-     * @override
-     *
-     * @param \TYPO3\CMS\Extbase\Mvc\RequestInterface  $request  The request object
-     * @param \TYPO3\CMS\Extbase\Mvc\ResponseInterface $response The response, modified by this handler
-     *
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\UnsupportedRequestTypeException
+     * @param \TYPO3\CMS\Extbase\Mvc\View\ViewInterface $view
      */
-    public function processRequest(RequestInterface $request, ResponseInterface $response)
+    protected function initializeView (ViewInterface $view)
     {
-        try {
-            parent::processRequest($request, $response);
-        } catch (\Exception $exception) {
-            $this->logger->error($exception->getMessage());
+        parent::initializeView($view);
 
-            $result = $this->getDefaultViewAssigns();
-            $result['status'] = self::STATUS_ERROR;
-            $result['message'] = $exception->getMessage();
-
-            $response->appendContent(json_encode($result));
-        }
+        $view->assignMultiple(
+            $this->getDefaultViewAssigns()
+        );
     }
 
     /**
@@ -56,7 +44,7 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
      * @return array{status: string, message: string, data:array,requestTime:int, type:string}
      * @see initializeView
      */
-    protected function getDefaultViewAssigns(): array
+    protected function getDefaultViewAssigns (): array
     {
         $context = GeneralUtility::makeInstance(Context::class);
 
@@ -67,19 +55,5 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
             'requestTime' => $context->getPropertyFromAspect('date', 'timestamp'),
             'type' => $this->entityType,
         ];
-    }
-
-    /**
-     * set Default-Values
-     *
-     * @param \TYPO3\CMS\Extbase\Mvc\View\ViewInterface $view
-     */
-    protected function initializeView(ViewInterface $view)
-    {
-        parent::initializeView($view);
-
-        $view->assignMultiple(
-            $this->getDefaultViewAssigns()
-        );
     }
 }
