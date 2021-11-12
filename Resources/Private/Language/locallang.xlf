@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="EXT:datamints_locallang_builder/Resources/Private/Language/locallang" date="2021-07-14T11:40:42Z" product-name="datamints_locallang_builder">
+	<file source-language="en" datatype="plaintext" original="EXT:datamints_locallang_builder/Resources/Private/Language/locallang" date="2021-11-12T12:13:24Z" product-name="datamints_locallang_builder">
 		<header/>
 		<body>
 			<trans-unit id="tx_datamintslocallangbuilder_domain_model_extension" resname="tx_datamintslocallangbuilder_domain_model_extension">

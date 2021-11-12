@@ -1,478 +1,478 @@
 {
-	"modules": [
-		{
-			"config": {
-				"position": [
-					202,
-					97
-				]
-			},
-			"name": "New Model Object",
-			"value": {
-				"actionGroup": {
-					"_default0_list": true,
-					"_default1_show": true,
-					"_default2_new_create": false,
-					"_default3_edit_update": true,
-					"_default4_delete": false,
-					"customActions": []
-				},
-				"name": "Extension",
-				"objectsettings": {
-					"addDeletedField": true,
-					"addHiddenField": true,
-					"addStarttimeEndtimeFields": true,
-					"aggregateRoot": true,
-					"categorizable": false,
-					"description": "Extension Model to reflect extension-folders",
-					"mapToTable": "",
-					"parentClass": "",
-					"sorting": true,
-					"type": "Entity",
-					"uid": "1072562072711"
-				},
-				"propertyGroup": {
-					"properties": [
-						{
-							"allowedFileTypes": "",
-							"maxItems": "1",
-							"propertyDescription": "Extension Name",
-							"propertyIsExcludeField": true,
-							"propertyIsL10nModeExclude": false,
-							"propertyIsRequired": false,
-							"propertyName": "name",
-							"propertyType": "String",
-							"uid": "83601888010"
-						},
-						{
-							"allowedFileTypes": "",
-							"maxItems": "1",
-							"propertyDescription": "Path to the extension-folder from content root",
-							"propertyIsExcludeField": true,
-							"propertyIsL10nModeExclude": false,
-							"propertyIsRequired": false,
-							"propertyName": "path",
-							"propertyType": "String",
-							"uid": "570056717730"
-						},
-						{
-							"allowedFileTypes": "",
-							"maxItems": "1",
-							"propertyDescription": "",
-							"propertyIsExcludeField": true,
-							"propertyIsL10nModeExclude": false,
-							"propertyIsRequired": false,
-							"propertyName": "local",
-							"propertyType": "Boolean",
-							"uid": "723876347825"
-						}
-					]
-				},
-				"relationGroup": {
-					"relations": [
-						{
-							"foreignRelationClass": "",
-							"lazyLoading": true,
-							"propertyIsExcludeField": true,
-							"relationDescription": "",
-							"relationName": "locallangs",
-							"relationType": "zeroToMany",
-							"relationWire": "[wired]",
-							"renderType": "inline",
-							"uid": "1162982180293"
-						}
-					]
-				}
-			}
-		},
-		{
-			"config": {
-				"position": [
-					916,
-					194
-				]
-			},
-			"name": "New Model Object",
-			"value": {
-				"actionGroup": {
-					"_default0_list": true,
-					"_default1_show": true,
-					"_default2_new_create": true,
-					"_default3_edit_update": true,
-					"_default4_delete": true,
-					"customActions": [
-						"export"
-					]
-				},
-				"name": "Locallang",
-				"objectsettings": {
-					"addDeletedField": true,
-					"addHiddenField": true,
-					"addStarttimeEndtimeFields": true,
-					"aggregateRoot": true,
-					"categorizable": false,
-					"description": "",
-					"mapToTable": "",
-					"parentClass": "",
-					"sorting": true,
-					"type": "Entity",
-					"uid": "1128334721577"
-				},
-				"propertyGroup": {
-					"properties": [
-						{
-							"allowedFileTypes": "",
-							"maxItems": "1",
-							"propertyDescription": "filename ",
-							"propertyIsExcludeField": true,
-							"propertyIsL10nModeExclude": false,
-							"propertyIsRequired": false,
-							"propertyName": "filename",
-							"propertyType": "String",
-							"uid": "472850240610"
-						},
-						{
-							"allowedFileTypes": "",
-							"maxItems": "1",
-							"propertyDescription": "path from extension root",
-							"propertyIsExcludeField": true,
-							"propertyIsL10nModeExclude": false,
-							"propertyIsRequired": false,
-							"propertyName": "path",
-							"propertyType": "String",
-							"uid": "957252720462"
-						},
-						{
-							"allowedFileTypes": "",
-							"maxItems": "1",
-							"propertyDescription": "Flag when the scan cant fetch it's data, because theres something wrong with it",
-							"propertyIsExcludeField": true,
-							"propertyIsL10nModeExclude": false,
-							"propertyIsRequired": false,
-							"propertyName": "invalidFormat",
-							"propertyType": "Boolean",
-							"uid": "668941043434"
-						}
-					]
-				},
-				"relationGroup": {
-					"relations": [
-						{
-							"foreignRelationClass": "",
-							"lazyLoading": true,
-							"propertyIsExcludeField": true,
-							"relationDescription": "",
-							"relationName": "translations",
-							"relationType": "zeroToMany",
-							"relationWire": "[wired]",
-							"renderType": "inline",
-							"uid": "1383374731032"
-						},
-						{
-							"foreignRelationClass": "",
-							"lazyLoading": true,
-							"propertyIsExcludeField": true,
-							"relationDescription": "Bidirectional for easier db-queries",
-							"relationName": "relatedExtension",
-							"relationType": "zeroToOne",
-							"relationWire": "[wired]",
-							"renderType": "inline",
-							"uid": "947759080232"
-						}
-					]
-				}
-			}
-		},
-		{
-			"config": {
-				"position": [
-					683,
-					511
-				]
-			},
-			"name": "New Model Object",
-			"value": {
-				"actionGroup": {
-					"_default0_list": true,
-					"_default1_show": true,
-					"_default2_new_create": true,
-					"_default3_edit_update": true,
-					"_default4_delete": true,
-					"customActions": []
-				},
-				"name": "Translation",
-				"objectsettings": {
-					"addDeletedField": true,
-					"addHiddenField": true,
-					"addStarttimeEndtimeFields": true,
-					"aggregateRoot": true,
-					"categorizable": false,
-					"description": "Translation Model to reflect Translations in a locallang-File",
-					"mapToTable": "",
-					"parentClass": "",
-					"sorting": true,
-					"type": "Entity",
-					"uid": "364483348354"
-				},
-				"propertyGroup": {
-					"properties": [
-						{
-							"allowedFileTypes": "",
-							"maxItems": "1",
-							"propertyDescription": "translation key from the locallang.xlf-File",
-							"propertyIsExcludeField": true,
-							"propertyIsL10nModeExclude": false,
-							"propertyIsRequired": false,
-							"propertyName": "translationKey",
-							"propertyType": "String",
-							"uid": "143574198905"
-						}
-					]
-				},
-				"relationGroup": {
-					"relations": [
-						{
-							"foreignRelationClass": "",
-							"lazyLoading": true,
-							"propertyIsExcludeField": true,
-							"relationDescription": "TranslationValue as its written in the xlf-File",
-							"relationName": "translationValues",
-							"relationType": "zeroToMany",
-							"relationWire": "[wired]",
-							"renderType": "inline",
-							"uid": "1122806368402"
-						},
-						{
-							"foreignRelationClass": "",
-							"lazyLoading": true,
-							"propertyIsExcludeField": true,
-							"relationDescription": "Bidirectional for easier db-queries",
-							"relationName": "relatedLocallang",
-							"relationType": "zeroToOne",
-							"relationWire": "[wired]",
-							"renderType": "inline",
-							"uid": "469413782856"
-						}
-					]
-				}
-			}
-		},
-		{
-			"config": {
-				"position": [
-					326,
-					460
-				]
-			},
-			"name": "New Model Object",
-			"value": {
-				"actionGroup": {
-					"_default0_list": false,
-					"_default1_show": true,
-					"_default2_new_create": true,
-					"_default3_edit_update": true,
-					"_default4_delete": true,
-					"customActions": [
-						"autoTranslate"
-					]
-				},
-				"name": "TranslationValue",
-				"objectsettings": {
-					"addDeletedField": true,
-					"addHiddenField": true,
-					"addStarttimeEndtimeFields": true,
-					"aggregateRoot": true,
-					"categorizable": false,
-					"description": "TranslationValue as its written in the xlf-File",
-					"mapToTable": "",
-					"parentClass": "",
-					"sorting": true,
-					"type": "Entity",
-					"uid": "1383103220072"
-				},
-				"propertyGroup": {
-					"properties": [
-						{
-							"allowedFileTypes": "",
-							"maxItems": "1",
-							"propertyDescription": "Country Code or default-ident",
-							"propertyIsExcludeField": true,
-							"propertyIsL10nModeExclude": false,
-							"propertyIsRequired": false,
-							"propertyName": "ident",
-							"propertyType": "String",
-							"uid": "968373441892"
-						},
-						{
-							"allowedFileTypes": "",
-							"maxItems": "1",
-							"propertyDescription": "Translation Value",
-							"propertyIsExcludeField": true,
-							"propertyIsL10nModeExclude": false,
-							"propertyIsRequired": false,
-							"propertyName": "value",
-							"propertyType": "Text",
-							"uid": "910778665916"
-						},
-						{
-							"allowedFileTypes": "",
-							"maxItems": "1",
-							"propertyDescription": "Optional",
-							"propertyIsExcludeField": true,
-							"propertyIsL10nModeExclude": false,
-							"propertyIsRequired": false,
-							"propertyName": "resname",
-							"propertyType": "Text",
-							"uid": "1527341373763"
-						},
-						{
-							"allowedFileTypes": "",
-							"maxItems": "1",
-							"propertyDescription": "Options like \"preserve\"",
-							"propertyIsExcludeField": true,
-							"propertyIsL10nModeExclude": false,
-							"propertyIsRequired": false,
-							"propertyName": "xmlSpace",
-							"propertyType": "String",
-							"uid": "184631305986"
-						},
-						{
-							"allowedFileTypes": "",
-							"maxItems": "1",
-							"propertyDescription": "Flag if the translation is approved",
-							"propertyIsExcludeField": true,
-							"propertyIsL10nModeExclude": false,
-							"propertyIsRequired": false,
-							"propertyName": "approved",
-							"propertyType": "Boolean",
-							"uid": "1400427964821"
-						},
-						{
-							"allowedFileTypes": "",
-							"maxItems": "1",
-							"propertyDescription": "Internal comment - rendered as html-comment in output-file",
-							"propertyIsExcludeField": true,
-							"propertyIsL10nModeExclude": false,
-							"propertyIsRequired": false,
-							"propertyName": "comment",
-							"propertyType": "Text",
-							"uid": "1458014688367"
-						}
-					]
-				},
-				"relationGroup": {
-					"relations": []
-				}
-			}
-		}
-	],
-	"properties": {
-		"backendModules": [
-			{
-				"actions": {
-					"controllerActionCombinations": "Application => main,clear\nExtension => list,update\nTranslation => list,update,delete,show,create\nTranslationValue => update,delete,show,create,autoTranslate\nLocallang => show,list,update,export"
-				},
-				"description": "Translate Module for extension locallang xlf files",
-				"key": "translate",
-				"mainModule": "tools",
-				"name": "Translate",
-				"tabLabel": "Locallang Builder"
-			}
-		],
-		"description": "Offers developers and editors a backend module for creating, changing and translating language files for your extensions. Significant improvement of the workflow by using an independent translation provider such as Azure, DeepL or Google Translate.",
-		"emConf": {
-			"category": "module",
-			"custom_category": "",
-			"dependsOn": "typo3 => 9.0.0-10.99.99\n",
-			"disableLocalization": false,
-			"disableVersioning": false,
-			"skipGenerateDocumentationTemplate": true,
-			"sourceLanguage": "en",
-			"state": "stable",
-			"targetVersion": "10.4.0-10.4.99",
-			"version": "1.0.11"
-		},
-		"extensionKey": "datamints_locallang_builder",
-		"name": "datamints Locallang Builder",
-		"originalExtensionKey": "datamints_locallang_builder",
-		"originalVendorName": "Datamints",
-		"persons": [
-			{
-				"company": "",
-				"email": "mark.weisgerber@outlook.de \/ m.weisgerber@datamints.com",
-				"name": "Mark Weisgerber",
-				"role": "Developer"
-			}
-		],
-		"plugins": [],
-		"vendorName": "Datamints"
-	},
-	"wires": [
-		{
-			"src": {
-				"moduleId": 1,
-				"terminal": "relationWire_0",
-				"uid": "1383374731032"
-			},
-			"tgt": {
-				"moduleId": 2,
-				"terminal": "SOURCES",
-				"uid": "364483348354"
-			}
-		},
-		{
-			"src": {
-				"moduleId": 0,
-				"terminal": "relationWire_0",
-				"uid": "1162982180293"
-			},
-			"tgt": {
-				"moduleId": 1,
-				"terminal": "SOURCES",
-				"uid": "1128334721577"
-			}
-		},
-		{
-			"src": {
-				"moduleId": 2,
-				"terminal": "relationWire_0",
-				"uid": "1122806368402"
-			},
-			"tgt": {
-				"moduleId": 3,
-				"terminal": "SOURCES",
-				"uid": "1383103220072"
-			}
-		},
-		{
-			"src": {
-				"moduleId": 1,
-				"terminal": "relationWire_1",
-				"uid": "947759080232"
-			},
-			"tgt": {
-				"moduleId": 0,
-				"terminal": "SOURCES",
-				"uid": "1072562072711"
-			}
-		},
-		{
-			"src": {
-				"moduleId": 2,
-				"terminal": "relationWire_1",
-				"uid": "469413782856"
-			},
-			"tgt": {
-				"moduleId": 1,
-				"terminal": "SOURCES",
-				"uid": "1128334721577"
-			}
-		}
-	],
-	"storagePath": "\/srv\/www\/weisgerber\/datamints\/typo3-etrainer-vorlage-10\/src\/typo3conf\/ext\/",
-	"log": {
-		"last_modified": "2021-07-14 11:40",
-		"extension_builder_version": "9.11.0",
-		"be_user": "Mark Weisgerber (27)"
-	}
+    "modules": [
+        {
+            "config": {
+                "position": [
+                    202,
+                    97
+                ]
+            },
+            "name": "New Model Object",
+            "value": {
+                "actionGroup": {
+                    "_default0_list": true,
+                    "_default1_show": true,
+                    "_default2_new_create": false,
+                    "_default3_edit_update": true,
+                    "_default4_delete": false,
+                    "customActions": []
+                },
+                "name": "Extension",
+                "objectsettings": {
+                    "addDeletedField": true,
+                    "addHiddenField": true,
+                    "addStarttimeEndtimeFields": true,
+                    "aggregateRoot": true,
+                    "categorizable": false,
+                    "description": "Extension Model to reflect extension-folders",
+                    "mapToTable": "",
+                    "parentClass": "",
+                    "sorting": true,
+                    "type": "Entity",
+                    "uid": "1072562072711"
+                },
+                "propertyGroup": {
+                    "properties": [
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "Extension Name",
+                            "propertyIsExcludeField": true,
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsRequired": false,
+                            "propertyName": "name",
+                            "propertyType": "String",
+                            "uid": "83601888010"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "Path to the extension-folder from content root",
+                            "propertyIsExcludeField": true,
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsRequired": false,
+                            "propertyName": "path",
+                            "propertyType": "String",
+                            "uid": "570056717730"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "",
+                            "propertyIsExcludeField": true,
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsRequired": false,
+                            "propertyName": "local",
+                            "propertyType": "Boolean",
+                            "uid": "723876347825"
+                        }
+                    ]
+                },
+                "relationGroup": {
+                    "relations": [
+                        {
+                            "foreignRelationClass": "",
+                            "lazyLoading": true,
+                            "propertyIsExcludeField": true,
+                            "relationDescription": "",
+                            "relationName": "locallangs",
+                            "relationType": "zeroToMany",
+                            "relationWire": "[wired]",
+                            "renderType": "inline",
+                            "uid": "1162982180293"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "config": {
+                "position": [
+                    916,
+                    194
+                ]
+            },
+            "name": "New Model Object",
+            "value": {
+                "actionGroup": {
+                    "_default0_list": true,
+                    "_default1_show": true,
+                    "_default2_new_create": true,
+                    "_default3_edit_update": true,
+                    "_default4_delete": true,
+                    "customActions": [
+                        "export"
+                    ]
+                },
+                "name": "Locallang",
+                "objectsettings": {
+                    "addDeletedField": true,
+                    "addHiddenField": true,
+                    "addStarttimeEndtimeFields": true,
+                    "aggregateRoot": true,
+                    "categorizable": false,
+                    "description": "",
+                    "mapToTable": "",
+                    "parentClass": "",
+                    "sorting": true,
+                    "type": "Entity",
+                    "uid": "1128334721577"
+                },
+                "propertyGroup": {
+                    "properties": [
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "filename ",
+                            "propertyIsExcludeField": true,
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsRequired": false,
+                            "propertyName": "filename",
+                            "propertyType": "String",
+                            "uid": "472850240610"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "path from extension root",
+                            "propertyIsExcludeField": true,
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsRequired": false,
+                            "propertyName": "path",
+                            "propertyType": "String",
+                            "uid": "957252720462"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "Flag when the scan cant fetch it's data, because theres something wrong with it",
+                            "propertyIsExcludeField": true,
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsRequired": false,
+                            "propertyName": "invalidFormat",
+                            "propertyType": "Boolean",
+                            "uid": "668941043434"
+                        }
+                    ]
+                },
+                "relationGroup": {
+                    "relations": [
+                        {
+                            "foreignRelationClass": "",
+                            "lazyLoading": true,
+                            "propertyIsExcludeField": true,
+                            "relationDescription": "",
+                            "relationName": "translations",
+                            "relationType": "zeroToMany",
+                            "relationWire": "[wired]",
+                            "renderType": "inline",
+                            "uid": "1383374731032"
+                        },
+                        {
+                            "foreignRelationClass": "",
+                            "lazyLoading": true,
+                            "propertyIsExcludeField": true,
+                            "relationDescription": "Bidirectional for easier db-queries",
+                            "relationName": "relatedExtension",
+                            "relationType": "zeroToOne",
+                            "relationWire": "[wired]",
+                            "renderType": "inline",
+                            "uid": "947759080232"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "config": {
+                "position": [
+                    683,
+                    511
+                ]
+            },
+            "name": "New Model Object",
+            "value": {
+                "actionGroup": {
+                    "_default0_list": true,
+                    "_default1_show": true,
+                    "_default2_new_create": true,
+                    "_default3_edit_update": true,
+                    "_default4_delete": true,
+                    "customActions": []
+                },
+                "name": "Translation",
+                "objectsettings": {
+                    "addDeletedField": true,
+                    "addHiddenField": true,
+                    "addStarttimeEndtimeFields": true,
+                    "aggregateRoot": true,
+                    "categorizable": false,
+                    "description": "Translation Model to reflect Translations in a locallang-File",
+                    "mapToTable": "",
+                    "parentClass": "",
+                    "sorting": true,
+                    "type": "Entity",
+                    "uid": "364483348354"
+                },
+                "propertyGroup": {
+                    "properties": [
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "translation key from the locallang.xlf-File",
+                            "propertyIsExcludeField": true,
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsRequired": false,
+                            "propertyName": "translationKey",
+                            "propertyType": "String",
+                            "uid": "143574198905"
+                        }
+                    ]
+                },
+                "relationGroup": {
+                    "relations": [
+                        {
+                            "foreignRelationClass": "",
+                            "lazyLoading": true,
+                            "propertyIsExcludeField": true,
+                            "relationDescription": "TranslationValue as its written in the xlf-File",
+                            "relationName": "translationValues",
+                            "relationType": "zeroToMany",
+                            "relationWire": "[wired]",
+                            "renderType": "inline",
+                            "uid": "1122806368402"
+                        },
+                        {
+                            "foreignRelationClass": "",
+                            "lazyLoading": true,
+                            "propertyIsExcludeField": true,
+                            "relationDescription": "Bidirectional for easier db-queries",
+                            "relationName": "relatedLocallang",
+                            "relationType": "zeroToOne",
+                            "relationWire": "[wired]",
+                            "renderType": "inline",
+                            "uid": "469413782856"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "config": {
+                "position": [
+                    326,
+                    460
+                ]
+            },
+            "name": "New Model Object",
+            "value": {
+                "actionGroup": {
+                    "_default0_list": false,
+                    "_default1_show": true,
+                    "_default2_new_create": true,
+                    "_default3_edit_update": true,
+                    "_default4_delete": true,
+                    "customActions": [
+                        "autoTranslate"
+                    ]
+                },
+                "name": "TranslationValue",
+                "objectsettings": {
+                    "addDeletedField": true,
+                    "addHiddenField": true,
+                    "addStarttimeEndtimeFields": true,
+                    "aggregateRoot": true,
+                    "categorizable": false,
+                    "description": "TranslationValue as its written in the xlf-File",
+                    "mapToTable": "",
+                    "parentClass": "",
+                    "sorting": true,
+                    "type": "Entity",
+                    "uid": "1383103220072"
+                },
+                "propertyGroup": {
+                    "properties": [
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "Country Code or default-ident",
+                            "propertyIsExcludeField": true,
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsRequired": false,
+                            "propertyName": "ident",
+                            "propertyType": "String",
+                            "uid": "968373441892"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "Translation Value",
+                            "propertyIsExcludeField": true,
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsRequired": false,
+                            "propertyName": "value",
+                            "propertyType": "Text",
+                            "uid": "910778665916"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "Optional",
+                            "propertyIsExcludeField": true,
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsRequired": false,
+                            "propertyName": "resname",
+                            "propertyType": "Text",
+                            "uid": "1527341373763"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "Options like \"preserve\"",
+                            "propertyIsExcludeField": true,
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsRequired": false,
+                            "propertyName": "xmlSpace",
+                            "propertyType": "String",
+                            "uid": "184631305986"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "Flag if the translation is approved",
+                            "propertyIsExcludeField": true,
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsRequired": false,
+                            "propertyName": "approved",
+                            "propertyType": "Boolean",
+                            "uid": "1400427964821"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "Internal comment - rendered as html-comment in output-file",
+                            "propertyIsExcludeField": true,
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsRequired": false,
+                            "propertyName": "comment",
+                            "propertyType": "Text",
+                            "uid": "1458014688367"
+                        }
+                    ]
+                },
+                "relationGroup": {
+                    "relations": []
+                }
+            }
+        }
+    ],
+    "properties": {
+        "backendModules": [
+            {
+                "actions": {
+                    "controllerActionCombinations": "Application => main,clear\nExtension => list,update\nTranslation => list,update,delete,show,create\nTranslationValue => update,delete,show,create,autoTranslate\nLocallang => show,list,update,export"
+                },
+                "description": "Translate Module for extension locallang xlf files",
+                "key": "translate",
+                "mainModule": "tools",
+                "name": "Translate",
+                "tabLabel": "Locallang Builder"
+            }
+        ],
+        "description": "Offers developers and editors a backend module for creating, changing and translating language files for your extensions. Significant improvement of the workflow by using an independent translation provider such as Azure, DeepL or Google Translate.",
+        "emConf": {
+            "category": "module",
+            "custom_category": "",
+            "dependsOn": "typo3 => 9.0.0-11.99.99\n",
+            "disableLocalization": false,
+            "disableVersioning": false,
+            "skipGenerateDocumentationTemplate": true,
+            "sourceLanguage": "en",
+            "state": "stable",
+            "targetVersion": "10.4.0-10.4.99",
+            "version": "1.0.18"
+        },
+        "extensionKey": "datamints_locallang_builder",
+        "name": "datamints Locallang Builder",
+        "originalExtensionKey": "datamints_locallang_builder",
+        "originalVendorName": "Datamints",
+        "persons": [
+            {
+                "company": "",
+                "email": "mark.weisgerber@outlook.de \/ m.weisgerber@datamints.com",
+                "name": "Mark Weisgerber",
+                "role": "Developer"
+            }
+        ],
+        "plugins": [],
+        "vendorName": "Datamints"
+    },
+    "wires": [
+        {
+            "src": {
+                "moduleId": 1,
+                "terminal": "relationWire_0",
+                "uid": "1383374731032"
+            },
+            "tgt": {
+                "moduleId": 2,
+                "terminal": "SOURCES",
+                "uid": "364483348354"
+            }
+        },
+        {
+            "src": {
+                "moduleId": 0,
+                "terminal": "relationWire_0",
+                "uid": "1162982180293"
+            },
+            "tgt": {
+                "moduleId": 1,
+                "terminal": "SOURCES",
+                "uid": "1128334721577"
+            }
+        },
+        {
+            "src": {
+                "moduleId": 2,
+                "terminal": "relationWire_0",
+                "uid": "1122806368402"
+            },
+            "tgt": {
+                "moduleId": 3,
+                "terminal": "SOURCES",
+                "uid": "1383103220072"
+            }
+        },
+        {
+            "src": {
+                "moduleId": 1,
+                "terminal": "relationWire_1",
+                "uid": "947759080232"
+            },
+            "tgt": {
+                "moduleId": 0,
+                "terminal": "SOURCES",
+                "uid": "1072562072711"
+            }
+        },
+        {
+            "src": {
+                "moduleId": 2,
+                "terminal": "relationWire_1",
+                "uid": "469413782856"
+            },
+            "tgt": {
+                "moduleId": 1,
+                "terminal": "SOURCES",
+                "uid": "1128334721577"
+            }
+        }
+    ],
+    "storagePath": "\/srv\/www\/weisgerber\/datamints\/typo3-etrainer-vorlage-10\/src\/typo3conf\/ext\/",
+    "log": {
+        "last_modified": "2021-11-12 12:13",
+        "extension_builder_version": "9.11.0",
+        "be_user": "Mark Weisgerber (27)"
+    }
 }
