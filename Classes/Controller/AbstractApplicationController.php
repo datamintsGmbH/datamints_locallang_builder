@@ -15,7 +15,7 @@ use Google\Cloud\Translate\V3\TranslationServiceClient;
  * (c) 2021 Mark Weisgerber <mark.weisgerber@outlook.de / m.weisgerber@datamints.com>
  * ExtensionController
  */
-abstract class AbstractApplicationController extends AbstractController implements ApplicationController
+abstract class AbstractApplicationController extends AbstractController
 {
     use \Datamints\DatamintsLocallangBuilder\Domain\Repository\Traits\ExtensionRepositoryTrait;
     use \Datamints\DatamintsLocallangBuilder\Domain\Repository\Traits\LocallangRepositoryTrait;

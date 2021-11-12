@@ -3,7 +3,7 @@
 namespace Datamints\DatamintsLocallangBuilder\Controller\Traits;
 
 use TYPO3\CMS\Extbase\Mvc\RequestInterface;
-use TYPO3\CMS\Extbase\Mvc\ResponseInterface;
+use Psr\Http\Message\ResponseInterface;
 
 /**
  * Trait for error handling for current TYPO3 (v11+)
@@ -14,9 +14,10 @@ trait CallActionMethodTrait
      * Extend callActionMethod to catch errors for a valid response.
      *
      * @param \TYPO3\CMS\Extbase\Mvc\RequestInterface $request
+     *
      * @return \TYPO3\CMS\Extbase\Mvc\ResponseInterface
      */
-    protected function callActionMethod(RequestInterface $request): ResponseInterface
+    protected function callActionMethod (RequestInterface $request): ResponseInterface
     {
         try {
             return parent::callActionMethod($request);

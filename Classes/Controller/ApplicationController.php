@@ -2,7 +2,7 @@
 
 namespace Datamints\DatamintsLocallangBuilder\Controller;
 
-interface ApplicationController
+class ApplicationController
 {
 
 }

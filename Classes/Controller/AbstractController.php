@@ -6,7 +6,6 @@ use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\View\ViewInterface;
 use TYPO3\CMS\Extbase\Mvc\RequestInterface;
-use TYPO3\CMS\Extbase\Mvc\ResponseInterface;
 use Psr\Log\LoggerAwareTrait;
 
 /**
@@ -25,6 +24,19 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 
     protected $entityType = null;
 
+    /**
+     * set Default-Values
+     *
+     * @param \TYPO3\CMS\Extbase\Mvc\View\ViewInterface $view
+     */
+    protected function initializeView (ViewInterface $view)
+    {
+        parent::initializeView($view);
+
+        $view->assignMultiple(
+            $this->getDefaultViewAssigns()
+        );
+    }
 
     /**
      * Default-view response vars, if the request gets canceled before execution finish
@@ -32,7 +44,7 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
      * @return array{status: string, message: string, data:array,requestTime:int, type:string}
      * @see initializeView
      */
-    protected function getDefaultViewAssigns(): array
+    protected function getDefaultViewAssigns (): array
     {
         $context = GeneralUtility::makeInstance(Context::class);
 
@@ -43,19 +55,5 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
             'requestTime' => $context->getPropertyFromAspect('date', 'timestamp'),
             'type' => $this->entityType,
         ];
-    }
-
-    /**
-     * set Default-Values
-     *
-     * @param \TYPO3\CMS\Extbase\Mvc\View\ViewInterface $view
-     */
-    protected function initializeView(ViewInterface $view)
-    {
-        parent::initializeView($view);
-
-        $view->assignMultiple(
-            $this->getDefaultViewAssigns()
-        );
     }
 }

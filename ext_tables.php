@@ -68,11 +68,42 @@ call_user_func(static function () {
             \Datamints\DatamintsLocallangBuilder\Controller\ApplicationController::class,
             \Datamints\DatamintsLocallangBuilder\Controller\ApplicationLegacyController::class
         );
+        $extbaseObjectContainer->registerImplementation(
+            \Datamints\DatamintsLocallangBuilder\Controller\ExtensionController::class,
+            \Datamints\DatamintsLocallangBuilder\Controller\ExtensionLegacyController::class
+        );
+        $extbaseObjectContainer->registerImplementation(
+            \Datamints\DatamintsLocallangBuilder\Controller\LocallangController::class,
+            \Datamints\DatamintsLocallangBuilder\Controller\LocallangLegacyController::class
+        );
+        $extbaseObjectContainer->registerImplementation(
+            \Datamints\DatamintsLocallangBuilder\Controller\TranslationController::class,
+            \Datamints\DatamintsLocallangBuilder\Controller\TranslationLegacyController::class
+        );
+        $extbaseObjectContainer->registerImplementation(
+            \Datamints\DatamintsLocallangBuilder\Controller\TranslationValueController::class,
+            \Datamints\DatamintsLocallangBuilder\Controller\TranslationValueLegacyController::class
+        );
     } else {
         $extbaseObjectContainer->registerImplementation(
             \Datamints\DatamintsLocallangBuilder\Controller\ApplicationController::class,
             \Datamints\DatamintsLocallangBuilder\Controller\ApplicationCurrentController::class
         );
+        $extbaseObjectContainer->registerImplementation(
+            \Datamints\DatamintsLocallangBuilder\Controller\ExtensionController::class,
+            \Datamints\DatamintsLocallangBuilder\Controller\ExtensionCurrentController::class
+        );
+        $extbaseObjectContainer->registerImplementation(
+            \Datamints\DatamintsLocallangBuilder\Controller\LocallangController::class,
+            \Datamints\DatamintsLocallangBuilder\Controller\LocallangCurrentController::class
+        );
+        $extbaseObjectContainer->registerImplementation(
+            \Datamints\DatamintsLocallangBuilder\Controller\TranslationController::class,
+            \Datamints\DatamintsLocallangBuilder\Controller\TranslationCurrentController::class
+        );
+        $extbaseObjectContainer->registerImplementation(
+            \Datamints\DatamintsLocallangBuilder\Controller\TranslationValueController::class,
+            \Datamints\DatamintsLocallangBuilder\Controller\TranslationValueCurrentController::class
+        );
     }
 });
-## EXTENSION BUILDER DEFAULTS END TOKEN - Everything BEFORE this line is overwritten with the defaults of the extension builder
