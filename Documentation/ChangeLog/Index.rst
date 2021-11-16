@@ -11,6 +11,7 @@ Version 1.0.19
 -------------
 
 - [Feature] Added Support for CDATA-Nodes
+- [Bug] Fixed autoload issue for some TYPO3 10.x instances when using alternative classes
 
 Version 1.0.18
 -------------
