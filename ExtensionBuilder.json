@@ -390,7 +390,7 @@
             "sourceLanguage": "en",
             "state": "stable",
             "targetVersion": "10.4.0-10.4.99",
-            "version": "1.0.18"
+            "version": "1.0.19"
         },
         "extensionKey": "datamints_locallang_builder",
         "name": "datamints Locallang Builder",
@@ -471,7 +471,7 @@
     ],
     "storagePath": "\/srv\/www\/weisgerber\/datamints\/typo3-etrainer-vorlage-10\/src\/typo3conf\/ext\/",
     "log": {
-        "last_modified": "2021-11-12 12:13",
+        "last_modified": "2021-11-16 12:14",
         "extension_builder_version": "9.11.0",
         "be_user": "Mark Weisgerber (27)"
     }
