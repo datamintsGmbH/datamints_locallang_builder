@@ -35,7 +35,7 @@ class XmlExporter extends AbstractExporter
      * @return string
      * {@inheritdoc}
      */
-    public function writeByLocallangExport(\Datamints\DatamintsLocallangBuilder\Domain\Model\Runtime\LocallangExport $locallangExport): string
+    public function writeByLocallangExport (\Datamints\DatamintsLocallangBuilder\Domain\Model\Runtime\LocallangExport $locallangExport): string
     {
         $dom = new DOMDocument('1.0', 'utf-8');
         $dom->preserveWhiteSpace = false;
@@ -54,30 +54,30 @@ class XmlExporter extends AbstractExporter
         foreach ($locallangExport->getLocallangReference()->getTranslations() as $translation) {
             /** @var TranslationValue $translationValue */
             foreach ($translation->getTranslationValuesArray() as $translationValue) { // Buggy when using getTranslationValues() as ObjectStorage. I absolutely dont know why it iterates the same value twice. So we better loop it as array and everything works...
-                if($translationValue->getIdent() === $locallangExport->getLanguageCode()) { // Filter to get our desired language and skip everything else
+                if ($translationValue->getIdent() === $locallangExport->getLanguageCode()) { // Filter to get our desired language and skip everything else
                     $transUnitNode = $this->createTransUnitNode($dom, $translation, $translationValue->getResname());
                     $transUnitCommentNode = $sourceNode = $targetNode = null;
                     $comment = ($translation->getDefaultTranslationValue() ? $translation->getDefaultTranslationValue()->getComment() : '');
-                    if(strlen($comment) > 0) {
+                    if (strlen($comment) > 0) {
                         $transUnitCommentNode = $this->createComment($dom, $comment);
                         $transUnitNode->appendChild($transUnitCommentNode); // it would be nice to have it a line above the <trans-unit> but if we do so, we can't reimport the comment anymore, because its out of scope.
                     }
 
                     // Checking some optional flags
                     $transUnitNode->setAttribute('approved', ($translationValue->isApproved()) ? 'yes' : 'no');
-                    if($translationValue->getXmlSpace()) {
+                    if ($translationValue->getXmlSpace()) {
                         $transUnitNode->setAttribute('xml:space', $translationValue->getXmlSpace());
                     }
 
                     // Condition when the file only contains the default-language
-                    if($locallangExport->getLanguageCode() === 'en') { // in this case we only need "source"-Node when the output file language code is en
+                    if ($locallangExport->getLanguageCode() === 'en') { // in this case we only need "source"-Node when the output file language code is en
                         $sourceNode = $this->createSourceNode($dom, $translationValue);
                     } else { // Condition when the file contains an translation. Then we need source & target
                         $sourceNode = $this->createSourceNode($dom, $translation->getDefaultTranslationValue());
                         $targetNode = $this->createTargetNode($dom, $translationValue);
                     }
                     $transUnitNode->appendChild($sourceNode);
-                    if($targetNode) {
+                    if ($targetNode) {
                         $transUnitNode->appendChild($targetNode);
                     }
 
@@ -95,6 +95,13 @@ class XmlExporter extends AbstractExporter
         GeneralUtility::mkdir_deep(GeneralUtility::getFileAbsFileName(pathinfo($locallangExport->getTargetPath())['dirname']));
         $dom->save(GeneralUtility::getFileAbsFileName($locallangExport->getTargetPath()));
 
+        // PostProcessing for cdata-nodes to make them working properly again (its encoded as &lt; otherwise)
+        // So what to do now? We open the file again and replace those wrong symbols when combined with cdata
+        // TODO - I hope someone has a better idea, because thats pretty ugly!
+        $file = file_get_contents(GeneralUtility::getFileAbsFileName($locallangExport->getTargetPath()));
+        $file = str_replace("]]&gt;", "]]>", str_replace("&lt;![CDATA[", "<![CDATA[", $file));
+        file_put_contents(GeneralUtility::getFileAbsFileName($locallangExport->getTargetPath()), $file);
+
         return $locallangExport->getTargetPath();
     }
 
@@ -105,7 +112,7 @@ class XmlExporter extends AbstractExporter
      *
      * @return DOMElement
      */
-    protected function createXliffNode(DOMDocument $dom): DOMElement
+    protected function createXliffNode (DOMDocument $dom): DOMElement
     {
         $xliffNode = $dom->createElement('xliff');
         $xliffNode->setAttribute('version', '1.0');
@@ -121,7 +128,7 @@ class XmlExporter extends AbstractExporter
      *
      * @return DOMElement
      */
-    protected function createFileNode(DOMDocument $dom, \Datamints\DatamintsLocallangBuilder\Domain\Model\Runtime\LocallangExport $locallangExport): DOMElement
+    protected function createFileNode (DOMDocument $dom, \Datamints\DatamintsLocallangBuilder\Domain\Model\Runtime\LocallangExport $locallangExport): DOMElement
     {
         $readableDateTime = new \DateTime();
         $originalPath = pathinfo($locallangExport->getLocallangReference()->getRelatedExtension()->getName() . '/' . ManifestBuildService::EXTENSION_LANGUAGE_PATH . $locallangExport->getLocallangReference()->getFilename());
@@ -132,7 +139,7 @@ class XmlExporter extends AbstractExporter
         $fileNode->setAttribute('original', 'EXT:' . $originalPath['dirname'] . '/' . $originalPath['filename']); // Don't use the full path because its different to what we need! So we build this one up in a different way
         $fileNode->setAttribute('date', $readableDateTime->format('Y-m-dH:i:s') . 'Z'); // whats the Z for?
         $fileNode->setAttribute('product-name', $locallangExport->getLocallangReference()->getRelatedExtension()->getName());
-        if($locallangExport->getLanguageCode() !== 'en') {
+        if ($locallangExport->getLanguageCode() !== 'en') {
             $fileNode->setAttribute('target-language', $locallangExport->getLanguageCode());
         }
 
@@ -147,7 +154,7 @@ class XmlExporter extends AbstractExporter
      *
      * @return DOMElement
      */
-    protected function createHeaderNode(DOMDocument $dom): DOMElement
+    protected function createHeaderNode (DOMDocument $dom): DOMElement
     {
         $headerNode = $dom->createElement('header');
 
@@ -163,7 +170,7 @@ class XmlExporter extends AbstractExporter
      *
      * @return DOMComment
      */
-    protected function createComment(DOMDocument $dom, string $comment): DOMComment
+    protected function createComment (DOMDocument $dom, string $comment): DOMComment
     {
         $commentNode = $dom->createComment($comment);
 
@@ -177,7 +184,7 @@ class XmlExporter extends AbstractExporter
      *
      * @return DOMElement
      */
-    protected function createBodyNode(DOMDocument $dom): DOMElement
+    protected function createBodyNode (DOMDocument $dom): DOMElement
     {
         $bodyNode = $dom->createElement('body');
 
@@ -194,11 +201,11 @@ class XmlExporter extends AbstractExporter
      *
      * @return DOMElement
      */
-    protected function createTransUnitNode(DOMDocument $dom, Translation $translation, string $resname): DOMElement
+    protected function createTransUnitNode (DOMDocument $dom, Translation $translation, string $resname): DOMElement
     {
         $transUnitNode = $dom->createElement('trans-unit');
         $transUnitNode->setAttribute('id', $translation->getTranslationKey());
-        if(strlen($resname) === 0) { // if there is no res-name defined, we will use the translationKey as resname
+        if (strlen($resname) === 0) { // if there is no res-name defined, we will use the translationKey as resname
             $resname = $translation->getTranslationKey();
         }
         $transUnitNode->setAttribute('resname', $resname); // im not sure if its necessary to handle this as possible different to the translation. It seems to be the same.
@@ -214,7 +221,7 @@ class XmlExporter extends AbstractExporter
      *
      * @return DOMElement
      */
-    protected function createSourceNode(DOMDocument $dom, ?TranslationValue $translationValue): DOMElement
+    protected function createSourceNode (DOMDocument $dom, ?TranslationValue $translationValue): DOMElement
     {
         $sourceNode = $dom->createElement('source', ($translationValue) ? htmlspecialchars($translationValue->getValue()) : 'no default value found');
 
@@ -229,7 +236,7 @@ class XmlExporter extends AbstractExporter
      *
      * @return DOMElement
      */
-    protected function createTargetNode(DOMDocument $dom, TranslationValue $translationValue): DOMElement
+    protected function createTargetNode (DOMDocument $dom, TranslationValue $translationValue): DOMElement
     {
         $targetNode = $dom->createElement('target', $translationValue->getValue());
 

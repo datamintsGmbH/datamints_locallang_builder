@@ -7,6 +7,11 @@ Change log
 ==========
 
 
+Version 1.0.19
+-------------
+
+- [Feature] Added Support for CDATA-Nodes
+
 Version 1.0.18
 -------------
 
