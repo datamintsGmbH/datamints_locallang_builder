@@ -32,8 +32,16 @@ class XmlService extends AbstractService
         $translationValue = GeneralUtility::makeInstance(TranslationValue::class);
         // Check if theres a target-tag, otherwise we expect it coming from the source-tag. The Target-Tag is more important, because default-translations (locallang.xlf) should only contain "source"-Tags
         if (count($domElement->getElementsByTagName('target'))) {
+            $targetValue = '';
             $targetNode = $domElement->getElementsByTagName('target')[0];
-            $translationValue->setValue($targetNode->nodeValue);
+            foreach ($targetNode->childNodes as $child) {
+                if ($child->nodeType == XML_CDATA_SECTION_NODE) {
+                    $targetValue .= $this->wrapCData($child->textContent);
+                } else {
+                    $targetValue .= $child->textContent;
+                }
+            }
+            $translationValue->setValue($targetValue);
         } else {
             $sourceValue = '';
             $sourceNode = $domElement->getElementsByTagName('source')[0];
