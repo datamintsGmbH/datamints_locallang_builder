@@ -7,6 +7,11 @@ Change log
 ==========
 
 
+Version 1.0.20
+-------------
+
+- [HOTFIX] Added cdata-node-compatibility for Target-Elements
+
 Version 1.0.19
 -------------
 
