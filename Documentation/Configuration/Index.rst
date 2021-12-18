@@ -91,38 +91,112 @@ To use Google as translation-provider, enter this:
 TypoScript Reference
 ====================
 
-======================================  =============  ======================================================================================  =====================================
-Property:                               Data type:     Description:                                                                            Default:
-======================================  =============  ======================================================================================  =====================================
-azure.url                               string         there should be no need to modify this value. It's the api-host for azure               https://api.cognitive.microsofttranslator.com/translate
---------------------------------------  -------------  --------------------------------------------------------------------------------------  -------------------------------------
-azure.version                           string         API-Version number for azure                                                            3.0
---------------------------------------  -------------  --------------------------------------------------------------------------------------  -------------------------------------
-azure.key                               string         Your API-Key for Azure                                                                  <empty>
---------------------------------------  -------------  --------------------------------------------------------------------------------------  -------------------------------------
-azure.area                              string         Your defined area, defined in the azure console                                         global
---------------------------------------  -------------  --------------------------------------------------------------------------------------  -------------------------------------
-azure.active                            int            Flag, if this provider is active. Keep in mind to select not more than one provider     0
---------------------------------------  -------------  --------------------------------------------------------------------------------------  -------------------------------------
-deepl.url                               string         there should be no need to modify this value. It's the api-host for Deepl               https://api-free.deepl.com/v2/translate
---------------------------------------  -------------  --------------------------------------------------------------------------------------  -------------------------------------
-deepl.version                           string         Not in use by DeepL
---------------------------------------  -------------  --------------------------------------------------------------------------------------  -------------------------------------
-deepl.key                               string         Your API-Key for DeepL                                                                  <empty>
---------------------------------------  -------------  --------------------------------------------------------------------------------------  -------------------------------------
-deepl.area                              string         Not in use by DeepL
---------------------------------------  -------------  --------------------------------------------------------------------------------------  -------------------------------------
-deepl.active                            int            Flag, if this provider is active. Keep in mind to select not more than one provider     0
---------------------------------------  -------------  --------------------------------------------------------------------------------------  -------------------------------------
-google.url                               string        there should be no need to modify this value. It's the api-host for Google             https://www.googleapis.com/language/translate
---------------------------------------  -------------  --------------------------------------------------------------------------------------  -------------------------------------
-google.version                           string        API-Version number for azure                                                           v2
---------------------------------------  -------------  --------------------------------------------------------------------------------------  -------------------------------------
-google.key                               string        Your API-Key for google                                                                  <empty>
---------------------------------------  -------------  --------------------------------------------------------------------------------------  -------------------------------------
-google.area                              string        Not in use by google
---------------------------------------  -------------  --------------------------------------------------------------------------------------  -------------------------------------
-google.active                            int           Flag, if this provider is active. Keep in mind to select not more than one provider     0
---------------------------------------  -------------  --------------------------------------------------------------------------------------  -------------------------------------
-excludedExtensions                       string        Comma-separated list of extension keys to be excluded from being displayed              datamints_locallang_builder
-======================================  =============  ======================================================================================  =====================================
+.. confval:: azure.url
+
+   :Datatype: string
+   :Default: https://api.cognitive.microsofttranslator.com/translate
+
+    There should be no need to modify this value. It's the api-host for azure.
+
+.. confval:: azure.version
+
+   :Datatype: string
+   :Default: 3.0
+
+   API-Version number for azure.
+
+.. confval:: azure.key
+
+   :Datatype: string
+   :Default: <empty>
+
+   Your API-Key for Azure.
+
+.. confval:: azure.area
+
+   :Datatype: string
+   :Default: global
+
+   Your defined area, defined in the azure console.
+
+.. confval:: azure.active
+
+   :Datatype: int
+   :Default: 0
+
+   Flag, if this provider is active. Keep in mind to select not more than one provider.
+
+.. confval:: deepl.url
+
+   :Datatype: string
+   :Default: https://api-free.deepl.com/v2/translate
+
+   There should be no need to modify this value. It's the api-host for Deepl.
+
+.. confval:: deepl.version
+
+   :Datatype: string
+
+   Not in use by DeepL
+
+.. confval:: deepl.key
+
+   :Datatype: string
+   :Default: <empty>
+
+   Your API-Key for DeepL.
+
+.. confval:: deepl.area
+
+   :Datatype: string
+
+   Not in use by DeepL
+
+.. confval:: deepl.active
+
+   :Datatype: int
+   :Default: 0
+
+   Flag, if this provider is active. Keep in mind to select not more than one
+   provider.
+
+.. confval:: google.url
+
+   :Datatype: string
+   :Default: https://www.googleapis.com/language/translate
+
+   There should be no need to modify this value. It's the api-host for Google.
+
+.. confval:: google.version
+
+   :Datatype: string
+   :Default: v2
+
+   API-Version number for azure
+
+.. confval:: google.key
+
+   :Datatype: string
+   :Default: <empty>
+
+   Your API-Key for Google.
+
+.. confval:: google.area
+
+   :Datatype: string
+
+   Not in use by Google.
+
+.. confval:: google.active
+
+   :Datatype: int
+   :Default: 0
+
+   Flag, if this provider is active. Keep in mind to select not more than one provider.
+
+.. confval:: excludedExtensions
+
+   :Datatype: string
+   :Default: datamints_locallang_builder
+
+   Comma-separated list of extension keys to be excluded from being displayed.
