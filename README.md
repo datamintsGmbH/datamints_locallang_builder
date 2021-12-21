@@ -6,7 +6,7 @@ A TYPO3 extension for adding, modifying and auto-translating content of extensio
 Links:
 
 - [TER](https://typo3.org/extensions/repository/view/datamints_locallang_builder)
-- [Documentation](https://docs.typo3.org/p/datamints/locallang_builder/master/en-us/)
+- [Documentation](https://docs.typo3.org/p/datamints/locallang_builder/main/en-us/)
 - [Contact](mailto:m.weisgerber@datamints.com)
 
 Features:
@@ -22,7 +22,7 @@ Features:
 Usage and installation:
 ---------
 
-- See documentation: https://github.com/datamintsGmbH/datamints_locallang_builder/tree/master/Documentation
+- See documentation: https://docs.typo3.org/p/datamints/locallang_builder/main/en-us/
 
 Screenshots
 ---------
