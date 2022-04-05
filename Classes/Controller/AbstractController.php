@@ -50,7 +50,7 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 
         return [
             'status' => self::STATUS_SUCCESS,
-            'message' => 'no message given',
+            'message' => 'Could not execute the command. Try again later or check the API-Key',
             'data' => [],
             'requestTime' => $context->getPropertyFromAspect('date', 'timestamp'),
             'type' => $this->entityType,
