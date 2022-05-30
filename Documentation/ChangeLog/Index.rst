@@ -7,6 +7,11 @@ Change log
 ==========
 
 
+Version 1.0.21
+-------------
+
+- [TASK] Reduced header size
+
 Version 1.0.20
 -------------
 
