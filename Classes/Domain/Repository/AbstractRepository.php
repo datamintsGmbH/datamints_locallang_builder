@@ -27,7 +27,7 @@ abstract class AbstractRepository extends \TYPO3\CMS\Extbase\Persistence\Reposit
     /**
      * @return ConfigurationManagerInterface
      */
-    public function getConfigurationManager()
+    public function getConfigurationManager ()
     {
         return $this->objectManager->get(ConfigurationManagerInterface::class);
     }
@@ -45,9 +45,9 @@ abstract class AbstractRepository extends \TYPO3\CMS\Extbase\Persistence\Reposit
      *
      * @return array|object|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface
      */
-    public function findGenericByConstraints($constraints = [], $ordering = null, $ignoreEnableFields = true, $respectSysLanguage = false, $respectStoragePage = false, $includeDeleted = false, $returnSingle = false)
+    public function findGenericByConstraints ($constraints = [], $ordering = null, $ignoreEnableFields = true, $respectSysLanguage = false, $respectStoragePage = false, $includeDeleted = false, $returnSingle = false)
     {
-        if(!$ordering) {
+        if (!$ordering) {
             $ordering = ['uid' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING];
         }
 
@@ -67,12 +67,12 @@ abstract class AbstractRepository extends \TYPO3\CMS\Extbase\Persistence\Reposit
         $query->setOrderings($ordering);
 
         // Output-Möglichkeit, um den raw query auszugeben
-        if(1 == 0) {
+        if (1 == 0) {
             $queryParser = $this->objectManager->get(\TYPO3\CMS\Extbase\Persistence\Generic\Storage\Typo3DbQueryParser::class);
             \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($queryParser->convertQueryToDoctrineQueryBuilder($query)->getSQL(), 'SQL');
             \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($queryParser->convertQueryToDoctrineQueryBuilder($query)->getParameters(), 'SQL-Params');
         }
-        if($returnSingle) {
+        if ($returnSingle) {
             return $query->execute()->getFirst();
         }
         return $query->execute();
@@ -86,7 +86,7 @@ abstract class AbstractRepository extends \TYPO3\CMS\Extbase\Persistence\Reposit
      *
      * @return array
      */
-    protected function buildConstraints($query, $additionalConstraints)
+    protected function buildConstraints ($query, $additionalConstraints)
     {
         $constraints = [];
         /** @var \Datamints\DatamintsLocallangBuilder\Domain\Model\Constraint $additionalConstraint */
@@ -119,9 +119,9 @@ abstract class AbstractRepository extends \TYPO3\CMS\Extbase\Persistence\Reposit
     /**
      * @param \TYPO3\CMS\Extbase\DomainObject\AbstractEntity $entity
      */
-    public function save($entity)
+    public function save ($entity)
     {
-        if($entity->getUid()) {
+        if ($entity->getUid()) {
             $this->update($entity);
         } else {
             $this->add(($entity));
@@ -136,7 +136,7 @@ abstract class AbstractRepository extends \TYPO3\CMS\Extbase\Persistence\Reposit
      * @return array|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface
      * @throws \TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException
      */
-    public function findByUids($uids)
+    public function findByUids ($uids)
     {
         $query = $this->createQuery();
         $query->matching(
@@ -150,16 +150,13 @@ abstract class AbstractRepository extends \TYPO3\CMS\Extbase\Persistence\Reposit
      * Removes all entries for this table. If you also want to delete the related sub-ojects, better use the native removeAll-Function
      * Thats a quick method, because the other method takes about 1 minute to execute
      */
-    public function removeAllQuick()
+    public function removeAllQuick ()
     {
         $tableName = $this->getTableName();
 
         /** @var QueryBuilder $queryBuilder */
-        $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable($tableName);
-        $rows = $queryBuilder->update($tableName, 'q')->set(
-            'q.deleted',
-            1
-        )->where($queryBuilder->expr()->eq('q.deleted', 0))->execute();
+        $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable($tableName);
+        $queryBuilder->truncate($tableName);
     }
 
     /**
@@ -167,9 +164,9 @@ abstract class AbstractRepository extends \TYPO3\CMS\Extbase\Persistence\Reposit
      *
      * @return string
      */
-    protected function getTableName(): string
+    protected function getTableName (): string
     {
-        if(!$this->modelTableName) {
+        if (!$this->modelTableName) {
             throw new \TYPO3\CMS\Core\Exception('No model table name defined');
         }
         return $this->modelTableName;
@@ -183,18 +180,18 @@ abstract class AbstractRepository extends \TYPO3\CMS\Extbase\Persistence\Reposit
      *
      * @return AndInterface|null
      */
-    protected function createTimeFrameConstraint($query, $propertyName, $minTimestamp = null, $maxTimestamp = null)
+    protected function createTimeFrameConstraint ($query, $propertyName, $minTimestamp = null, $maxTimestamp = null)
     {
         $constraints = [];
-        if($minTimestamp) {
+        if ($minTimestamp) {
             $constraints[] = $query->greaterThanOrEqual($propertyName, $minTimestamp);
         }
-        if($maxTimestamp) {
+        if ($maxTimestamp) {
             $constraints[] = $query->lessThanOrEqual($propertyName, $maxTimestamp);
         }
-        if(!$constraints) {
+        if (!$constraints) {
             return null;
         }
         return $query->logicalAnd($constraints);
-	}
+    }
 }
