@@ -45,8 +45,8 @@ call_user_func(static function () {
             ]
         );
     }
-
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile('datamints_locallang_builder', 'Configuration/TypoScript', 'datamints Locallang Builder');
+    // not needed anymore because the typoscript is loaded always
+    //\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile('datamints_locallang_builder', 'Configuration/TypoScript', 'datamints Locallang Builder');
 
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_datamintslocallangbuilder_domain_model_extension', 'EXT:datamints_locallang_builder/Resources/Private/Language/locallang_csh_tx_datamintslocallangbuilder_domain_model_extension.xlf');
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_datamintslocallangbuilder_domain_model_extension');

@@ -4,15 +4,28 @@ defined('TYPO3_MODE') || die();
 
 // Adding symphony-support for TYPO3 9.x without composer-mode
 $typo3Version = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Information\Typo3Version::class);
-if($typo3Version->getMajorVersion() == 9) {
+if ($typo3Version->getMajorVersion() == 9) {
     require_once \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('datamints_locallang_builder', 'Resources/Private/DependenciesLegacy/vendor/autoload.php');
 }
 // Adding other libs that are defined in a seperate composer-file, to gain access for non-composer-instances. Currently not necessary
 //require_once \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('datamints_locallang_builder', 'Resources/Private/Dependencies/vendor/autoload.php');
 
 // Using own cache (DB-Based)
-if(!is_array($GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['datamintslocallangbuilder_cache'])) {
+if (!is_array($GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['datamintslocallangbuilder_cache'])) {
     $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['datamintslocallangbuilder_cache'] = [];
+}
+if (TYPO3_MODE === 'BE') {
+    // always include typoscript
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScript(
+        'datamints_locallang_builder',
+        'constants',
+        "@import 'EXT:datamints_locallang_builder/Configuration/TypoScript/constants.typoscript'"
+    );
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScript(
+        'datamints_locallang_builder',
+        'setup',
+        "@import 'EXT:datamints_locallang_builder/Configuration/TypoScript/setup.typoscript'"
+    );
 }
 
 // Using typo3 logging
