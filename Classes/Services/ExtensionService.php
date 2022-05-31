@@ -9,6 +9,7 @@ namespace Datamints\DatamintsLocallangBuilder\Services;
 
 use Datamints\DatamintsLocallangBuilder\Utility\DatabaseUtility;
 use Datamints\DatamintsLocallangBuilder\Services\Traits\ManifestBuildServiceTrait;
+use Datamints\DatamintsLocallangBuilder\Utility\LogUtility;
 
 class ExtensionService extends AbstractService
 {
@@ -23,19 +24,25 @@ class ExtensionService extends AbstractService
      *
      * @return array
      */
-    public function getExtensionManifest(array $extensionsList): array
+    public function getExtensionManifest (array $extensionsList): array
     {
+        LogUtility::log(self::class . ': Beginning to build the extension Manifests');
 
         $extensionObjects = [];
 
         foreach ($extensionsList as $extensionDTO) {
-            if($extensionDTO['local'] && !$this->isExtensionKeyExcluded($extensionDTO['key'])) {
+            LogUtility::log(self::class . ': Beginning Extension Manifest for EXT:' . $extensionDTO['key']);
+            if ($extensionDTO['local'] && !$this->isExtensionKeyExcluded($extensionDTO['key'])) {
                 $extensionObjects[] = $this->manifestBuildService->getExtensionPart($extensionDTO);
             }
+            LogUtility::log(self::class . ': Finished Extension Manifest for EXT:' . $extensionDTO['key']);
         }
-        if(ManifestBuildService::PERSIST) {
+        if (ManifestBuildService::PERSIST) {
             DatabaseUtility::persistAll();
         }
+
+        LogUtility::log(self::class . ': Finished to build the extension Manifests');
+
 
         return $extensionObjects;
     }
@@ -47,13 +54,13 @@ class ExtensionService extends AbstractService
      *
      * @return bool
      */
-    protected function isExtensionKeyExcluded(string $extensionKey): bool
+    protected function isExtensionKeyExcluded (string $extensionKey): bool
     {
         /** @var array $explodedExcludedExtensions */
         $explodedExcludedExtensions = explode(',', $this->getSettings()['excludedExtensions']);
         /** @var TYPE_NAME $explodedExcludedExtension */
         foreach ($explodedExcludedExtensions as $explodedExcludedExtension) {
-            if(trim($extensionKey) === trim($explodedExcludedExtension)) {
+            if (trim($extensionKey) === trim($explodedExcludedExtension)) {
                 return true;
             }
         }
