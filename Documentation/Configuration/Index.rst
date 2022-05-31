@@ -6,20 +6,7 @@
 Configuration
 =============
 
-Please include the Static Typoscript Template, either by going to "Template -> Includes" and selecting "datamints Locallang Builder" OR by including them in your site package:
-
-setup
-
-.. code-block:: typoscript
-
-   <INCLUDE_TYPOSCRIPT: source="FILE:EXT:datamints_locallang_builder/Configuration/TypoScript/setup.typoscript">
-
-constants
-
-.. code-block:: typoscript
-
-   <INCLUDE_TYPOSCRIPT: source="FILE:EXT:datamints_locallang_builder/Configuration/TypoScript/constants.typoscript">
-
+You don't have to include a Static Typoscript Template. Everything loads automatically in backend context
 
 .. _configuration-typoscript:
 

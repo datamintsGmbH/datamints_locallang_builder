@@ -7,10 +7,13 @@ Change log
 ==========
 
 
-Version 1.0.21
+Version 1.1.0
 -------------
 
 - [TASK] Reduced header size
+- [TASK] Increased loading time when resetting everything
+- [TASK] Updated docs
+- [BUG] Removed static templates to autoload the typoscript in backend context. So we prevent missing templates when using a multi domain microsite system
 
 Version 1.0.20
 -------------
