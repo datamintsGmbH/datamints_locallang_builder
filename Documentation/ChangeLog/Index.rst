@@ -7,6 +7,11 @@ Change log
 ==========
 
 
+Version 1.1.1
+-------------
+
+- [BUGFIX] Fixed php warning when using PHP 8.1 (thx @nhovratov)
+
 Version 1.1.0
 -------------
 

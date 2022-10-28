@@ -11,7 +11,7 @@ if ($typo3Version->getMajorVersion() == 9) {
 //require_once \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('datamints_locallang_builder', 'Resources/Private/Dependencies/vendor/autoload.php');
 
 // Using own cache (DB-Based)
-if (!is_array($GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['datamintslocallangbuilder_cache'])) {
+if (empty($GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['datamintslocallangbuilder_cache'])) {
     $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['datamintslocallangbuilder_cache'] = [];
 }
 if (TYPO3_MODE === 'BE') {
