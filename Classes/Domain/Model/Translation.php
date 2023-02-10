@@ -16,35 +16,35 @@ class Translation extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity impleme
     /**
      * Cache for default TranslationValue. Its calculated in runtime for faster access. Its not persisted in the DB!
      * Don't use this variable, instead use getDefaultTranslationValue()
-     * 
+     *
      * @var \Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang
      */
     protected $defaultTranslationValueCache = null;
 
     /**
      * expandedFlag is controllable from server
-     * 
+     *
      * @var bool
      */
     protected $expanded = false;
 
     /**
      * new-flag to highlight in vue
-     * 
+     *
      * @var bool
      */
     protected $new = false;
 
     /**
      * translation key from the locallang.xlf-File
-     * 
+     *
      * @var string
      */
     protected $translationKey = '';
 
     /**
      * TranslationValue as its written in the xlf-File
-     * 
+     *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Datamints\DatamintsLocallangBuilder\Domain\Model\TranslationValue>
      * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
      * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
@@ -53,7 +53,7 @@ class Translation extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity impleme
 
     /**
      * Bidirectional for easier db-queries
-     * 
+     *
      * @var \Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang
      * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
      */
@@ -74,7 +74,7 @@ class Translation extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity impleme
      * Do not modify this method!
      * It will be rewritten on each save in the extension builder
      * You may modify the constructor of this class instead
-     * 
+     *
      * @return void
      */
     public function initializeObject()
@@ -89,14 +89,14 @@ class Translation extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity impleme
     public function jsonSerialize()
     {
         return [
-        'uid' => $this->getUid(), 
+        'uid' => $this->getUid(),
         'translationKey' => $this->getTranslationKey()
         ];
     }
 
     /**
      * Returns the translationKey
-     * 
+     *
      * @return string translationKey
      */
     public function getTranslationKey()
@@ -106,7 +106,7 @@ class Translation extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity impleme
 
     /**
      * Sets the translationKey
-     * 
+     *
      * @param string $translationKey
      * @return void
      */
@@ -117,7 +117,7 @@ class Translation extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity impleme
 
     /**
      * Returns the default translation value. This value is calculated on demand and is not persisted
-     * 
+     *
      * @return \Datamints\DatamintsLocallangBuilder\Domain\Model\TranslationValue $translationValue
      */
     public function getDefaultTranslationValue()
@@ -138,7 +138,7 @@ class Translation extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity impleme
 
     /**
      * Get don't use this variable, instead use getDefaultTranslationValue()
-     * 
+     *
      * @return \Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang
      */
     public function getDefaultTranslationValueCache()
@@ -148,7 +148,7 @@ class Translation extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity impleme
 
     /**
      * Set don't use this variable, instead use getDefaultTranslationValue()
-     * 
+     *
      * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $defaultTranslationValueCache Don't use this variable, instead use getDefaultTranslationValue()
      */
     public function setDefaultTranslationValueCache(\Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $defaultTranslationValueCache)
@@ -158,7 +158,7 @@ class Translation extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity impleme
 
     /**
      * Returns the translationValues
-     * 
+     *
      * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Datamints\DatamintsLocallangBuilder\Domain\Model\TranslationValue> translationValues
      */
     public function getTranslationValues()
@@ -168,7 +168,7 @@ class Translation extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity impleme
 
     /**
      * Sets the translationValues
-     * 
+     *
      * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Datamints\DatamintsLocallangBuilder\Domain\Model\TranslationValue> $translationValues
      * @return void
      */
@@ -179,7 +179,7 @@ class Translation extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity impleme
 
     /**
      * Returns the relatedLocallang
-     * 
+     *
      * @return \Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $relatedLocallang
      */
     public function getRelatedLocallang()
@@ -189,7 +189,7 @@ class Translation extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity impleme
 
     /**
      * Sets the relatedLocallang
-     * 
+     *
      * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $relatedLocallang
      * @return void
      */
@@ -200,7 +200,7 @@ class Translation extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity impleme
 
     /**
      * Adds a TranslationValue
-     * 
+     *
      * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\TranslationValue $translationValue
      * @return void
      */
@@ -211,7 +211,7 @@ class Translation extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity impleme
 
     /**
      * Removes a TranslationValue
-     * 
+     *
      * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\TranslationValue $translationValueToRemove The TranslationValue to be removed
      * @return void
      */
@@ -222,7 +222,7 @@ class Translation extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity impleme
 
     /**
      * Returns the translationValues
-     * 
+     *
      * @return array
      */
     public function getTranslationValuesArray()
@@ -232,7 +232,7 @@ class Translation extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity impleme
 
     /**
      * Get expandedFlag is controlable from server
-     * 
+     *
      * @return bool
      */
     public function getExpanded()
@@ -242,7 +242,7 @@ class Translation extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity impleme
 
     /**
      * Set expandedFlag is controlable from server
-     * 
+     *
      * @param bool $expanded expandedFlag is controlable from server
      */
     public function setExpanded(bool $expanded)
@@ -252,7 +252,7 @@ class Translation extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity impleme
 
     /**
      * Get new-flag to highlight in vue
-     * 
+     *
      * @return bool
      */
     public function getNew()
@@ -262,7 +262,7 @@ class Translation extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity impleme
 
     /**
      * Set new-flag to highlight in vue
-     * 
+     *
      * @param bool $new new-flag to highlight in vue
      */
     public function setNew(bool $new)

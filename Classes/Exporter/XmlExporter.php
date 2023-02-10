@@ -20,8 +20,8 @@ use Datamints\DatamintsLocallangBuilder\Domain\Model\Extension;
 use Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang;
 use Datamints\DatamintsLocallangBuilder\Domain\Model\Translation;
 use Datamints\DatamintsLocallangBuilder\Domain\Model\TranslationValue;
-use Datamints\DatamintsLocallangBuilder\Services\ManifestBuildService;
-use Datamints\DatamintsLocallangBuilder\Services\Traits\XmlServiceTrait;
+use Datamints\DatamintsLocallangBuilder\Service\ManifestBuildService;
+use Datamints\DatamintsLocallangBuilder\Service\Traits\XmlServiceTrait;
 
 class XmlExporter extends AbstractExporter
 {

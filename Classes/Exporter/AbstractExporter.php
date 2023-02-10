@@ -10,7 +10,7 @@ namespace Datamints\DatamintsLocallangBuilder\Exporter;
  * (c) 2021 Mark Weisgerber <mark.weisgerber@outlook.de / m.weisgerber@datamints.com>
  * ************************************************************* */
 
-use Datamints\DatamintsLocallangBuilder\Services\AbstractService;
+use Datamints\DatamintsLocallangBuilder\Service\AbstractService;
 
 
 abstract class AbstractExporter extends AbstractService

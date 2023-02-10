@@ -27,13 +27,10 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
     /**
      * set Default-Values
      *
-     * @param \TYPO3\CMS\Extbase\Mvc\View\ViewInterface $view
      */
-    protected function initializeView (ViewInterface $view)
+    protected function initializeView ()
     {
-        parent::initializeView($view);
-
-        $view->assignMultiple(
+        $this->view->assignMultiple(
             $this->getDefaultViewAssigns()
         );
     }
