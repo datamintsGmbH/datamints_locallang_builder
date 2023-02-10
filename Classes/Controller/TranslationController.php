@@ -7,6 +7,7 @@ use Datamints\DatamintsLocallangBuilder\Domain\Repository\Traits\LocallangReposi
 use Datamints\DatamintsLocallangBuilder\Domain\Repository\Traits\TranslationRepositoryTrait;
 use Datamints\DatamintsLocallangBuilder\Mvc\View\TranslationJsonView;
 use Datamints\DatamintsLocallangBuilder\Service\Traits\TranslationServiceTrait;
+use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
@@ -24,12 +25,6 @@ class TranslationController extends AbstractController
     use TranslationRepositoryTrait;
     use LocallangRepositoryTrait;
 
-    /**
-     * Using JSon-View-Output indead of html-Templates
-     *
-     * @var string
-     */
-    public $defaultViewObjectName = TranslationJsonView::class;
 
     /**
      * translationRepository
@@ -43,12 +38,12 @@ class TranslationController extends AbstractController
      * Updates the given fields for a translation record
      * Not existing fields results to error-response
      *
-     * @param Weisgerber\LocallangBuilder\Domain\Model\Translation
+     * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translation
+     * @return \Psr\Http\Message\ResponseInterface
      * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation("translation")
      *
-     * @return string|object|null|void
      */
-    public function updateAction (\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translation)
+    public function updateAction (\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translation):ResponseInterface
     {
         $data = json_decode(GeneralUtility::_GP('data'), true);
         $message = 'The following fields have been updated: ';
@@ -63,25 +58,25 @@ class TranslationController extends AbstractController
             }
         }
         $this->translationRepository->upgrade($translation);
-        $this->view->assign('message', $message);
-        $this->view->assign('data', $translation);
+
+        return $this->jsonResponse(\json_encode(['message' => $message, 'data' => $translation]));
     }
 
     /**
      * action delete
      *
      * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translation
+     * @return \Psr\Http\Message\ResponseInterface
+     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
      * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation("translation")
      *
-     * @return string|object|null|void
      */
-    public function deleteAction (\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translation)
+    public function deleteAction (\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translation):ResponseInterface
     {
         $uidDeleted = $translation->getUid();
         $this->translationRepository->remove($translation);
-        $this->view->assign('return', $uidDeleted);
-        $this->view->assign('data', []);
-        $this->view->assign('message', "The Entity with uid " . $uidDeleted . ' has been deleted.');
+
+        return $this->jsonResponse(\json_encode(['return' => $uidDeleted, 'data' => [], 'message' => "The Entity with uid " . $uidDeleted . ' has been deleted.']));
     }
 
     /**
@@ -91,11 +86,14 @@ class TranslationController extends AbstractController
      * It's also possible to trigger an autotranslate for the configured auto-translation provider. See docs for further instructions to get auto-translation working.
      *
      * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang
+     * @return \Psr\Http\Message\ResponseInterface
+     * @throws \TYPO3\CMS\Core\Exception
+     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
+     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\UnknownObjectException
      * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation("locallang")
      *
-     * @return string|object|null|void
      */
-    public function createAction (\Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang)
+    public function createAction (\Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang):ResponseInterface
     {
         $data = json_decode(GeneralUtility::_GP('data'), true);
 
@@ -121,9 +119,9 @@ class TranslationController extends AbstractController
         $this->locallangRepository->update($locallang);
         DatabaseUtility::persistAll();
         $translation->setNew(true);
-        $this->view->assign('return', $locallang->getUid());
-        $this->view->assign('data', $translation);
-        $this->view->assign('message', 'A new entity has been generated');
+
+        return $this->jsonResponse(\json_encode(['return' => $locallang->getUid(),'message' => 'A new entity has been generated', 'data' => $translation]));
+
     }
 
     /**

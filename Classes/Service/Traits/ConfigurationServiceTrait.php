@@ -9,13 +9,13 @@ trait ConfigurationServiceTrait
      *
      * @var \Datamints\DatamintsLocallangBuilder\Service\Configuration\ConfigurationService
      */
-    protected $ConfigurationService = null;
+    protected $configurationService = null;
 
     /**
-     * @param \Datamints\DatamintsLocallangBuilder\Service\Configuration\ConfigurationService $ConfigurationService
+     * @param \Datamints\DatamintsLocallangBuilder\Service\Configuration\ConfigurationService $configurationService
      */
-    public function injectConfigurationService(\Datamints\DatamintsLocallangBuilder\Service\Configuration\ConfigurationService $ConfigurationService)
+    public function injectConfigurationService(\Datamints\DatamintsLocallangBuilder\Service\Configuration\ConfigurationService $configurationService)
     {
-        $this->ConfigurationService = $ConfigurationService;
+        $this->configurationService = $configurationService;
     }
 }

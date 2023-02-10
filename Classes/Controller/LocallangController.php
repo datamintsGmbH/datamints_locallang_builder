@@ -28,12 +28,6 @@ class LocallangController extends AbstractController
     use ExportServiceTrait;
     use LocallangRepositoryTrait;
 
-    /**
-     * Using JSon-View-Output indead of html-Templates
-     *
-     * @var string
-     */
-    public $defaultViewObjectName = LocallangJsonView::class;
 
 
     /**

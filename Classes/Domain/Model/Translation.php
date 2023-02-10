@@ -1,4 +1,5 @@
 <?php
+
 namespace Datamints\DatamintsLocallangBuilder\Domain\Model;
 
 use JsonSerializable;
@@ -26,21 +27,21 @@ class Translation extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity impleme
      *
      * @var bool
      */
-    protected $expanded = false;
+    protected bool $expanded = false;
 
     /**
      * new-flag to highlight in vue
      *
      * @var bool
      */
-    protected $new = false;
+    protected bool $new = false;
 
     /**
      * translation key from the locallang.xlf-File
      *
      * @var string
      */
-    protected $translationKey = '';
+    protected string $translationKey = '';
 
     /**
      * TranslationValue as its written in the xlf-File
@@ -77,7 +78,7 @@ class Translation extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity impleme
      *
      * @return void
      */
-    public function initializeObject()
+    public function initializeObject(): void
     {
         $this->translationValues = $this->translationValues ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
     }
@@ -89,8 +90,9 @@ class Translation extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity impleme
     public function jsonSerialize()
     {
         return [
-        'uid' => $this->getUid(),
-        'translationKey' => $this->getTranslationKey()
+            'uid' => $this->getUid(),
+            'translationKey' => $this->getTranslationKey(),
+            'translationValues' => $this->getTranslationValuesArray()
         ];
     }
 
@@ -222,12 +224,16 @@ class Translation extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity impleme
 
     /**
      * Returns the translationValues
-     *
+     * Somehow $this->translationValues->toArray() fetches an empty array when using the parent objects jsonSerialize-Function
      * @return array
      */
     public function getTranslationValuesArray()
     {
-        return $this->translationValues->toArray();
+        $array = [];
+        foreach ($this->translationValues as $translationValue){
+            $array[] = $translationValue->jsonSerialize();
+        }
+        return $array;
     }
 
     /**

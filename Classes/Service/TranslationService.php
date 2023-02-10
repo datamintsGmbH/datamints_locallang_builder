@@ -26,12 +26,7 @@ class TranslationService extends AbstractService
      */
     protected $provider = null;
 
-    public function __construct()
-    {
-        parent::__construct();
 
-
-    }
 
     /**
      * Translates a TranslationValue by its DefaultValue

@@ -2,9 +2,11 @@
 
 namespace Datamints\DatamintsLocallangBuilder\Controller;
 
+use Datamints\DatamintsLocallangBuilder\Domain\Model\TranslationValue;
 use Datamints\DatamintsLocallangBuilder\Domain\Repository\Traits\TranslationRepositoryTrait;
 use Datamints\DatamintsLocallangBuilder\Mvc\View\TranslationValueJsonView;
 use Datamints\DatamintsLocallangBuilder\Service\Traits\TranslationServiceTrait;
+use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
@@ -19,13 +21,6 @@ class TranslationValueController extends AbstractController
     use \Datamints\DatamintsLocallangBuilder\Controller\Traits\CallActionMethodTrait;
     use TranslationServiceTrait;
     use TranslationRepositoryTrait;
-
-    /**
-     * Using JSon-View-Output indead of html-Templates
-     *
-     * @var string
-     */
-    public $defaultViewObjectName = TranslationValueJsonView::class;
 
     /**
      * translationValueRepository
@@ -67,11 +62,14 @@ class TranslationValueController extends AbstractController
      * action create
      *
      * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translation
+     * @return \Psr\Http\Message\ResponseInterface
+     * @throws \TYPO3\CMS\Core\Exception
+     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
+     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\UnknownObjectException
      * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation("translation")
      *
-     * @return string|object|null|void
      */
-    public function createAction (\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translation)
+    public function createAction (\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translation):ResponseInterface
     {
         $data = json_decode(GeneralUtility::_GP('data'), true);
         if (!$data['value']) {
@@ -90,10 +88,8 @@ class TranslationValueController extends AbstractController
         $this->translationRepository->update($translation);
         DatabaseUtility::persistAll();
 
-        // todo remove fallback
-        $this->view->assign('message', 'A new translation with language code: ' . $translationValue->getIdent() . ' has been created.');
-        $this->view->assign('data', $translationValue);
-        $this->view->assign('return', $translation->getUid());
+        return $this->jsonResponse(\json_encode(['return' => $translation->getUid(),'message' => 'A new translation with language code: ' . $translationValue->getIdent() . ' has been created.', 'data' => $translationValue]));
+
     }
 
     /**
@@ -101,11 +97,11 @@ class TranslationValueController extends AbstractController
      * Changes given values, if they exist in model
      *
      * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\TranslationValue $translationValue
+     * @return \Psr\Http\Message\ResponseInterface
      * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation("translationValue")
      *
-     * @return string|object|null|void
      */
-    public function updateAction (\Datamints\DatamintsLocallangBuilder\Domain\Model\TranslationValue $translationValue)
+    public function updateAction (\Datamints\DatamintsLocallangBuilder\Domain\Model\TranslationValue $translationValue):ResponseInterface
     {
         $data = json_decode(GeneralUtility::_GP('data'), true);
         $message = 'The following fields have been updated: ';
@@ -124,55 +120,60 @@ class TranslationValueController extends AbstractController
         // we "fake" a tstamp-value duo to the fact, that we otherwise have to get the translationValue-Entity from the repo again, to get the correct value.
         // The tstamp is required for vue to display the "last updated on"-flag
         $translationValue->setTstamp(new \DateTime());
-        $this->view->assign('message', $message);
-        $this->view->assign('data', $translationValue);
+
+        return $this->jsonResponse(\json_encode(['message' => $message, 'data' => $translationValue]));
+
     }
 
     /**
      * action delete
      *
      * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\TranslationValue $translationValue
+     * @return \Psr\Http\Message\ResponseInterface
+     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
      * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation("translationValue")
      *
-     * @return string|object|null|void
      */
-    public function deleteAction (\Datamints\DatamintsLocallangBuilder\Domain\Model\TranslationValue $translationValue)
+    public function deleteAction (\Datamints\DatamintsLocallangBuilder\Domain\Model\TranslationValue $translationValue):ResponseInterface
     {
         $uidDeleted = $translationValue->getUid();
         $identDeleted = $translationValue->getIdent();
         $this->translationValueRepository->remove($translationValue);
-        $this->view->assign('return', $uidDeleted);
-        $this->view->assign('data', []);
-        $this->view->assign('message', "The Entity with uid " . $uidDeleted . ' and language-code ' . $identDeleted . ' has been deleted.');
+        return $this->jsonResponse(\json_encode(['message' => "The Entity with uid " . $uidDeleted . ' and language-code ' . $identDeleted . ' has been deleted.', 'return' => $uidDeleted, 'data' => []]));
+
     }
 
     /**
      * Autotranslates an entity by the selected translator-provider
      * action autoTranslate
      *
-     * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\TranslationValue $translationValue
-     * @param string                                                             $textToTranslate
+     * @param \Datamints\DatamintsLocallangBuilder\Controller\TranslationValue $translationValue
+     * @param string $textToTranslate
+     * @return \Psr\Http\Message\ResponseInterface
+     * @throws \TYPO3\CMS\Core\Exception
+     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
+     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\UnknownObjectException
      * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation("translationValue")
      *
-     * @return string|object|null|void
      */
-    public function autoTranslateAction (TranslationValue $translationValue, string $textToTranslate)
+    public function autoTranslateAction (TranslationValue $translationValue, string $textToTranslate):ResponseInterface
     {
         $translationValue = $this->translationService->translate($translationValue, $textToTranslate);
         $this->translationValueRepository->update($translationValue);
-        $this->view->assign('data', $translationValue);
+        return $this->jsonResponse(\json_encode(['data' => $translationValue]));
+
     }
 
     /**
      * action edit
      *
      * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\TranslationValue $translationValue
+     * @return \Psr\Http\Message\ResponseInterface
      * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation("translationValue")
      *
-     * @return string|object|null|void
      */
-    public function editAction (\Datamints\DatamintsLocallangBuilder\Domain\Model\TranslationValue $translationValue)
+    public function editAction (\Datamints\DatamintsLocallangBuilder\Domain\Model\TranslationValue $translationValue):ResponseInterface
     {
-        $this->view->assign('translationValue', $translationValue);
+        return $this->jsonResponse(\json_encode(['translationValue' => $translationValue]));
     }
 }
