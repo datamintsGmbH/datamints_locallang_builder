@@ -7,6 +7,7 @@ use Datamints\DatamintsLocallangBuilder\Domain\Repository\Traits\LocallangReposi
 use Datamints\DatamintsLocallangBuilder\Domain\Repository\Traits\TranslationRepositoryTrait;
 use Datamints\DatamintsLocallangBuilder\Mvc\View\TranslationJsonView;
 use Datamints\DatamintsLocallangBuilder\Service\Traits\TranslationServiceTrait;
+use Datamints\DatamintsLocallangBuilder\Utility\DatabaseUtility;
 use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
