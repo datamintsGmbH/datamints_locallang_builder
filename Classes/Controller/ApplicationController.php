@@ -2,9 +2,11 @@
 
 namespace Datamints\DatamintsLocallangBuilder\Controller;
 
+use Datamints\DatamintsLocallangBuilder\Mvc\View\JsonView;
 use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 class ApplicationController extends AbstractController
 {
@@ -17,6 +19,10 @@ class ApplicationController extends AbstractController
     use \Datamints\DatamintsLocallangBuilder\Service\Traits\CachesServiceTrait;
     use \Datamints\DatamintsLocallangBuilder\Service\Traits\ProviderServiceTrait;
 
+    public function initializeClearAction()
+    {
+        $this->defaultViewObjectName = JsonView::class;
+    }
 
     /**
      * main Action

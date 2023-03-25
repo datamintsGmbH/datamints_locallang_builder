@@ -6,6 +6,7 @@ use Datamints\DatamintsLocallangBuilder\Domain\Model\TranslationValue;
 use Datamints\DatamintsLocallangBuilder\Domain\Repository\Traits\TranslationRepositoryTrait;
 use Datamints\DatamintsLocallangBuilder\Mvc\View\TranslationValueJsonView;
 use Datamints\DatamintsLocallangBuilder\Service\Traits\TranslationServiceTrait;
+use Datamints\DatamintsLocallangBuilder\Utility\DatabaseUtility;
 use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
@@ -28,6 +29,7 @@ class TranslationValueController extends AbstractController
      * @var \Datamints\DatamintsLocallangBuilder\Domain\Repository\TranslationValueRepository
      */
     protected $translationValueRepository = null;
+
 
     /**
      * @param \Datamints\DatamintsLocallangBuilder\Domain\Repository\TranslationValueRepository $translationValueRepository
@@ -121,7 +123,7 @@ class TranslationValueController extends AbstractController
         // The tstamp is required for vue to display the "last updated on"-flag
         $translationValue->setTstamp(new \DateTime());
 
-        return $this->jsonResponse(\json_encode(['message' => $message, 'data' => $translationValue]));
+        return $this->jsonResponse(\json_encode(['status'=>'success','message' => $message, 'data' => $translationValue]));
 
     }
 
@@ -139,7 +141,7 @@ class TranslationValueController extends AbstractController
         $uidDeleted = $translationValue->getUid();
         $identDeleted = $translationValue->getIdent();
         $this->translationValueRepository->remove($translationValue);
-        return $this->jsonResponse(\json_encode(['message' => "The Entity with uid " . $uidDeleted . ' and language-code ' . $identDeleted . ' has been deleted.', 'return' => $uidDeleted, 'data' => []]));
+        return $this->jsonResponse(\json_encode(['status'=>'success','message' => "The Entity with uid " . $uidDeleted . ' and language-code ' . $identDeleted . ' has been deleted.', 'return' => $uidDeleted, 'data' => []]));
 
     }
 

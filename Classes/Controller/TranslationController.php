@@ -77,7 +77,7 @@ class TranslationController extends AbstractController
         $uidDeleted = $translation->getUid();
         $this->translationRepository->remove($translation);
 
-        return $this->jsonResponse(\json_encode(['return' => $uidDeleted, 'data' => [], 'message' => "The Entity with uid " . $uidDeleted . ' has been deleted.']));
+        return $this->jsonResponse(\json_encode(['status'=>'success','requestTime' => time(), 'type'=>null,'return' => $uidDeleted, 'data' => [], 'message' => "The Entity with uid " . $uidDeleted . ' has been deleted.']));
     }
 
     /**

@@ -9,7 +9,7 @@ namespace Datamints\DatamintsLocallangBuilder\Domain\Model;
  * (c) 2021 Mark Weisgerber <mark.weisgerber@outlook.de / m.weisgerber@datamints.com>
  * TranslationValue as its written in the xlf-File
  */
-class TranslationValue extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+class TranslationValue extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implements \JsonSerializable
 {
     const IDENT_DEFAULT = 'en';
 
@@ -78,7 +78,11 @@ class TranslationValue extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     public function getTstamp()
     {
-        return $this->tstamp->format('Y-m-d H:i:s');
+        if($this->tstamp) {
+            return $this->tstamp->format('Y-m-d H:i:s');
+        }else{
+            return '';
+        }
     }
 
     /**
@@ -252,7 +256,7 @@ class TranslationValue extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Filtering json-output, if needed
      * To output all files, use return get_object_vars($this);
      */
-    public function jsonSerialize()
+    public function jsonSerialize():mixed
     {
         return [
             'uid' => $this->getUid(),
