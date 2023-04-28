@@ -3,12 +3,11 @@
 namespace Datamints\DatamintsLocallangBuilder\Controller;
 
 
+use Datamints\DatamintsLocallangBuilder\Domain\Model\Extension;
 use Datamints\DatamintsLocallangBuilder\Mvc\View\ExtensionJsonView;
 use Datamints\DatamintsLocallangBuilder\Service\Traits\ExtensionServiceTrait;
 use Datamints\DatamintsLocallangBuilder\Service\Traits\FileServiceTrait;
 use Psr\Http\Message\ResponseInterface;
-use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * This file is part of the "datamints_locallang_builder" Extension for TYPO3 CMS.
@@ -61,9 +60,22 @@ class ExtensionController extends AbstractController
             $this->logger->info("Forwarding the extension-cache");
             $extensionList = $this->extensionService->getExtensionManifest($this->fileService->getExtensionsList());
             $response['message'] = count($extensionList) . ' active extensions have been loaded';
-            $response['data'] = $extensionList;
-        }
 
+
+            $response['data'] = $extensionList;
+            $response['status'] = "success";
+
+        }
+        // Remove the unnecessary translations that are not yet necessary to save RAM. Due to the removal of the JsonView in TYPO3 12.x, these fields are no longer skipped automatically.
+        $response = \json_encode($response);
+        $response = \json_decode($response, true);
+
+        foreach ($response['data'] as &$extension){
+            foreach ($extension['locallangs'] as &$locallang){
+                unset($locallang['translationsArray']);
+
+            }
+        }
         return $this->jsonResponse(\json_encode($response));
     }
 

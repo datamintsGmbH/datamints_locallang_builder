@@ -53,7 +53,7 @@ class LocallangController extends AbstractController
      */
     public function showAction (\Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang):ResponseInterface
     {
-        return $this->jsonResponse(json_encode(['message' => "The file " . $locallang->getFilename() . " for the extension " . $locallang->getRelatedExtension()->getName() . " has been loaded", "data" => $locallang]));
+        return $this->jsonResponse(json_encode(['message' => "The file " . $locallang->getFilename() . " for the extension " . $locallang->getRelatedExtension()->getName() . " has been loaded", "data" => $locallang, "status" => "success"]));
 
     }
 

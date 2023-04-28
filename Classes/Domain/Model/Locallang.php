@@ -125,7 +125,9 @@ class Locallang extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
      */
     public function getTranslationsArray()
     {
-
+        if(is_null($this->translations)){
+            return [];
+        }
         // Creating wrapper-object for vue-table-usage, so we dont have to map some data in vue
         return array_map(
             function ($object) {
@@ -189,10 +191,10 @@ class Locallang extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
     /**
      * Sets the translations
      *
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation> $translations
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation>|null $translations
      * @return void
      */
-    public function setTranslations(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $translations)
+    public function setTranslations(?\TYPO3\CMS\Extbase\Persistence\ObjectStorage $translations)
     {
         $this->translations = $translations;
     }
