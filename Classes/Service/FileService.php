@@ -29,7 +29,7 @@ class FileService extends AbstractService
 			$extensionsObject[] = [
 				'key' => $extensionKey,
 				'local' => strpos(ExtensionManagementUtility::extPath($extensionKey), Environment::getExtensionsPath()) > -1,
-				'path' => PathUtility::sanitizeTrailingSeparator('typo3conf/ext/' . $extensionKey),
+				'path' => PathUtility::sanitizeTrailingSeparator('EXT:' . $extensionKey),
 			];
 		}
 		return $extensionsObject;
