@@ -38,7 +38,7 @@ class LocallangController extends AbstractController
     /**
      * Constructor
      */
-    public function __construct ()
+    public function __construct()
     {
         $this->entityType = Locallang::class;
     }
@@ -51,9 +51,18 @@ class LocallangController extends AbstractController
      * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation("locallang")
      *
      */
-    public function showAction (\Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang):ResponseInterface
-    {
-        return $this->jsonResponse(json_encode(['message' => "The file " . $locallang->getFilename() . " for the extension " . $locallang->getRelatedExtension()->getName() . " has been loaded", "data" => $locallang, "status" => "success"]));
+    public function showAction(\Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang
+    ): ResponseInterface {
+        $response = [
+            'message' => "The file " . $locallang->getFilename(
+                ) . " for the extension " . $locallang->getRelatedExtension()->getName() . " has been loaded",
+            "data" => $locallang,
+            "status" => "success",
+            "type" => "Datamints\\DatamintsLocallangBuilder\\Domain\\Model\\Locallang",
+            "requestType" => time(),
+            "return" => null
+        ];
+        return $this->jsonResponse(json_encode($response));
 
     }
 
@@ -65,12 +74,13 @@ class LocallangController extends AbstractController
      * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation("locallang")
      *
      */
-    public function exportAction (\Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang):ResponseInterface
-    {
-        $this->logger->info("Triggering export of locallang-file " . $locallang->getFilename() . ' with uid ' . $locallang->getUid());
+    public function exportAction(\Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang
+    ): ResponseInterface {
+        $this->logger->info(
+            "Triggering export of locallang-file " . $locallang->getFilename() . ' with uid ' . $locallang->getUid()
+        );
         $exportConfiguration = json_decode(GeneralUtility::_GP('data'), true);
         if ($exportConfiguration['triggerBackup'] === true && $exportConfiguration['selectedTarget'] === 'overwrite') {
-
             // Check if we have to create a backup before overwriting. Its only possible in case of overwriting extension files. When "custom"" is selected, theres no need to do that!
             $this->backupService->backupLocallang($locallang);
         }
@@ -78,13 +88,12 @@ class LocallangController extends AbstractController
         // Exporting files either to "custom" or overwriting live locallang-files
         $savedFiles = $this->exportService->export($locallang, $exportConfiguration);
         if ($exportConfiguration['triggerCache'] === true && $exportConfiguration['selectedTarget'] === 'overwrite') {
-
             // Clears cache to reload new language-files straight with the next render-call
             $this->cachesService->clearSiteCache();
             $this->logger->info("Cleared site cache");
-        }
-        ;
-        return $this->jsonResponse(json_encode(['message' =>  'Exported files were saved to: ' . implode('; ', $savedFiles)]));
-
+        };
+        return $this->jsonResponse(
+            json_encode(['message' => 'Exported files were saved to: ' . implode('; ', $savedFiles)])
+        );
     }
 }

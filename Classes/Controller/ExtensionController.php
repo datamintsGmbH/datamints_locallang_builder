@@ -69,6 +69,9 @@ class ExtensionController extends AbstractController
         // Remove the unnecessary translations that are not yet necessary to save RAM. Due to the removal of the JsonView in TYPO3 12.x, these fields are no longer skipped automatically.
         $response = \json_encode($response);
         $response = \json_decode($response, true);
+        $response['return'] = null;
+        $response['type'] = "Datamints\\DatamintsLocallangBuilder\\Domain\\Model\\Extension";
+        $response['requestTime'] = time();
 
         foreach ($response['data'] as &$extension){
             foreach ($extension['locallangs'] as &$locallang){

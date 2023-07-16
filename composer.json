@@ -26,6 +26,10 @@
 	"require": {
 		"typo3/cms-core": "^11.0.0 || ^12.0.0"
 	},
+	"config": {
+		"vendor-dir": ".Build/vendor",
+		"bin-dir": ".Build/bin"
+	},
 	"autoload": {
 		"psr-4": {
 			"Datamints\\DatamintsLocallangBuilder\\": "Classes"
@@ -36,6 +40,7 @@
 	},
 	"extra": {
 		"typo3/cms": {
+			"web-dir": ".Build/public",
 			"extension-key": "datamints_locallang_builder"
 		}
 	}

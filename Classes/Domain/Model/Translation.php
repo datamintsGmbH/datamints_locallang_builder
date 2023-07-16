@@ -92,7 +92,9 @@ class Translation extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity impleme
         return [
             'uid' => $this->getUid(),
             'translationKey' => $this->getTranslationKey(),
-            'translationValues' => $this->getTranslationValuesArray()
+            'translationValues' => $this->getTranslationValuesArray(),
+            'expanded' => $this->getExpanded(),
+            'new' => $this->getNew()
         ];
     }
 
@@ -231,7 +233,7 @@ class Translation extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity impleme
     {
         $array = [];
         foreach ($this->translationValues as $translationValue){
-            $array[] = $translationValue->jsonSerialize();
+            $array[md5($translationValue->getUid())] = $translationValue->jsonSerialize();
         }
         return $array;
     }

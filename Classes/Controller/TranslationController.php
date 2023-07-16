@@ -44,8 +44,8 @@ class TranslationController extends AbstractController
      * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation("translation")
      *
      */
-    public function updateAction (\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translation):ResponseInterface
-    {
+    public function updateAction(\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translation
+    ): ResponseInterface {
         $data = json_decode(GeneralUtility::_GP('data'), true);
         $message = 'The following fields have been updated: ';
         foreach ($data as $key => $changingField) {
@@ -54,7 +54,6 @@ class TranslationController extends AbstractController
                 $message .= $key . ' ';
             } else {
                 $message .= ' / ERROR: ' . $key . ' / ';
-
                 // Should never happen, but who knows
             }
         }
@@ -72,12 +71,23 @@ class TranslationController extends AbstractController
      * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation("translation")
      *
      */
-    public function deleteAction (\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translation):ResponseInterface
-    {
+    public function deleteAction(\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translation
+    ): ResponseInterface {
         $uidDeleted = $translation->getUid();
         $this->translationRepository->remove($translation);
 
-        return $this->jsonResponse(\json_encode(['status'=>'success','requestTime' => time(), 'type'=>null,'return' => $uidDeleted, 'data' => [], 'message' => "The Entity with uid " . $uidDeleted . ' has been deleted.']));
+        return $this->jsonResponse(
+            \json_encode(
+                [
+                    'status' => 'success',
+                    'requestTime' => time(),
+                    'type' => null,
+                    'return' => $uidDeleted,
+                    'data' => [],
+                    'message' => "The Entity with uid " . $uidDeleted . ' has been deleted.'
+                ]
+            )
+        );
     }
 
     /**
@@ -94,18 +104,29 @@ class TranslationController extends AbstractController
      * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation("locallang")
      *
      */
-    public function createAction (\Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang):ResponseInterface
-    {
+    public function createAction(\Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang
+    ): ResponseInterface {
         $data = json_decode(GeneralUtility::_GP('data'), true);
 
         // Creating the blank Translation-object
-        $translation = $this->translationService->createTranslation($locallang, $data['newObjectKey'], $data['newObjectValue'], $data['newObjectApproved'], $data['newObjectXmlSpace']);
+        $translation = $this->translationService->createTranslation(
+            $locallang,
+            $data['newObjectKey'],
+            $data['newObjectValue'],
+            $data['newObjectApproved'],
+            $data['newObjectXmlSpace']
+        );
         DatabaseUtility::persistAll();
 
         // Appending the TranslationValue-Objects to the Translation-Object
         if ($data['newObjectLanguages']) {
             foreach ($data['newObjectLanguages'] as $language) {
-                $translationValue = $this->translationService->createTranslationValue($translation, $language, $data['newObjectApproved'], $data['newObjectXmlSpace']);
+                $translationValue = $this->translationService->createTranslationValue(
+                    $translation,
+                    $language,
+                    $data['newObjectApproved'],
+                    $data['newObjectXmlSpace']
+                );
                 $translationValue->setNew(true);
 
                 // Check if we have to autotranslate this new Object...
@@ -121,8 +142,18 @@ class TranslationController extends AbstractController
         DatabaseUtility::persistAll();
         $translation->setNew(true);
 
-        return $this->jsonResponse(\json_encode(['return' => $locallang->getUid(),'message' => 'A new entity has been generated', 'data' => $translation]));
-
+        return $this->jsonResponse(
+            \json_encode(
+                [
+                    'return' => $locallang->getUid(),
+                    'message' => 'A new entity has been generated',
+                    'data' => $translation,
+                    "status" => "success",
+                    "type" => null,
+                    "requestType" => time(),
+                ]
+            )
+        );
     }
 
     /**
@@ -130,7 +161,7 @@ class TranslationController extends AbstractController
      *
      * @return string|object|null|void
      */
-    public function listAction ()
+    public function listAction()
     {
         $translations = $this->translationRepository->findAll();
         $this->view->assign('translations', $translations);
@@ -143,7 +174,7 @@ class TranslationController extends AbstractController
      *
      * @return string|object|null|void
      */
-    public function showAction (\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translation)
+    public function showAction(\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translation)
     {
         $this->view->assign('translation', $translation);
     }
@@ -153,7 +184,7 @@ class TranslationController extends AbstractController
      *
      * @return string|object|null|void
      */
-    public function newAction ()
+    public function newAction()
     {
     }
 
@@ -165,7 +196,7 @@ class TranslationController extends AbstractController
      *
      * @return string|object|null|void
      */
-    public function editAction (\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translation)
+    public function editAction(\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translation)
     {
         $this->view->assign('translation', $translation);
     }
@@ -173,8 +204,9 @@ class TranslationController extends AbstractController
     /**
      * @param \Datamints\DatamintsLocallangBuilder\Domain\Repository\TranslationRepository $translationRepository
      */
-    public function injectTranslationRepository (\Datamints\DatamintsLocallangBuilder\Domain\Repository\TranslationRepository $translationRepository)
-    {
+    public function injectTranslationRepository(
+        \Datamints\DatamintsLocallangBuilder\Domain\Repository\TranslationRepository $translationRepository
+    ) {
         $this->translationRepository = $translationRepository;
     }
 }
