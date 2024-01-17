@@ -3,10 +3,11 @@
 namespace Datamints\DatamintsLocallangBuilder\Controller;
 
 
+use Datamints\DatamintsLocallangBuilder\Controller\Traits\CallActionMethodTrait;
 use Datamints\DatamintsLocallangBuilder\Domain\Model\Extension;
+use Datamints\DatamintsLocallangBuilder\Domain\Repository\Traits\ExtensionRepositoryTrait;
 use Datamints\DatamintsLocallangBuilder\Mvc\View\ExtensionJsonView;
-use Datamints\DatamintsLocallangBuilder\Service\Traits\ExtensionServiceTrait;
-use Datamints\DatamintsLocallangBuilder\Service\Traits\FileServiceTrait;
+use Datamints\DatamintsLocallangBuilder\Service\Traits\{CachesServiceTrait, ExtensionServiceTrait, FileServiceTrait};
 use Psr\Http\Message\ResponseInterface;
 
 /**
@@ -18,11 +19,11 @@ use Psr\Http\Message\ResponseInterface;
  */
 class ExtensionController extends AbstractController
 {
-    use \Datamints\DatamintsLocallangBuilder\Controller\Traits\CallActionMethodTrait;
+    use CallActionMethodTrait;
     use ExtensionServiceTrait;
     use FileServiceTrait;
-    use \Datamints\DatamintsLocallangBuilder\Domain\Repository\Traits\ExtensionRepositoryTrait;
-    use \Datamints\DatamintsLocallangBuilder\Service\Traits\CachesServiceTrait;
+    use ExtensionRepositoryTrait;
+    use CachesServiceTrait;
 
     /**
      * Using JSon-View-Output indead of html-Templates
@@ -85,11 +86,10 @@ class ExtensionController extends AbstractController
     /**
      * action show
      *
-     * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Extension $extension
-     *
+     * @param Extension $extension
      * @return string|object|null|void
      */
-    public function showAction(\Datamints\DatamintsLocallangBuilder\Domain\Model\Extension $extension)
+    public function showAction(Extension $extension)
     {
         $this->view->assign('extension', $extension);
     }
@@ -97,12 +97,11 @@ class ExtensionController extends AbstractController
     /**
      * action edit
      *
-     * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Extension $extension
+     * @param Extension $extension
      * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation("extension")
-     *
      * @return string|object|null|void
      */
-    public function editAction(\Datamints\DatamintsLocallangBuilder\Domain\Model\Extension $extension)
+    public function editAction(Extension $extension)
     {
         $this->view->assign('extension', $extension);
     }
@@ -110,11 +109,10 @@ class ExtensionController extends AbstractController
     /**
      * action update
      *
-     * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Extension $extension
-     *
+     * @param Extension $extension
      * @return string|object|null|void
      */
-    public function updateAction(\Datamints\DatamintsLocallangBuilder\Domain\Model\Extension $extension)
+    public function updateAction(Extension $extension)
     {
         $this->redirect('list');
     }

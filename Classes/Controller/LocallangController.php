@@ -3,12 +3,11 @@
 namespace Datamints\DatamintsLocallangBuilder\Controller;
 
 
+use Datamints\DatamintsLocallangBuilder\Controller\Traits\CallActionMethodTrait;
 use Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang;
 use Datamints\DatamintsLocallangBuilder\Domain\Repository\Traits\LocallangRepositoryTrait;
 use Datamints\DatamintsLocallangBuilder\Mvc\View\LocallangJsonView;
-use Datamints\DatamintsLocallangBuilder\Service\Traits\BackupServiceTrait;
-use Datamints\DatamintsLocallangBuilder\Service\Traits\CachesServiceTrait;
-use Datamints\DatamintsLocallangBuilder\Service\Traits\ExportServiceTrait;
+use Datamints\DatamintsLocallangBuilder\Service\Traits\{BackupServiceTrait, CachesServiceTrait, ExportServiceTrait};
 use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
@@ -21,8 +20,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  */
 class LocallangController extends AbstractController
 {
-    use \Datamints\DatamintsLocallangBuilder\Controller\Traits\CallActionMethodTrait;
-
+    use CallActionMethodTrait;
     use BackupServiceTrait;
     use CachesServiceTrait;
     use ExportServiceTrait;
@@ -46,12 +44,11 @@ class LocallangController extends AbstractController
     /**
      * action show
      *
-     * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang
+     * @param Locallang $locallang
      * @return \Psr\Http\Message\ResponseInterface
      * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation("locallang")
-     *
      */
-    public function showAction(\Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang
+    public function showAction(Locallang $locallang
     ): ResponseInterface {
         $response = [
             'message' => "The file " . $locallang->getFilename(
@@ -69,12 +66,11 @@ class LocallangController extends AbstractController
     /**
      * action export
      *
-     * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang
+     * @param Locallang $locallang
      * @return \Psr\Http\Message\ResponseInterface
      * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation("locallang")
-     *
      */
-    public function exportAction(\Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang
+    public function exportAction(Locallang $locallang
     ): ResponseInterface {
         $this->logger->info(
             "Triggering export of locallang-file " . $locallang->getFilename() . ' with uid ' . $locallang->getUid()

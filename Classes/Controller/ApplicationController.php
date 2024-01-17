@@ -2,22 +2,24 @@
 
 namespace Datamints\DatamintsLocallangBuilder\Controller;
 
+use Datamints\DatamintsLocallangBuilder\Controller\Traits\CallActionMethodTrait;
+use Datamints\DatamintsLocallangBuilder\Domain\Repository\Traits\{ExtensionRepositoryTrait,
+    LocallangRepositoryTrait,
+    TranslationRepositoryTrait,
+    TranslationValueRepositoryTrait};
 use Datamints\DatamintsLocallangBuilder\Mvc\View\JsonView;
+use Datamints\DatamintsLocallangBuilder\Service\Traits\{CachesServiceTrait, ProviderServiceTrait};
 use Psr\Http\Message\ResponseInterface;
-use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 class ApplicationController extends AbstractController
 {
-    use \Datamints\DatamintsLocallangBuilder\Controller\Traits\CallActionMethodTrait;
-
-    use \Datamints\DatamintsLocallangBuilder\Domain\Repository\Traits\ExtensionRepositoryTrait;
-    use \Datamints\DatamintsLocallangBuilder\Domain\Repository\Traits\LocallangRepositoryTrait;
-    use \Datamints\DatamintsLocallangBuilder\Domain\Repository\Traits\TranslationRepositoryTrait;
-    use \Datamints\DatamintsLocallangBuilder\Domain\Repository\Traits\TranslationValueRepositoryTrait;
-    use \Datamints\DatamintsLocallangBuilder\Service\Traits\CachesServiceTrait;
-    use \Datamints\DatamintsLocallangBuilder\Service\Traits\ProviderServiceTrait;
+    use CallActionMethodTrait;
+    use ExtensionRepositoryTrait;
+    use LocallangRepositoryTrait;
+    use TranslationRepositoryTrait;
+    use TranslationValueRepositoryTrait;
+    use CachesServiceTrait;
+    use ProviderServiceTrait;
 
     public function initializeClearAction()
     {

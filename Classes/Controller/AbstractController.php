@@ -2,11 +2,11 @@
 
 namespace Datamints\DatamintsLocallangBuilder\Controller;
 
+use Psr\Log\LoggerAwareInterface;
+use Psr\Log\LoggerAwareTrait;
 use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Mvc\View\ViewInterface;
-use TYPO3\CMS\Extbase\Mvc\RequestInterface;
-use Psr\Log\LoggerAwareTrait;
+use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
  * This file is part of the "datamints_locallang_builder" Extension for TYPO3 CMS.
@@ -15,7 +15,7 @@ use Psr\Log\LoggerAwareTrait;
  * (c) 2021 Mark Weisgerber <mark.weisgerber@outlook.de / m.weisgerber@datamints.com>
  * ExtensionController
  */
-class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController implements \Psr\Log\LoggerAwareInterface
+class AbstractController extends ActionController implements LoggerAwareInterface
 {
     use LoggerAwareTrait;
 

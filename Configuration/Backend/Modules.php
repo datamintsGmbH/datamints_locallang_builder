@@ -1,4 +1,11 @@
 <?php
+
+use Datamints\DatamintsLocallangBuilder\Controller\{ApplicationController,
+    ExtensionController,
+    LocallangController,
+    TranslationController,
+    TranslationValueController};
+
 return [
     'web_DatamintsLocallangBuilderTranslate' => [
         'parent' => 'web',
@@ -11,19 +18,19 @@ return [
         'labels' => 'LLL:EXT:datamints_locallang_builder/Resources/Private/Language/locallang_translate.xlf',
         'extensionName' => 'DatamintsLocallangBuilder',
         'controllerActions' => [
-            \Datamints\DatamintsLocallangBuilder\Controller\ApplicationController::class => [
+            ApplicationController::class => [
                 'main','clear'
             ],
-            \Datamints\DatamintsLocallangBuilder\Controller\ExtensionController::class => [
+            ExtensionController::class => [
                 'list', 'update'
             ],
-            \Datamints\DatamintsLocallangBuilder\Controller\TranslationController::class => [
+            TranslationController::class => [
                 'list', 'update', 'delete', 'show', 'create'
             ],
-            \Datamints\DatamintsLocallangBuilder\Controller\TranslationValueController::class => [
+            TranslationValueController::class => [
                 'update', 'delete', 'show', 'create', 'autoTranslate'
             ],
-            \Datamints\DatamintsLocallangBuilder\Controller\LocallangController::class => [
+            LocallangController::class => [
                 'show', 'list', 'update', 'export'
             ]
         ],
