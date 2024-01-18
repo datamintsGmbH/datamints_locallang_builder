@@ -83,12 +83,13 @@ class ExportService extends AbstractService
     {
         $readableDateTime = new \DateTime();
         $customPath = $this->configurationService->getExtensionConfiguration()['exportPath'];
+        $exportPathDate = boolval($this->configurationService->getExtensionConfiguration()['exportPathDate']);
         if(!is_dir(GeneralUtility::getFileAbsFileName($customPath))) { // Checking if export-folder exists. It may be that the admin changed the extension-settings recently, so a permanent check is required
             \mkdir(GeneralUtility::getFileAbsFileName($customPath));
         }
 
         if(GeneralUtility::validPathStr($customPath)) { // Check if the path is valid and does not contain illegal chars
-            return $customPath . $locallang->getRelatedExtension()->getName() . '/' . $readableDateTime->format('Y-m-d___H-i-s') . '/' . ManifestBuildService::EXTENSION_LANGUAGE_PATH . $locallang->getFilename();
+            return $customPath . $locallang->getRelatedExtension()->getName() . (($exportPathDate) ? '/' . $readableDateTime->format('Y-m-d___H-i-s') . '/' : '/') . ManifestBuildService::EXTENSION_LANGUAGE_PATH . $locallang->getFilename();
         } else {
             throw new \TYPO3\CMS\Core\Exception('The path defined in the extensionsettings for exportPath is not valid. It may contain illegal characters, is not in the project-scope or does not exist. Please check: ' . $customPath);
         }

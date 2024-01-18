@@ -1,4 +1,6 @@
 # cat=export/path; type=string; label=Path to storage of the export-files
 exportPath = fileadmin/datamints_locallang_builder/
+# cat=export/path; type=boolean; label=Tick if a date is to be appended to the path
+exportPathDate = 0
 # cat=export/path; type=string; label=Path to storage of the backup-files
 backupPath = fileadmin/datamints_locallang_builder/backups/
