@@ -17,9 +17,7 @@ module.tx_datamintslocallangbuilder {
     excludedExtensions = {$module.tx_datamintslocallangbuilder.settings.excludedExtensions}
 
   }
-}
 
-module.tx_datamintslocallangbuilder {
   settings {
     providers {
       # To setup azure see: https://github.com/datamintsGmbH/datamints_locallang_builder/blob/master/Documentation/Configuration/Index.rst#example-azure-cloud
