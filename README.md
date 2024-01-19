@@ -39,3 +39,10 @@ Used Software:
 - Creative Tim Argon Dashboard Pro (https://www.creative-tim.com/)
 - Nucleo Icons (https://nucleoapp.com/)
 - Symfony (https://symfony.com/)
+
+
+Thanks:
+---------
+
+- darf-ich-mit (https://www.darf-ich-mit.de/)
+- fellow (https://www.fellow.dog/)
