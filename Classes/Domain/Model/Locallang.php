@@ -3,6 +3,8 @@
 namespace Datamints\DatamintsLocallangBuilder\Domain\Model;
 
 use JsonSerializable;
+use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
  * This file is part of the "datamints_locallang_builder" Extension for TYPO3 CMS.
@@ -11,7 +13,7 @@ use JsonSerializable;
  * (c) 2021 Mark Weisgerber <mark.weisgerber@outlook.de / m.weisgerber@datamints.com>
  * Locallang
  */
-class Locallang extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implements JsonSerializable
+class Locallang extends AbstractEntity implements JsonSerializable
 {
 
     /**
@@ -38,16 +40,16 @@ class Locallang extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
     /**
      * translations
      *
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation>
+     * @var ObjectStorage<Translation>
      * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
      * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
      */
-    protected ?\TYPO3\CMS\Extbase\Persistence\ObjectStorage $translations = null;
+    protected ?ObjectStorage $translations = null;
 
     /**
      * Bidirectional for easier db-queries
      *
-     * @var \Datamints\DatamintsLocallangBuilder\Domain\Model\Extension
+     * @var Extension
      * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
      */
     protected $relatedExtension = null;
@@ -72,7 +74,7 @@ class Locallang extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
      */
     public function initializeObject()
     {
-        $this->translations = $this->translations ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        $this->translations = $this->translations ?: new ObjectStorage();
     }
 
     /**
@@ -99,10 +101,10 @@ class Locallang extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
     /**
      * Adds a Translation
      *
-     * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translation
+     * @param Translation $translation
      * @return void
      */
-    public function addTranslation(\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translation)
+    public function addTranslation(Translation $translation)
     {
         $this->translations->attach($translation);
     }
@@ -110,10 +112,10 @@ class Locallang extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
     /**
      * Removes a Translation
      *
-     * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translationToRemove The Translation to be removed
+     * @param Translation $translationToRemove The Translation to be removed
      * @return void
      */
-    public function removeTranslation(\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translationToRemove)
+    public function removeTranslation(Translation $translationToRemove)
     {
         $this->translations->detach($translationToRemove);
     }
@@ -181,7 +183,7 @@ class Locallang extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
     /**
      * Returns the translations
      *
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation> translations
+     * @return ObjectStorage<Translation> translations
      */
     public function getTranslations()
     {
@@ -191,10 +193,10 @@ class Locallang extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
     /**
      * Sets the translations
      *
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation>|null $translations
+     * @param ObjectStorage<Translation>|null $translations
      * @return void
      */
-    public function setTranslations(?\TYPO3\CMS\Extbase\Persistence\ObjectStorage $translations)
+    public function setTranslations(?ObjectStorage $translations)
     {
         $this->translations = $translations;
     }
@@ -202,7 +204,7 @@ class Locallang extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
     /**
      * Returns the relatedExtension
      *
-     * @return \Datamints\DatamintsLocallangBuilder\Domain\Model\Extension $relatedExtension
+     * @return Extension $relatedExtension
      */
     public function getRelatedExtension()
     {
@@ -212,10 +214,10 @@ class Locallang extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
     /**
      * Sets the relatedExtension
      *
-     * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Extension $relatedExtension
+     * @param Extension $relatedExtension
      * @return void
      */
-    public function setRelatedExtension(\Datamints\DatamintsLocallangBuilder\Domain\Model\Extension $relatedExtension)
+    public function setRelatedExtension(Extension $relatedExtension)
     {
         $this->relatedExtension = $relatedExtension;
     }

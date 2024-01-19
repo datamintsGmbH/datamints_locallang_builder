@@ -6,37 +6,37 @@
 
 namespace Datamints\DatamintsLocallangBuilder\Service;
 
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
-use Datamints\DatamintsLocallangBuilder\Exporter\XmlExporter;
 use Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang;
-use Datamints\DatamintsLocallangBuilder\Utility\LanguageUtility;
-use Datamints\DatamintsLocallangBuilder\Service\Traits\XmlServiceTrait;
 use Datamints\DatamintsLocallangBuilder\Domain\Model\Runtime\LocallangExport;
-use Datamints\DatamintsLocallangBuilder\Service\Traits\LocallangServiceTrait;
+use Datamints\DatamintsLocallangBuilder\Exporter\XmlExporter;
+use Datamints\DatamintsLocallangBuilder\Utility\LanguageUtility;
+use TYPO3\CMS\Core\Exception;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class ExportService extends AbstractService
 {
-    use LocallangServiceTrait;
-    use XmlServiceTrait;
-    use \Datamints\DatamintsLocallangBuilder\Service\Traits\ConfigurationServiceTrait;
+    public function __construct(
+        protected readonly LocallangService $locallangService,
+        protected readonly XmlService $xmlService,
+        protected readonly CustomTranslationsOverlayService $customTranslationsOverlayService
+    )
+    {}
 
     /**
      * Constant to fileadmin save-storage
      */
-    public const FILEADMIN_PATH = 'fileadmin/locallang-builder/';
+    public const string FILEADMIN_PATH = 'fileadmin/locallang-builder/';
 
     /**
      * Export
      *
-     * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang
-     * @param array                                                       $exportConfiguration
-     *
-     * @return array
+     * @throws Exception
      */
     public function export(Locallang $locallang, array $exportConfiguration): array
     {
-        $countries = $this->locallangService->getCountryList($locallang); // Getting country list, so we know, which files have to be generated
+        $countries = $this->locallangService->getCountryList(
+            $locallang
+        ); // Getting country list, so we know, which files have to be generated
         $outputLocallangs = [];
         foreach ($countries as $country) {
             /** @var LocallangExport $locallangExport */
@@ -47,15 +47,15 @@ class ExportService extends AbstractService
             $targetPath = '';
 
             // When we want to save the files to fileadmin instead
-            if($exportConfiguration['selectedTarget'] === 'fileadmin') {
+            if ($exportConfiguration['selectedTarget'] === 'fileadmin') {
                 $targetPath = $this->getFileadminOutputPath($locallang);
             } else { // Otherwise we overwrite the existing files
                 $targetPath = $locallang->getPath();
             }
-            if($locallangExport->getLanguageCode() != 'en') { // we dont need the lang-code for default-language
+            if ($locallangExport->getLanguageCode() != 'en') { // we dont need the lang-code for default-language
                 $targetPath = LanguageUtility::getCountryLanguagePath($country, $targetPath);
             }
-            $locallangExport->setTargetPath($targetPath);
+            $locallangExport->setTargetPath($this->customTranslationsOverlayService->setOverlay($targetPath));
             $outputLocallangs[$country] = $locallangExport;
         }
 
@@ -72,26 +72,36 @@ class ExportService extends AbstractService
         return $savedFiles;
     }
 
+
     /**
      * Delivers the alternative fileadmin output path
      *
-     * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang
-     *
+     * @param Locallang $locallang
      * @return string
+     * @throws Exception
      */
     protected function getFileadminOutputPath(Locallang $locallang): string
     {
         $readableDateTime = new \DateTime();
         $customPath = $this->configurationService->getExtensionConfiguration()['exportPath'];
         $exportPathDate = boolval($this->configurationService->getExtensionConfiguration()['exportPathDate']);
-        if(!is_dir(GeneralUtility::getFileAbsFileName($customPath))) { // Checking if export-folder exists. It may be that the admin changed the extension-settings recently, so a permanent check is required
+        if (!is_dir(
+            GeneralUtility::getFileAbsFileName($customPath)
+        )) { // Checking if export-folder exists. It may be that the admin changed the extension-settings recently, so a permanent check is required
             \mkdir(GeneralUtility::getFileAbsFileName($customPath));
         }
 
-        if(GeneralUtility::validPathStr($customPath)) { // Check if the path is valid and does not contain illegal chars
-            return $customPath . $locallang->getRelatedExtension()->getName() . (($exportPathDate) ? '/' . $readableDateTime->format('Y-m-d___H-i-s') . '/' : '/') . ManifestBuildService::EXTENSION_LANGUAGE_PATH . $locallang->getFilename();
+        if (GeneralUtility::validPathStr(
+            $customPath
+        )) { // Check if the path is valid and does not contain illegal chars
+            return $customPath . $locallang->getRelatedExtension()->getName(
+                ) . (($exportPathDate) ? '/' . $readableDateTime->format(
+                        'Y-m-d___H-i-s'
+                    ) . '/' : '/') . ManifestBuildService::EXTENSION_LANGUAGE_PATH . $locallang->getFilename();
         } else {
-            throw new \TYPO3\CMS\Core\Exception('The path defined in the extensionsettings for exportPath is not valid. It may contain illegal characters, is not in the project-scope or does not exist. Please check: ' . $customPath);
+            throw new Exception(
+                'The path defined in the extensionsettings for exportPath is not valid. It may contain illegal characters, is not in the project-scope or does not exist. Please check: ' . $customPath
+            );
         }
         return '';
     }

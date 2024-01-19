@@ -52,3 +52,5 @@ $GLOBALS['TYPO3_CONF_VARS']['LOG']['Datamints']['DatamintsLocallangBuilder']['pr
 ];
 
 
+
+

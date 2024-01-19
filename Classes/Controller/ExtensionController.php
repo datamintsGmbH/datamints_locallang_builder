@@ -46,6 +46,7 @@ class ExtensionController extends AbstractController
      * Those have to be fetches in an different (LocallangController::show) call, to save some memory-space
      * The Cache can be invoked by triggering the cache-clear button in typo3 backend
      *
+     * @\Symfony\Component\Routing\Annotation\Route
      * @return \Psr\Http\Message\ResponseInterface
      */
     public function listAction():ResponseInterface

@@ -3,6 +3,7 @@
 namespace Datamints\DatamintsLocallangBuilder\Controller;
 
 use Datamints\DatamintsLocallangBuilder\Controller\Traits\CallActionMethodTrait;
+use Datamints\DatamintsLocallangBuilder\Utility\DatabaseUtility;
 use Datamints\DatamintsLocallangBuilder\Domain\Repository\Traits\{ExtensionRepositoryTrait,
     LocallangRepositoryTrait,
     TranslationRepositoryTrait,
@@ -10,6 +11,7 @@ use Datamints\DatamintsLocallangBuilder\Domain\Repository\Traits\{ExtensionRepos
 use Datamints\DatamintsLocallangBuilder\Mvc\View\JsonView;
 use Datamints\DatamintsLocallangBuilder\Service\Traits\{CachesServiceTrait, ProviderServiceTrait};
 use Psr\Http\Message\ResponseInterface;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 class ApplicationController extends AbstractController
 {
@@ -28,14 +30,14 @@ class ApplicationController extends AbstractController
 
     /**
      * main Action
-     *
      * Entry-Point transfer some basic configuration towards the vue-app
-     * @return \Psr\Http\Message\ResponseInterface
+     *
+     * @return ResponseInterface
      * @throws \TYPO3\CMS\Core\Package\Exception
      */
     public function mainAction():ResponseInterface
     {
-        $extensionVersion = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getExtensionVersion($this->request->getControllerExtensionKey());
+        $extensionVersion = ExtensionManagementUtility::getExtensionVersion($this->request->getControllerExtensionKey());
         $this->logger->info("Opened the translate-module.");
         $this->view->assignMultiple([
             'version' => $extensionVersion,
@@ -54,9 +56,10 @@ class ApplicationController extends AbstractController
 
     /**
      * clear Action
-     *
      * clears all related extension related db-tables when requested by e.g. reimport-action
-     * @return \Psr\Http\Message\ResponseInterface
+     *
+     * @\Symfony\Component\Routing\Annotation\Route
+     * @return ResponseInterface
      */
     public function clearAction():ResponseInterface
     {
@@ -67,8 +70,7 @@ class ApplicationController extends AbstractController
         $this->translationRepository->removeAllQuick();
         $this->translationValueRepository->removeAllQuick();
 
-        \Datamints\DatamintsLocallangBuilder\Utility\DatabaseUtility::persistAll();
-
+        DatabaseUtility::persistAll();
 
         return $this->jsonResponse(json_encode(['message' => 'All database-tables have been reset to zero.']));
     }
