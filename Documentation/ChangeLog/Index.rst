@@ -7,6 +7,18 @@ Change log
 ==========
 
 
+Version 12.4.2
+-------------
+
+- [BUG] Fixed a bug that occurred when you wanted to overwrite a locallang file, but then only the main language was saved in the correct folder in the export
+
+Version 12.4.1
+-------------
+
+- [FEATURE] respect the feature to overwrite language files in ext_localconf.php - https://docs.typo3.org/m/typo3/reference-coreapi/12.4/en-us/ApiOverview/Localization/ManagingTranslations.html?highlight=locallangxmloverride#custom-translations
+- [FEATURE] added TYPO3 12 support
+- [TASK] dropped TYPO3 11 support
+
 Version 1.1.1
 -------------
 

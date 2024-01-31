@@ -53,7 +53,7 @@ class ExportService extends AbstractService
                 $targetPath = $locallang->getPath();
             }
             if ($locallangExport->getLanguageCode() != 'en') { // we dont need the lang-code for default-language
-                $targetPath = LanguageUtility::getCountryLanguagePath($country, $targetPath);
+                $targetPath = LanguageUtility::getCountryLanguagePath($country, $this->customTranslationsOverlayService->setOverlay($targetPath));
             }
             $locallangExport->setTargetPath($this->customTranslationsOverlayService->setOverlay($targetPath));
             $outputLocallangs[$country] = $locallangExport;
