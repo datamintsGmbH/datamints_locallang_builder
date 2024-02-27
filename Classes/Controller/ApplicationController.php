@@ -58,7 +58,6 @@ class ApplicationController extends AbstractController
      * clear Action
      * clears all related extension related db-tables when requested by e.g. reimport-action
      *
-     * @\Symfony\Component\Routing\Annotation\Route
      * @return ResponseInterface
      */
     public function clearAction():ResponseInterface
