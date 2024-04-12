@@ -25,7 +25,7 @@ class ExportService extends AbstractService
     /**
      * Constant to fileadmin save-storage
      */
-    public const string FILEADMIN_PATH = 'fileadmin/locallang-builder/';
+    public const FILEADMIN_PATH = 'fileadmin/locallang-builder/';
 
     /**
      * Export

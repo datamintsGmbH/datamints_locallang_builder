@@ -19,11 +19,11 @@ class ManifestBuildService extends AbstractService
     use ExtensionRepositoryTrait;
     use LocallangRepositoryTrait;
 
-    public const bool PERSIST = true;
+    public const PERSIST = true;
     /**
      * Constant for relative path from extension-root to the language files to be scanned
      */
-    public const string EXTENSION_LANGUAGE_PATH = "Resources/Private/Language/";
+    public const EXTENSION_LANGUAGE_PATH = "Resources/Private/Language/";
 
     /**
      * @var \Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang[]
