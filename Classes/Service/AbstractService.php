@@ -35,7 +35,7 @@ abstract class AbstractService implements SingletonInterface, \Psr\Log\LoggerAwa
      */
     public function getExtensionConfig()
     {
-        return unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['datamints_locallang_builder']);
+        return $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['datamints_locallang_builder'];
     }
 
 }
