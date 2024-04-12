@@ -1,6 +1,6 @@
 # cat=Settings/O; type=options[-=,DeepL=DeepL,GoogleTranslate=GoogleTranslate,AzureCloud=AzureCloud]; label= Translation provider:Select your preferred service to be used for automatic translation
 activeProvider =
-# cat=Settings/O; type=string; label= DeepL API Key (https://www.deepl.com/de/your-account/keys)
+# cat=Settings/O; type=string; label= DeepL API Key:https://www.deepl.com/de/your-account/keys
 deepLApiKey =
 # cat=Settings/O; type=string; label= Google API Key
 googleApiKey =
