@@ -1,3 +1,11 @@
+# cat=Settings/O; type=options[-=,DeepL=DeepL,GoogleTranslate=GoogleTranslate,AzureCloud=AzureCloud]; label= Translation provider:Select your preferred service to be used for automatic translation
+activeProvider =
+# cat=Settings/O; type=string; label= DeepL API Key (https://www.deepl.com/de/your-account/keys)
+deepLApiKey =
+# cat=Settings/O; type=string; label= Google API Key
+googleApiKey =
+# cat=Settings/O; type=string; label= Azure API Key
+azureApiKey =
 # cat=export/path; type=string; label=Path to storage of the export-files
 exportPath = fileadmin/datamints_locallang_builder/
 # cat=export/path; type=string; label=Path to storage of the backup-files

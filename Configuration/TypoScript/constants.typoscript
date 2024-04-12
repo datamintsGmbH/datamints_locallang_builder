@@ -27,33 +27,21 @@ module.tx_datamintslocallangbuilder_tools_datamintslocallangbuildertranslate {
       azure {
         url = https://api.cognitive.microsofttranslator.com/translate
         version = 3.0
-        # cat=module.tx_datamintslocallangbuilder/01_Api/100; type=string; label=Azure API Key
-        key =
         area = global
-        # cat=module.tx_datamintslocallangbuilder/02_Api/100; type=string; label=Use Azure as Service
-        active = 0
       }
 
       # To setup DeepL see: https://github.com/datamintsGmbH/datamints_locallang_builder/blob/master/Documentation/Configuration/Index.rst#example-deepl
       deepl {
         url = https://api-free.deepl.com/v2/translate
         version =
-        # cat=module.tx_datamintslocallangbuilder/01_Api/100; type=string; label=DeepL API Key
-        key =
         area =
-        # cat=module.tx_datamintslocallangbuilder/02_Api/100; type=string; label=Use DeepL as Service
-        active = 0
       }
 
       # To setup Google Translate see: https://github.com/datamintsGmbH/datamints_locallang_builder/blob/master/Documentation/Configuration/Index.rst#example-google
       google {
         url = https://www.googleapis.com/language/translate
         version = v2
-        # cat=module.tx_datamintslocallangbuilder/01_Api/100; type=string; label=Google API Key
-        key =
         area =
-        # cat=module.tx_datamintslocallangbuilder/02_Api/100; type=string; label=Use Google as Service
-        active = 0
       }
     }
 
