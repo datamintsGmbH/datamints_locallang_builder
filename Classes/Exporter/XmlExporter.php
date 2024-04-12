@@ -98,9 +98,9 @@ class XmlExporter extends AbstractExporter
         // PostProcessing for cdata-nodes to make them working properly again (its encoded as e.g. &lt; otherwise)
         // So what to do now? We open the file again and decode html entities
         // TODO - I hope someone has a better idea, because saving the file twice is pretty ugly!
-        $file = file_get_contents(GeneralUtility::getFileAbsFileName($locallangExport->getTargetPath()));
-        $file = \html_entity_decode($file, ENT_NOQUOTES);
-        file_put_contents(GeneralUtility::getFileAbsFileName($locallangExport->getTargetPath()), $file);
+//        $file = file_get_contents(GeneralUtility::getFileAbsFileName($locallangExport->getTargetPath()));
+//        $file = \html_entity_decode($file, ENT_NOQUOTES);
+//        file_put_contents(GeneralUtility::getFileAbsFileName($locallangExport->getTargetPath()), $file);
 
         return $locallangExport->getTargetPath();
     }
@@ -238,7 +238,7 @@ class XmlExporter extends AbstractExporter
      */
     protected function createTargetNode (DOMDocument $dom, TranslationValue $translationValue): DOMElement
     {
-        $targetNode = $dom->createElement('target', $translationValue->getValue());
+        $targetNode = $dom->createElement('target', htmlspecialchars($translationValue->getValue()));
 
         return $targetNode;
     }
