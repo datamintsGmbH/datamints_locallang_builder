@@ -53,7 +53,7 @@ class DeeplProvider extends AbstractProvider
 
 	protected function getKey(): string
 	{
-		return $this->getSettings()['providers']['deepl']['key'];
+        return $this->getExtensionConfig()['deepLApiKey'];
 	}
 
 	protected function extractResponse($response): string

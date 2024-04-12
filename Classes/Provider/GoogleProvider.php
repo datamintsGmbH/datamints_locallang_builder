@@ -45,7 +45,7 @@ class GoogleProvider extends AbstractProvider
 
     protected function getKey(): string
     {
-        return $this->getSettings()['providers']['google']['key'];
+        return $this->getExtensionConfig()['googleApiKey'];
     }
 
     protected function extractResponse($response): string

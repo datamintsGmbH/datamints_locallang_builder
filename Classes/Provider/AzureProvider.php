@@ -43,7 +43,7 @@ class AzureProvider extends AbstractProvider
 
 	protected function getKey(): string
 	{
-		return $this->getSettings()['providers']['azure']['key'];
+		return $this->getExtensionConfig()['azureApiKey'];
 	}
 
 	protected function extractResponse($response): string
