@@ -7,7 +7,7 @@ namespace Datamints\DatamintsLocallangBuilder\Mvc\View;
 
 class JsonView extends \TYPO3\CMS\Extbase\Mvc\View\JsonView
 {
-    use \Datamints\DatamintsLocallangBuilder\Services\Traits\CachesServiceTrait;
+    use \Datamints\DatamintsLocallangBuilder\Service\Traits\CachesServiceTrait;
 
     /**
      * Nur hier definierte Variablen werden in der Response gerendert

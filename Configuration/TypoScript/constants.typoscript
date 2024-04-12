@@ -16,12 +16,8 @@ module.tx_datamintslocallangbuilder {
 
   settings {
     # cat=module.tx_datamintslocallangbuilder/00_Basic/100; type=string; label=Excluded extensions (you can use comma, semicolon or slash to seperate them)
-    excludedExtensions = datamints_locallang_builder
-  }
-}
+    excludedExtensions = adminpanel,backend,belog,beuser,bootstrap_package,core,dashboard,extbase,felogin,filelist,filemetadata,extensionmanager,impexp,info,linkvalidator,lowlevel,news,opendocs,recycler,rte_ckeditor,scheduler,seo,setup,viewpage,tstemplate,sys_note,reports,install,frontend,form,fluid_styled_content,fluid,datamints_locallang_builder
 
-module.tx_datamintslocallangbuilder_tools_datamintslocallangbuildertranslate {
-  settings {
     providers {
       # To setup azure see: https://github.com/datamintsGmbH/datamints_locallang_builder/blob/master/Documentation/Configuration/Index.rst#example-azure-cloud
       azure {

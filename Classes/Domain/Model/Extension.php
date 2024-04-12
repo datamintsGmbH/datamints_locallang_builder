@@ -2,6 +2,7 @@
 namespace Datamints\DatamintsLocallangBuilder\Domain\Model;
 
 use JsonSerializable;
+use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 
 /**
  * This file is part of the "datamints_locallang_builder" Extension for TYPO3 CMS.
@@ -15,7 +16,7 @@ class Extension extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
 
     /**
      * Extension Name
-     * 
+     *
      * @var string
      * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
      */
@@ -23,7 +24,7 @@ class Extension extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
 
     /**
      * Path to the extension-folder from content root
-     * 
+     *
      * @var string
      * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
      */
@@ -31,7 +32,7 @@ class Extension extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
 
     /**
      * local
-     * 
+     *
      * @var bool
      * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
      */
@@ -39,7 +40,7 @@ class Extension extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
 
     /**
      * locallangs
-     * 
+     *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang>
      * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
      * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
@@ -61,7 +62,7 @@ class Extension extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
      * Do not modify this method!
      * It will be rewritten on each save in the extension builder
      * You may modify the constructor of this class instead
-     * 
+     *
      * @return void
      */
     public function initializeObject()
@@ -71,7 +72,7 @@ class Extension extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
 
     /**
      * Returns the path
-     * 
+     *
      * @return string path
      */
     public function getPath()
@@ -81,7 +82,7 @@ class Extension extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
 
     /**
      * Sets the path
-     * 
+     *
      * @param string $path
      * @return void
      */
@@ -92,7 +93,7 @@ class Extension extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
 
     /**
      * Adds a Locallang
-     * 
+     *
      * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang
      * @return void
      */
@@ -103,7 +104,7 @@ class Extension extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
 
     /**
      * Removes a Locallang
-     * 
+     *
      * @param \Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallangToRemove The Locallang to be removed
      * @return void
      */
@@ -114,7 +115,7 @@ class Extension extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
 
     /**
      * Returns the local
-     * 
+     *
      * @return bool $local
      */
     public function getLocal()
@@ -124,7 +125,7 @@ class Extension extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
 
     /**
      * Returns the boolean state of local
-     * 
+     *
      * @return bool
      */
     public function isLocal()
@@ -134,7 +135,7 @@ class Extension extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
 
     /**
      * Sets the local
-     * 
+     *
      * @param bool $local
      * @return void
      */
@@ -149,17 +150,22 @@ class Extension extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
      */
     public function jsonSerialize()
     {
+        $hashArray = [];
+        $locallangs = $this->getLocallangs()->toArray();
+        foreach ($locallangs as $locallang){
+            $hashArray[md5(time().rand())] = $locallang;
+        }
         return [
-        'uid' => $this->getUid(), 
-        'name' => $this->getName(), 
-        'local' => $this->isLocal(), 
-        'locallangs' => $this->getLocallangs()->toArray()
+        'uid' => $this->getUid(),
+        'name' => $this->getName(),
+        'local' => $this->isLocal(),
+        'locallangs' => $hashArray
         ];
     }
 
     /**
      * Returns the name
-     * 
+     *
      * @return string name
      */
     public function getName()
@@ -169,7 +175,7 @@ class Extension extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
 
     /**
      * Sets the name
-     * 
+     *
      * @param string $name
      * @return void
      */
@@ -180,17 +186,20 @@ class Extension extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity implement
 
     /**
      * Returns the locallangs
-     * 
+     *
      * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang> locallangs
      */
     public function getLocallangs()
     {
+        if ($this->locallangs instanceof LazyLoadingProxy) {
+            $this->locallangs->_loadRealInstance();
+        }
         return $this->locallangs;
     }
 
     /**
      * Sets the locallangs
-     * 
+     *
      * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang> $locallangs
      * @return void
      */

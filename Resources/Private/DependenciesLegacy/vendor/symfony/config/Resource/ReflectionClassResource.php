@@ -13,7 +13,7 @@ namespace Symfony\Component\Config\Resource;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Messenger\Handler\MessageSubscriberInterface;
-use Symfony\Contracts\Service\ServiceSubscriberInterface;
+use Symfony\Contracts\\Service\ServiceSubscriberInterface;
 
 /**
  * @author Nicolas Grekas <p@tchwork.com>

@@ -20,8 +20,8 @@ use Datamints\DatamintsLocallangBuilder\Domain\Model\Extension;
 use Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang;
 use Datamints\DatamintsLocallangBuilder\Domain\Model\Translation;
 use Datamints\DatamintsLocallangBuilder\Domain\Model\TranslationValue;
-use Datamints\DatamintsLocallangBuilder\Services\ManifestBuildService;
-use Datamints\DatamintsLocallangBuilder\Services\Traits\XmlServiceTrait;
+use Datamints\DatamintsLocallangBuilder\Service\ManifestBuildService;
+use Datamints\DatamintsLocallangBuilder\Service\Traits\XmlServiceTrait;
 
 class XmlExporter extends AbstractExporter
 {
@@ -53,7 +53,7 @@ class XmlExporter extends AbstractExporter
         /** @var Translation $translation */
         foreach ($locallangExport->getLocallangReference()->getTranslations() as $translation) {
             /** @var TranslationValue $translationValue */
-            foreach ($translation->getTranslationValuesArray() as $translationValue) { // Buggy when using getTranslationValues() as ObjectStorage. I absolutely dont know why it iterates the same value twice. So we better loop it as array and everything works...
+            foreach ($translation->getTranslationValues() as $translationValue) { // Buggy when using getTranslationValues() as ObjectStorage. I absolutely dont know why it iterates the same value twice. So we better loop it as array and everything works...
                 if ($translationValue->getIdent() === $locallangExport->getLanguageCode()) { // Filter to get our desired language and skip everything else
                     $transUnitNode = $this->createTransUnitNode($dom, $translation, $translationValue->getResname());
                     $transUnitCommentNode = $sourceNode = $targetNode = null;

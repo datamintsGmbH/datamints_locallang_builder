@@ -1,4 +1,14 @@
 services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: true
+  Datamints\DatamintsLocallangBuilder\:
+    resource: '../Classes/*'
+    exclude:
+      - '../Classes/Hook/*'
+      - '../Classes/Domain/Model/*'
+      - '../Classes/FormEngine/*/*'
   cache.cache:
     class    : TYPO3\CMS\Core\Cache\Backend\BackendInterface
     factory  : [ '@TYPO3\CMS\Core\Cache\CacheManager', 'getCache' ]

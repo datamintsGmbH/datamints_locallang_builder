@@ -1,0 +1,5266 @@
+{
+"status": "success",
+"message": "",
+"data": {
+"filename": "Backend.xlf",
+"translationsArray": [
+{
+"object": {
+"translationKey": "theme_name",
+"translationValues": {
+"0000000014eda55800000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 1,
+"value": "Bootstrap Package",
+"xmlSpace": ""
+},
+"0000000014eda56600000000223df116": {
+"approved": false,
+"ident": "de",
+"resname": "",
+"uid": 2,
+"value": "fasd",
+"xmlSpace": ""
+},
+"0000000014eda56000000000223df116": {
+"approved": false,
+"ident": "ru",
+"resname": "",
+"uid": 3,
+"value": "Russia",
+"xmlSpace": ""
+}
+},
+"uid": 1
+},
+"key": "theme_name",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "pages.nav_icon",
+"translationValues": {
+"0000000014eda48000000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 4,
+"value": "Navigation Icon",
+"xmlSpace": ""
+}
+},
+"uid": 2
+},
+"key": "pages.nav_icon",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "pages.thumbnail",
+"translationValues": {
+"0000000014eda48f00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 5,
+"value": "Thumbnail",
+"xmlSpace": ""
+}
+},
+"uid": 3
+},
+"key": "pages.thumbnail",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "backend_layout.default",
+"translationValues": {
+"0000000014eda48200000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 6,
+"value": "Default",
+"xmlSpace": ""
+}
+},
+"uid": 4
+},
+"key": "backend_layout.default",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "backend_layout.simple",
+"translationValues": {
+"0000000014eda48d00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 7,
+"value": "Simple",
+"xmlSpace": ""
+}
+},
+"uid": 5
+},
+"key": "backend_layout.simple",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "backend_layout.2_columns",
+"translationValues": {
+"0000000014eda49f00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 8,
+"value": "2 Columns",
+"xmlSpace": ""
+}
+},
+"uid": 6
+},
+"key": "backend_layout.2_columns",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "backend_layout.2_columns_25_75",
+"translationValues": {
+"0000000014eda4a900000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 9,
+"value": "2 Columns 25/75",
+"xmlSpace": ""
+}
+},
+"uid": 7
+},
+"key": "backend_layout.2_columns_25_75",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "backend_layout.2_columns_50_50",
+"translationValues": {
+"0000000014eda4bb00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 10,
+"value": "2 Columns 50/50",
+"xmlSpace": ""
+}
+},
+"uid": 8
+},
+"key": "backend_layout.2_columns_50_50",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "backend_layout.2_columns_offset_right",
+"translationValues": {
+"0000000014eda4c500000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 11,
+"value": "2 Columns, Offset Right",
+"xmlSpace": ""
+}
+},
+"uid": 9
+},
+"key": "backend_layout.2_columns_offset_right",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "backend_layout.3_columns",
+"translationValues": {
+"0000000014eda4d700000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 12,
+"value": "3 Columns",
+"xmlSpace": ""
+}
+},
+"uid": 10
+},
+"key": "backend_layout.3_columns",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "backend_layout.subnavigation_right",
+"translationValues": {
+"0000000014eda4e100000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 13,
+"value": "Subnavigation Right",
+"xmlSpace": ""
+}
+},
+"uid": 11
+},
+"key": "backend_layout.subnavigation_right",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "backend_layout.subnavigation_right_2_columns",
+"translationValues": {
+"0000000014eda4f300000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 14,
+"value": "Subnavigation Right and 2 Columns",
+"xmlSpace": ""
+}
+},
+"uid": 12
+},
+"key": "backend_layout.subnavigation_right_2_columns",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "backend_layout.subnavigation_left",
+"translationValues": {
+"0000000014eda4fd00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 15,
+"value": "Subnavigation Left",
+"xmlSpace": ""
+}
+},
+"uid": 13
+},
+"key": "backend_layout.subnavigation_left",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "backend_layout.subnavigation_left_2_columns",
+"translationValues": {
+"0000000014eda40f00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 16,
+"value": "Subnavigation Left and 2 Columns",
+"xmlSpace": ""
+}
+},
+"uid": 14
+},
+"key": "backend_layout.subnavigation_left_2_columns",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "backend_layout.special_start",
+"translationValues": {
+"0000000014eda41900000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 17,
+"value": "Special Startpage",
+"xmlSpace": ""
+}
+},
+"uid": 15
+},
+"key": "backend_layout.special_start",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "backend_layout.special_feature",
+"translationValues": {
+"0000000014eda42b00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 18,
+"value": "Special Feature",
+"xmlSpace": ""
+}
+},
+"uid": 16
+},
+"key": "backend_layout.special_feature",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "backend_layout.column.subnav",
+"translationValues": {
+"0000000014eda43500000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 19,
+"value": "Sub Navigation (NOEDIT)",
+"xmlSpace": ""
+}
+},
+"uid": 17
+},
+"key": "backend_layout.column.subnav",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "backend_layout.column.left",
+"translationValues": {
+"0000000014eda44700000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 20,
+"value": "Left",
+"xmlSpace": ""
+}
+},
+"uid": 18
+},
+"key": "backend_layout.column.left",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "backend_layout.column.normal",
+"translationValues": {
+"0000000014eda45100000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 21,
+"value": "Normal",
+"xmlSpace": ""
+}
+},
+"uid": 19
+},
+"key": "backend_layout.column.normal",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "backend_layout.column.right",
+"translationValues": {
+"0000000014eda46300000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 22,
+"value": "Right",
+"xmlSpace": ""
+}
+},
+"uid": 20
+},
+"key": "backend_layout.column.right",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "backend_layout.column.border",
+"translationValues": {
+"0000000014eda46d00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 23,
+"value": "Border",
+"xmlSpace": ""
+}
+},
+"uid": 21
+},
+"key": "backend_layout.column.border",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "backend_layout.column.middle1",
+"translationValues": {
+"0000000014eda47f00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 24,
+"value": "Middle: Left",
+"xmlSpace": ""
+}
+},
+"uid": 22
+},
+"key": "backend_layout.column.middle1",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "backend_layout.column.middle2",
+"translationValues": {
+"0000000014eda78900000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 25,
+"value": "Middle: Center",
+"xmlSpace": ""
+}
+},
+"uid": 23
+},
+"key": "backend_layout.column.middle2",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "backend_layout.column.middle3",
+"translationValues": {
+"0000000014eda79b00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 26,
+"value": "Middle: Right",
+"xmlSpace": ""
+}
+},
+"uid": 24
+},
+"key": "backend_layout.column.middle3",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "backend_layout.column.main2",
+"translationValues": {
+"0000000014eda7a500000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 27,
+"value": "Normal 2",
+"xmlSpace": ""
+}
+},
+"uid": 25
+},
+"key": "backend_layout.column.main2",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "backend_layout.column.contentbefore",
+"translationValues": {
+"0000000014eda7b700000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 28,
+"value": "Before Content",
+"xmlSpace": ""
+}
+},
+"uid": 26
+},
+"key": "backend_layout.column.contentbefore",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "backend_layout.column.contentafter",
+"translationValues": {
+"0000000014eda7c100000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 29,
+"value": "After Content",
+"xmlSpace": ""
+}
+},
+"uid": 27
+},
+"key": "backend_layout.column.contentafter",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "backend_layout.column.special1",
+"translationValues": {
+"0000000014eda7d300000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 30,
+"value": "Special 1",
+"xmlSpace": ""
+}
+},
+"uid": 28
+},
+"key": "backend_layout.column.special1",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "backend_layout.column.special2",
+"translationValues": {
+"0000000014eda7dd00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 31,
+"value": "Special 2",
+"xmlSpace": ""
+}
+},
+"uid": 29
+},
+"key": "backend_layout.column.special2",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "backend_layout.column.special3",
+"translationValues": {
+"0000000014eda7ef00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 32,
+"value": "Special 3",
+"xmlSpace": ""
+}
+},
+"uid": 30
+},
+"key": "backend_layout.column.special3",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "backend_layout.column.special4",
+"translationValues": {
+"0000000014eda7f900000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 33,
+"value": "Special 4",
+"xmlSpace": ""
+}
+},
+"uid": 31
+},
+"key": "backend_layout.column.special4",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "backend_layout.column.special5",
+"translationValues": {
+"0000000014eda70b00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 34,
+"value": "Special 5",
+"xmlSpace": ""
+}
+},
+"uid": 32
+},
+"key": "backend_layout.column.special5",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "backend_layout.column.special6",
+"translationValues": {
+"0000000014eda71500000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 35,
+"value": "Special 6",
+"xmlSpace": ""
+}
+},
+"uid": 33
+},
+"key": "backend_layout.column.special6",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "backend_layout.column.special7",
+"translationValues": {
+"0000000014eda72700000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 36,
+"value": "Special 7",
+"xmlSpace": ""
+}
+},
+"uid": 34
+},
+"key": "backend_layout.column.special7",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "backend_layout.column.special8",
+"translationValues": {
+"0000000014eda73100000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 37,
+"value": "Special 8",
+"xmlSpace": ""
+}
+},
+"uid": 35
+},
+"key": "backend_layout.column.special8",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "backend_layout.column.special9",
+"translationValues": {
+"0000000014eda74300000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 38,
+"value": "Special 9",
+"xmlSpace": ""
+}
+},
+"uid": 36
+},
+"key": "backend_layout.column.special9",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "backend_layout.column.special10",
+"translationValues": {
+"0000000014eda74d00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 39,
+"value": "Special 10",
+"xmlSpace": ""
+}
+},
+"uid": 37
+},
+"key": "backend_layout.column.special10",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "backend_layout.column.footer1",
+"translationValues": {
+"0000000014eda75f00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 40,
+"value": "Footer: Left",
+"xmlSpace": ""
+}
+},
+"uid": 38
+},
+"key": "backend_layout.column.footer1",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "backend_layout.column.footer2",
+"translationValues": {
+"0000000014eda76900000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 41,
+"value": "Footer: Center",
+"xmlSpace": ""
+}
+},
+"uid": 39
+},
+"key": "backend_layout.column.footer2",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "backend_layout.column.footer3",
+"translationValues": {
+"0000000014eda77b00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 42,
+"value": "Footer: Right",
+"xmlSpace": ""
+}
+},
+"uid": 40
+},
+"key": "backend_layout.column.footer3",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "menu.card_dir",
+"translationValues": {
+"0000000014eda68500000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 43,
+"value": "Cards of subpages",
+"xmlSpace": ""
+}
+},
+"uid": 41
+},
+"key": "menu.card_dir",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "menu.card_dir.description",
+"translationValues": {
+"0000000014eda69700000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 44,
+"value": "Insert menu to display subpages as cards",
+"xmlSpace": ""
+}
+},
+"uid": 42
+},
+"key": "menu.card_dir.description",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "menu.card_list",
+"translationValues": {
+"0000000014eda6a100000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 45,
+"value": "Cards",
+"xmlSpace": ""
+}
+},
+"uid": 43
+},
+"key": "menu.card_list",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "menu.card_list.description",
+"translationValues": {
+"0000000014eda6b300000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 46,
+"value": "Insert menu to display selected pages as cards",
+"xmlSpace": ""
+}
+},
+"uid": 44
+},
+"key": "menu.card_list.description",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "menu.card.options",
+"translationValues": {
+"0000000014eda6bd00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 47,
+"value": "Options",
+"xmlSpace": ""
+}
+},
+"uid": 45
+},
+"key": "menu.card.options",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "menu.card.columns",
+"translationValues": {
+"0000000014eda6cf00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 48,
+"value": "Columns",
+"xmlSpace": ""
+}
+},
+"uid": 46
+},
+"key": "menu.card.columns",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "menu.card.align",
+"translationValues": {
+"0000000014eda6d900000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 49,
+"value": "Alignment",
+"xmlSpace": ""
+}
+},
+"uid": 47
+},
+"key": "menu.card.align",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "menu.card.align.left",
+"translationValues": {
+"0000000014eda6eb00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 50,
+"value": "Left",
+"xmlSpace": ""
+}
+},
+"uid": 48
+},
+"key": "menu.card.align.left",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "menu.card.align.center",
+"translationValues": {
+"0000000014eda6f500000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 51,
+"value": "Center",
+"xmlSpace": ""
+}
+},
+"uid": 49
+},
+"key": "menu.card.align.center",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "menu.card.align.right",
+"translationValues": {
+"0000000014eda60700000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 52,
+"value": "Right",
+"xmlSpace": ""
+}
+},
+"uid": 50
+},
+"key": "menu.card.align.right",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "menu.thumbnail_dir",
+"translationValues": {
+"0000000014eda61100000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 53,
+"value": "Thumbnails of subpages",
+"xmlSpace": ""
+}
+},
+"uid": 51
+},
+"key": "menu.thumbnail_dir",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "menu.thumbnail_dir.description",
+"translationValues": {
+"0000000014eda62300000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 54,
+"value": "Insert menu to display subpages as thumbnail",
+"xmlSpace": ""
+}
+},
+"uid": 52
+},
+"key": "menu.thumbnail_dir.description",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "menu.thumbnail_list",
+"translationValues": {
+"0000000014eda62d00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 55,
+"value": "Thumbnails",
+"xmlSpace": ""
+}
+},
+"uid": 53
+},
+"key": "menu.thumbnail_list",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "menu.thumbnail_list.description",
+"translationValues": {
+"0000000014eda63f00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 56,
+"value": "Insert menu to display selected pages as thumbnail",
+"xmlSpace": ""
+}
+},
+"uid": 54
+},
+"key": "menu.thumbnail_list.description",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "menu.thumbnail.options",
+"translationValues": {
+"0000000014eda64900000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 57,
+"value": "Options",
+"xmlSpace": ""
+}
+},
+"uid": 55
+},
+"key": "menu.thumbnail.options",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "menu.thumbnail.columns",
+"translationValues": {
+"0000000014eda65b00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 58,
+"value": "Columns",
+"xmlSpace": ""
+}
+},
+"uid": 56
+},
+"key": "menu.thumbnail.columns",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "menu.thumbnail.align",
+"translationValues": {
+"0000000014eda66500000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 59,
+"value": "Alignment",
+"xmlSpace": ""
+}
+},
+"uid": 57
+},
+"key": "menu.thumbnail.align",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "menu.thumbnail.align.left",
+"translationValues": {
+"0000000014eda67700000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 60,
+"value": "Left",
+"xmlSpace": ""
+}
+},
+"uid": 58
+},
+"key": "menu.thumbnail.align.left",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "menu.thumbnail.align.center",
+"translationValues": {
+"0000000014eda18100000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 61,
+"value": "Center",
+"xmlSpace": ""
+}
+},
+"uid": 59
+},
+"key": "menu.thumbnail.align.center",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "menu.thumbnail.align.right",
+"translationValues": {
+"0000000014eda19300000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 62,
+"value": "Right",
+"xmlSpace": ""
+}
+},
+"uid": 60
+},
+"key": "menu.thumbnail.align.right",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_group.interactive",
+"translationValues": {
+"0000000014eda19d00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 63,
+"value": "Interactive",
+"xmlSpace": ""
+}
+},
+"uid": 61
+},
+"key": "content_group.interactive",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_group.media",
+"translationValues": {
+"0000000014eda1af00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 64,
+"value": "Media",
+"xmlSpace": ""
+}
+},
+"uid": 62
+},
+"key": "content_group.media",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_group.data",
+"translationValues": {
+"0000000014eda1b900000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 65,
+"value": "Data",
+"xmlSpace": ""
+}
+},
+"uid": 63
+},
+"key": "content_group.data",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_group.text",
+"translationValues": {
+"0000000014eda1cb00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 66,
+"value": "Text",
+"xmlSpace": ""
+}
+},
+"uid": 64
+},
+"key": "content_group.text",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_group.social_media",
+"translationValues": {
+"0000000014eda1d500000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 67,
+"value": "Social Media",
+"xmlSpace": ""
+}
+},
+"uid": 65
+},
+"key": "content_group.social_media",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.csv",
+"translationValues": {
+"0000000014eda1e700000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 68,
+"value": "CSV",
+"xmlSpace": ""
+}
+},
+"uid": 66
+},
+"key": "content_element.csv",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.csv.description",
+"translationValues": {
+"0000000014eda1f100000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 69,
+"value": "Render a table from a CSV file.",
+"xmlSpace": ""
+}
+},
+"uid": 67
+},
+"key": "content_element.csv.description",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.media",
+"translationValues": {
+"0000000014eda10300000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 70,
+"value": "Media",
+"xmlSpace": ""
+}
+},
+"uid": 68
+},
+"key": "content_element.media",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.media.description",
+"translationValues": {
+"0000000014eda10d00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 71,
+"value": "Any number of youtube and vimeo videos in columns and rows with a caption.",
+"xmlSpace": ""
+}
+},
+"uid": 69
+},
+"key": "content_element.media.description",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.audio",
+"translationValues": {
+"0000000014eda11f00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 72,
+"value": "Audio",
+"xmlSpace": ""
+}
+},
+"uid": 70
+},
+"key": "content_element.audio",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.audio.description",
+"translationValues": {
+"0000000014eda12900000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 73,
+"value": "Insert Audio files",
+"xmlSpace": ""
+}
+},
+"uid": 71
+},
+"key": "content_element.audio.description",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.panel",
+"translationValues": {
+"0000000014eda13b00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 74,
+"value": "Panel",
+"xmlSpace": ""
+}
+},
+"uid": 72
+},
+"key": "content_element.panel",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.panel.description",
+"translationValues": {
+"0000000014eda14500000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 75,
+"value": "Insert Panelelement with simple text",
+"xmlSpace": ""
+}
+},
+"uid": 73
+},
+"key": "content_element.panel.description",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.carousel",
+"translationValues": {
+"0000000014eda15700000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 76,
+"value": "Carousel",
+"xmlSpace": ""
+}
+},
+"uid": 74
+},
+"key": "content_element.carousel",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.carousel.description",
+"translationValues": {
+"0000000014eda16100000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 77,
+"value": "Insert Carouselelement with different contents (header / text with image / pure HTML)",
+"xmlSpace": ""
+}
+},
+"uid": 75
+},
+"key": "content_element.carousel.description",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.carousel_small",
+"translationValues": {
+"0000000014eda17300000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 78,
+"value": "Carousel Small",
+"xmlSpace": ""
+}
+},
+"uid": 76
+},
+"key": "content_element.carousel_small",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.carousel_small.description",
+"translationValues": {
+"0000000014eda17d00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 79,
+"value": "Insert Carouselelement with different contents (header / text with image / pure HTML)",
+"xmlSpace": ""
+}
+},
+"uid": 77
+},
+"key": "content_element.carousel_small.description",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.carousel_fullscreen",
+"translationValues": {
+"0000000014eda08f00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 80,
+"value": "Carousel Fullscreen",
+"xmlSpace": ""
+}
+},
+"uid": 78
+},
+"key": "content_element.carousel_fullscreen",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.carousel_fullscreen.description",
+"translationValues": {
+"0000000014eda09900000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 81,
+"value": "Insert Carouselelement with different contents (header / text with image / pure HTML)",
+"xmlSpace": ""
+}
+},
+"uid": 79
+},
+"key": "content_element.carousel_fullscreen.description",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.textcolumn",
+"translationValues": {
+"0000000014eda0ab00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 82,
+"value": "Text in Columns",
+"xmlSpace": ""
+}
+},
+"uid": 80
+},
+"key": "content_element.textcolumn",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.textcolumn.description",
+"translationValues": {
+"0000000014eda0b500000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 83,
+"value": "Insert Text in Columns",
+"xmlSpace": ""
+}
+},
+"uid": 81
+},
+"key": "content_element.textcolumn.description",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.textteaser",
+"translationValues": {
+"0000000014eda0c700000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 84,
+"value": "Text with Teaser",
+"xmlSpace": ""
+}
+},
+"uid": 82
+},
+"key": "content_element.textteaser",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.textteaser.description",
+"translationValues": {
+"0000000014eda0d100000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 85,
+"value": "Insert Text with Teaser",
+"xmlSpace": ""
+}
+},
+"uid": 83
+},
+"key": "content_element.textteaser.description",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.texticon",
+"translationValues": {
+"0000000014eda0e300000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 86,
+"value": "Text and Icon",
+"xmlSpace": ""
+}
+},
+"uid": 84
+},
+"key": "content_element.texticon",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.texticon.description",
+"translationValues": {
+"0000000014eda0ed00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 87,
+"value": "Insert Bootstrap Icon with Text",
+"xmlSpace": ""
+}
+},
+"uid": 85
+},
+"key": "content_element.texticon.description",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.accordion",
+"translationValues": {
+"0000000014eda0ff00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 88,
+"value": "Accordion",
+"xmlSpace": ""
+}
+},
+"uid": 86
+},
+"key": "content_element.accordion",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.accordion.description",
+"translationValues": {
+"0000000014eda00900000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 89,
+"value": "Insert several Accordionelement(s) with headline and text",
+"xmlSpace": ""
+}
+},
+"uid": 87
+},
+"key": "content_element.accordion.description",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.tab",
+"translationValues": {
+"0000000014eda01b00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 90,
+"value": "Tab",
+"xmlSpace": ""
+}
+},
+"uid": 88
+},
+"key": "content_element.tab",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.tab.description",
+"translationValues": {
+"0000000014eda02500000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 91,
+"value": "Insert several Tabelement(s) with headline and text",
+"xmlSpace": ""
+}
+},
+"uid": 89
+},
+"key": "content_element.tab.description",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.card_group",
+"translationValues": {
+"0000000014eda03700000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 92,
+"value": "Card Group",
+"xmlSpace": ""
+}
+},
+"uid": 90
+},
+"key": "content_element.card_group",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.card_group.description",
+"translationValues": {
+"0000000014eda04100000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 93,
+"value": "Insert a element with several content cards",
+"xmlSpace": ""
+}
+},
+"uid": 91
+},
+"key": "content_element.card_group.description",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.card_group.options",
+"translationValues": {
+"0000000014eda05300000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 94,
+"value": "Options",
+"xmlSpace": ""
+}
+},
+"uid": 92
+},
+"key": "content_element.card_group.options",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.card_group.columns",
+"translationValues": {
+"0000000014eda05d00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 95,
+"value": "Columns",
+"xmlSpace": ""
+}
+},
+"uid": 93
+},
+"key": "content_element.card_group.columns",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.card_group.align",
+"translationValues": {
+"0000000014eda06f00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 96,
+"value": "Alignment",
+"xmlSpace": ""
+}
+},
+"uid": 94
+},
+"key": "content_element.card_group.align",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.card_group.align.left",
+"translationValues": {
+"0000000014eda07900000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 97,
+"value": "Left",
+"xmlSpace": ""
+}
+},
+"uid": 95
+},
+"key": "content_element.card_group.align.left",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.card_group.align.center",
+"translationValues": {
+"0000000014eda38b00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 98,
+"value": "Center",
+"xmlSpace": ""
+}
+},
+"uid": 96
+},
+"key": "content_element.card_group.align.center",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.card_group.align.right",
+"translationValues": {
+"0000000014eda39500000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 99,
+"value": "Right",
+"xmlSpace": ""
+}
+},
+"uid": 97
+},
+"key": "content_element.card_group.align.right",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "card_group_item",
+"translationValues": {
+"0000000014eda3a700000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 100,
+"value": "Card",
+"xmlSpace": ""
+}
+},
+"uid": 98
+},
+"key": "card_group_item",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "card_group_item.tt_content",
+"translationValues": {
+"0000000014eda3b100000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 101,
+"value": "Card Group",
+"xmlSpace": ""
+}
+},
+"uid": 99
+},
+"key": "card_group_item.tt_content",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "card_group_item.header",
+"translationValues": {
+"0000000014eda3c300000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 102,
+"value": "Header",
+"xmlSpace": ""
+}
+},
+"uid": 100
+},
+"key": "card_group_item.header",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "card_group_item.subheader",
+"translationValues": {
+"0000000014eda3cd00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 103,
+"value": "Subheader",
+"xmlSpace": ""
+}
+},
+"uid": 101
+},
+"key": "card_group_item.subheader",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "card_group_item.image",
+"translationValues": {
+"0000000014eda3df00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 104,
+"value": "Image",
+"xmlSpace": ""
+}
+},
+"uid": 102
+},
+"key": "card_group_item.image",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "card_group_item.bodytext",
+"translationValues": {
+"0000000014eda3e900000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 105,
+"value": "Text",
+"xmlSpace": ""
+}
+},
+"uid": 103
+},
+"key": "card_group_item.bodytext",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "card_group_item.link",
+"translationValues": {
+"0000000014eda3fb00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 106,
+"value": "Link",
+"xmlSpace": ""
+}
+},
+"uid": 104
+},
+"key": "card_group_item.link",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "card_group_item.link_title",
+"translationValues": {
+"0000000014eda30500000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 107,
+"value": "Title",
+"xmlSpace": ""
+}
+},
+"uid": 105
+},
+"key": "card_group_item.link_title",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "card_group_item.link_icon",
+"translationValues": {
+"0000000014eda31700000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 108,
+"value": "Icon",
+"xmlSpace": ""
+}
+},
+"uid": 106
+},
+"key": "card_group_item.link_icon",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "card_group_item.link_class",
+"translationValues": {
+"0000000014eda32100000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 109,
+"value": "Color",
+"xmlSpace": ""
+}
+},
+"uid": 107
+},
+"key": "card_group_item.link_class",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.icon_group",
+"translationValues": {
+"0000000014eda33300000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 110,
+"value": "Icon Group",
+"xmlSpace": ""
+}
+},
+"uid": 108
+},
+"key": "content_element.icon_group",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.icon_group.description",
+"translationValues": {
+"0000000014eda33d00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 111,
+"value": "Insert a element with several icons",
+"xmlSpace": ""
+}
+},
+"uid": 109
+},
+"key": "content_element.icon_group.description",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.icon_group.options",
+"translationValues": {
+"0000000014eda34f00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 112,
+"value": "Options",
+"xmlSpace": ""
+}
+},
+"uid": 110
+},
+"key": "content_element.icon_group.options",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.icon_group.columns",
+"translationValues": {
+"0000000014eda35900000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 113,
+"value": "Columns",
+"xmlSpace": ""
+}
+},
+"uid": 111
+},
+"key": "content_element.icon_group.columns",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.icon_group.columns.auto",
+"translationValues": {
+"0000000014eda36b00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 114,
+"value": "Automatic",
+"xmlSpace": ""
+}
+},
+"uid": 112
+},
+"key": "content_element.icon_group.columns.auto",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.icon_group.align",
+"translationValues": {
+"0000000014eda37500000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 115,
+"value": "Alignment",
+"xmlSpace": ""
+}
+},
+"uid": 113
+},
+"key": "content_element.icon_group.align",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.icon_group.align.left",
+"translationValues": {
+"0000000014eda28700000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 116,
+"value": "Left",
+"xmlSpace": ""
+}
+},
+"uid": 114
+},
+"key": "content_element.icon_group.align.left",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.icon_group.align.center",
+"translationValues": {
+"0000000014eda29100000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 117,
+"value": "Center",
+"xmlSpace": ""
+}
+},
+"uid": 115
+},
+"key": "content_element.icon_group.align.center",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.icon_group.align.right",
+"translationValues": {
+"0000000014eda2a300000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 118,
+"value": "Right",
+"xmlSpace": ""
+}
+},
+"uid": 116
+},
+"key": "content_element.icon_group.align.right",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.icon_group.icon_position",
+"translationValues": {
+"0000000014eda2ad00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 119,
+"value": "Icon Position",
+"xmlSpace": ""
+}
+},
+"uid": 117
+},
+"key": "content_element.icon_group.icon_position",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.icon_group.icon_position.left-top",
+"translationValues": {
+"0000000014eda2bf00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 120,
+"value": "Left: Top",
+"xmlSpace": ""
+}
+},
+"uid": 118
+},
+"key": "content_element.icon_group.icon_position.left-top",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.icon_group.icon_position.left-center",
+"translationValues": {
+"0000000014eda2c900000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 121,
+"value": "Left: Center",
+"xmlSpace": ""
+}
+},
+"uid": 119
+},
+"key": "content_element.icon_group.icon_position.left-center",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.icon_group.icon_position.right-top",
+"translationValues": {
+"0000000014eda2db00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 122,
+"value": "Right: Top",
+"xmlSpace": ""
+}
+},
+"uid": 120
+},
+"key": "content_element.icon_group.icon_position.right-top",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.icon_group.icon_position.right-center",
+"translationValues": {
+"0000000014eda2e500000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 123,
+"value": "Right: Center",
+"xmlSpace": ""
+}
+},
+"uid": 121
+},
+"key": "content_element.icon_group.icon_position.right-center",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.icon_group.icon_position.above",
+"translationValues": {
+"0000000014eda2f700000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 124,
+"value": "Above",
+"xmlSpace": ""
+}
+},
+"uid": 122
+},
+"key": "content_element.icon_group.icon_position.above",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.icon_group.icon_position.below",
+"translationValues": {
+"0000000014eda20100000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 125,
+"value": "Below",
+"xmlSpace": ""
+}
+},
+"uid": 123
+},
+"key": "content_element.icon_group.icon_position.below",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.listgroup",
+"translationValues": {
+"0000000014eda21300000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 126,
+"value": "List Group",
+"xmlSpace": ""
+}
+},
+"uid": 124
+},
+"key": "content_element.listgroup",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.listgroup.description",
+"translationValues": {
+"0000000014eda21d00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 127,
+"value": "Insert simple Listgroupelement",
+"xmlSpace": ""
+}
+},
+"uid": 125
+},
+"key": "content_element.listgroup.description",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.external_media",
+"translationValues": {
+"0000000014eda22f00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 128,
+"value": "External Media",
+"xmlSpace": ""
+}
+},
+"uid": 126
+},
+"key": "content_element.external_media",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.external_media.description",
+"translationValues": {
+"0000000014eda23900000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 129,
+"value": "Insert external media from YouTube or Vimeo",
+"xmlSpace": ""
+}
+},
+"uid": 127
+},
+"key": "content_element.external_media.description",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.textmedia",
+"translationValues": {
+"0000000014eda24b00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 130,
+"value": "Text & Media",
+"xmlSpace": ""
+}
+},
+"uid": 128
+},
+"key": "content_element.textmedia",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.quote",
+"translationValues": {
+"0000000014eda25500000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 131,
+"value": "Quote",
+"xmlSpace": ""
+}
+},
+"uid": 129
+},
+"key": "content_element.quote",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.quote.description",
+"translationValues": {
+"0000000014eda26700000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 132,
+"value": "Insert Quotation",
+"xmlSpace": ""
+}
+},
+"uid": 130
+},
+"key": "content_element.quote.description",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "quote.text",
+"translationValues": {
+"0000000014eda27100000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 133,
+"value": "Quote Text",
+"xmlSpace": ""
+}
+},
+"uid": 131
+},
+"key": "quote.text",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "quote.link",
+"translationValues": {
+"0000000014edbd8300000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 134,
+"value": "Quote Link",
+"xmlSpace": ""
+}
+},
+"uid": 132
+},
+"key": "quote.link",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "quote.source",
+"translationValues": {
+"0000000014edbd8d00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 135,
+"value": "Quote Source",
+"xmlSpace": ""
+}
+},
+"uid": 133
+},
+"key": "quote.source",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.social_links",
+"translationValues": {
+"0000000014edbd9f00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 136,
+"value": "Social Links",
+"xmlSpace": ""
+}
+},
+"uid": 134
+},
+"key": "content_element.social_links",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.social_links.description",
+"translationValues": {
+"0000000014edbda900000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 137,
+"value": "Insert a element to display configured social media channels",
+"xmlSpace": ""
+}
+},
+"uid": 135
+},
+"key": "content_element.social_links.description",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.timeline",
+"translationValues": {
+"0000000014edbdbb00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 138,
+"value": "Timeline",
+"xmlSpace": ""
+}
+},
+"uid": 136
+},
+"key": "content_element.timeline",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "content_element.timeline.description",
+"translationValues": {
+"0000000014edbdc500000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 139,
+"value": "Insert a element to display a timeline",
+"xmlSpace": ""
+}
+},
+"uid": 137
+},
+"key": "content_element.timeline.description",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "carousel.options",
+"translationValues": {
+"0000000014edbdd700000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 140,
+"value": "Carousel Options",
+"xmlSpace": ""
+}
+},
+"uid": 138
+},
+"key": "carousel.options",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "carousel.interval",
+"translationValues": {
+"0000000014edbde100000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 141,
+"value": "Interval in ms",
+"xmlSpace": ""
+}
+},
+"uid": 139
+},
+"key": "carousel.interval",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "carousel.transition",
+"translationValues": {
+"0000000014edbdf300000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 142,
+"value": "Transition",
+"xmlSpace": ""
+}
+},
+"uid": 140
+},
+"key": "carousel.transition",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "carousel.transition.slide",
+"translationValues": {
+"0000000014edbdfd00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 143,
+"value": "Slide",
+"xmlSpace": ""
+}
+},
+"uid": 141
+},
+"key": "carousel.transition.slide",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "carousel.transition.fade",
+"translationValues": {
+"0000000014edbd0f00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 144,
+"value": "Fade",
+"xmlSpace": ""
+}
+},
+"uid": 142
+},
+"key": "carousel.transition.fade",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "carousel.wrap",
+"translationValues": {
+"0000000014edbd1900000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 145,
+"value": "Wrap",
+"xmlSpace": ""
+}
+},
+"uid": 143
+},
+"key": "carousel.wrap",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "carousel.wrap.description",
+"translationValues": {
+"0000000014edbd2b00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 146,
+"value": "Start the Carousel from the beginning once it has arrived at the end.",
+"xmlSpace": ""
+}
+},
+"uid": 144
+},
+"key": "carousel.wrap.description",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "carousel.show_nav_title",
+"translationValues": {
+"0000000014edbd3500000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 147,
+"value": "Show Navigation Title",
+"xmlSpace": ""
+}
+},
+"uid": 145
+},
+"key": "carousel.show_nav_title",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "carousel.show_nav_title.description",
+"translationValues": {
+"0000000014edbd4700000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 148,
+"value": "Show the navigation title of the records instead of the bubbles.",
+"xmlSpace": ""
+}
+},
+"uid": 146
+},
+"key": "carousel.show_nav_title.description",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "carousel_item",
+"translationValues": {
+"0000000014edbd5100000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 149,
+"value": "Carousel Item",
+"xmlSpace": ""
+}
+},
+"uid": 147
+},
+"key": "carousel_item",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "carousel_item.tt_content",
+"translationValues": {
+"0000000014edbd6300000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 150,
+"value": "Carousel",
+"xmlSpace": ""
+}
+},
+"uid": 148
+},
+"key": "carousel_item.tt_content",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "carousel_item.link",
+"translationValues": {
+"0000000014edbd6d00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 151,
+"value": "Link",
+"xmlSpace": ""
+}
+},
+"uid": 149
+},
+"key": "carousel_item.link",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "carousel_item.header",
+"translationValues": {
+"0000000014edbd7f00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 152,
+"value": "Header",
+"xmlSpace": ""
+}
+},
+"uid": 150
+},
+"key": "carousel_item.header",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "carousel_item.header_layout",
+"translationValues": {
+"0000000014edbc8900000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 153,
+"value": "Header Layout",
+"xmlSpace": ""
+}
+},
+"uid": 151
+},
+"key": "carousel_item.header_layout",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "carousel_item.header_class",
+"translationValues": {
+"0000000014edbc9b00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 154,
+"value": "Header Class",
+"xmlSpace": ""
+}
+},
+"uid": 152
+},
+"key": "carousel_item.header_class",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "carousel_item.header_position",
+"translationValues": {
+"0000000014edbca500000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 155,
+"value": "Header Position",
+"xmlSpace": ""
+}
+},
+"uid": 153
+},
+"key": "carousel_item.header_position",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "carousel_item.header_position.default",
+"translationValues": {
+"0000000014edbcb700000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 156,
+"value": "Default",
+"xmlSpace": ""
+}
+},
+"uid": 154
+},
+"key": "carousel_item.header_position.default",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "carousel_item.header_position.left",
+"translationValues": {
+"0000000014edbcc100000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 157,
+"value": "Left",
+"xmlSpace": ""
+}
+},
+"uid": 155
+},
+"key": "carousel_item.header_position.left",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "carousel_item.header_position.center",
+"translationValues": {
+"0000000014edbcd300000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 158,
+"value": "Center",
+"xmlSpace": ""
+}
+},
+"uid": 156
+},
+"key": "carousel_item.header_position.center",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "carousel_item.header_position.right",
+"translationValues": {
+"0000000014edbcdd00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 159,
+"value": "Right",
+"xmlSpace": ""
+}
+},
+"uid": 157
+},
+"key": "carousel_item.header_position.right",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "carousel_item.subheader",
+"translationValues": {
+"0000000014edbcef00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 160,
+"value": "Subheader",
+"xmlSpace": ""
+}
+},
+"uid": 158
+},
+"key": "carousel_item.subheader",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "carousel_item.subheader_layout",
+"translationValues": {
+"0000000014edbcf900000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 161,
+"value": "Subheader Layout",
+"xmlSpace": ""
+}
+},
+"uid": 159
+},
+"key": "carousel_item.subheader_layout",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "carousel_item.subheader_class",
+"translationValues": {
+"0000000014edbc0b00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 162,
+"value": "Subheader Class",
+"xmlSpace": ""
+}
+},
+"uid": 160
+},
+"key": "carousel_item.subheader_class",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "carousel_item.nav_title",
+"translationValues": {
+"0000000014edbc1500000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 163,
+"value": "Navigation Title",
+"xmlSpace": ""
+}
+},
+"uid": 161
+},
+"key": "carousel_item.nav_title",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "carousel_item.button_text",
+"translationValues": {
+"0000000014edbc2700000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 164,
+"value": "Button Text",
+"xmlSpace": ""
+}
+},
+"uid": 162
+},
+"key": "carousel_item.button_text",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "carousel_item.bodytext",
+"translationValues": {
+"0000000014edbc3100000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 165,
+"value": "Text",
+"xmlSpace": ""
+}
+},
+"uid": 163
+},
+"key": "carousel_item.bodytext",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "carousel_item.text_color",
+"translationValues": {
+"0000000014edbc4300000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 166,
+"value": "Text Color",
+"xmlSpace": ""
+}
+},
+"uid": 164
+},
+"key": "carousel_item.text_color",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "carousel_item.image",
+"translationValues": {
+"0000000014edbc4d00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 167,
+"value": "Image",
+"xmlSpace": ""
+}
+},
+"uid": 165
+},
+"key": "carousel_item.image",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "carousel_item.background_color",
+"translationValues": {
+"0000000014edbc5f00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 168,
+"value": "Background Color",
+"xmlSpace": ""
+}
+},
+"uid": 166
+},
+"key": "carousel_item.background_color",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "carousel_item.background_image",
+"translationValues": {
+"0000000014edbc6900000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 169,
+"value": "Background Image",
+"xmlSpace": ""
+}
+},
+"uid": 167
+},
+"key": "carousel_item.background_image",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "carousel_item.background_image_options",
+"translationValues": {
+"0000000014edbc7b00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 170,
+"value": "Background Image Options",
+"xmlSpace": ""
+}
+},
+"uid": 168
+},
+"key": "carousel_item.background_image_options",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "carousel_item.item_type.header",
+"translationValues": {
+"0000000014edbf8500000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 171,
+"value": "Header",
+"xmlSpace": ""
+}
+},
+"uid": 169
+},
+"key": "carousel_item.item_type.header",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "carousel_item.item_type.text",
+"translationValues": {
+"0000000014edbf9700000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 172,
+"value": "Text",
+"xmlSpace": ""
+}
+},
+"uid": 170
+},
+"key": "carousel_item.item_type.text",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "carousel_item.item_type.calltoaction",
+"translationValues": {
+"0000000014edbfa100000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 173,
+"value": "Call to Action",
+"xmlSpace": ""
+}
+},
+"uid": 171
+},
+"key": "carousel_item.item_type.calltoaction",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "carousel_item.item_type.image",
+"translationValues": {
+"0000000014edbfb300000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 174,
+"value": "Image",
+"xmlSpace": ""
+}
+},
+"uid": 172
+},
+"key": "carousel_item.item_type.image",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "carousel_item.item_type.textandimage",
+"translationValues": {
+"0000000014edbfbd00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 175,
+"value": "Text and Image",
+"xmlSpace": ""
+}
+},
+"uid": 173
+},
+"key": "carousel_item.item_type.textandimage",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "carousel_item.item_type.backgroundimage",
+"translationValues": {
+"0000000014edbfcf00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 176,
+"value": "Background Image",
+"xmlSpace": ""
+}
+},
+"uid": 174
+},
+"key": "carousel_item.item_type.backgroundimage",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "carousel_item.item_type.html",
+"translationValues": {
+"0000000014edbfd900000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 177,
+"value": "HTML",
+"xmlSpace": ""
+}
+},
+"uid": 175
+},
+"key": "carousel_item.item_type.html",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "accordion.options",
+"translationValues": {
+"0000000014edbfeb00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 178,
+"value": "Accordion Options",
+"xmlSpace": ""
+}
+},
+"uid": 176
+},
+"key": "accordion.options",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "accordion.default_element",
+"translationValues": {
+"0000000014edbff500000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 179,
+"value": "Default Element",
+"xmlSpace": ""
+}
+},
+"uid": 177
+},
+"key": "accordion.default_element",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "accordion_item",
+"translationValues": {
+"0000000014edbf0700000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 180,
+"value": "Accordion Item",
+"xmlSpace": ""
+}
+},
+"uid": 178
+},
+"key": "accordion_item",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "accordion_item.tt_content",
+"translationValues": {
+"0000000014edbf1100000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 181,
+"value": "Accordion",
+"xmlSpace": ""
+}
+},
+"uid": 179
+},
+"key": "accordion_item.tt_content",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "accordion_item.header",
+"translationValues": {
+"0000000014edbf2300000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 182,
+"value": "Header",
+"xmlSpace": ""
+}
+},
+"uid": 180
+},
+"key": "accordion_item.header",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "accordion_item.bodytext",
+"translationValues": {
+"0000000014edbf2d00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 183,
+"value": "Text",
+"xmlSpace": ""
+}
+},
+"uid": 181
+},
+"key": "accordion_item.bodytext",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "accordion_item.media",
+"translationValues": {
+"0000000014edbf3f00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 184,
+"value": "Media",
+"xmlSpace": ""
+}
+},
+"uid": 182
+},
+"key": "accordion_item.media",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "accordion_item.mediaposition",
+"translationValues": {
+"0000000014edbf4900000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 185,
+"value": "Media position",
+"xmlSpace": ""
+}
+},
+"uid": 183
+},
+"key": "accordion_item.mediaposition",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "accordion_item.imagecols",
+"translationValues": {
+"0000000014edbf5b00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 186,
+"value": "Columns",
+"xmlSpace": ""
+}
+},
+"uid": 184
+},
+"key": "accordion_item.imagecols",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "accordion_item.image_zoom",
+"translationValues": {
+"0000000014edbf6500000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 187,
+"value": "Enlarge on Click",
+"xmlSpace": ""
+}
+},
+"uid": 185
+},
+"key": "accordion_item.image_zoom",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "accordion_item.mediaorient",
+"translationValues": {
+"0000000014edbf7700000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 188,
+"value": "Orientation",
+"xmlSpace": ""
+}
+},
+"uid": 186
+},
+"key": "accordion_item.mediaorient",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "accordion_item.mediaorient.left",
+"translationValues": {
+"0000000014edbe8100000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 189,
+"value": "Left",
+"xmlSpace": ""
+}
+},
+"uid": 187
+},
+"key": "accordion_item.mediaorient.left",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "accordion_item.mediaorient.top",
+"translationValues": {
+"0000000014edbe9300000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 190,
+"value": "Top",
+"xmlSpace": ""
+}
+},
+"uid": 188
+},
+"key": "accordion_item.mediaorient.top",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "accordion_item.mediaorient.right",
+"translationValues": {
+"0000000014edbe9d00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 191,
+"value": "Right",
+"xmlSpace": ""
+}
+},
+"uid": 189
+},
+"key": "accordion_item.mediaorient.right",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "accordion_item.mediaorient.bottom",
+"translationValues": {
+"0000000014edbeaf00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 192,
+"value": "Bottom",
+"xmlSpace": ""
+}
+},
+"uid": 190
+},
+"key": "accordion_item.mediaorient.bottom",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "tab.options",
+"translationValues": {
+"0000000014edbeb900000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 193,
+"value": "Tab Options",
+"xmlSpace": ""
+}
+},
+"uid": 191
+},
+"key": "tab.options",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "tab.default_tab",
+"translationValues": {
+"0000000014edbecb00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 194,
+"value": "Default Tab",
+"xmlSpace": ""
+}
+},
+"uid": 192
+},
+"key": "tab.default_tab",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "tab_item",
+"translationValues": {
+"0000000014edbed500000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 195,
+"value": "Tab Item",
+"xmlSpace": ""
+}
+},
+"uid": 193
+},
+"key": "tab_item",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "tab_item.tt_content",
+"translationValues": {
+"0000000014edbee700000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 196,
+"value": "Tab",
+"xmlSpace": ""
+}
+},
+"uid": 194
+},
+"key": "tab_item.tt_content",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "tab_item.active",
+"translationValues": {
+"0000000014edbef100000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 197,
+"value": "Set as default",
+"xmlSpace": ""
+}
+},
+"uid": 195
+},
+"key": "tab_item.active",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "tab_item.header",
+"translationValues": {
+"0000000014edbe0300000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 198,
+"value": "Header",
+"xmlSpace": ""
+}
+},
+"uid": 196
+},
+"key": "tab_item.header",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "tab_item.bodytext",
+"translationValues": {
+"0000000014edbe0d00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 199,
+"value": "Text",
+"xmlSpace": ""
+}
+},
+"uid": 197
+},
+"key": "tab_item.bodytext",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "tab_item.media",
+"translationValues": {
+"0000000014edbe1f00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 200,
+"value": "Media",
+"xmlSpace": ""
+}
+},
+"uid": 198
+},
+"key": "tab_item.media",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "tab_item.mediaposition",
+"translationValues": {
+"0000000014edbe2900000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 201,
+"value": "Media position",
+"xmlSpace": ""
+}
+},
+"uid": 199
+},
+"key": "tab_item.mediaposition",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "tab_item.imagecols",
+"translationValues": {
+"0000000014edbe3b00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 202,
+"value": "Columns",
+"xmlSpace": ""
+}
+},
+"uid": 200
+},
+"key": "tab_item.imagecols",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "tab_item.image_zoom",
+"translationValues": {
+"0000000014edbe4500000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 203,
+"value": "Enlarge on Click",
+"xmlSpace": ""
+}
+},
+"uid": 201
+},
+"key": "tab_item.image_zoom",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "tab_item.mediaorient",
+"translationValues": {
+"0000000014edbe5700000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 204,
+"value": "Orientation",
+"xmlSpace": ""
+}
+},
+"uid": 202
+},
+"key": "tab_item.mediaorient",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "tab_item.mediaorient.left",
+"translationValues": {
+"0000000014edbe6100000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 205,
+"value": "Left",
+"xmlSpace": ""
+}
+},
+"uid": 203
+},
+"key": "tab_item.mediaorient.left",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "tab_item.mediaorient.top",
+"translationValues": {
+"0000000014edbe7300000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 206,
+"value": "Top",
+"xmlSpace": ""
+}
+},
+"uid": 204
+},
+"key": "tab_item.mediaorient.top",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "tab_item.mediaorient.right",
+"translationValues": {
+"0000000014edbe7d00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 207,
+"value": "Right",
+"xmlSpace": ""
+}
+},
+"uid": 205
+},
+"key": "tab_item.mediaorient.right",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "tab_item.mediaorient.bottom",
+"translationValues": {
+"0000000014edb98f00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 208,
+"value": "Bottom",
+"xmlSpace": ""
+}
+},
+"uid": 206
+},
+"key": "tab_item.mediaorient.bottom",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "timeline.options",
+"translationValues": {
+"0000000014edb99900000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 209,
+"value": "Timeline Options",
+"xmlSpace": ""
+}
+},
+"uid": 207
+},
+"key": "timeline.options",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "timeline.sorting",
+"translationValues": {
+"0000000014edb9ab00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 210,
+"value": "Sorting",
+"xmlSpace": ""
+}
+},
+"uid": 208
+},
+"key": "timeline.sorting",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "timeline.sorting.asc",
+"translationValues": {
+"0000000014edb9b500000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 211,
+"value": "Ascending",
+"xmlSpace": ""
+}
+},
+"uid": 209
+},
+"key": "timeline.sorting.asc",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "timeline.sorting.desc",
+"translationValues": {
+"0000000014edb9c700000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 212,
+"value": "Descending",
+"xmlSpace": ""
+}
+},
+"uid": 210
+},
+"key": "timeline.sorting.desc",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "timeline_item",
+"translationValues": {
+"0000000014edb9d100000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 213,
+"value": "Timeline Item",
+"xmlSpace": ""
+}
+},
+"uid": 211
+},
+"key": "timeline_item",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "timeline_item.tt_content",
+"translationValues": {
+"0000000014edb9e300000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 214,
+"value": "Timeline",
+"xmlSpace": ""
+}
+},
+"uid": 212
+},
+"key": "timeline_item.tt_content",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "timeline_item.date",
+"translationValues": {
+"0000000014edb9ed00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 215,
+"value": "Date",
+"xmlSpace": ""
+}
+},
+"uid": 213
+},
+"key": "timeline_item.date",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "timeline_item.header",
+"translationValues": {
+"0000000014edb9ff00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 216,
+"value": "Header",
+"xmlSpace": ""
+}
+},
+"uid": 214
+},
+"key": "timeline_item.header",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "timeline_item.bodytext",
+"translationValues": {
+"0000000014edb90900000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 217,
+"value": "Text",
+"xmlSpace": ""
+}
+},
+"uid": 215
+},
+"key": "timeline_item.bodytext",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "timeline_item.icon_file",
+"translationValues": {
+"0000000014edb91b00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 218,
+"value": "Icon File",
+"xmlSpace": ""
+}
+},
+"uid": 216
+},
+"key": "timeline_item.icon_file",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "timeline_item.image",
+"translationValues": {
+"0000000014edb92500000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 219,
+"value": "Image",
+"xmlSpace": ""
+}
+},
+"uid": 217
+},
+"key": "timeline_item.image",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "icon_group_item",
+"translationValues": {
+"0000000014edb93700000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 220,
+"value": "Icon Group Item",
+"xmlSpace": ""
+}
+},
+"uid": 218
+},
+"key": "icon_group_item",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "icon_group_item.tt_content",
+"translationValues": {
+"0000000014edb94100000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 221,
+"value": "Icon Group",
+"xmlSpace": ""
+}
+},
+"uid": 219
+},
+"key": "icon_group_item.tt_content",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "icon_group_item.header",
+"translationValues": {
+"0000000014edb95300000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 222,
+"value": "Header",
+"xmlSpace": ""
+}
+},
+"uid": 220
+},
+"key": "icon_group_item.header",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "icon_group_item.subheader",
+"translationValues": {
+"0000000014edb95d00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 223,
+"value": "Subheader",
+"xmlSpace": ""
+}
+},
+"uid": 221
+},
+"key": "icon_group_item.subheader",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "icon_group_item.bodytext",
+"translationValues": {
+"0000000014edb96f00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 224,
+"value": "Text",
+"xmlSpace": ""
+}
+},
+"uid": 222
+},
+"key": "icon_group_item.bodytext",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "icon_group_item.link",
+"translationValues": {
+"0000000014edb97900000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 225,
+"value": "Link",
+"xmlSpace": ""
+}
+},
+"uid": 223
+},
+"key": "icon_group_item.link",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "icon_group_item.icon_file",
+"translationValues": {
+"0000000014edb88b00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 226,
+"value": "Icon File",
+"xmlSpace": ""
+}
+},
+"uid": 224
+},
+"key": "icon_group_item.icon_file",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "field.panel_class",
+"translationValues": {
+"0000000014edb89500000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 227,
+"value": "Panel Class",
+"xmlSpace": ""
+}
+},
+"uid": 225
+},
+"key": "field.panel_class",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "external_media",
+"translationValues": {
+"0000000014edb8a700000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 228,
+"value": "External Media",
+"xmlSpace": ""
+}
+},
+"uid": 226
+},
+"key": "external_media",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "field.external_media_source",
+"translationValues": {
+"0000000014edb8b100000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 229,
+"value": "External Media Source",
+"xmlSpace": ""
+}
+},
+"uid": 227
+},
+"key": "field.external_media_source",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "field.external_media_ratio",
+"translationValues": {
+"0000000014edb8c300000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 230,
+"value": "Ratio",
+"xmlSpace": ""
+}
+},
+"uid": 228
+},
+"key": "field.external_media_ratio",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "field.icon",
+"translationValues": {
+"0000000014edb8cd00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 231,
+"value": "Icon",
+"xmlSpace": ""
+}
+},
+"uid": 229
+},
+"key": "field.icon",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "field.icon_set",
+"translationValues": {
+"0000000014edb8df00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 232,
+"value": "Icon Set",
+"xmlSpace": ""
+}
+},
+"uid": 230
+},
+"key": "field.icon_set",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "field.icon_file",
+"translationValues": {
+"0000000014edb8e900000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 233,
+"value": "Icon File",
+"xmlSpace": ""
+}
+},
+"uid": 231
+},
+"key": "field.icon_file",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "field.icon_position",
+"translationValues": {
+"0000000014edb8fb00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 234,
+"value": "Position",
+"xmlSpace": ""
+}
+},
+"uid": 232
+},
+"key": "field.icon_position",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "field.icon_type",
+"translationValues": {
+"0000000014edb80500000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 235,
+"value": "Type",
+"xmlSpace": ""
+}
+},
+"uid": 233
+},
+"key": "field.icon_type",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "field.icon_size",
+"translationValues": {
+"0000000014edb81700000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 236,
+"value": "Size",
+"xmlSpace": ""
+}
+},
+"uid": 234
+},
+"key": "field.icon_size",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "field.icon_background",
+"translationValues": {
+"0000000014edb82100000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 237,
+"value": "Background",
+"xmlSpace": ""
+}
+},
+"uid": 235
+},
+"key": "field.icon_background",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "field.icon_color",
+"translationValues": {
+"0000000014edb83300000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 238,
+"value": "Color",
+"xmlSpace": ""
+}
+},
+"uid": 236
+},
+"key": "field.icon_color",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "field.background_color_class",
+"translationValues": {
+"0000000014edb83d00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 239,
+"value": "Background Color",
+"xmlSpace": ""
+}
+},
+"uid": 237
+},
+"key": "field.background_color_class",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "field.background_image",
+"translationValues": {
+"0000000014edb84f00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 240,
+"value": "Background Image",
+"xmlSpace": ""
+}
+},
+"uid": 238
+},
+"key": "field.background_image",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "field.background_image_options",
+"translationValues": {
+"0000000014edb85900000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 241,
+"value": "Background Image Options",
+"xmlSpace": ""
+}
+},
+"uid": 239
+},
+"key": "field.background_image_options",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "field.teaser",
+"translationValues": {
+"0000000014edb86b00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 242,
+"value": "Teaser",
+"xmlSpace": ""
+}
+},
+"uid": 240
+},
+"key": "field.teaser",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "field.file_folder",
+"translationValues": {
+"0000000014edb87500000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 243,
+"value": "File Folder",
+"xmlSpace": ""
+}
+},
+"uid": 241
+},
+"key": "field.file_folder",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "field.imageorient.125",
+"translationValues": {
+"0000000014edbb8700000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 244,
+"value": "Beside Text, Centered Right",
+"xmlSpace": ""
+}
+},
+"uid": 242
+},
+"key": "field.imageorient.125",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "field.imageorient.126",
+"translationValues": {
+"0000000014edbb9100000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 245,
+"value": "Beside Text, Centered Left",
+"xmlSpace": ""
+}
+},
+"uid": 243
+},
+"key": "field.imageorient.126",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "option.background_image.parallax",
+"translationValues": {
+"0000000014edbba300000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 246,
+"value": "Parallax",
+"xmlSpace": ""
+}
+},
+"uid": 244
+},
+"key": "option.background_image.parallax",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "option.background_image.parallax.description",
+"translationValues": {
+"0000000014edbbad00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 247,
+"value": "Enable Parallax effect",
+"xmlSpace": ""
+}
+},
+"uid": 245
+},
+"key": "option.background_image.parallax.description",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "option.background_image.fade",
+"translationValues": {
+"0000000014edbbbf00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 248,
+"value": "Fade",
+"xmlSpace": ""
+}
+},
+"uid": 246
+},
+"key": "option.background_image.fade",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "option.background_image.fade.description",
+"translationValues": {
+"0000000014edbbc900000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 249,
+"value": "Enable Fade effect",
+"xmlSpace": ""
+}
+},
+"uid": 247
+},
+"key": "option.background_image.fade.description",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "option.background_image.filter",
+"translationValues": {
+"0000000014edbbdb00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 250,
+"value": "Filter",
+"xmlSpace": ""
+}
+},
+"uid": 248
+},
+"key": "option.background_image.filter",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "option.background_image.filter.none",
+"translationValues": {
+"0000000014edbbe500000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 251,
+"value": "None",
+"xmlSpace": ""
+}
+},
+"uid": 249
+},
+"key": "option.background_image.filter.none",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "option.background_image.filter.blur",
+"translationValues": {
+"0000000014edbbf700000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 252,
+"value": "Blur",
+"xmlSpace": ""
+}
+},
+"uid": 250
+},
+"key": "option.background_image.filter.blur",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "option.background_image.filter.grayscale",
+"translationValues": {
+"0000000014edbb0100000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 253,
+"value": "Grayscale",
+"xmlSpace": ""
+}
+},
+"uid": 251
+},
+"key": "option.background_image.filter.grayscale",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "option.background_image.filter.sepia",
+"translationValues": {
+"0000000014edbb1300000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 254,
+"value": "Sepia",
+"xmlSpace": ""
+}
+},
+"uid": 252
+},
+"key": "option.background_image.filter.sepia",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "option.none",
+"translationValues": {
+"0000000014edbb1d00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 255,
+"value": "None",
+"xmlSpace": ""
+}
+},
+"uid": 253
+},
+"key": "option.none",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "option.left",
+"translationValues": {
+"0000000014edbb2f00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 256,
+"value": "Left",
+"xmlSpace": ""
+}
+},
+"uid": 254
+},
+"key": "option.left",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "option.top",
+"translationValues": {
+"0000000014edbb3900000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 257,
+"value": "Top",
+"xmlSpace": ""
+}
+},
+"uid": 255
+},
+"key": "option.top",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "option.right",
+"translationValues": {
+"0000000014edbb4b00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 258,
+"value": "Right",
+"xmlSpace": ""
+}
+},
+"uid": 256
+},
+"key": "option.right",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "option.bottom",
+"translationValues": {
+"0000000014edbb5500000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 259,
+"value": "Bottom",
+"xmlSpace": ""
+}
+},
+"uid": 257
+},
+"key": "option.bottom",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "option.default",
+"translationValues": {
+"0000000014edbb6700000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 260,
+"value": "Default",
+"xmlSpace": ""
+}
+},
+"uid": 258
+},
+"key": "option.default",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "option.square",
+"translationValues": {
+"0000000014edbb7100000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 261,
+"value": "Square",
+"xmlSpace": ""
+}
+},
+"uid": 259
+},
+"key": "option.square",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "option.circle",
+"translationValues": {
+"0000000014edba8300000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 262,
+"value": "Circle",
+"xmlSpace": ""
+}
+},
+"uid": 260
+},
+"key": "option.circle",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "option.extrasmall",
+"translationValues": {
+"0000000014edba8d00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 263,
+"value": "Extra Small",
+"xmlSpace": ""
+}
+},
+"uid": 261
+},
+"key": "option.extrasmall",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "option.small",
+"translationValues": {
+"0000000014edba9f00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 264,
+"value": "Small",
+"xmlSpace": ""
+}
+},
+"uid": 262
+},
+"key": "option.small",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "option.medium",
+"translationValues": {
+"0000000014edbaa900000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 265,
+"value": "Medium",
+"xmlSpace": ""
+}
+},
+"uid": 263
+},
+"key": "option.medium",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "option.large",
+"translationValues": {
+"0000000014edbabb00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 266,
+"value": "Large",
+"xmlSpace": ""
+}
+},
+"uid": 264
+},
+"key": "option.large",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "option.awesome",
+"translationValues": {
+"0000000014edbac500000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 267,
+"value": "Awesome",
+"xmlSpace": ""
+}
+},
+"uid": 265
+},
+"key": "option.awesome",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "option.primary",
+"translationValues": {
+"0000000014edbad700000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 268,
+"value": "Primary",
+"xmlSpace": ""
+}
+},
+"uid": 266
+},
+"key": "option.primary",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "option.success",
+"translationValues": {
+"0000000014edbae100000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 269,
+"value": "Success",
+"xmlSpace": ""
+}
+},
+"uid": 267
+},
+"key": "option.success",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "option.info",
+"translationValues": {
+"0000000014edbaf300000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 270,
+"value": "Info",
+"xmlSpace": ""
+}
+},
+"uid": 268
+},
+"key": "option.info",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "option.warning",
+"translationValues": {
+"0000000014edbafd00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 271,
+"value": "Warning",
+"xmlSpace": ""
+}
+},
+"uid": 269
+},
+"key": "option.warning",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "option.danger",
+"translationValues": {
+"0000000014edba0f00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 272,
+"value": "Danger",
+"xmlSpace": ""
+}
+},
+"uid": 270
+},
+"key": "option.danger",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "ratio.16_9",
+"translationValues": {
+"0000000014edba1900000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 273,
+"value": "16:9",
+"xmlSpace": ""
+}
+},
+"uid": 271
+},
+"key": "ratio.16_9",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "ratio.4_3",
+"translationValues": {
+"0000000014edba2b00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 274,
+"value": "4:3",
+"xmlSpace": ""
+}
+},
+"uid": 272
+},
+"key": "ratio.4_3",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "ratio.1_1",
+"translationValues": {
+"0000000014edba3500000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 275,
+"value": "1:1",
+"xmlSpace": ""
+}
+},
+"uid": 273
+},
+"key": "ratio.1_1",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "ratio.free",
+"translationValues": {
+"0000000014edba4700000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 276,
+"value": "Free",
+"xmlSpace": ""
+}
+},
+"uid": 274
+},
+"key": "ratio.free",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "tablelayout.default",
+"translationValues": {
+"0000000014edba5100000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 277,
+"value": "Default",
+"xmlSpace": ""
+}
+},
+"uid": 275
+},
+"key": "tablelayout.default",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "tablelayout.basic",
+"translationValues": {
+"0000000014edba6300000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 278,
+"value": "Basic",
+"xmlSpace": ""
+}
+},
+"uid": 276
+},
+"key": "tablelayout.basic",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "tablelayout.striped",
+"translationValues": {
+"0000000014edba6d00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 279,
+"value": "Striped rows",
+"xmlSpace": ""
+}
+},
+"uid": 277
+},
+"key": "tablelayout.striped",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "tablelayout.bordered",
+"translationValues": {
+"0000000014edba7f00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 280,
+"value": "Bordered table",
+"xmlSpace": ""
+}
+},
+"uid": 278
+},
+"key": "tablelayout.bordered",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "tablelayout.hover",
+"translationValues": {
+"0000000014edb58900000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 281,
+"value": "Hover rows",
+"xmlSpace": ""
+}
+},
+"uid": 279
+},
+"key": "tablelayout.hover",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "tablelayout.condensed",
+"translationValues": {
+"0000000014edb59b00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 282,
+"value": "Condensed table",
+"xmlSpace": ""
+}
+},
+"uid": 280
+},
+"key": "tablelayout.condensed",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "uploadslayout.default",
+"translationValues": {
+"0000000014edb5a500000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 283,
+"value": "Default",
+"xmlSpace": ""
+}
+},
+"uid": 281
+},
+"key": "uploadslayout.default",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "uploadslayout.icons",
+"translationValues": {
+"0000000014edb5b700000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 284,
+"value": "Display Icons",
+"xmlSpace": ""
+}
+},
+"uid": 282
+},
+"key": "uploadslayout.icons",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "uploadslayout.iconsandpreview",
+"translationValues": {
+"0000000014edb5c100000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 285,
+"value": "Display Icons and Preview Images",
+"xmlSpace": ""
+}
+},
+"uid": 283
+},
+"key": "uploadslayout.iconsandpreview",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "field.assets",
+"translationValues": {
+"0000000014edb5d300000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 286,
+"value": "Media elements",
+"xmlSpace": ""
+}
+},
+"uid": 284
+},
+"key": "field.assets",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "tabs.background",
+"translationValues": {
+"0000000014edb5dd00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 287,
+"value": "Background",
+"xmlSpace": ""
+}
+},
+"uid": 285
+},
+"key": "tabs.background",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "tabs.icon",
+"translationValues": {
+"0000000014edb5ef00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 288,
+"value": "Icon",
+"xmlSpace": ""
+}
+},
+"uid": 286
+},
+"key": "tabs.icon",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "colorpicker",
+"translationValues": {
+"0000000014edb5f900000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 289,
+"value": "Colorpicker",
+"xmlSpace": ""
+}
+},
+"uid": 287
+},
+"key": "colorpicker",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "advanced",
+"translationValues": {
+"0000000014edb50b00000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 290,
+"value": "Advanced",
+"xmlSpace": ""
+}
+},
+"uid": 288
+},
+"key": "advanced",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "settings",
+"translationValues": {
+"0000000014edb51500000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 291,
+"value": "Settings",
+"xmlSpace": ""
+}
+},
+"uid": 289
+},
+"key": "settings",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "palette.alignment",
+"translationValues": {
+"0000000014edb52700000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 292,
+"value": "Alignment",
+"xmlSpace": ""
+}
+},
+"uid": 290
+},
+"key": "palette.alignment",
+"_showDetails": true
+},
+{
+"object": {
+"translationKey": "field.readmore_label",
+"translationValues": {
+"0000000014edb53100000000223df116": {
+"approved": false,
+"ident": "en",
+"resname": "",
+"uid": 293,
+"value": "Read More Label",
+"xmlSpace": ""
+}
+},
+"uid": 291
+},
+"key": "field.readmore_label",
+"_showDetails": true
+}
+],
+"uid": 1
+},
+"requestTime": "1619000957",
+"type": "Weisgerber\\LocallangBuilder\\Domain\\Model\\Locallang"
+}

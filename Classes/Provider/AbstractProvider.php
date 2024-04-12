@@ -12,7 +12,7 @@ namespace Datamints\DatamintsLocallangBuilder\Provider;
 
 use TYPO3\CMS\Extbase\{DomainObject\DomainObjectInterface, Persistence\RepositoryInterface};
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
-use Datamints\DatamintsLocallangBuilder\Services\AbstractService;
+use Datamints\DatamintsLocallangBuilder\Service\AbstractService;
 use Datamints\DatamintsLocallangBuilder\Utility\CurlUtility;
 use Datamints\DatamintsLocallangBuilder\Utility\LogUtility;
 
