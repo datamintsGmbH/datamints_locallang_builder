@@ -223,7 +223,7 @@ class XmlExporter extends AbstractExporter
      */
     protected function createSourceNode (DOMDocument $dom, ?TranslationValue $translationValue): DOMElement
     {
-        $sourceNode = $dom->createElement('source', ($translationValue) ? htmlspecialchars($translationValue->getValue()) : 'no default value found');
+        $sourceNode = $dom->createElement('source', ($translationValue) ? htmlspecialchars($translationValue->getValue(), ENT_QUOTES) : 'no default value found');
 
         return $sourceNode;
     }
@@ -238,7 +238,7 @@ class XmlExporter extends AbstractExporter
      */
     protected function createTargetNode (DOMDocument $dom, TranslationValue $translationValue): DOMElement
     {
-        $targetNode = $dom->createElement('target', htmlspecialchars($translationValue->getValue()));
+        $targetNode = $dom->createElement('target', htmlspecialchars($translationValue->getValue(), ENT_QUOTES));
 
         return $targetNode;
     }
