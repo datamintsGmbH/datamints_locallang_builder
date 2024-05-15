@@ -67,7 +67,7 @@ class TranslationService extends AbstractService
      *
      * @return \Datamints\DatamintsLocallangBuilder\Domain\Model\Translation
      */
-    public function createTranslation(Locallang $locallang, string $key, string $value, $approved = false, $xmlSpace = ""): Translation
+    public function createTranslation(Locallang $locallang, string $key, string $value, $approved = true, $xmlSpace = ""): Translation
     {
         /** @var Translation $newTranslation */
         $newTranslation = GeneralUtility::makeInstance(Translation::class);

@@ -62,7 +62,7 @@ class TranslationValue extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity im
      *
      * @var bool
      */
-    protected $approved = false;
+    protected $approved = true;
 
     /**
      * Internal comment - rendered as html-comment in output-file

@@ -124,7 +124,7 @@ class TranslationController extends AbstractController
                 $translationValue = $this->translationService->createTranslationValue(
                     $translation,
                     $language,
-                    $data['newObjectApproved'],
+                    $data['newObjectApproved'] ?? true,
                     $data['newObjectXmlSpace']
                 );
                 $translationValue->setNew(true);
