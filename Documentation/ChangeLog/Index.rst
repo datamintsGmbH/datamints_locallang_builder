@@ -7,6 +7,16 @@ Change log
 ==========
 
 
+Version 12.5.0
+-------------
+
+- [TASK] Removed annotation for route to prevent crash with new symfony update
+- [TASK] changed default value of the approved field to true
+- [BUG] Implemented backwards compatability for php8.2
+- [TASK] Added PHP Dependency for composer
+- [TASK] Deleted some unnecessary icons
+- [TASK] Added icon for chinese
+
 Version 12.4.2
 -------------
 
