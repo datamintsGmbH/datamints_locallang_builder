@@ -7,6 +7,11 @@ Change log
 ==========
 
 
+Version 12.5.1
+-------------
+
+- [FEATURE] Add formality options for DeepL
+
 Version 12.5.0
 -------------
 
