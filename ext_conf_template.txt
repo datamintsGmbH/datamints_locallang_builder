@@ -6,6 +6,8 @@ deepLApiKey =
 googleApiKey =
 # cat=Settings/O; type=string; label= Azure API Key
 azureApiKey =
+# cat=Settings/O; type=options[default=default,more=more,less=less,prefer_more=prefer_more,prefer_less=prefer_less]; label= Sets whether the translated text should lean towards formal or informal language.
+formality = default
 # cat=export/path; type=string; label=Path to storage of the export-files
 exportPath = fileadmin/datamints_locallang_builder/
 # cat=export/path; type=boolean; label=Tick if a date is to be appended to the path

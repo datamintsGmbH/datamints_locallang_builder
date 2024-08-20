@@ -104,7 +104,7 @@ class DeeplProvider extends AbstractProvider
 		curl_setopt($ch, CURLOPT_URL, $url);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($ch, CURLOPT_POST, true);
-		curl_setopt($ch, CURLOPT_POSTFIELDS, "auth_key=" . $key . "&text=" . $this->text . "&source_lang=EN&target_lang=" . \strtoupper($this->payload['to']));
+		curl_setopt($ch, CURLOPT_POSTFIELDS, "auth_key=" . $key . "&text=" . $this->text . "&formality=" . $this->getExtensionConfig()['formality'] . "&source_lang=EN&target_lang=" . \strtoupper($this->payload['to']));
 
 		$headers = [];
 		$headers[] = 'Content-Type: application/x-www-form-urlencoded';
