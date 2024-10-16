@@ -73,7 +73,7 @@ class TranslationValueController extends AbstractController
      */
     public function createAction (\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translation):ResponseInterface
     {
-        $data = json_decode(GeneralUtility::_GP('data'), true);
+        $data = json_decode($this->request->getArgument('data'), true);
         if (!$data['value']) {
             throw new Exception('The action "create" could not be executed: No language given as argument');
         }
@@ -105,7 +105,7 @@ class TranslationValueController extends AbstractController
      */
     public function updateAction (\Datamints\DatamintsLocallangBuilder\Domain\Model\TranslationValue $translationValue):ResponseInterface
     {
-        $data = json_decode(GeneralUtility::_GP('data'), true);
+        $data = json_decode($this->request->getArgument('data'), true);
         $message = 'The following fields have been updated: ';
         foreach ($data as $key => $changingField) {
             if ($translationValue->_hasProperty($key)) {

@@ -46,7 +46,7 @@ class TranslationController extends AbstractController
      */
     public function updateAction(\Datamints\DatamintsLocallangBuilder\Domain\Model\Translation $translation
     ): ResponseInterface {
-        $data = json_decode(GeneralUtility::_GP('data'), true);
+        $data = json_decode($this->request->getArgument('data'), true);
         $message = 'The following fields have been updated: ';
         foreach ($data as $key => $changingField) {
             if ($translation->_hasProperty($key)) {
@@ -106,7 +106,7 @@ class TranslationController extends AbstractController
      */
     public function createAction(\Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallang
     ): ResponseInterface {
-        $data = json_decode(GeneralUtility::_GP('data'), true);
+        $data = json_decode($this->request->getArgument('data'), true);
 
         // Creating the blank Translation-object
         $translation = $this->translationService->createTranslation(

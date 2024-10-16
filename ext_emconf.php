@@ -15,13 +15,13 @@ $EM_CONF[$_EXTKEY] = [
     'description' => 'Offers developers and editors a backend module for creating, changing and translating language files for your extensions. Significant improvement of the workflow by using an independent translation provider such as Azure, DeepL or Google Translate.',
     'category' => 'module',
     'author' => 'Mark Weisgerber',
-    'author_email' => 'mark.weisgerber@outlook.de / m.weisgerber@datamints.com',
+    'author_email' => 'mark.weisgerber@outlook.de, m.weisgerber@datamints.com',
     'state' => 'stable',
     'clearCacheOnLoad' => 1,
-    'version' => '12.5.1',
+    'version' => '13.0.0',
     'constraints' => [
         'depends' => [
-            'typo3' => '12.0.0-12.99.99',
+            'typo3' => '13.0.0-13.99.99',
         ],
         'conflicts' => [],
         'suggests' => [],

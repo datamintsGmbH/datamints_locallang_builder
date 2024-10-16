@@ -12,7 +12,7 @@ class LocallangJsonView extends JsonView
      *
      * @var array
      */
-    protected $configuration = [
+    protected array $configuration = [
         'data' => [
             '_only' => [
                 'uid',

@@ -31,7 +31,7 @@ class LocallangController extends AbstractController
      *
      * @var string
      */
-    protected $defaultViewObjectName = LocallangJsonView::class;
+    protected ?string $defaultViewObjectName = LocallangJsonView::class;
 
     /**
      * Constructor
@@ -75,7 +75,7 @@ class LocallangController extends AbstractController
         $this->logger->info(
             "Triggering export of locallang-file " . $locallang->getFilename() . ' with uid ' . $locallang->getUid()
         );
-        $exportConfiguration = json_decode(GeneralUtility::_GP('data'), true);
+        $exportConfiguration = json_decode($this->request->getArgument('data'), true);
         if ($exportConfiguration['triggerBackup'] === true && $exportConfiguration['selectedTarget'] === 'overwrite') {
             // Check if we have to create a backup before overwriting. Its only possible in case of overwriting extension files. When "custom"" is selected, theres no need to do that!
             $this->backupService->backupLocallang($locallang);

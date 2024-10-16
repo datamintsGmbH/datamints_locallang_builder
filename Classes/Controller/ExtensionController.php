@@ -30,7 +30,7 @@ class ExtensionController extends AbstractController
      *
      * @var string
      */
-    public $defaultViewObjectName = ExtensionJsonView::class;
+    protected ?string $defaultViewObjectName = ExtensionJsonView::class;
 
     /**
      * Constructor

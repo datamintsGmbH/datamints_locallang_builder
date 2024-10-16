@@ -12,7 +12,7 @@ class ExtensionJsonView extends JsonView
      *
      * @var array
      */
-    protected $configuration = [
+    protected array $configuration = [
         'data' => [
             '_descendAll' => [
                 '_only' => [
@@ -36,7 +36,7 @@ class ExtensionJsonView extends JsonView
      * @return array|mixed|string
      * @throws \TYPO3\CMS\Core\Cache\Exception\NoSuchCacheException
      */
-    protected function renderArray()
+    protected function renderArray(): mixed
     {
         $parentReturn = parent::renderArray();
 

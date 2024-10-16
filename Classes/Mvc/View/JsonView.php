@@ -15,7 +15,7 @@ class JsonView extends \TYPO3\CMS\Extbase\Mvc\View\JsonView
      *
      * @var string[]
      */
-    protected $variablesToRender = [
+    protected array $variablesToRender = [
         'status',
         'message',
         'data',
@@ -35,7 +35,7 @@ class JsonView extends \TYPO3\CMS\Extbase\Mvc\View\JsonView
      *
      * @return string
      */
-    public function render(): string
+    public function render(string $templateFileName = ''): string
     {
         $data = $this->variables['data'];
         return parent::render();
