@@ -1,3 +1,6 @@
 [submodule "Resources/Private/VueSources"]
 	path = Resources/Private/VueSources
 	url = https://github.com/datamintsGmbH/datamints_locallang_builder_vue
+[submodule "Resources/Public/VueSources"]
+	path = Resources/Public/VueSources
+	url = git@github.com:datamintsGmbH/datamints_locallang_builder_vue.git
