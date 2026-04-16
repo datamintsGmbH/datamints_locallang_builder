@@ -27,6 +27,9 @@
 			<trans-unit id="tx_datamintslocallangbuilder_domain_model_locallang.path" resname="tx_datamintslocallangbuilder_domain_model_locallang.path">
 				<source>Path</source>
 			</trans-unit>
+			<trans-unit id="tx_datamintslocallangbuilder_domain_model_locallang.imported" resname="tx_datamintslocallangbuilder_domain_model_locallang.imported">
+				<source>Imported</source>
+			</trans-unit>
 			<trans-unit id="tx_datamintslocallangbuilder_domain_model_locallang.invalid_format" resname="tx_datamintslocallangbuilder_domain_model_locallang.invalid_format">
 				<source>Invalid Format</source>
 			</trans-unit>
