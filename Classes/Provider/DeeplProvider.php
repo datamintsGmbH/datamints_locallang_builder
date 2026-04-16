@@ -100,13 +100,21 @@ class DeeplProvider extends AbstractProvider
 	protected function stream(string $url, $key, $params, $content): string
 	{
 		$ch = curl_init();
+		$postFields = \http_build_query(
+			[
+				'text' => $this->text,
+				'formality' => $this->getExtensionConfig()['formality'],
+				'source_lang' => 'EN',
+				'target_lang' => \strtoupper($this->payload['to']),
+			]
+		);
 
 		curl_setopt($ch, CURLOPT_URL, $url);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($ch, CURLOPT_POST, true);
-		curl_setopt($ch, CURLOPT_POSTFIELDS, "auth_key=" . $key . "&text=" . $this->text . "&formality=" . $this->getExtensionConfig()['formality'] . "&source_lang=EN&target_lang=" . \strtoupper($this->payload['to']));
-
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $postFields);
 		$headers = [];
+		$headers[] = 'Authorization: DeepL-Auth-Key ' . $key;
 		$headers[] = 'Content-Type: application/x-www-form-urlencoded';
 		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
@@ -116,7 +124,7 @@ class DeeplProvider extends AbstractProvider
 		}
 		$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 		if($httpCode != 200) {
-			throw new \TYPO3\CMS\Core\Exception("The API fetched an error-code", $httpCode);
+			throw new \TYPO3\CMS\Core\Exception("The API fetched an error-code: " . $httpCode);
 		}
 
 		curl_close($ch);
