@@ -6,6 +6,7 @@
 
 namespace Datamints\DatamintsLocallangBuilder\Service;
 
+use Exception;
 use Datamints\DatamintsLocallangBuilder\Domain\Model\{Extension, Locallang, Translation};
 use Datamints\DatamintsLocallangBuilder\Domain\Repository\Traits\{ExtensionRepositoryTrait, LocallangRepositoryTrait};
 use Datamints\DatamintsLocallangBuilder\Service\Traits\XmlServiceTrait;
@@ -24,11 +25,6 @@ class ManifestBuildService extends AbstractService
      * Constant for relative path from extension-root to the language files to be scanned
      */
     public const EXTENSION_LANGUAGE_PATH = "Resources/Private/Language/";
-
-    /**
-     * @var \Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang[]
-     */
-    protected $tempLocallangs = null;
 
     public function __construct(
         protected readonly CustomTranslationsOverlayService $customTranslationsOverlayService,
@@ -69,8 +65,6 @@ class ManifestBuildService extends AbstractService
 
 //        if($extension->isLocal()) { // we dont need locallang-files for non-local extensions, because those should be translated via translation manager
         $this->getDefaultLocallangPart($extension);
-        // DatabaseUtility::persistAll(); // Required to get default Entities for this runtime
-        $this->getCustomLocallangPart($extension);
 //        }
 
         if (self::PERSIST) {
@@ -93,15 +87,25 @@ class ManifestBuildService extends AbstractService
                 $locallang = GeneralUtility::makeInstance(Locallang::class);
                 $locallang->setFilename($locallangFilePath);
                 $locallang->setPath($extension->getPath() . self::EXTENSION_LANGUAGE_PATH . $locallangFilePath);
+                $locallang->setImported(false);
                 $locallang->setRelatedExtension($extension);
                 $extension->addLocallang($locallang);
-
-                $this->tempLocallangs[] = $locallang; // Adding it to temp locallang-cache, to loop through it in the next step, so the customLocallang can find its parent
-
-                // Getting the translations / file content
-                $this->getTranslationPart($locallang, $locallang->getPath(), true);
             }
         }
+    }
+
+    public function importLocallang(Locallang $locallang): Locallang
+    {
+        $locallang->setInvalidFormat(false);
+        $this->getTranslationPart($locallang, $locallang->getPath(), true);
+
+        if (!$locallang->getInvalidFormat()) {
+            $this->importCustomTranslationsForLocallang($locallang);
+        }
+
+        $locallang->setImported($locallang->hasTranslations());
+
+        return $locallang;
     }
 
     /**
@@ -117,9 +121,6 @@ class ManifestBuildService extends AbstractService
         }
     }
 
-    /**
-     * Creates locallang-entities related to an extension. It wont check, if the entity is already existing, because extension entities are unique, so it shouldnt be possible for duplicates
-     */
     protected function getTranslationPart(Locallang $locallang, string $path, bool $isDefaultLanguage = false): void
     {
         $path = GeneralUtility::getFileAbsFileName($this->customTranslationsOverlayService->setOverlay($path));
@@ -185,32 +186,23 @@ class ManifestBuildService extends AbstractService
         }
     }
 
-    /**
-     * Creates locallang-entities for not-default-languages related to an extension. It wont check, if the entity is already existing, because extension entities are unique, so it shouldnt be possible for duplicates
-     *
-     * @param $extension Extension
-     */
-    protected function getCustomLocallangPart(Extension $extension)
+    protected function importCustomTranslationsForLocallang(Locallang $locallang): void
     {
-        // Second step is to create custom-language related locallangs and connect them to their main-entity
+        $extension = $locallang->getRelatedExtension();
+
         foreach ($this->findRelatedLocallangFiles($extension->getPath()) as $locallangFilePath) {
             $pathinfo = pathinfo($locallangFilePath);
             if (!LanguageUtility::isDefaultLanguageFile($pathinfo['filename'])) {
-                foreach ($this->tempLocallangs as $tempLocallang) {
-                    // Checking all already temporarily created locallang-objects, if this custom one can be assigned to it. It must have one entry because the order for custom locallang-files is beyond the default ones.
-                    if (
-                        $tempLocallang->getRelatedExtension() === $extension &&
-                        $tempLocallang->getPath() === LanguageUtility::getDefaultLanguagePath(
-                            $extension->getPath() . self::EXTENSION_LANGUAGE_PATH . $locallangFilePath
-                        )
-                    ) {
-                        $this->getTranslationPart(
-                            $tempLocallang,
-                            $extension->getPath() . self::EXTENSION_LANGUAGE_PATH . $locallangFilePath
-                        );
-                    }
+                if (
+                    $locallang->getPath() === LanguageUtility::getDefaultLanguagePath(
+                        $extension->getPath() . self::EXTENSION_LANGUAGE_PATH . $locallangFilePath
+                    )
+                ) {
+                    $this->getTranslationPart(
+                        $locallang,
+                        $extension->getPath() . self::EXTENSION_LANGUAGE_PATH . $locallangFilePath
+                    );
                 }
-                // $this->getTranslationPart($locallang);
             }
         }
     }
