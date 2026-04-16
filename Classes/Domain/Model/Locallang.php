@@ -4,6 +4,7 @@ namespace Datamints\DatamintsLocallangBuilder\Domain\Model;
 
 use JsonSerializable;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
@@ -29,6 +30,13 @@ class Locallang extends AbstractEntity implements JsonSerializable
      * @var string
      */
     protected string $path = '';
+
+    /**
+     * Flag whether the translation values have already been imported into the persisted manifest.
+     *
+     * @var bool
+     */
+    protected bool $imported = false;
 
     /**
      * Flag when the scan cant fetch it's data, because theres something wrong with it
@@ -139,7 +147,7 @@ class Locallang extends AbstractEntity implements JsonSerializable
                     '_showDetails' => true
                 ];
             },
-            $this->translations->toArray()
+            $this->getTranslations()->toArray()
         );
     }
 
@@ -152,6 +160,7 @@ class Locallang extends AbstractEntity implements JsonSerializable
         return [
             'uid' => $this->getUid(),
             'filename' => $this->getFilename(),
+            'imported' => $this->getImported(),
             'translationsArray' => $this->getTranslationsArray(),
             'pid' => $this->getPid(),
             'invalidFormat' => $this->getInvalidFormat(),
@@ -187,7 +196,15 @@ class Locallang extends AbstractEntity implements JsonSerializable
      */
     public function getTranslations()
     {
+        if ($this->translations instanceof LazyLoadingProxy) {
+            $this->translations->_loadRealInstance();
+        }
         return $this->translations;
+    }
+
+    public function hasTranslations(): bool
+    {
+        return $this->getTranslations() instanceof ObjectStorage && $this->getTranslations()->count() > 0;
     }
 
     /**
@@ -220,6 +237,21 @@ class Locallang extends AbstractEntity implements JsonSerializable
     public function setRelatedExtension(Extension $relatedExtension)
     {
         $this->relatedExtension = $relatedExtension;
+    }
+
+    public function getImported(): bool
+    {
+        return $this->imported;
+    }
+
+    public function isImported(): bool
+    {
+        return $this->imported;
+    }
+
+    public function setImported(bool $imported): void
+    {
+        $this->imported = $imported;
     }
 
     /**
