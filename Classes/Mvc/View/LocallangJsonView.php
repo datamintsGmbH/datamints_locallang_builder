@@ -18,6 +18,7 @@ class LocallangJsonView extends JsonView
                 'uid',
                 'filename',
                 'path',
+                'imported',
                 'invalidFormat',
                 'translationsArray',
             ],

@@ -7,7 +7,9 @@ use Datamints\DatamintsLocallangBuilder\Controller\Traits\CallActionMethodTrait;
 use Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang;
 use Datamints\DatamintsLocallangBuilder\Domain\Repository\Traits\LocallangRepositoryTrait;
 use Datamints\DatamintsLocallangBuilder\Mvc\View\LocallangJsonView;
+use Datamints\DatamintsLocallangBuilder\Service\Traits\ManifestBuildServiceTrait;
 use Datamints\DatamintsLocallangBuilder\Service\Traits\{BackupServiceTrait, CachesServiceTrait, ExportServiceTrait};
+use Datamints\DatamintsLocallangBuilder\Utility\DatabaseUtility;
 use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
@@ -24,6 +26,7 @@ class LocallangController extends AbstractController
     use BackupServiceTrait;
     use CachesServiceTrait;
     use ExportServiceTrait;
+    use ManifestBuildServiceTrait;
     use LocallangRepositoryTrait;
 
     /**
@@ -50,6 +53,18 @@ class LocallangController extends AbstractController
      */
     public function showAction(Locallang $locallang
     ): ResponseInterface {
+        if (!$locallang->getImported()) {
+            if ($locallang->hasTranslations()) {
+                $locallang->setImported(true);
+            } else {
+                $this->manifestBuildService->importLocallang($locallang);
+            }
+
+            $this->locallangRepository->update($locallang);
+            DatabaseUtility::persistAll();
+            $this->cachesService->clearOwnCache();
+        }
+
         $response = [
             'message' => "The file " . $locallang->getFilename(
                 ) . " for the extension " . $locallang->getRelatedExtension()->getName() . " has been loaded",
