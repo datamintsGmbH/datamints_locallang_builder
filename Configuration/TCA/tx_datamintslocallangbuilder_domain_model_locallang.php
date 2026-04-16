@@ -21,7 +21,7 @@ return [
         'iconfile' => 'EXT:datamints_locallang_builder/Resources/Public/Icons/tx_datamintslocallangbuilder_domain_model_locallang.gif'
     ],
     'types' => [
-        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, filename, path, invalid_format, translations, related_extension, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
+        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, filename, path, imported, invalid_format, translations, related_extension, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
     ],
     'columns' => [
         'sys_language_uid' => [
@@ -112,6 +112,19 @@ return [
                 'size' => 30,
                 'eval' => 'trim'
             ],
+        ],
+        'imported' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:datamints_locallang_builder/Resources/Private/Language/locallang_db.xlf:tx_datamintslocallangbuilder_domain_model_locallang.imported',
+            'config' => [
+                'type' => 'check',
+                'items' => [
+                    '1' => [
+                        '0' => 'LLL:EXT:lang/locallang_core.xlf:labels.enabled'
+                    ]
+                ],
+                'default' => 0,
+            ]
         ],
         'invalid_format' => [
             'exclude' => true,
