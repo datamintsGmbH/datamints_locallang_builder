@@ -6,11 +6,7 @@
 
 namespace Datamints\DatamintsLocallangBuilder\Service;
 
-use Datamints\DatamintsLocallangBuilder\Provider\GoogleProvider;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 use Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang;
-use Datamints\DatamintsLocallangBuilder\Provider\AzureProvider;
-use Datamints\DatamintsLocallangBuilder\Provider\DeeplProvider;
 use Datamints\DatamintsLocallangBuilder\Domain\Model\Translation;
 use Datamints\DatamintsLocallangBuilder\Domain\Model\TranslationValue;
 use Datamints\DatamintsLocallangBuilder\Domain\Repository\Traits\TranslationRepositoryTrait;
@@ -39,17 +35,7 @@ class TranslationService extends AbstractService
     public function translate(TranslationValue $translationValue, string $text): TranslationValue
     {
         if(!$this->provider) {
-            $configuredProvider = $this->providerService->getConfiguredProvider();
-            if($configuredProvider === 'AzureCloud') {
-                $providerClass = AzureProvider::class;
-            } else if($configuredProvider === 'DeepL') {
-                $providerClass = DeeplProvider::class;
-            } else if($configuredProvider === 'GoogleTranslate') {
-                $providerClass = GoogleProvider::class;
-            } else {
-                throw new \TYPO3\CMS\Core\Exception('The configured Provider could not be found!');
-            }
-            $this->provider = GeneralUtility::makeInstance($providerClass);
+            $this->provider = $this->providerService->getConfiguredProviderInstance();
         }
         $translationValue->setValue($this->provider->getTranslation($text, ['to' => $translationValue->getIdent()]));
 
