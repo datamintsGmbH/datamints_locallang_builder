@@ -11,7 +11,10 @@ use Datamints\DatamintsLocallangBuilder\Domain\Repository\Traits\{ExtensionRepos
 use Datamints\DatamintsLocallangBuilder\Mvc\View\JsonView;
 use Datamints\DatamintsLocallangBuilder\Service\Traits\{CachesServiceTrait, ProviderServiceTrait};
 use Psr\Http\Message\ResponseInterface;
+use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
 class ApplicationController extends AbstractController
 {
@@ -43,8 +46,9 @@ class ApplicationController extends AbstractController
     public function mainAction():ResponseInterface
     {
         $extensionVersion = ExtensionManagementUtility::getExtensionVersion($this->request->getControllerExtensionKey());
+        $moduleTemplate = GeneralUtility::makeInstance(ModuleTemplateFactory::class)->create($this->request);
         $this->logger->info("Opened the translate-module.");
-        $this->view->assignMultiple([
+        $moduleTemplate->assignMultiple([
             'version' => $extensionVersion,
             'config' => \json_encode( // Add everything config related stuff to give vue access to it
                 [
@@ -56,7 +60,11 @@ class ApplicationController extends AbstractController
                 ]
             ),
         ]);
-        return $this->htmlResponse($this->view->render());
+        $moduleTemplate->setTitle(
+            LocalizationUtility::translate('mlang_tabs_tab', 'datamints_locallang_builder') ?? 'Locallang Builder'
+        );
+
+        return $moduleTemplate->renderResponse('Application/Main');
     }
 
     /**
