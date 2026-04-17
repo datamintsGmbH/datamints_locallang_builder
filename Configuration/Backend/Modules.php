@@ -19,7 +19,7 @@ return [
         'extensionName' => 'DatamintsLocallangBuilder',
         'controllerActions' => [
             ApplicationController::class => [
-                'main','clear'
+                'main','clear','providerStatus'
             ],
             ExtensionController::class => [
                 'list', 'update'
