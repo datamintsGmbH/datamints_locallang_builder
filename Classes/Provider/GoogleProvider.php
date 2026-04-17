@@ -25,7 +25,53 @@ class GoogleProvider extends AbstractProvider
      */
     public function getName(): string
     {
-        return "Google";
+        return "Google Translate";
+    }
+
+    public function getStatus(): array
+    {
+        $quotaMessage = 'Google does not expose remaining translation quota through this API. Please check the Google Cloud Console quotas view.';
+        $response = $this->executeCurlRequest(
+            \rtrim($this->getApiPath(), '/') . $this->getUrlArguments() . '/languages?key=' . \rawurlencode($this->getKey()) . '&target=en'
+        );
+
+        if ($response['error'] !== null) {
+            return $this->buildStatusResponse(
+                null,
+                'The Google Translate status request failed: ' . $response['error'],
+                false,
+                null,
+                null,
+                null,
+                null,
+                $quotaMessage
+            );
+        }
+
+        $decodedResponse = \json_decode($response['body'], true);
+        if ($response['statusCode'] === 200 && !empty($decodedResponse['data']['languages'])) {
+            return $this->buildStatusResponse(
+                true,
+                'The Google Translate API key is valid.',
+                false,
+                null,
+                null,
+                null,
+                null,
+                $quotaMessage
+            );
+        }
+
+        $errorMessage = $this->extractApiErrorMessage(
+            $response['body'],
+            'The Google Translate API key could not be validated.'
+        );
+
+        if (\in_array($response['statusCode'], [400, 401, 403], true)) {
+            return $this->buildStatusResponse(false, $errorMessage, false, null, null, null, null, $quotaMessage);
+        }
+
+        return $this->buildStatusResponse(null, $errorMessage, false, null, null, null, null, $quotaMessage);
     }
 
     protected function getApiPath(): string

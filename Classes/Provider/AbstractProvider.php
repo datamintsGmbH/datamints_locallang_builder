@@ -43,6 +43,11 @@ abstract class AbstractProvider extends AbstractService
         return $this->extractResponse($response);
     }
 
+    public function hasApiKey(): bool
+    {
+        return \trim((string)$this->getKey()) !== '';
+    }
+
     /**
      * Streams data to api
      *
@@ -109,10 +114,106 @@ abstract class AbstractProvider extends AbstractService
     abstract public function getName(): string;
 
     /**
+     * Returns provider availability and quota details for the dashboard.
+     */
+    abstract public function getStatus(): array;
+
+    /**
      * Not required by any provider
      */
     protected function getVersion(): string
     {
         return "1.0";
+    }
+
+    protected function buildStatusResponse(
+        ?bool $valid,
+        string $message,
+        bool $quotaAvailable = false,
+        ?int $quotaRemaining = null,
+        ?int $quotaUsed = null,
+        ?int $quotaLimit = null,
+        ?string $quotaUnit = null,
+        string $quotaMessage = ''
+    ): array {
+        return [
+            'provider' => $this->getName(),
+            'configured' => true,
+            'keyConfigured' => $this->hasApiKey(),
+            'valid' => $valid,
+            'message' => $message,
+            'quotaAvailable' => $quotaAvailable,
+            'quotaRemaining' => $quotaRemaining,
+            'quotaUsed' => $quotaUsed,
+            'quotaLimit' => $quotaLimit,
+            'quotaUnit' => $quotaUnit,
+            'quotaMessage' => $quotaMessage,
+        ];
+    }
+
+    protected function executeCurlRequest(string $url, array $options = []): array
+    {
+        $headers = [];
+        $handle = \curl_init();
+
+        \curl_setopt_array(
+            $handle,
+            \array_replace([
+                CURLOPT_URL => $url,
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_TIMEOUT => 15,
+                CURLOPT_HEADERFUNCTION => static function ($curlHandle, string $headerLine) use (&$headers): int {
+                    $trimmedHeader = \trim($headerLine);
+
+                    if ($trimmedHeader === '' || \strpos($trimmedHeader, ':') === false) {
+                        return \strlen($headerLine);
+                    }
+
+                    [$name, $value] = \explode(':', $trimmedHeader, 2);
+                    $headers[\strtolower(\trim($name))] = \trim($value);
+
+                    return \strlen($headerLine);
+                },
+            ], $options)
+        );
+
+        $body = \curl_exec($handle);
+        $error = null;
+        if ($body === false) {
+            $error = \curl_error($handle);
+            $body = '';
+        }
+
+        $statusCode = (int)\curl_getinfo($handle, CURLINFO_HTTP_CODE);
+        \curl_close($handle);
+
+        return [
+            'statusCode' => $statusCode,
+            'body' => $body,
+            'headers' => $headers,
+            'error' => $error,
+        ];
+    }
+
+    protected function extractApiErrorMessage(string $responseBody, string $fallbackMessage): string
+    {
+        $decodedResponse = \json_decode($responseBody, true);
+        if (!\is_array($decodedResponse)) {
+            return $fallbackMessage;
+        }
+
+        if (isset($decodedResponse['message']) && \is_string($decodedResponse['message'])) {
+            return $decodedResponse['message'];
+        }
+
+        if (isset($decodedResponse['error']['message']) && \is_string($decodedResponse['error']['message'])) {
+            return $decodedResponse['error']['message'];
+        }
+
+        if (isset($decodedResponse['detail']) && \is_string($decodedResponse['detail'])) {
+            return $decodedResponse['detail'];
+        }
+
+        return $fallbackMessage;
     }
 }

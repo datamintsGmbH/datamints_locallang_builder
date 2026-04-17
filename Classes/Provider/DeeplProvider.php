@@ -23,7 +23,55 @@ class DeeplProvider extends AbstractProvider
 	 */
 	public function getName(): string
 	{
-		return "deepl";
+		return "DeepL";
+	}
+
+	public function getStatus(): array
+	{
+		$response = $this->executeCurlRequest(
+			\preg_replace('#/translate/?$#', '/usage', $this->getApiPath()),
+			[
+				CURLOPT_HTTPHEADER => [
+					'Authorization: DeepL-Auth-Key ' . $this->getKey(),
+					'Accept: application/json',
+				],
+			]
+		);
+
+		if ($response['error'] !== null) {
+			return $this->buildStatusResponse(
+				null,
+				'The DeepL status request failed: ' . $response['error']
+			);
+		}
+
+		$decodedResponse = \json_decode($response['body'], true);
+		if ($response['statusCode'] === 200 && \is_array($decodedResponse)) {
+			$used = (int)($decodedResponse['character_count'] ?? 0);
+			$limit = (int)($decodedResponse['character_limit'] ?? 0);
+
+			return $this->buildStatusResponse(
+				true,
+				'The DeepL API key is valid.',
+				true,
+				\max($limit - $used, 0),
+				$used,
+				$limit,
+				'characters',
+				'DeepL reports the remaining characters for the current billing period.'
+			);
+		}
+
+		$errorMessage = $this->extractApiErrorMessage(
+			$response['body'],
+			'The DeepL API key could not be validated.'
+		);
+
+		if (\in_array($response['statusCode'], [401, 403], true)) {
+			return $this->buildStatusResponse(false, $errorMessage);
+		}
+
+		return $this->buildStatusResponse(null, $errorMessage);
 	}
 
 	protected function getApiPath(): string

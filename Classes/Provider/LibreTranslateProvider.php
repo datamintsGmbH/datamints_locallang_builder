@@ -74,4 +74,9 @@ class LibreTranslateProvider extends AbstractProvider
 			],
 		]);
 	}
+
+    public function getStatus(): array
+    {
+        return [];
+    }
 }

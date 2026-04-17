@@ -26,6 +26,72 @@ class AzureProvider extends AbstractProvider
 		return "Azure";
     }
 
+	public function getStatus(): array
+	{
+		$quotaMessage = 'Azure does not expose remaining quota through the Translator API. Please use Azure Metrics or the Azure portal.';
+		$headers = [
+			'Content-Type: application/json',
+			'Ocp-Apim-Subscription-Key: ' . $this->getKey(),
+			'X-ClientTraceId: ' . \Datamints\DatamintsLocallangBuilder\Utility\CurlUtility::createGuid(),
+		];
+
+		$region = \trim((string)($this->getSettings()['providers']['azure']['area'] ?? ''));
+		if ($region !== '' && \strtolower($region) !== 'global') {
+			$headers[] = 'Ocp-Apim-Subscription-Region: ' . $region;
+		}
+
+		$response = $this->executeCurlRequest(
+			$this->getApiPath() . '?api-version=' . $this->getVersion() . '&from=en&to=de',
+			[
+				CURLOPT_POST => true,
+				CURLOPT_POSTFIELDS => \json_encode([['Text' => 'Status']]),
+				CURLOPT_HTTPHEADER => $headers,
+			]
+		);
+
+		if ($response['error'] !== null) {
+			return $this->buildStatusResponse(
+				null,
+				'The Azure status request failed: ' . $response['error'],
+				false,
+				null,
+				null,
+				null,
+				null,
+				$quotaMessage
+			);
+		}
+
+		if ($response['statusCode'] === 200) {
+			$meteredUsage = $response['headers']['x-metered-usage'] ?? '';
+			if ($meteredUsage !== '') {
+				$quotaMessage = 'Azure returned metered usage for this probe request: ' . $meteredUsage . '. Remaining quota is still only available via Azure Metrics.';
+			}
+
+			return $this->buildStatusResponse(
+				true,
+				'The Azure API key is valid.',
+				false,
+				null,
+				null,
+				null,
+				null,
+				$quotaMessage
+			);
+		}
+
+		$errorMessage = $this->extractApiErrorMessage(
+			$response['body'],
+			'The Azure API key could not be validated.'
+		);
+
+		if (\in_array($response['statusCode'], [401, 403], true)) {
+			return $this->buildStatusResponse(false, $errorMessage, false, null, null, null, null, $quotaMessage);
+		}
+
+		return $this->buildStatusResponse(null, $errorMessage, false, null, null, null, null, $quotaMessage);
+	}
+
 	protected function getApiPath(): string
 	{
 		return $this->getSettings()['providers']['azure']['url'];
