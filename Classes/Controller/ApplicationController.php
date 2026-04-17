@@ -28,6 +28,11 @@ class ApplicationController extends AbstractController
         $this->defaultViewObjectName = JsonView::class;
     }
 
+    public function initializeProviderStatusAction()
+    {
+        $this->defaultViewObjectName = JsonView::class;
+    }
+
     /**
      * main Action
      * Entry-Point transfer some basic configuration towards the vue-app
@@ -72,5 +77,15 @@ class ApplicationController extends AbstractController
         DatabaseUtility::persistAll();
 
         return $this->jsonResponse(json_encode(['message' => 'All database-tables have been reset to zero.']));
+    }
+
+    public function providerStatusAction(): ResponseInterface
+    {
+        $providerStatus = $this->providerService->getConfiguredProviderStatus();
+        $response = $this->getDefaultViewAssigns();
+        $response['message'] = $providerStatus['message'];
+        $response['data'] = $providerStatus;
+
+        return $this->jsonResponse(\json_encode($response));
     }
 }
