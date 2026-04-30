@@ -28,6 +28,7 @@ class DeeplProvider extends AbstractProvider
 
 	public function getStatus(): array
 	{
+		$supportedTargetLanguages = $this->getSupportedTargetLanguages();
 		$response = $this->executeCurlRequest(
 			\preg_replace('#/translate/?$#', '/usage', $this->getApiPath()),
 			[
@@ -41,7 +42,14 @@ class DeeplProvider extends AbstractProvider
 		if ($response['error'] !== null) {
 			return $this->buildStatusResponse(
 				null,
-				'The DeepL status request failed: ' . $response['error']
+				'The DeepL status request failed: ' . $response['error'],
+				false,
+				null,
+				null,
+				null,
+				null,
+				'',
+				$supportedTargetLanguages
 			);
 		}
 
@@ -58,7 +66,8 @@ class DeeplProvider extends AbstractProvider
 				$used,
 				$limit,
 				'characters',
-				'DeepL reports the remaining characters for the current billing period.'
+				'DeepL reports the remaining characters for the current billing period.',
+				$supportedTargetLanguages
 			);
 		}
 
@@ -68,10 +77,45 @@ class DeeplProvider extends AbstractProvider
 		);
 
 		if (\in_array($response['statusCode'], [401, 403], true)) {
-			return $this->buildStatusResponse(false, $errorMessage);
+			return $this->buildStatusResponse(false, $errorMessage, false, null, null, null, null, '', $supportedTargetLanguages);
 		}
 
-		return $this->buildStatusResponse(null, $errorMessage);
+		return $this->buildStatusResponse(null, $errorMessage, false, null, null, null, null, '', $supportedTargetLanguages);
+	}
+
+	public function getSupportedTargetLanguages(): array
+	{
+		$response = $this->executeCurlRequest(
+			\preg_replace('#/translate/?$#', '/languages?type=target', $this->getApiPath()),
+			[
+				CURLOPT_HTTPHEADER => [
+					'Authorization: DeepL-Auth-Key ' . $this->getKey(),
+					'Accept: application/json',
+				],
+			]
+		);
+
+		if ($response['statusCode'] !== 200 || $response['error'] !== null) {
+			return [];
+		}
+
+		$decodedResponse = \json_decode($response['body'], true);
+		if (!\is_array($decodedResponse)) {
+			return [];
+		}
+
+		return $this->normalizeSupportedTargetLanguages(\array_column($decodedResponse, 'language'));
+	}
+
+	protected function mapSupportedTargetLanguageCode(string $languageCode): array
+	{
+		$normalizedLanguageCode = $this->normalizeLanguageCode($languageCode);
+
+		if ($normalizedLanguageCode === 'pt-br') {
+			return ['pt', 'pt-br'];
+		}
+
+		return parent::mapSupportedTargetLanguageCode($normalizedLanguageCode);
 	}
 
 	protected function getApiPath(): string

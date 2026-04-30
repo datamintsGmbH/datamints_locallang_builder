@@ -118,6 +118,11 @@ abstract class AbstractProvider extends AbstractService
      */
     abstract public function getStatus(): array;
 
+    public function getSupportedTargetLanguages(): array
+    {
+        return [];
+    }
+
     /**
      * Not required by any provider
      */
@@ -134,7 +139,8 @@ abstract class AbstractProvider extends AbstractService
         ?int $quotaUsed = null,
         ?int $quotaLimit = null,
         ?string $quotaUnit = null,
-        string $quotaMessage = ''
+        string $quotaMessage = '',
+        array $supportedTargetLanguages = []
     ): array {
         return [
             'provider' => $this->getName(),
@@ -148,7 +154,40 @@ abstract class AbstractProvider extends AbstractService
             'quotaLimit' => $quotaLimit,
             'quotaUnit' => $quotaUnit,
             'quotaMessage' => $quotaMessage,
+            'supportedTargetLanguages' => $supportedTargetLanguages,
         ];
+    }
+
+    protected function normalizeLanguageCode(string $languageCode): string
+    {
+        return \strtolower(\str_replace('_', '-', \trim($languageCode)));
+    }
+
+    protected function mapSupportedTargetLanguageCode(string $languageCode): array
+    {
+        $normalizedLanguageCode = $this->normalizeLanguageCode($languageCode);
+        if ($normalizedLanguageCode === '') {
+            return [];
+        }
+
+        return [$normalizedLanguageCode];
+    }
+
+    protected function normalizeSupportedTargetLanguages(array $languageCodes): array
+    {
+        $normalizedLanguageCodes = [];
+        foreach ($languageCodes as $languageCode) {
+            foreach ($this->mapSupportedTargetLanguageCode((string)$languageCode) as $mappedLanguageCode) {
+                if ($mappedLanguageCode !== '') {
+                    $normalizedLanguageCodes[$mappedLanguageCode] = true;
+                }
+            }
+        }
+
+        $supportedTargetLanguages = \array_keys($normalizedLanguageCodes);
+        \sort($supportedTargetLanguages);
+
+        return $supportedTargetLanguages;
     }
 
     protected function executeCurlRequest(string $url, array $options = []): array

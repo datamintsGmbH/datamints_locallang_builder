@@ -29,6 +29,7 @@ class AzureProvider extends AbstractProvider
 	public function getStatus(): array
 	{
 		$quotaMessage = 'Azure does not expose remaining quota through the Translator API. Please use Azure Metrics or the Azure portal.';
+		$supportedTargetLanguages = $this->getSupportedTargetLanguages();
 		$headers = [
 			'Content-Type: application/json',
 			'Ocp-Apim-Subscription-Key: ' . $this->getKey(),
@@ -58,7 +59,8 @@ class AzureProvider extends AbstractProvider
 				null,
 				null,
 				null,
-				$quotaMessage
+				$quotaMessage,
+				$supportedTargetLanguages
 			);
 		}
 
@@ -76,7 +78,8 @@ class AzureProvider extends AbstractProvider
 				null,
 				null,
 				null,
-				$quotaMessage
+				$quotaMessage,
+				$supportedTargetLanguages
 			);
 		}
 
@@ -86,10 +89,33 @@ class AzureProvider extends AbstractProvider
 		);
 
 		if (\in_array($response['statusCode'], [401, 403], true)) {
-			return $this->buildStatusResponse(false, $errorMessage, false, null, null, null, null, $quotaMessage);
+			return $this->buildStatusResponse(false, $errorMessage, false, null, null, null, null, $quotaMessage, $supportedTargetLanguages);
 		}
 
-		return $this->buildStatusResponse(null, $errorMessage, false, null, null, null, null, $quotaMessage);
+		return $this->buildStatusResponse(null, $errorMessage, false, null, null, null, null, $quotaMessage, $supportedTargetLanguages);
+	}
+
+	public function getSupportedTargetLanguages(): array
+	{
+		$response = $this->executeCurlRequest(
+			\preg_replace('#/translate/?$#', '/languages?api-version=' . $this->getVersion() . '&scope=translation', $this->getApiPath()),
+			[
+				CURLOPT_HTTPHEADER => [
+					'Accept: application/json',
+				],
+			]
+		);
+
+		if ($response['statusCode'] !== 200 || $response['error'] !== null) {
+			return [];
+		}
+
+		$decodedResponse = \json_decode($response['body'], true);
+		if (!\is_array($decodedResponse) || !isset($decodedResponse['translation']) || !\is_array($decodedResponse['translation'])) {
+			return [];
+		}
+
+		return $this->normalizeSupportedTargetLanguages(\array_keys($decodedResponse['translation']));
 	}
 
 	protected function getApiPath(): string

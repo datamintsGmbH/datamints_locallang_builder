@@ -44,11 +44,13 @@ class GoogleProvider extends AbstractProvider
                 null,
                 null,
                 null,
-                $quotaMessage
+                $quotaMessage,
+                []
             );
         }
 
         $decodedResponse = \json_decode($response['body'], true);
+        $supportedTargetLanguages = $this->extractSupportedTargetLanguages($decodedResponse);
         if ($response['statusCode'] === 200 && !empty($decodedResponse['data']['languages'])) {
             return $this->buildStatusResponse(
                 true,
@@ -58,7 +60,8 @@ class GoogleProvider extends AbstractProvider
                 null,
                 null,
                 null,
-                $quotaMessage
+                $quotaMessage,
+                $supportedTargetLanguages
             );
         }
 
@@ -68,10 +71,23 @@ class GoogleProvider extends AbstractProvider
         );
 
         if (\in_array($response['statusCode'], [400, 401, 403], true)) {
-            return $this->buildStatusResponse(false, $errorMessage, false, null, null, null, null, $quotaMessage);
+            return $this->buildStatusResponse(false, $errorMessage, false, null, null, null, null, $quotaMessage, $supportedTargetLanguages);
         }
 
-        return $this->buildStatusResponse(null, $errorMessage, false, null, null, null, null, $quotaMessage);
+        return $this->buildStatusResponse(null, $errorMessage, false, null, null, null, null, $quotaMessage, $supportedTargetLanguages);
+    }
+
+    public function getSupportedTargetLanguages(): array
+    {
+        $response = $this->executeCurlRequest(
+            \rtrim($this->getApiPath(), '/') . $this->getUrlArguments() . '/languages?key=' . \rawurlencode($this->getKey()) . '&target=en'
+        );
+
+        if ($response['statusCode'] !== 200 || $response['error'] !== null) {
+            return [];
+        }
+
+        return $this->extractSupportedTargetLanguages(\json_decode($response['body'], true));
     }
 
     protected function getApiPath(): string
@@ -137,5 +153,28 @@ class GoogleProvider extends AbstractProvider
     {
         return $this->text;
 
+    }
+
+    protected function extractSupportedTargetLanguages($decodedResponse): array
+    {
+        if (!\is_array($decodedResponse) || empty($decodedResponse['data']['languages'])) {
+            return [];
+        }
+
+        return $this->normalizeSupportedTargetLanguages(\array_column($decodedResponse['data']['languages'], 'language'));
+    }
+
+    protected function mapSupportedTargetLanguageCode(string $languageCode): array
+    {
+        $normalizedLanguageCode = $this->normalizeLanguageCode($languageCode);
+
+        return match ($normalizedLanguageCode) {
+            'iw' => ['he'],
+            'tl' => ['fil'],
+            'zh-tw' => ['zh-hant'],
+            'zh-cn' => ['zh'],
+            'no' => ['nb'],
+            default => parent::mapSupportedTargetLanguageCode($normalizedLanguageCode),
+        };
     }
 }

@@ -56,6 +56,7 @@ class ProviderService extends AbstractService
                 'quotaLimit' => null,
                 'quotaUnit' => null,
                 'quotaMessage' => '',
+                'supportedTargetLanguages' => [],
             ];
         }
 
@@ -73,6 +74,7 @@ class ProviderService extends AbstractService
                 'quotaLimit' => null,
                 'quotaUnit' => null,
                 'quotaMessage' => '',
+                'supportedTargetLanguages' => [],
             ];
         }
 
@@ -91,6 +93,7 @@ class ProviderService extends AbstractService
                 'quotaLimit' => null,
                 'quotaUnit' => null,
                 'quotaMessage' => '',
+                'supportedTargetLanguages' => [],
             ];
         }
 
