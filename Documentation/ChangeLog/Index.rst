@@ -7,6 +7,20 @@ Change log
 ==========
 
 
+Version 14.0.0
+-------------
+
+- [TASK] Improved startup speed: The module no longer analyzes all Locallang files at startup; instead, it does so only when a file is opened.
+- [TASK] Improved startup speed: The module no longer analyzes all Locallang files at startup; instead, it does so only when a file is opened.
+- [FEATURE] Previously opened files are now displayed in the dashboard for quick access
+- [FEATURE] Styles have been updated to match the backend styles; additionally, support for themes and dark mode has been added
+- [FEATURE] An icon now indicates whether a Locallang file is already cached or not
+- [FEATURE] Display language codes supported by the provider
+- [FEATURE] When creating translations, only language codes supported by the provider are now valid
+- [FEATURE] Display of quota for translation providers when the module starts
+- [FEATURE] Support for TYPO3 14
+- [FEATURE] Support for TYPO3 13
+
 Version 12.5.1
 -------------
 
