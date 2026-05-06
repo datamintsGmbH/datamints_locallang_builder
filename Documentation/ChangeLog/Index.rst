@@ -7,6 +7,15 @@ Change log
 ==========
 
 
+Version 14.1.0
+-------------
+
+- [FEATURE] Add option to export XLIFF version 1.2 or 2.0 (new)
+- [FEATURE] Add optional Translation Domain Mapping format to ViewHelper-Generation
+- [FEATURE] Add yaml export format
+- [FEATURE] Add json export format
+- [TASK] Some style improvements
+
 Version 14.0.0
 -------------
 
