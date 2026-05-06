@@ -20,7 +20,7 @@ jobs:
       - name: Check tag
         run: |
           # use ^refs/tags/v[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}$ when tag is prefixed with v
-          if ! [[ ${{ github.ref }} =~ ^refs/tags/[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}$ ]]; then
+          if ! [[ ${{ github.ref }} =~ ^refs/tags/[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]]; then
             exit 1
           fi
 
@@ -32,8 +32,8 @@ jobs:
         id: get-comment
         run: |
           # If tag begins with `v` use:
-          # readonly local comment=$(git tag -l v${{ env.version }} --format '%(contents))
-          readonly local comment=$(git tag -l ${{ env.version }} --format '%(contents))
+          # readonly comment=$(git tag -l "v${{ env.version }}" --format '%(contents)')
+          readonly comment=$(git tag -l "${{ env.version }}" --format '%(contents)')
 
           if [[ -z "${comment// }" ]]; then
             echo "comment=Released version ${{ env.version }} of ${{ env.TYPO3_EXTENSION_KEY }}" >> $GITHUB_ENV
