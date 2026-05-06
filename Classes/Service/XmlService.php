@@ -64,9 +64,11 @@ class XmlService extends AbstractService
             $translationValue->setXmlSpace($domElement->getElementsByTagName('source')[0]->getAttribute('xml:space'));
         }
 
-        // https://github.com/datamintsGmbH/datamints_locallang_builder/issues/3 Added check if the value equals 'yes' because its also possible to contain 'no' OR leaves blank
+        // XLIFF 1.2 uses approved="yes", while XLIFF 2.0 expresses the workflow state on <target>.
         if ($domElement->hasAttribute('approved') && $domElement->getAttribute('approved') == 'yes') {
             $translationValue->setApproved(true); //default is false, so theres no need to specify this in the else condition
+        } elseif (count($domElement->getElementsByTagName('target')) && $domElement->getElementsByTagName('target')[0]->getAttribute('state') === 'final') {
+            $translationValue->setApproved(true);
         }
 
         if ($domElement->hasAttribute('resname')) {

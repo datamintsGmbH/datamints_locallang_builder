@@ -78,7 +78,9 @@ class XmlExporter extends AbstractExporter
                     }
 
                     // Checking some optional flags
-                    $translationNode->setAttribute('approved', ($translationValue->isApproved()) ? 'yes' : 'no');
+                    if (!$isXliff20) {
+                        $translationNode->setAttribute('approved', ($translationValue->isApproved()) ? 'yes' : 'no');
+                    }
                     if (!$isXliff20 && $translationValue->getXmlSpace()) {
                         $translationNode->setAttribute('xml:space', $translationValue->getXmlSpace());
                     }
@@ -92,6 +94,9 @@ class XmlExporter extends AbstractExporter
                         $targetNode = $this->createTargetNode($dom, $translationValue);
                         $this->applyXmlSpace($sourceNode, $translation->getDefaultTranslationValue(), $isXliff20);
                         $this->applyXmlSpace($targetNode, $translationValue, $isXliff20);
+                        if ($isXliff20) {
+                            $this->applyXliff20State($targetNode, $translationValue);
+                        }
                     }
 
                     if ($isXliff20) {
@@ -330,6 +335,11 @@ class XmlExporter extends AbstractExporter
         if ($isXliff20 && $translationValue instanceof TranslationValue && $translationValue->getXmlSpace()) {
             $node->setAttribute('xml:space', $translationValue->getXmlSpace());
         }
+    }
+
+    protected function applyXliff20State(DOMElement $targetNode, TranslationValue $translationValue): void
+    {
+        $targetNode->setAttribute('state', $translationValue->isApproved() ? 'final' : 'initial');
     }
 
     protected function isXliff20(LocallangExport $locallangExport): bool
