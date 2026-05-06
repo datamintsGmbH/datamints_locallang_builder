@@ -11,6 +11,7 @@ use Datamints\DatamintsLocallangBuilder\Domain\Model\Runtime\LocallangExport;
 use Datamints\DatamintsLocallangBuilder\Exporter\AbstractExporter;
 use Datamints\DatamintsLocallangBuilder\Exporter\JsonExporter;
 use Datamints\DatamintsLocallangBuilder\Exporter\XmlExporter;
+use Datamints\DatamintsLocallangBuilder\Exporter\YamlExporter;
 use Datamints\DatamintsLocallangBuilder\Utility\LanguageUtility;
 use TYPO3\CMS\Core\Exception;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -30,6 +31,7 @@ class ExportService extends AbstractService
     public const FILEADMIN_PATH = 'fileadmin/locallang-builder/';
     public const FILETYPE_XML_XLF = 'xml-xlf';
     public const FILETYPE_JSON = 'json';
+    public const FILETYPE_YAML = 'yaml';
 
     /**
      * Export
@@ -114,6 +116,7 @@ class ExportService extends AbstractService
     {
         return match ($exportConfiguration['selectedFiletype'] ?? self::FILETYPE_XML_XLF) {
             self::FILETYPE_JSON => GeneralUtility::makeInstance(JsonExporter::class),
+            self::FILETYPE_YAML => GeneralUtility::makeInstance(YamlExporter::class),
             default => GeneralUtility::makeInstance(XmlExporter::class),
         };
     }
@@ -122,6 +125,7 @@ class ExportService extends AbstractService
     {
         return match ($exportConfiguration['selectedFiletype'] ?? self::FILETYPE_XML_XLF) {
             self::FILETYPE_JSON => 'json',
+            self::FILETYPE_YAML => 'yaml',
             default => 'xlf',
         };
     }
