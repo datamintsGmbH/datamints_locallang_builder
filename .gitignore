@@ -1,3 +1,4 @@
 /vendor/
 node_modules
+.Build
 /.github/copilot-instructions.md
