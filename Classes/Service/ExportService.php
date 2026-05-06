@@ -8,6 +8,8 @@ namespace Datamints\DatamintsLocallangBuilder\Service;
 
 use Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang;
 use Datamints\DatamintsLocallangBuilder\Domain\Model\Runtime\LocallangExport;
+use Datamints\DatamintsLocallangBuilder\Exporter\AbstractExporter;
+use Datamints\DatamintsLocallangBuilder\Exporter\JsonExporter;
 use Datamints\DatamintsLocallangBuilder\Exporter\XmlExporter;
 use Datamints\DatamintsLocallangBuilder\Utility\LanguageUtility;
 use TYPO3\CMS\Core\Exception;
@@ -26,6 +28,8 @@ class ExportService extends AbstractService
      * Constant to fileadmin save-storage
      */
     public const FILEADMIN_PATH = 'fileadmin/locallang-builder/';
+    public const FILETYPE_XML_XLF = 'xml-xlf';
+    public const FILETYPE_JSON = 'json';
 
     /**
      * Export
@@ -34,6 +38,7 @@ class ExportService extends AbstractService
      */
     public function export(Locallang $locallang, array $exportConfiguration): array
     {
+        $fileExtension = $this->resolveFileExtension($exportConfiguration);
         $countries = $this->locallangService->getCountryList(
             $locallang
         ); // Getting country list, so we know, which files have to be generated
@@ -52,19 +57,18 @@ class ExportService extends AbstractService
             } else { // Otherwise we overwrite the existing files
                 $targetPath = $locallang->getPath();
             }
+            $targetPath = $this->replaceFileExtension(
+                $this->customTranslationsOverlayService->setOverlay($targetPath),
+                $fileExtension
+            );
             if ($locallangExport->getLanguageCode() != 'en') { // we dont need the lang-code for default-language
-                $targetPath = LanguageUtility::getCountryLanguagePath($country, $this->customTranslationsOverlayService->setOverlay($targetPath));
+                $targetPath = LanguageUtility::getCountryLanguagePath($country, $targetPath);
             }
             $locallangExport->setTargetPath($this->customTranslationsOverlayService->setOverlay($targetPath));
             $outputLocallangs[$country] = $locallangExport;
         }
 
-        // currently only one exporter is possible. I think its currently not necessary to add functionality to be able to select one from configuration to swap to json or something else.
-        // In typo3 its only possible to choose xml.
-        // maybe in the future?!
-
-        /** @var XmlExporter $exporter */
-        $exporter = GeneralUtility::makeInstance(XmlExporter::class);
+        $exporter = $this->resolveExporter($exportConfiguration);
         $savedFiles = [];
         foreach ($outputLocallangs as $locallangExportEntity) {
             $savedFiles[] = $exporter->writeByLocallangExport($locallangExportEntity);
@@ -104,5 +108,34 @@ class ExportService extends AbstractService
             );
         }
         return '';
+    }
+
+    protected function resolveExporter(array $exportConfiguration): AbstractExporter
+    {
+        return match ($exportConfiguration['selectedFiletype'] ?? self::FILETYPE_XML_XLF) {
+            self::FILETYPE_JSON => GeneralUtility::makeInstance(JsonExporter::class),
+            default => GeneralUtility::makeInstance(XmlExporter::class),
+        };
+    }
+
+    protected function resolveFileExtension(array $exportConfiguration): string
+    {
+        return match ($exportConfiguration['selectedFiletype'] ?? self::FILETYPE_XML_XLF) {
+            self::FILETYPE_JSON => 'json',
+            default => 'xlf',
+        };
+    }
+
+    protected function replaceFileExtension(string $path, string $fileExtension): string
+    {
+        $pathInfo = \pathinfo($path);
+        $dirname = $pathInfo['dirname'] ?? '';
+        $filename = $pathInfo['filename'] ?? $path;
+
+        if ($dirname === '' || $dirname === '.') {
+            return $filename . '.' . $fileExtension;
+        }
+
+        return $dirname . '/' . $filename . '.' . $fileExtension;
     }
 }
