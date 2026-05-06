@@ -22,7 +22,7 @@ return [
                 'main','clear','providerStatus'
             ],
             ExtensionController::class => [
-                'list', 'update'
+                'list', 'update', 'createLocallang'
             ],
             TranslationController::class => [
                 'list', 'update', 'delete', 'show', 'create'

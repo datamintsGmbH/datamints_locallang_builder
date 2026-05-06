@@ -11,6 +11,7 @@ use Datamints\DatamintsLocallangBuilder\Domain\Model\{Extension, Locallang, Tran
 use Datamints\DatamintsLocallangBuilder\Domain\Repository\Traits\{ExtensionRepositoryTrait, LocallangRepositoryTrait};
 use Datamints\DatamintsLocallangBuilder\Service\Traits\XmlServiceTrait;
 use Datamints\DatamintsLocallangBuilder\Utility\LanguageUtility;
+use DOMDocument;
 use DOMElement;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\PathUtility;
@@ -104,6 +105,37 @@ class ManifestBuildService extends AbstractService
         }
 
         $locallang->setImported($locallang->hasTranslations());
+
+        return $locallang;
+    }
+
+    public function createEmptyLocallang(Extension $extension, string $filename): Locallang
+    {
+        $normalizedFilename = $this->normalizeNewLocallangFilename($filename);
+        $relativePath = $extension->getPath() . self::EXTENSION_LANGUAGE_PATH . $normalizedFilename;
+        $absolutePath = GeneralUtility::getFileAbsFileName($relativePath);
+
+        if ($absolutePath === '' || PathUtility::isAbsolutePath($relativePath)) {
+            throw new \RuntimeException('Could not resolve the target path for the new file.');
+        }
+
+        if ($this->locallangExists($extension, $normalizedFilename) || file_exists($absolutePath)) {
+            throw new \RuntimeException(sprintf('The file "%s" already exists.', $normalizedFilename));
+        }
+
+        GeneralUtility::mkdir_deep(dirname($absolutePath));
+        $this->writeEmptyLocallangFile($absolutePath, $extension->getName(), $normalizedFilename);
+
+        /** @var Locallang $locallang */
+        $locallang = GeneralUtility::makeInstance(Locallang::class);
+        $locallang->setFilename($normalizedFilename);
+        $locallang->setPath($relativePath);
+        $locallang->setImported(true);
+        $locallang->setInvalidFormat(false);
+        $locallang->setRelatedExtension($extension);
+
+        $extension->addLocallang($locallang);
+        $this->extensionRepository->save($extension);
 
         return $locallang;
     }
@@ -204,6 +236,68 @@ class ManifestBuildService extends AbstractService
                     );
                 }
             }
+        }
+    }
+
+    protected function normalizeNewLocallangFilename(string $filename): string
+    {
+        $normalizedFilename = trim($filename);
+        if ($normalizedFilename === '') {
+            throw new \InvalidArgumentException('Please provide a file name.');
+        }
+        if (str_contains($normalizedFilename, '/') || str_contains($normalizedFilename, '\\')) {
+            throw new \InvalidArgumentException('Please provide only a file name without subdirectories.');
+        }
+        if (!preg_match('/^[A-Za-z0-9_-]+(?:\.[A-Za-z0-9_-]+)?$/', $normalizedFilename)) {
+            throw new \InvalidArgumentException('Use only letters, numbers, underscores, and hyphens.');
+        }
+        if (!str_ends_with(strtolower($normalizedFilename), '.xlf')) {
+            $normalizedFilename .= '.xlf';
+        }
+
+        $filenameWithoutExtension = pathinfo($normalizedFilename, PATHINFO_FILENAME);
+        if (!LanguageUtility::isDefaultLanguageFile($filenameWithoutExtension)) {
+            throw new \InvalidArgumentException('Please create the default-language file, for example "locallang_custom.xlf".');
+        }
+
+        return $normalizedFilename;
+    }
+
+    protected function locallangExists(Extension $extension, string $filename): bool
+    {
+        foreach ($extension->getLocallangs() as $locallang) {
+            if (strcasecmp($locallang->getFilename(), $filename) === 0) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    protected function writeEmptyLocallangFile(string $absolutePath, string $extensionName, string $filename): void
+    {
+        $fileNameWithoutExtension = pathinfo($filename, PATHINFO_FILENAME);
+
+        $document = new DOMDocument('1.0', 'utf-8');
+        $document->formatOutput = true;
+
+        $xliff = $document->createElement('xliff');
+        $xliff->setAttribute('version', '1.0');
+        $document->appendChild($xliff);
+
+        $file = $document->createElement('file');
+        $file->setAttribute('original', $extensionName . '/Resources/Private/Language/' . $fileNameWithoutExtension);
+        $file->setAttribute('source-language', 'en');
+        $file->setAttribute('datatype', 'plaintext');
+        $file->setAttribute('date', date(DATE_ATOM));
+        $file->setAttribute('product-name', $extensionName);
+        $xliff->appendChild($file);
+
+        $file->appendChild($document->createElement('header'));
+        $file->appendChild($document->createElement('body'));
+
+        if ($document->save($absolutePath) === false) {
+            throw new \RuntimeException(sprintf('Could not write the file "%s".', $filename));
         }
     }
 }
