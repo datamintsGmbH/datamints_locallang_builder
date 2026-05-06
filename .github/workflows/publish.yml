@@ -1,0 +1,20 @@
+name: Publish to TER
+
+on:
+  push:
+    tags:
+      - '*' # Reagiert auf alle neuen Tags
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: TER Release
+        uses: typo3/tailor-action@v1
+        with:
+          token: ${{ secrets.TYPO3_API_TOKEN }}
+          # Optional: Falls dein Extension-Key vom Repository-Namen abweicht
+          # extension_key: 'mein_ext_key'
