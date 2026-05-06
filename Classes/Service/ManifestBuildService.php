@@ -156,8 +156,11 @@ class ManifestBuildService extends AbstractService
     protected function getTranslationPart(Locallang $locallang, string $path, bool $isDefaultLanguage = false): void
     {
         $path = GeneralUtility::getFileAbsFileName($this->customTranslationsOverlayService->setOverlay($path));
-        /** @var DOMElement $fileDOM */
-        $fileDOM = $this->xmlService->getXMLContentByLocallang($path, 'file');
+        $xmlDocument = $this->xmlService->loadXmlDocument($path);
+        /** @var DOMElement|null $fileDOM */
+        $fileDOM = $xmlDocument instanceof \DOMDocument
+            ? $this->xmlService->getFirstDomElementByTagNames($xmlDocument, ['file'])
+            : null;
         if (is_null($fileDOM) || !method_exists(
                 $fileDOM,
                 'getAttribute'
@@ -166,7 +169,7 @@ class ManifestBuildService extends AbstractService
             return;
         }
         try {
-            $sourceLanguage = $fileDOM->getAttribute('source-language');
+            $sourceLanguage = $this->xmlService->getSourceLanguage($xmlDocument, $fileDOM);
 
             //            if($fileDOM->hasAttribute('target-language')) {
             //                $targetLanguage = $fileDOM->getAttribute('target-language');
@@ -175,14 +178,17 @@ class ManifestBuildService extends AbstractService
             // You cannot rely on the correct target language being stored as an attribute in the file, so we prefer to trust the file name prefix, e.g. nl.locallang.xlf
             if (!$isDefaultLanguage) {
                 // Fallback when the file does not contain a target-language attribute. Instead we fetch the language code from the filename of the path (NOT from the locallang-file, because its already the generic one without language-prefix!)
-                $targetLanguage = LanguageUtility::getLanguageByFilename(pathinfo($path)['filename']);
+                $targetLanguage = $this->xmlService->getTargetLanguage($xmlDocument, $fileDOM)
+                    ?: LanguageUtility::getLanguageByFilename(pathinfo($path)['filename']);
             }
             //            }
         } catch (Exception $e) {
             $locallang->setInvalidFormat(true);
             return;
         }
-        $xmlContent = $this->xmlService->getXMLContentByLocallang($path, 'trans-unit');
+        $xmlContent = $xmlDocument instanceof \DOMDocument
+            ? $this->xmlService->getDomElementsByTagNames($xmlDocument, ['trans-unit', 'unit'])
+            : null;
 
         if (is_null(
             $xmlContent
@@ -281,8 +287,8 @@ class ManifestBuildService extends AbstractService
         $document = new DOMDocument('1.0', 'utf-8');
         $document->formatOutput = true;
 
-        $xliff = $document->createElement('xliff');
-        $xliff->setAttribute('version', '1.0');
+        $xliff = $document->createElementNS('urn:oasis:names:tc:xliff:document:1.2', 'xliff');
+        $xliff->setAttribute('version', '1.2');
         $document->appendChild($xliff);
 
         $file = $document->createElement('file');

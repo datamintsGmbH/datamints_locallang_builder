@@ -6,8 +6,10 @@
 
 namespace Datamints\DatamintsLocallangBuilder\Service;
 
+use DOMDocument;
 use DOMElement;
 use DOMNodeList;
+use DOMXPath;
 use Exception;
 use Symfony\Component\Config\Util\XmlUtils;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -56,6 +58,10 @@ class XmlService extends AbstractService
         }
         if ($domElement->hasAttribute('xml:space')) {
             $translationValue->setXmlSpace($domElement->getAttribute('xml:space'));
+        } elseif (count($domElement->getElementsByTagName('target')) && $domElement->getElementsByTagName('target')[0]->hasAttribute('xml:space')) {
+            $translationValue->setXmlSpace($domElement->getElementsByTagName('target')[0]->getAttribute('xml:space'));
+        } elseif (count($domElement->getElementsByTagName('source')) && $domElement->getElementsByTagName('source')[0]->hasAttribute('xml:space')) {
+            $translationValue->setXmlSpace($domElement->getElementsByTagName('source')[0]->getAttribute('xml:space'));
         }
 
         // https://github.com/datamintsGmbH/datamints_locallang_builder/issues/3 Added check if the value equals 'yes' because its also possible to contain 'no' OR leaves blank
@@ -65,8 +71,10 @@ class XmlService extends AbstractService
 
         if ($domElement->hasAttribute('resname')) {
             $translationValue->setResname($domElement->getAttribute('resname'));
+        } elseif ($domElement->hasAttribute('name')) {
+            $translationValue->setResname($domElement->getAttribute('name'));
         }
-        $comments = $this->getComment($domElement->ownerDocument->saveHTML($domElement));
+        $comments = $this->getComment($domElement);
 
         if (!is_null($comments)) {
             $translationValue->setComment($comments);
@@ -99,6 +107,18 @@ class XmlService extends AbstractService
      */
     protected function getComment ($html)
     {
+        if ($html instanceof DOMElement) {
+            $notes = $html->getElementsByTagName('note');
+            if ($notes->length > 0) {
+                $note = trim((string)$notes->item(0)?->textContent);
+                if ($note !== '') {
+                    return $note;
+                }
+            }
+
+            $html = $html->ownerDocument->saveHTML($html);
+        }
+
         $rcomments = [];
         if (preg_match_all('#<\!--(.*?)-->#is', \htmlspecialchars_decode($html), $rcomments)) {
             return $comments = $rcomments[1][0];
@@ -121,7 +141,7 @@ class XmlService extends AbstractService
     {
         try { // If the xml-File could not be fetches, we catch the exception and return null
             $xmlFile = XmlUtils::loadFile($path);
-            $content = $xmlFile->getElementsByTagName($tag);
+            $content = $this->queryByLocalNames($xmlFile, [$tag]);
             if ($content->length == 1) {
                 return $content[0];
             } else {
@@ -130,5 +150,68 @@ class XmlService extends AbstractService
         } catch (Exception $exception) {
             return null;
         }
+    }
+
+    public function loadXmlDocument(string $path): ?DOMDocument
+    {
+        try {
+            return XmlUtils::loadFile($path);
+        } catch (Exception $exception) {
+            return null;
+        }
+    }
+
+    public function getFirstDomElementByTagNames(DOMDocument $xmlDocument, array $tagNames): ?DOMElement
+    {
+        $content = $this->queryByLocalNames($xmlDocument, $tagNames);
+        if ($content->length === 0) {
+            return null;
+        }
+
+        $firstElement = $content->item(0);
+
+        return $firstElement instanceof DOMElement ? $firstElement : null;
+    }
+
+    public function getDomElementsByTagNames(DOMDocument $xmlDocument, array $tagNames): ?DOMNodeList
+    {
+        $content = $this->queryByLocalNames($xmlDocument, $tagNames);
+
+        return $content->length > 0 ? $content : null;
+    }
+
+    public function getSourceLanguage(DOMDocument $xmlDocument, ?DOMElement $fileElement = null): string
+    {
+        $rootElement = $xmlDocument->documentElement;
+        if ($rootElement instanceof DOMElement && $rootElement->hasAttribute('srcLang')) {
+            return $rootElement->getAttribute('srcLang');
+        }
+
+        return $fileElement instanceof DOMElement && $fileElement->hasAttribute('source-language')
+            ? $fileElement->getAttribute('source-language')
+            : '';
+    }
+
+    public function getTargetLanguage(DOMDocument $xmlDocument, ?DOMElement $fileElement = null): string
+    {
+        $rootElement = $xmlDocument->documentElement;
+        if ($rootElement instanceof DOMElement && $rootElement->hasAttribute('trgLang')) {
+            return $rootElement->getAttribute('trgLang');
+        }
+
+        return $fileElement instanceof DOMElement && $fileElement->hasAttribute('target-language')
+            ? $fileElement->getAttribute('target-language')
+            : '';
+    }
+
+    protected function queryByLocalNames(DOMDocument $xmlDocument, array $tagNames): DOMNodeList
+    {
+        $xpath = new DOMXPath($xmlDocument);
+        $conditions = array_map(
+            static fn(string $tagName): string => sprintf('local-name()="%s"', $tagName),
+            $tagNames
+        );
+
+        return $xpath->query('//*[' . implode(' or ', $conditions) . ']');
     }
 }

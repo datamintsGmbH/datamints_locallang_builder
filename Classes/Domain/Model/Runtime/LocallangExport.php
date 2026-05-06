@@ -28,6 +28,11 @@ class LocallangExport
     protected $locallangReference;
 
     /**
+     * @var string
+     */
+    protected $xliffVersion = '1.2';
+
+    /**
      * Get the value of targetPath
      *
      * @return  string
@@ -95,6 +100,18 @@ class LocallangExport
     public function setLocallangReference(\Datamints\DatamintsLocallangBuilder\Domain\Model\Locallang $locallangReference)
     {
         $this->locallangReference = $locallangReference;
+
+        return $this;
+    }
+
+    public function getXliffVersion(): string
+    {
+        return $this->xliffVersion;
+    }
+
+    public function setXliffVersion(string $xliffVersion)
+    {
+        $this->xliffVersion = $xliffVersion;
 
         return $this;
     }

@@ -32,6 +32,8 @@ class ExportService extends AbstractService
     public const FILETYPE_XML_XLF = 'xml-xlf';
     public const FILETYPE_JSON = 'json';
     public const FILETYPE_YAML = 'yaml';
+    public const XLIFF_VERSION_12 = '1.2';
+    public const XLIFF_VERSION_20 = '2.0';
 
     /**
      * Export
@@ -50,6 +52,7 @@ class ExportService extends AbstractService
             $locallangExport = GeneralUtility::makeInstance(LocallangExport::class);
             $locallangExport->setLanguageCode($country);
             $locallangExport->setLocallangReference($locallang);
+            $locallangExport->setXliffVersion($this->resolveXliffVersion($exportConfiguration));
 
             $targetPath = '';
 
@@ -141,5 +144,14 @@ class ExportService extends AbstractService
         }
 
         return $dirname . '/' . $filename . '.' . $fileExtension;
+    }
+
+    protected function resolveXliffVersion(array $exportConfiguration): string
+    {
+        $selectedVersion = (string)($exportConfiguration['selectedXliffVersion'] ?? self::XLIFF_VERSION_12);
+
+        return \in_array($selectedVersion, [self::XLIFF_VERSION_12, self::XLIFF_VERSION_20], true)
+            ? $selectedVersion
+            : self::XLIFF_VERSION_12;
     }
 }

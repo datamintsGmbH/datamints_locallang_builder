@@ -7,8 +7,11 @@ use Datamints\DatamintsLocallangBuilder\Controller\Traits\CallActionMethodTrait;
 use Datamints\DatamintsLocallangBuilder\Domain\Model\Extension;
 use Datamints\DatamintsLocallangBuilder\Domain\Repository\Traits\ExtensionRepositoryTrait;
 use Datamints\DatamintsLocallangBuilder\Mvc\View\ExtensionJsonView;
+use Datamints\DatamintsLocallangBuilder\Mvc\View\JsonView;
+use Datamints\DatamintsLocallangBuilder\Service\ManifestBuildService;
 use Datamints\DatamintsLocallangBuilder\Service\Traits\{CachesServiceTrait, ExtensionServiceTrait, FileServiceTrait};
 use Psr\Http\Message\ResponseInterface;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * This file is part of the "datamints_locallang_builder" Extension for TYPO3 CMS.
@@ -92,6 +95,33 @@ class ExtensionController extends AbstractController
     public function showAction(Extension $extension)
     {
         $this->view->assign('extension', $extension);
+    }
+
+    public function initializeCreateLocallangAction(): void
+    {
+        $this->defaultViewObjectName = JsonView::class;
+    }
+
+    public function createLocallangAction(Extension $extension): ResponseInterface
+    {
+        $response = $this->getDefaultViewAssigns();
+        $filename = trim((string)($this->request->hasArgument('filename') ? $this->request->getArgument('filename') : ''));
+
+        try {
+            /** @var ManifestBuildService $manifestBuildService */
+            $manifestBuildService = GeneralUtility::makeInstance(ManifestBuildService::class);
+            $locallang = $manifestBuildService->createEmptyLocallang($extension, $filename);
+
+            $this->cachesService->clearOwnCache();
+
+            $response['message'] = sprintf('Created "%s".', $locallang->getFilename());
+            $response['data'] = $locallang;
+        } catch (\Throwable $throwable) {
+            $response['status'] = self::STATUS_ERROR;
+            $response['message'] = $throwable->getMessage();
+        }
+
+        return $this->jsonResponse(\json_encode($response));
     }
 
     /**

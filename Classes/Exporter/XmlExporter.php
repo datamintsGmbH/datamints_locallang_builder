@@ -14,6 +14,7 @@ use DOMComment;
 use Exception;
 use DOMElement;
 use DOMDocument;
+use Datamints\DatamintsLocallangBuilder\Domain\Model\Runtime\LocallangExport;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use Datamints\DatamintsLocallangBuilder\Domain\Model\Extension;
@@ -27,6 +28,10 @@ class XmlExporter extends AbstractExporter
 {
     use XmlServiceTrait;
 
+    public const XLIFF_VERSION_12 = '1.2';
+    public const XLIFF_VERSION_20 = '2.0';
+    private const AUTO_GENERATED_COMMENT = 'This translation file was generated automatically by the "datamints_locallang_builder" extension. Please note that changes to this file can be lost the next time someone triggers an export in the TYPO3 Backend-module';
+
     /**
      * Prepares the locallang-export-output and saves the file
      *
@@ -35,58 +40,82 @@ class XmlExporter extends AbstractExporter
      * @return string
      * {@inheritdoc}
      */
-    public function writeByLocallangExport (\Datamints\DatamintsLocallangBuilder\Domain\Model\Runtime\LocallangExport $locallangExport): string
+    public function writeByLocallangExport (LocallangExport $locallangExport): string
     {
         $dom = new DOMDocument('1.0', 'utf-8');
         $dom->preserveWhiteSpace = false;
         $dom->formatOutput = true;
+        $isXliff20 = $this->isXliff20($locallangExport);
         // Nodes
-        $xliffNode = $this->createXliffNode($dom);
+        $xliffNode = $this->createXliffNode($dom, $locallangExport);
         $fileNode = $this->createFileNode($dom, $locallangExport);
-        $headerNode = $this->createHeaderNode($dom);
-        $commentNode = $this->createComment($dom, 'This translation file was generated automatically by the "datamints_locallang_builder" extension. Please note that changes to this file can be lost the next time someone triggers an export in the TYPO3 Backend-module');
-        $bodyNode = $this->createBodyNode($dom);
+        $bodyNode = null;
 
-        $headerNode->appendChild($commentNode);
-        $fileNode->appendChild($headerNode);
+        if ($isXliff20) {
+            $fileNode->appendChild($this->createNotesNode($dom, self::AUTO_GENERATED_COMMENT));
+        } else {
+            $headerNode = $this->createHeaderNode($dom);
+            $commentNode = $this->createComment($dom, self::AUTO_GENERATED_COMMENT);
+            $bodyNode = $this->createBodyNode($dom);
+            $headerNode->appendChild($commentNode);
+            $fileNode->appendChild($headerNode);
+        }
 
         /** @var Translation $translation */
         foreach ($locallangExport->getLocallangReference()->getTranslations() as $translation) {
             /** @var TranslationValue $translationValue */
             foreach ($translation->getTranslationValues() as $translationValue) { // Buggy when using getTranslationValues() as ObjectStorage. I absolutely dont know why it iterates the same value twice. So we better loop it as array and everything works...
                 if ($translationValue->getIdent() === $locallangExport->getLanguageCode()) { // Filter to get our desired language and skip everything else
-                    $transUnitNode = $this->createTransUnitNode($dom, $translation, $translationValue->getResname());
-                    $transUnitCommentNode = $sourceNode = $targetNode = null;
+                    $translationNode = $this->createTranslationNode($dom, $translation, $translationValue->getResname(), $locallangExport);
+                    $sourceNode = $targetNode = null;
                     $comment = ($translation->getDefaultTranslationValue() ? $translation->getDefaultTranslationValue()->getComment() : '');
                     if (strlen($comment) > 0) {
-                        $transUnitCommentNode = $this->createComment($dom, $comment);
-                        $transUnitNode->appendChild($transUnitCommentNode); // it would be nice to have it a line above the <trans-unit> but if we do so, we can't reimport the comment anymore, because its out of scope.
+                        if ($isXliff20) {
+                            $translationNode->appendChild($this->createNotesNode($dom, $comment));
+                        } else {
+                            $translationNode->appendChild($this->createComment($dom, $comment)); // it would be nice to have it a line above the <trans-unit> but if we do so, we can't reimport the comment anymore, because its out of scope.
+                        }
                     }
 
                     // Checking some optional flags
-                    $transUnitNode->setAttribute('approved', ($translationValue->isApproved()) ? 'yes' : 'no');
-                    if ($translationValue->getXmlSpace()) {
-                        $transUnitNode->setAttribute('xml:space', $translationValue->getXmlSpace());
+                    $translationNode->setAttribute('approved', ($translationValue->isApproved()) ? 'yes' : 'no');
+                    if (!$isXliff20 && $translationValue->getXmlSpace()) {
+                        $translationNode->setAttribute('xml:space', $translationValue->getXmlSpace());
                     }
 
                     // Condition when the file only contains the default-language
                     if ($locallangExport->getLanguageCode() === 'en') { // in this case we only need "source"-Node when the output file language code is en
                         $sourceNode = $this->createSourceNode($dom, $translationValue);
+                        $this->applyXmlSpace($sourceNode, $translationValue, $isXliff20);
                     } else { // Condition when the file contains an translation. Then we need source & target
                         $sourceNode = $this->createSourceNode($dom, $translation->getDefaultTranslationValue());
                         $targetNode = $this->createTargetNode($dom, $translationValue);
-                    }
-                    $transUnitNode->appendChild($sourceNode);
-                    if ($targetNode) {
-                        $transUnitNode->appendChild($targetNode);
+                        $this->applyXmlSpace($sourceNode, $translation->getDefaultTranslationValue(), $isXliff20);
+                        $this->applyXmlSpace($targetNode, $translationValue, $isXliff20);
                     }
 
-                    $bodyNode->appendChild($transUnitNode);
+                    if ($isXliff20) {
+                        $segmentNode = $this->createSegmentNode($dom, $translation);
+                        $segmentNode->appendChild($sourceNode);
+                        if ($targetNode) {
+                            $segmentNode->appendChild($targetNode);
+                        }
+                        $translationNode->appendChild($segmentNode);
+                        $fileNode->appendChild($translationNode);
+                    } else {
+                        $translationNode->appendChild($sourceNode);
+                        if ($targetNode) {
+                            $translationNode->appendChild($targetNode);
+                        }
+                        $bodyNode->appendChild($translationNode);
+                    }
                 }
             }
         }
 
-        $fileNode->appendChild($bodyNode);
+        if ($bodyNode instanceof DOMElement) {
+            $fileNode->appendChild($bodyNode);
+        }
         $xliffNode->appendChild($fileNode);
 
         $dom->appendChild($xliffNode);
@@ -112,10 +141,21 @@ class XmlExporter extends AbstractExporter
      *
      * @return DOMElement
      */
-    protected function createXliffNode (DOMDocument $dom): DOMElement
+    protected function createXliffNode (DOMDocument $dom, LocallangExport $locallangExport): DOMElement
     {
-        $xliffNode = $dom->createElement('xliff');
-        $xliffNode->setAttribute('version', '1.0');
+        if ($this->isXliff20($locallangExport)) {
+            $xliffNode = $dom->createElementNS('urn:oasis:names:tc:xliff:document:2.0', 'xliff');
+            $xliffNode->setAttribute('version', self::XLIFF_VERSION_20);
+            $xliffNode->setAttribute('srcLang', 'en');
+            if ($locallangExport->getLanguageCode() !== 'en') {
+                $xliffNode->setAttribute('trgLang', $locallangExport->getLanguageCode());
+            }
+
+            return $xliffNode;
+        }
+
+        $xliffNode = $dom->createElementNS('urn:oasis:names:tc:xliff:document:1.2', 'xliff');
+        $xliffNode->setAttribute('version', self::XLIFF_VERSION_12);
 
         return $xliffNode;
     }
@@ -128,16 +168,22 @@ class XmlExporter extends AbstractExporter
      *
      * @return DOMElement
      */
-    protected function createFileNode (DOMDocument $dom, \Datamints\DatamintsLocallangBuilder\Domain\Model\Runtime\LocallangExport $locallangExport): DOMElement
+    protected function createFileNode (DOMDocument $dom, LocallangExport $locallangExport): DOMElement
     {
         $readableDateTime = new \DateTime();
         $originalPath = pathinfo($locallangExport->getLocallangReference()->getRelatedExtension()->getName() . '/' . ManifestBuildService::EXTENSION_LANGUAGE_PATH . $locallangExport->getLocallangReference()->getFilename());
 
         $fileNode = $dom->createElement('file');
+        if ($this->isXliff20($locallangExport)) {
+            $fileNode->setAttribute('id', 'EXT:' . $originalPath['dirname'] . '/' . $originalPath['filename']);
+            $fileNode->setAttribute('original', 'EXT:' . $originalPath['dirname'] . '/' . $originalPath['filename']);
+            return $fileNode;
+        }
+
         $fileNode->setAttribute('source-language', 'en'); // its ok to hardcode this, because depending on the the typo3 rules, it has to be 'en'. On request i can add an configuration-option to swap the default-language when an extension has invalid locallang-files.
         $fileNode->setAttribute('datatype', 'plaintext');
         $fileNode->setAttribute('original', 'EXT:' . $originalPath['dirname'] . '/' . $originalPath['filename']); // Don't use the full path because its different to what we need! So we build this one up in a different way
-        $fileNode->setAttribute('date', $readableDateTime->format('Y-m-dH:i:s') . 'Z'); // whats the Z for?
+        $fileNode->setAttribute('date', $readableDateTime->format('Y-m-d\TH:i:s\Z'));
         $fileNode->setAttribute('product-name', $locallangExport->getLocallangReference()->getRelatedExtension()->getName());
         if ($locallangExport->getLanguageCode() !== 'en') {
             $fileNode->setAttribute('target-language', $locallangExport->getLanguageCode());
@@ -192,6 +238,14 @@ class XmlExporter extends AbstractExporter
         return $bodyNode;
     }
 
+    protected function createSegmentNode(DOMDocument $dom, Translation $translation): DOMElement
+    {
+        $segmentNode = $dom->createElement('segment');
+        $segmentNode->setAttribute('id', $translation->getTranslationKey());
+
+        return $segmentNode;
+    }
+
     /**
      * Creates trans-unit-node containing one translation
      *
@@ -211,6 +265,25 @@ class XmlExporter extends AbstractExporter
         $transUnitNode->setAttribute('resname', $resname); // im not sure if its necessary to handle this as possible different to the translation. It seems to be the same.
 
         return $transUnitNode;
+    }
+
+    protected function createUnitNode(DOMDocument $dom, Translation $translation, string $resname): DOMElement
+    {
+        $unitNode = $dom->createElement('unit');
+        $unitNode->setAttribute('id', $translation->getTranslationKey());
+        if (strlen($resname) === 0) {
+            $resname = $translation->getTranslationKey();
+        }
+        $unitNode->setAttribute('name', $resname);
+
+        return $unitNode;
+    }
+
+    protected function createTranslationNode(DOMDocument $dom, Translation $translation, string $resname, LocallangExport $locallangExport): DOMElement
+    {
+        return $this->isXliff20($locallangExport)
+            ? $this->createUnitNode($dom, $translation, $resname)
+            : $this->createTransUnitNode($dom, $translation, $resname);
     }
 
     /**
@@ -241,5 +314,26 @@ class XmlExporter extends AbstractExporter
         $targetNode = $dom->createElement('target', htmlspecialchars($translationValue->getValue(), ENT_QUOTES));
 
         return $targetNode;
+    }
+
+    protected function createNotesNode(DOMDocument $dom, string $comment): DOMElement
+    {
+        $notesNode = $dom->createElement('notes');
+        $noteNode = $dom->createElement('note', htmlspecialchars($comment, ENT_QUOTES));
+        $notesNode->appendChild($noteNode);
+
+        return $notesNode;
+    }
+
+    protected function applyXmlSpace(DOMElement $node, ?TranslationValue $translationValue, bool $isXliff20): void
+    {
+        if ($isXliff20 && $translationValue instanceof TranslationValue && $translationValue->getXmlSpace()) {
+            $node->setAttribute('xml:space', $translationValue->getXmlSpace());
+        }
+    }
+
+    protected function isXliff20(LocallangExport $locallangExport): bool
+    {
+        return $locallangExport->getXliffVersion() === self::XLIFF_VERSION_20;
     }
 }
