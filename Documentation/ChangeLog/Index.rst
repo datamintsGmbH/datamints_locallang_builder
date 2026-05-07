@@ -7,6 +7,14 @@ Change log
 ==========
 
 
+Version 14.2.0
+-------------
+
+- [FEATURE] Add option to allow only specific extensions to be scanned instead of a list of ignored extensions (#15)
+- [TASK] Style improvements
+- [TASK] Move module position to the system parent instead of web
+- [TASK] Migrate the module icon to match the new look of TYPO3 14
+
 Version 14.1.0
 -------------
 

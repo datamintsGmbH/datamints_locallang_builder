@@ -181,6 +181,14 @@ TypoScript Reference
 
    Flag, if this provider is active. Keep in mind to select not more than one provider.
 
+.. confval:: allowedExtensions
+
+   :Datatype: string
+   :Default: <empty>
+
+   Comma-separated list of extension keys to be included explicitly. If this list is not empty,
+   ``excludedExtensions`` is ignored.
+
 .. confval:: excludedExtensions
 
    :Datatype: string

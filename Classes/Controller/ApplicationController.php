@@ -55,6 +55,7 @@ class ApplicationController extends AbstractController
                     'version' => $extensionVersion,
                     'provider' => $this->providerService->getConfiguredProvider(),
                     'gitUrl' => $this->settings['vue']['git_url'],
+                    'allowedExtensions' => $this->settings['allowedExtensions'] ?? '',
                     'excludedExtensions' => $this->settings['excludedExtensions'],
                     'documentationUrl' => $this->settings['vue']['documentation_url'],
                 ]

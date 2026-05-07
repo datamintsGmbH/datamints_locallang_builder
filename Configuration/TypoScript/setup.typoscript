@@ -14,6 +14,7 @@ module.tx_datamintslocallangbuilder {
   }
 
   settings {
+    allowedExtensions = {$module.tx_datamintslocallangbuilder.settings.allowedExtensions}
     excludedExtensions = {$module.tx_datamintslocallangbuilder.settings.excludedExtensions}
 
   }

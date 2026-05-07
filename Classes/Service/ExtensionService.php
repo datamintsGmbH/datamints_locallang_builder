@@ -48,7 +48,9 @@ class ExtensionService extends AbstractService
     }
 
     /**
-     * Checks whether the extension is excluded or not. The list is defined in TS (settings.excludedExtensions)
+     * Checks whether the extension is excluded or not.
+     * If allowed extensions are configured in TS (settings.allowedExtensions),
+     * they take precedence over settings.excludedExtensions.
      *
      * @param string $extensionKey
      *
@@ -56,14 +58,32 @@ class ExtensionService extends AbstractService
      */
     protected function isExtensionKeyExcluded (string $extensionKey): bool
     {
-        /** @var array $explodedExcludedExtensions */
-        $explodedExcludedExtensions = explode(',', $this->getSettings()['excludedExtensions']);
-        /** @var TYPE_NAME $explodedExcludedExtension */
-        foreach ($explodedExcludedExtensions as $explodedExcludedExtension) {
-            if (trim($extensionKey) === trim($explodedExcludedExtension)) {
-                return true;
-            }
+        $normalizedExtensionKey = trim($extensionKey);
+        $allowedExtensions = $this->getConfiguredExtensionList('allowedExtensions');
+        if ($allowedExtensions !== []) {
+            return !in_array($normalizedExtensionKey, $allowedExtensions, true);
         }
-        return false;
+
+        return in_array($normalizedExtensionKey, $this->getConfiguredExtensionList('excludedExtensions'), true);
+    }
+
+    /**
+     * @param string $settingKey
+     *
+     * @return array
+     */
+    protected function getConfiguredExtensionList(string $settingKey): array
+    {
+        $settings = $this->getSettings();
+        $configuredExtensions = preg_split('/[,;\/]/', (string)($settings[$settingKey] ?? '')) ?: [];
+
+        return array_values(
+            array_filter(
+                array_map('trim', $configuredExtensions),
+                static function (string $extensionKey): bool {
+                    return $extensionKey !== '';
+                }
+            )
+        );
     }
 }
