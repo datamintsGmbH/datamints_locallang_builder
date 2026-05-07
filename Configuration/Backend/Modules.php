@@ -8,7 +8,7 @@ use Datamints\DatamintsLocallangBuilder\Controller\{ApplicationController,
 
 return [
     'web_DatamintsLocallangBuilderTranslate' => [
-        'parent' => 'web',
+        'parent' => 'system',
         'position' => ['before' => '*'],
         'access' => 'user',
         'workspaces' => 'live',
