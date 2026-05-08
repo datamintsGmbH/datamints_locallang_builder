@@ -7,6 +7,12 @@ Change log
 ==========
 
 
+Version 14.2.1
+-------------
+
+- [BUGFIX] Fixed an issue where entries continued to appear in the frontend after being deleted
+- [TASK] Deleted old translation files
+
 Version 14.2.0
 -------------
 
@@ -27,7 +33,6 @@ Version 14.1.0
 Version 14.0.0
 -------------
 
-- [TASK] Improved startup speed: The module no longer analyzes all Locallang files at startup; instead, it does so only when a file is opened.
 - [TASK] Improved startup speed: The module no longer analyzes all Locallang files at startup; instead, it does so only when a file is opened.
 - [FEATURE] Previously opened files are now displayed in the dashboard for quick access
 - [FEATURE] Styles have been updated to match the backend styles; additionally, support for themes and dark mode has been added
