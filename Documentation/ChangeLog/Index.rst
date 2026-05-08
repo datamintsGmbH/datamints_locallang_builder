@@ -7,6 +7,11 @@ Change log
 ==========
 
 
+Version 14.2.2
+-------------
+
+- [BUGFIX] Fixed a problem for git comments used by tailor
+
 Version 14.2.1
 -------------
 

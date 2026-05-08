@@ -61,4 +61,4 @@ jobs:
 #          grep -F "'version' => '${{ env.version }}'," ext_emconf.php
 
       - name: Publish to TER
-        run: php ~/.composer/vendor/bin/tailor ter:publish --comment "${{ env.comment }}" ${{ env.version }}
+        run: php ~/.composer/vendor/bin/tailor ter:publish --comment="${{ env.comment }}" ${{ env.version }}
