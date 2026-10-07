@@ -140,10 +140,10 @@ class ExtensionController extends AbstractController
      * action update
      *
      * @param Extension $extension
-     * @return string|object|null|void
+     * @return ResponseInterface
      */
-    public function updateAction(Extension $extension)
+    public function updateAction(Extension $extension): ResponseInterface
     {
-        $this->redirect('list');
+        return $this->redirect('list');
     }
 }
